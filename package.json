@@ -1,0 +1,19 @@
+{
+  "name": "fabula-ui-core",
+  "version": "0.0.1",
+  "description": "Fabula UI core",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabula-ui/core.git"
+  },
+  "author": "Bruno Poeta <brunovieirapoeta@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabula-ui/core/issues"
+  },
+  "homepage": "https://github.com/fabula-ui/core#readme"
+}
