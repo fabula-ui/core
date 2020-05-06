@@ -1,0 +1,33 @@
+@import '../variables.scss';
+
+.fab-tag {
+    border-radius: .3em;
+    font-size: .8em;
+    font-weight: 500;
+    padding: .6em .9em;
+}
+
+@each $theme,
+$color in $color-palette {
+    .fab-tag[data-color='#{$theme}'] {
+
+
+        @if $theme !='default' {
+            background: $color;
+            color: #FFF;
+        }
+
+        @else {
+            background: #FFF;
+            color: $color;
+        }
+
+    }
+}
+
+@each $corner,
+$radius in $corners {
+    .fab-tag[data-corner='#{$corner}'] {
+        border-radius: $radius;
+    }
+}

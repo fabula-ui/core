@@ -1,0 +1,156 @@
+@import '../abstract/variables/globals';
+@import '../abstract/variables/components';
+@import '../abstract/mixins/components';
+@import '../variables';
+// @import '../mixins/buttons';
+// @import '../mixins/resetComponent';
+
+.fab-button {
+    @include resetComponent();
+
+    align-items: center;
+    appearance: none;
+    background: #FFF;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    font-family: $font-family-base;
+    font-size: 1em;
+    justify-content: center;
+    min-height: 3em;
+    overflow: hidden;
+    padding-left: 1em;
+    padding-right: 1em;
+    position: relative;
+    text-align: center;
+    transition: all .2s ease-in-out;
+
+    &:after,
+    &:before {
+        content: '';
+        position: absolute;
+        transition: all .2s ease-in-out;
+    }
+
+    &:after {
+        background: rgba(0, 0, 0, .05);
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        right: 0;
+        top: 0;
+        visibility: hidden;
+    }
+
+    &:before {
+        background: rgba(255, 255, 255, .2);
+        border-radius: 50%;
+        height: 0;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+@each $corner,
+$radius in $corners {
+    .fab-button[data-corner='#{$corner}'] {
+        border-radius: $radius;
+    }
+}
+
+fab-button:not(:last-child):not([data-expand='true']) {
+    margin-right: .5rem;
+}
+
+fab-button:not(:last-child) {
+    display: inline-flex;
+    margin-bottom: .5rem;
+}
+
+fab-button[ng-reflect-expand='true'],
+.fab-button[data-expand='true'] {
+    width: 100%;
+}
+
+.fab-button[disabled] {
+    cursor: default;
+    opacity: .6;
+}
+
+.fab-button[data-fill='border'] {
+    border: solid 2px;
+
+    &:active:not([disabled]) {
+        &:after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.fab-button[data-fill='none'] {}
+
+.fab-button[data-fill='solid'] {
+    border: solid 1px #E5E5E5;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .05);
+
+    &:hover:not([disabled]) {
+        &:before {
+            border-radius: .3em;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &:active:not([disabled]) {
+        &:after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+/* Colors */
+.fab-button[data-color='primary'][data-fill='none'] {
+    color: $primary-color;
+}
+
+// @include borderButtons();
+// @include clearButtons();
+// @include solidButtons();
+
+.fab-button[data-rounded='circle'] {
+    border-radius: 8em;
+}
+
+.fab-button[data-rounded='soft'] {
+    border-radius: .8em;
+}
+
+.fab-button[data-size='medium'] {
+    min-height: 3em;
+}
+
+.fab-button[data-size='small'] {
+    font-size: .85em;
+    min-height: 2em;
+}
+
+.fab-button[data-size='small'] {
+    padding-left: .75em;
+    padding-right: .75em;
+}
+
+/* Children */
+
+.fab-button ::ng-deep * {
+    &:not(:last-child) {
+        margin-right: .75em;
+    }
+}

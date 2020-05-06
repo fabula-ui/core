@@ -1,0 +1,109 @@
+/* Colors */
+@each $theme,
+$color in $color-palette {
+    .fab-card[data-color='#{$theme}'] {
+        @include elements($color);
+
+        background: $color;
+        border: solid 1px border-color($color);
+
+        .fab-card__footer {
+            &:not(:first-child) {
+                border-top: solid 1px divider-color($color);
+            }
+        }
+
+        .fab-card__header,
+        .fab-card__image {
+            &:not(:last-child) {
+                border-bottom: solid 1px divider-color($color);
+            }
+        }
+
+        .fab-card__image[data-adapt-color='true'] {
+            background: adapt-color($color);
+
+            .fab-card__image__icon {
+                color: icon-color($color);
+            }
+        }
+
+        // [data-element='subtitle'] {
+        //     color: element-color($color, subtitle);
+        // }
+        
+        // [data-element='text'] {
+        //     color: element-color($color, text);
+        // }
+
+        // [data-element='title'] {
+        //     color: element-color($color, title);
+        // }
+    }
+}
+
+/* Corner style */
+@each $corner,
+$radius in $corner-styles {
+    .fab-card[data-corner-style='#{$corner}'] {
+        border-radius: $radius;
+
+        &[data-layout='horizontal'] {
+            .fab-card__image:first-child {
+                border-radius: $radius 0 0 $radius;
+            }
+    
+            .fab-card__image:last-child {
+                border-radius: 0 0 $radius $radius;
+            }    
+        }
+
+        .fab-card__image:first-child {
+            border-radius: $radius $radius 0 0;
+        }
+
+        .fab-card__image:last-child {
+            border-radius: 0 0 $radius $radius;
+        }
+    }
+}
+
+/* Layout */
+.fab-card[data-layout='horizontal'] {
+    flex-direction: row;
+    max-width: initial;
+
+    .fab-card__image {
+        height: auto;
+        top: 0;
+        width: 12em;
+    }
+}
+
+/* Shadow */
+.fab-card[data-shadow='false'] {
+    box-shadow: none;
+}
+
+/**
+* Children modifiers
+*/
+
+/* Image placeholder */
+.fab-card__image[data-show-placeholder='false'] {
+    .fab-card__image__icon {
+        display: none;
+    }
+}
+
+/* Image colors */
+@each $theme,
+$color in $color-palette {
+    .fab-card__image[data-color='#{$theme}'] {
+        background: $color;
+
+        .fab-card__image__icon {
+            color: icon-color($color);
+        }
+    }
+}

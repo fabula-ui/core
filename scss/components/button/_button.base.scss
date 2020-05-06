@@ -1,0 +1,34 @@
+.fab-button {
+    @include common-props();
+    @include resetComponent();
+
+    align-items: center;
+    appearance: none;
+    background: #FFF;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: $font-family-default;
+    font-size: $button-font-size-default;
+    justify-content: center;
+    margin: 0;
+    min-height: $button-min-height;
+    overflow: hidden;
+    padding-left: $button-padding-left;
+    padding-right: $button-padding-right;
+    position: relative;
+    text-align: center;
+    transition: all $transition-default;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+/* Wrapper */
+.fab-button-wrapper[data-block] {
+    &[data-block='true'] {
+        display: flex;
+        width: 100%;
+    }
+}

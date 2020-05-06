@@ -1,0 +1,8 @@
+@import '../../abstract/variables/globals';
+@import '../../abstract/variables/components';
+@import '../../abstract/mixins/components';
+@import '../../abstract/functions';
+
+@import 'collapse.base';
+@import 'collapse.children';
+@import 'collapse.modifiers';

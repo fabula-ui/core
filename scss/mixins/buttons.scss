@@ -1,0 +1,77 @@
+@import '../variables';
+
+@mixin borderButtons() {
+
+    @each $theme,
+    $color in $color-palette {
+        .fab-button[data-fill='border'][data-color='#{$theme}'] {
+            @if $theme !='default' {
+                border-color: $color;
+                color: $color;
+
+                &:hover:not([disabled]) {
+                    background-color: $color;
+                    color: #FFF;
+                }
+
+                &:focus:not(:active) {
+                    box-shadow: 0 0 0 0.125em rgba($color, .25);
+                }
+            }
+
+            @else {
+                &:focus:not(:active) {
+                    box-shadow: 0 0 0 0.125em rgba($color, .25);
+                }
+            }
+        }
+    }
+
+}
+
+@mixin clearButtons() {
+
+    @each $theme,
+    $color in $color-palette {
+        .fab-button[data-fill='none'][data-color='#{$theme}'] {
+            color: $color;
+
+            &:hover:not([disabled]) {
+                background: mix($color, #FFF, 10%);
+            }
+
+            &:active:not([disabled]) {
+                background: mix($color, #FFF, 15%);
+            }
+
+            &:focus:not(:active) {
+                box-shadow: 0 0 0 0.125em rgba($color, .25);
+                background: mix($color, #FFF, 10%);
+            }
+        }
+    }
+}
+
+@mixin solidButtons() {
+
+    @each $theme,
+    $color in $color-palette {
+        .fab-button[data-fill='solid'][data-color='#{$theme}'] {
+            @if $theme !='default' {
+                background: $color;
+                border-color: $color;
+                color: #FFF;
+
+                &:focus:not(:active) {
+                    box-shadow: 0 0 0 0.125em rgba($color, .5);
+                }
+            }
+
+            @else {
+                &:focus:not(:active) {
+                    box-shadow: 0 0 0 0.125em rgba($color, .1);
+                }
+            }
+        }
+    }
+}

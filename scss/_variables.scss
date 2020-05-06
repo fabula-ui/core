@@ -1,0 +1,27 @@
+/* Colors */
+$border-color: #EBEBEB;
+$danger-color: #FF7571;
+$placeholder-color: #EFEFEF;
+$primary-color: #59B0FF;
+$text-color: #3D3D3D;
+$subtitle-color: #9F9D9D;
+$success-color: #90CE47;
+$warning-color: #F0C242;
+
+$color-palette: (danger: #FF7571,
+    default: #3D3D3D,
+    primary: #59B0FF,
+    success: #90CE47,
+    warning: #F0C242);
+
+/* Corners */
+$corners: (hard: .3em,
+    rounded: 5em,
+    soft: .6em);
+
+$hard-border-radius: .3em;
+$soft-border-radius: .6em;
+$rounded-border-radius: 5em;
+
+/* Typography */
+$font-family-base: 'Rubik';

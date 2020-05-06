@@ -1,0 +1,59 @@
+@import '../variables';
+@import '../mixins/component';
+
+@each $theme,
+$color in $color-palette {
+    ::ng-deep .fab-tabs[data-color='#{$theme}'] {
+        .fab-tab[data-active='true'] {
+            color: $color;
+        }
+    }
+}
+
+::ng-deep .fab-tabs[data-expand='true'] {
+    display: flex;
+
+    fab-tab {
+        flex-grow: 1;
+
+        +fab-tab {
+            margin-left: 0;
+        }
+    }
+
+    .fab-tab {
+        width: 100%;
+    }
+}
+
+::ng-deep fab-tab {
+    +fab-tab {
+        margin-left: 2em;
+    }
+}
+
+::ng-deep .fab-tab {
+    appearance: none;
+    border: none;
+    border-bottom: solid .2em transparent;
+    color: $subtitle-color;
+    font-family: $font-family-base;
+    font-size: 1rem;
+    padding: 1.25em 0;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+::ng-deep .fab-tab[data-active='true'] {
+    border-bottom: solid .2em;
+}
+
+::ng-deep .fab-tab__icon {
+    margin-right: .75em;
+}
+
+::ng-deep .fab-tab-content[data-active='false'] {
+    display: none;
+}

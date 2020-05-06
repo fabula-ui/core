@@ -1,0 +1,8 @@
+@mixin component() {
+    box-sizing: border-box;
+
+    *,
+    ::ng-deep * {
+        box-sizing: border-box;
+    }
+}

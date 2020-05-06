@@ -1,0 +1,66 @@
+/* Body */
+.fab-card__body {
+    display: flex;
+    flex-direction: column;
+    padding: $card-body-padding-top $card-body-padding-right $card-body-padding-bottom $card-body-padding-left;
+}
+
+/* Footer */
+.fab-card__footer {
+    padding: $card-footer-padding-top $card-footer-padding-right $card-footer-padding-bottom $card-footer-padding-left;
+}
+
+/* Header */
+.fab-card__header {
+    padding: $card-footer-padding-top $card-footer-padding-right $card-footer-padding-bottom $card-footer-padding-left;
+}
+
+/* Image */
+.fab-card__image {
+    align-items: flex-end;
+    background: $placeholder-color;
+    display: flex;
+    flex-shrink: 0;
+    height: 12em;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.fab-card__image__icon {
+    color: #000;
+    font-size: $card-image-icon-size;
+    left: 50%;
+    opacity: $card-image-icon-opacity;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Dynamic elements */
+.fab-card [data-element='subtitle'],
+.fab-card [data-element='title'] {
+    display: flex;
+    margin: 0;
+
+    +*:not([data-element='subtitle']):not([data-element='title']) {
+        margin-top: 1em;
+    }
+}
+
+// .fab-card [data-element='subtitle'] {
+//     font-size: $subtitle-font-size;
+// }
+
+.fab-card [data-element='text'] {
+    // display: flex;
+    // font-size: $text-font-size;
+
+    // +* {
+    //     margin-top: 1em;
+    // }
+}
+
+// .fab-card [data-element='title'] {
+//     font-size: $title-font-size;
+// }

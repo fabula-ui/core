@@ -1,0 +1,59 @@
+/* Button */
+$button-animation-duration: 2s;
+$button-animation-timing-function: $transition-timing-function;
+$button-border-width: $border-width-default;
+$button-font-size-default: 1rem;
+$button-glare-color: (
+    light: rgba(0,0,0,.03),
+    dark: rgba(255,255,255,.2),
+);
+$button-min-height: 2.5em;
+$button-padding-x: 1.25em;
+$button-padding-left: $button-padding-x;
+$button-padding-right: $button-padding-x;
+$button-sizes: (xs: (font-size: .75rem),
+    sm: (font-size: .9rem),
+    md: (font-size: 1rem),
+    lg: (font-size: 1.15rem),
+    xl: (font-size: 1.25rem));
+
+/* Button-group */
+$button-group-spacing: .3em;
+
+/* Card */
+$card-image-icon-opacity: .1;
+$card-image-icon-size: 3rem;
+$card-padding: 1.25em;
+$card-body-padding: $card-padding;
+$card-body-padding-x: $card-padding;
+$card-body-padding-y: $card-padding;
+$card-body-padding-bottom: $card-body-padding-y;
+$card-body-padding-left: $card-body-padding-x;
+$card-body-padding-right: $card-body-padding-x;
+$card-body-padding-top: $card-body-padding-y;
+$card-footer-padding: $card-padding;
+$card-footer-padding-x: $card-padding;
+$card-footer-padding-y: $card-padding;
+$card-footer-padding-bottom: $card-body-padding-y;
+$card-footer-padding-left: $card-body-padding-x;
+$card-footer-padding-right: $card-body-padding-x;
+$card-footer-padding-top: $card-body-padding-y;
+
+/* Collapse */
+$collapse-padding: 1.25em;
+
+/* Tooltip */
+$tooltip-arrow-corner-styles: (hard: map-get($corner-styles, hard),
+    rounded: #{map-get($corner-styles, rounded) - .4em},
+    soft: #{map-get($corner-styles, soft) - .3em});
+$tooltip-font-size-default: .85rem;
+$tooltip-padding-x: 1em;
+$tooltip-padding-y: .4em;
+$tooltip-padding-bottom: $tooltip-padding-y;
+$tooltip-padding-left: $tooltip-padding-x;
+$tooltip-padding-right: $tooltip-padding-x;
+$tooltip-padding-top: $tooltip-padding-y;
+$tooltip-sizes: (sm: (font-size: .85rem),
+    md: (font-size: 1rem),
+    lg: (font-size: 1.15rem));
+$tooltip-spacing: .25em;

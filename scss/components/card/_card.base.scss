@@ -1,0 +1,10 @@
+.fab-card {
+    @include resetComponent();
+
+    background: #FFF;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .05);
+    display: inline-flex;
+    flex-direction: column;
+    font-family: $font-family-default;
+    max-width: 300px;
+}

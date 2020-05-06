@@ -1,0 +1,86 @@
+/* Corner style */
+@each $style,
+$radius in $corner-styles {
+    .fab-tooltip[data-corner-style='#{$style}'] {
+        border-radius: $radius;
+    }
+}
+
+/* Arrow corner style */
+@each $style,
+$radius in $tooltip-arrow-corner-styles {
+    .fab-tooltip[data-corner-style='#{$style}'] {
+        &:before {
+            border-radius: $radius;
+        }
+    }
+}
+
+/* Fill */
+@each $theme,
+$color in $color-palette {
+    .fab-tooltip[data-color='#{$theme}'] {
+        background: $color;
+        border-color: $color;
+        color: getTextColor($color);
+    }
+}
+
+/* Placement */
+.fab-tooltip[data-placement='bottom'] {
+    margin-top: $tooltip-spacing;
+    transform: translate(-50%, 0);
+
+    &:before {
+        left: 50%;
+        transform: translate(-50%, -35%) rotateZ(45deg);
+        top: 0;
+    }
+}
+
+.fab-tooltip[data-placement='left'] {
+    margin-left: -$tooltip-spacing;
+    transform: translate(-100%, -50%);
+
+    &:before {
+        right: 0;
+        top: 50%;
+        transform: translate(35%, -50%) rotateZ(45deg);
+    }
+}
+
+.fab-tooltip[data-placement='right'] {
+    margin-left: $tooltip-spacing;
+    transform: translate(0, -50%);
+
+    &:before {
+        left: 0;
+        top: 50%;
+        transform: translate(-35%, -50%) rotateZ(45deg);
+    }
+}
+
+.fab-tooltip[data-placement='top'] {
+    margin-top: -$tooltip-spacing;
+    transform: translate(-50%, -100%);
+
+    &:before {
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 35%) rotateZ(45deg);
+    }
+}
+
+/* Sizes */
+@each $size,
+$params in $tooltip-sizes {
+    .fab-tooltip[data-size='#{$size}'] {
+        font-size: map-get($params, font-size);
+    }
+}
+
+/* Visibility */
+.fab-tooltip[data-visible='true'] {
+    opacity: 1;
+    visibility: visible;
+}

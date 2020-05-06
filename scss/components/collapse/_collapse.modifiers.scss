@@ -1,0 +1,13 @@
+/* Colors */
+@each $theme,
+$color in $color-palette {
+    .fab-collapse[data-color='#{$theme}'] {
+        @include elements($color);
+
+        background: $color;
+
+        .fab-collapse__content {
+            border-color: divider-color($color);
+        }
+    }
+}

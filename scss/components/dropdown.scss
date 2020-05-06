@@ -1,0 +1,66 @@
+@import '../mixins/component.scss';
+@import '../variables.scss';
+
+.fab-dropdown {
+    @include component();
+
+    position: relative;
+}
+
+::ng-deep .fab-dropdown[data-open='false'] {
+    .fab-dropdown__content {
+        display: none;
+    }
+}
+
+::ng-deep .fab-dropdown__toggle {
+    justify-content: flex-start !important;
+    width: 100%;
+}
+
+::ng-deep .fab-dropdown__content {
+    background: #FFF;
+    border: solid 1px $border-color;
+    border-radius: .3em;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .05);
+    margin-top: .5em;
+    min-width: 100%;
+    position: absolute;
+    // opacity: .2;
+}
+
+::ng-deep .fab-dropdown__footer {
+    border-top: solid .1em $border-color;
+    padding: 1em;
+}
+
+::ng-deep .fab-dropdown__item {
+    border: none;
+    font-size: 1rem;
+    padding: 1em;
+    position: relative;
+
+    &:not(:last-of-type):before {
+        background: $border-color;
+        bottom: 0;
+        content: '';
+        height: .1em;
+        left: 1em;
+        position: absolute;
+        right: 1em;
+    }
+
+    &:focus {
+        outline: none;
+        z-index: 1;
+    }
+}
+
+::ng-deep .fab-dropdown__menu {
+    display: flex;
+    flex-direction: column;
+
+    >* {
+        text-align: left;
+    }
+}

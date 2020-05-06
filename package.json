@@ -1,9 +1,10 @@
 {
-  "name": "fabula-ui-core",
+  "name": "@fabula/core",
   "version": "0.0.1",
   "description": "Fabula UI core",
   "main": "index.js",
   "scripts": {
+    "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,27 @@
   "bugs": {
     "url": "https://github.com/fabula-ui/core/issues"
   },
-  "homepage": "https://github.com/fabula-ui/core#readme"
+  "homepage": "https://github.com/fabula-ui/core#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "require-dir": "^1.2.0",
+    "rimraf": "^3.0.2"
+  },
+  "browserslist": [
+    "Chrome >= 45",
+    "Firefox ESR",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4",
+    "Opera >= 30"
+  ],
+  "dependencies": {
+    "color": "^3.1.2"
+  }
 }
