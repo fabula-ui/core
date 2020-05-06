@@ -81,10 +81,14 @@ export const colorModifier = colorName => {
 };
 
 export const compactModifier = () => {
+    const theme = window.__FABTheme;
+    const vars = theme.variables.components.button;
+    const { compactMultiplier, paddingLeft, paddingRight } = vars;
+
     return `
         .fab-button[data-compact='true'] {
-            padding-left: 1rem;
-            padding-right: 1rem;
+            padding-left: ${paddingLeft * compactMultiplier}rem;
+            padding-right: ${paddingRight * compactMultiplier}rem;
         }
     `;
 }
@@ -203,11 +207,24 @@ export const invertModifier = colorName => {
     .fab-button[data-invert='true'] {
         background: ${bgColor(color, 'invert')};
         color: ${textColor(color, 'invert')};
+
+        &:before {
+            border-color: ${focusGlowColor(color, 'invert')};
+        }
+
+        &:hover:not([disabled]) {
+            background: ${hoverColor(color, 'invert')};
+            color: ${hoverTextColor(color, 'invert')};
+        }
     }
 
     .fab-button[data-invert='true'][data-color='${colorName}'] {
         background: ${bgColor(color, 'invert')};
         color: ${textColor(color, 'invert')};
+
+        &:before {
+            border-color: ${focusGlowColor(color, 'invert')};
+        }
 
         &:hover:not([disabled]) {
             background: ${hoverColor(color, 'invert')};
@@ -226,7 +243,7 @@ export const outlineModifier = colorName => {
     return `
     .fab-button[data-outline='true'] {
         background: none;
-        border: solid ${borderWidth};
+        border: solid ${borderWidth}px;
         border-color: ${textColor(color)};
         color: ${textColor(color)};
 
@@ -235,15 +252,16 @@ export const outlineModifier = colorName => {
         }
 
         &:focus:before {
-            border-width: calc(${focusGlowRadius} + ${borderWidth});
-            bottom: calc(-${focusGlowRadius} - ${borderWidth});
-            left: calc(-${focusGlowRadius} - ${borderWidth});
-            right: calc(-${focusGlowRadius} - ${borderWidth});
-            top: calc(-${focusGlowRadius} - ${borderWidth});
+            border-width: ${focusGlowRadius + borderWidth}px;
+            bottom: ${-focusGlowRadius - borderWidth}px;
+            left: ${-focusGlowRadius - borderWidth}px;
+            right: ${-focusGlowRadius - borderWidth}px;
+            top: ${-focusGlowRadius - borderWidth}px;
         }
 
         &:hover:not([disabled]) {
             background: ${hoverColor(color, 'outline')};
+            border-color: ${hoverColor(color, 'outline')};
             color: ${hoverTextColor(color, 'outline')};
         }
 
@@ -287,11 +305,43 @@ export const roundedModifier = () => {
     `;
 }
 
+export const sizeModifier = () => {
+    const theme = window.__FABTheme;
+    const vars = theme.variables.components.button;
+    const { borderRadiusDefault, focusGlowRadius, paddingBottom, fontSize, paddingLeft, paddingRight, paddingTop } = vars;
+    const sizes = ['Xs', 'Sm', 'Lg', 'Xl'];
+    let returnable = ``;
+
+    for (let size of sizes) {
+        const multiplier = vars[`sizeMultiplier${size}`];
+        returnable += `
+            .fab-button[data-size='${size.toLowerCase()}'] {
+                border-radius: ${borderRadiusDefault * multiplier}rem;
+                font-size: ${fontSize * multiplier}rem;
+                padding-bottom: ${paddingBottom * multiplier}rem;
+                padding-left: ${paddingLeft * multiplier}rem;
+                padding-right: ${paddingRight * multiplier}rem;
+                padding-top: ${paddingTop * multiplier}rem;
+
+                &:before {
+                    border-radius: calc(${borderRadiusDefault * multiplier}rem + ${focusGlowRadius}px);
+                }
+            }
+        `;
+    }
+
+    return returnable;
+}
+
 export const wideModifier = () => {
+    const theme = window.__FABTheme;
+    const vars = theme.variables.components.button;
+    const { paddingBottom, paddingLeft, paddingRight, paddingTop, wideMultiplier } = vars;
+
     return `
         .fab-button[data-wide='true'] {
-            padding-left: 5rem;
-            padding-right: 5rem;
+            padding-left: ${paddingLeft * wideMultiplier}rem;
+            padding-right: ${paddingRight * wideMultiplier}rem;
         }
     `;
 }

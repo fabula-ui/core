@@ -87,6 +87,7 @@ export const focusGlowColor = (color, context) => {
         faded: .7,
         fill: .5,
         gradient: .5,
+        invert: .7,
         outline: .7
     };
     const passContext = context === 'gradient' ? 'gradient_glow' : context;
@@ -179,12 +180,14 @@ export const hoverColor = (color, context) => {
         }
     } else if (context === 'invert') {
         if ($color.luminosity() > baseLuminosity) {
-            return 'red';
+            return bgColor(color, 'invert').lighten(.2);
         } else {
             return bgColor(color, 'faded');
         }
     } else if (context === 'outline') {
-        if ($color.luminosity() > baseLuminosity) {
+        if (!color) {
+            return bgColor(color, 'invert');
+        } else if (color && $color.luminosity() > baseLuminosity) {
             return $color.darken(.05);
         } else {
             return $color;
@@ -193,16 +196,24 @@ export const hoverColor = (color, context) => {
 }
 
 export const hoverTextColor = (color, context) => {
-    const $color = Color(color).rgb();
+    const $color = color ? Color(color).rgb() : Color('#FFF');
 
     if (context === 'clear') {
         return $color.darken(.2);
     } else if (context === 'faded') {
         return $color.darken(.4);
     } else if (context === 'invert') { 
-        return textColor(color, 'faded');
+        if ($color.luminosity() > baseLuminosity) {
+            return textColor(color, 'invert');
+        } else {
+            return textColor(color, 'faded');
+        }
     } else if (context === 'outline') {
-        return textColor(color, 'fill');
+        if (!color) {
+            return textColor(color, 'invert');
+        } else {
+            return textColor(color, 'fill');
+        }
     }
 }
 
@@ -234,7 +245,11 @@ export const textColor = (color, context) => {
             return '#FFF';
         }
     } else if (context === 'invert') {
-        return bgColor(color, 'fill');
+        if ($bgColor.luminosity() > baseLuminosity) {
+            return $bgColor;
+        } else {
+            return bgColor(color, 'fill');
+        }
     }
 }
     // } else {

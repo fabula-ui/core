@@ -13,6 +13,7 @@ import {
     invertModifier,
     outlineModifier,
     roundedModifier,
+    sizeModifier,
     wideModifier,
 } from './Button.modifiers';
 
@@ -26,7 +27,7 @@ import {
 const ButtonStyles = props => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.button;
-    const { borderRadiusDefault, color, focusGlowRadius, fontFamily, fontSize } = vars;
+    const { borderRadiusDefault, color, focusGlowRadius, fontFamily, fontSize, paddingBottom, paddingLeft, paddingRight, paddingTop } = vars;
 
     return `
         .fab-button { ${componentCommons} }
@@ -34,16 +35,16 @@ const ButtonStyles = props => {
             appearance: none;
             background: ${color};
             border: none;
-            border-radius: ${borderRadiusDefault};
+            border-radius: ${borderRadiusDefault}rem;
             color: ${textColor(color)};
             font-family: ${fontFamily};
-            font-size: ${fontSize};
+            font-size: ${fontSize}rem;
             font-weight: 600;
             letter-spacing: -.025rem;
-            padding-bottom: .7rem;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-            padding-top: .7rem;
+            padding-bottom: ${paddingBottom}rem;
+            padding-left: ${paddingLeft}rem;
+            padding-right: ${paddingRight}rem;
+            padding-top: ${paddingTop}rem;
             position: relative;
             transition: all .2s ease-in-out;
 
@@ -51,7 +52,7 @@ const ButtonStyles = props => {
                 bottom: 0;
                 border: solid 0;
                 border-color: ${glowColor(color, 'fill')};
-                border-radius: calc(${borderRadiusDefault} + ${focusGlowRadius});
+                border-radius: calc(${borderRadiusDefault}rem + ${focusGlowRadius}px);
                 content: '';
                 display: block;
                 left: 0;
@@ -66,11 +67,11 @@ const ButtonStyles = props => {
             }
 
             &:focus:before {
-                border-width: ${focusGlowRadius};
-                bottom: -${focusGlowRadius};
-                left: -${focusGlowRadius};
-                right: -${focusGlowRadius};
-                top: -${focusGlowRadius};
+                border-width: ${focusGlowRadius}px;
+                bottom: -${focusGlowRadius}px;
+                left: -${focusGlowRadius}px;
+                right: -${focusGlowRadius}px;
+                top: -${focusGlowRadius}px;
             }
 
             &:hover:not([disabled]) {
@@ -92,6 +93,7 @@ const ButtonStyles = props => {
         ${invertModifier(props.color)}
         ${outlineModifier(props.color)}
         ${roundedModifier(props.color)}
+        ${sizeModifier()}
         ${wideModifier()}
     `
 }
