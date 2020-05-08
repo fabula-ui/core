@@ -5,12 +5,16 @@ import globals from './vars/globals';
 
 // Component Styles
 import AvatarStyles from './styles/Avatar';
+import BadgeStyles from './styles/Badge';
 import ButtonStyles from './styles/Button';
+import ButtonGroupStyles from './styles/ButtonGroup';
 
 const DefaultTheme = {
     components: {
         avatar: props => AvatarStyles(props),
-        button: props => ButtonStyles(props)
+        badge: props => BadgeStyles(props),
+        button: props => ButtonStyles(props),
+        buttonGroup: props => ButtonGroupStyles(props)
     },
     variables: {
         colors,

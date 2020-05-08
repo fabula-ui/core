@@ -1,6 +1,6 @@
 const globals = {
     backgroundColor: 'red',
-    borderRadiusDefault: '.75em',
+    borderRadiusDefault: .5,
     borderRadiusRounded: '5em',
     fontFamily: '\'Inter\', sans-serif',
     fontSize: 1,
