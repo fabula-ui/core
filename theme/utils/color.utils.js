@@ -35,7 +35,7 @@ export const activeColor = (color, context, textColor) => {
 }
 
 export const bgColor = (color, context) => {
-    const $color = Color(color).rgb();
+    const $color = color ? Color(color).rgb() : Color('#FFF');
 
     if (context === 'clear') {
         return 'none';
@@ -50,13 +50,29 @@ export const bgColor = (color, context) => {
     }
 }
 
-export const dividerColor = bgColor => {
-    const $bgColor = Color(bgColor).rgb();
+export const dividerColor = (color, context) => {
+    const _bgColor = bgColor(color, context);
+    const _textColor = textColor(color, context);
+    const $bgColor = _bgColor === 'none' ? Color('#FFF') : Color(_bgColor);
+    const $textColor = Color(_textColor);
 
-    if ($bgColor.luminosity() > .3) {
-        return $bgColor.darken(.1);
+    if (context === 'clear') {
+        if ($textColor.luminosity() > baseLuminosity) {
+            return $textColor;
+        } else {
+            return $textColor.fade(.8);
+        }
     } else {
-        return $bgColor.lighten(.1);
+        if ($bgColor.luminosity() > baseLuminosity) {
+            return $bgColor.darken(.1);
+        } else {
+            if ($bgColor.isDark()) {
+                return $bgColor.lighten(.25);
+            } else {
+                return $bgColor.lighten(.15);
+            }
+           
+        }
     }
 }
 
@@ -202,7 +218,7 @@ export const hoverTextColor = (color, context) => {
         return $color.darken(.2);
     } else if (context === 'faded') {
         return $color.darken(.4);
-    } else if (context === 'invert') { 
+    } else if (context === 'invert') {
         if ($color.luminosity() > baseLuminosity) {
             return textColor(color, 'invert');
         } else {
@@ -235,7 +251,11 @@ export const textColor = (color, context) => {
     const $bgColor = color ? Color(color).rgb() : Color('#FFF');
 
     if (context === 'clear') {
-        return $bgColor;
+        if (!color) {
+            return textColor(color, 'fill');
+        } else {
+            return $bgColor;
+        }
     } else if (context === 'faded') {
         return $bgColor.darken(.4);
     } else if (context === 'fill' || context === 'gradient') {

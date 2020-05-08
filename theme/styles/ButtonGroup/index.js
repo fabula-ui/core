@@ -2,7 +2,8 @@
 import { componentCommons } from '../../utils/component.utils';
 
 // Button modifiers
-import { gluedModifier } from './ButtonGroup.modifiers';
+import { dividerModifier } from './modifiers/divider.modifier';
+import { gluedModifier } from './modifiers/glued.modifier';
 
 const ButtonGroupStyles = props => {
     const theme = window.__FABTheme;
@@ -28,6 +29,7 @@ const ButtonGroupStyles = props => {
         }
     }
 
+    ${dividerModifier()}
     ${gluedModifier()}
     `
 };

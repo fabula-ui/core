@@ -36,7 +36,7 @@ const ButtonStyles = props => {
             background: ${color};
             border: none;
             border-radius: ${borderRadiusDefault}rem;
-            color: ${textColor(color)};
+            color: ${textColor(null, 'fill')};
             font-family: ${fontFamily};
             font-size: ${fontSize}rem;
             font-weight: 600;
