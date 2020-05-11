@@ -3,6 +3,9 @@ const colors = {
     cold: '#8DCFFF',
     danger: '#FE7571',
     dark: '#525252',
+    get error() {
+        return this.danger
+    },
     hot: '#F7993C',
     light: '#F6F8FA',
     primary: '#44B0FF',

@@ -18,10 +18,10 @@ const ButtonGroupStyles = props => {
         flex-direction: ${props.flow === 'horizontal' ? 'row' : 'column'};
         flex-wrap: ${props.wrap ? 'wrap' : 'nowrap'};
         justify-content: flex-start;
-        margin: -${props.spacing || vars.spacing};
+        margin: ${props.spacing ? `calc(-${props.spacing} / 2)` : `-${vars.spacing}`};
     
         .fab-button-wrapper {
-            padding: ${props.spacing || vars.spacing};
+            padding: ${props.spacing ? `calc(${props.spacing} / 2)` : vars.spacing};
         }
     
         > * {

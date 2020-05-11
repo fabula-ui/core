@@ -23,7 +23,7 @@ const AvatarStyles = props => {
         }
 
         .fab-avatar__initials {
-            font-size: ${fontSize}rem;
+            font-size: ${fontSize};
             font-weight: 500;
             left: 50%;
             letter-spacing: -1px;

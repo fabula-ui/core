@@ -50,6 +50,10 @@ export const bgColor = (color, context) => {
     }
 }
 
+export const borderColor = (color, context) => {
+    
+}
+
 export const dividerColor = (color, context) => {
     const _bgColor = bgColor(color, context);
     const _textColor = textColor(color, context);

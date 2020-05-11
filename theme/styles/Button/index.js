@@ -2,6 +2,7 @@
 import { componentCommons } from '../../utils/component.utils';
 
 // Button modifiers
+import borderModifier from './modifiers/border.modifier';
 import {
     clearModifier,
     colorModifier,
@@ -38,9 +39,10 @@ const ButtonStyles = props => {
             border-radius: ${borderRadiusDefault}rem;
             color: ${textColor(null, 'fill')};
             font-family: ${fontFamily};
-            font-size: ${fontSize}rem;
+            font-size: ${fontSize};
             font-weight: 600;
             letter-spacing: -.025rem;
+            min-height: 3rem;
             padding-bottom: ${paddingBottom}rem;
             padding-left: ${paddingLeft}rem;
             padding-right: ${paddingRight}rem;
@@ -83,6 +85,7 @@ const ButtonStyles = props => {
             }
         }
 
+        ${props.border ? borderModifier(props) : ''}
         ${clearModifier(props.color)}
         ${colorModifier(props.color)}
         ${compactModifier()}

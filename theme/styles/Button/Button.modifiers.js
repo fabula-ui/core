@@ -308,7 +308,7 @@ export const roundedModifier = () => {
 export const sizeModifier = () => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.button;
-    const { borderRadiusDefault, focusGlowRadius, paddingBottom, fontSize, paddingLeft, paddingRight, paddingTop } = vars;
+    const { borderRadiusDefault, focusGlowRadius, minHeight, paddingBottom, fontSize, paddingLeft, paddingRight, paddingTop } = vars;
     const sizes = ['Xs', 'Sm', 'Lg', 'Xl'];
     let returnable = ``;
 
@@ -317,7 +317,8 @@ export const sizeModifier = () => {
         returnable += `
             .fab-button[data-size='${size.toLowerCase()}'] {
                 border-radius: ${borderRadiusDefault * multiplier}rem;
-                font-size: ${fontSize * multiplier}rem;
+                font-size: calc(${fontSize} * ${multiplier});
+                min-height: calc(${minHeight} * ${multiplier});
                 padding-bottom: ${paddingBottom * multiplier}rem;
                 padding-left: ${paddingLeft * multiplier}rem;
                 padding-right: ${paddingRight * multiplier}rem;

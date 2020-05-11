@@ -2,7 +2,7 @@ import { dividerColor } from '../../../utils/color.utils';
 
 export const dividerModifier = () => {
     return `
-        .fab-button-group[data-divider='true'] {
+        .fab-button-group[data-glued='true'] {
             // Angular related
             fab-button:not(:last-child) {
                 .fab-button-wrapper {
@@ -26,7 +26,7 @@ const dividerColors = () => {
         if (colors.hasOwnProperty(colorName)) {
             const color = colors[colorName];
             sass += `
-            .fab-button-group[data-divider='true'] {
+            .fab-button-group[data-glued='true'] {
                 // Angular related
                 fab-button:not(:last-child) {
                     .fab-button-wrapper[data-color='${colorName}']:not([data-clear='true']):not([data-faded='true']):not([data-invert='true']):not([data-outline='true']) {

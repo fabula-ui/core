@@ -8,13 +8,19 @@ import AvatarStyles from './styles/Avatar';
 import BadgeStyles from './styles/Badge';
 import ButtonStyles from './styles/Button';
 import ButtonGroupStyles from './styles/ButtonGroup';
+import DropdownStyles from './styles/Dropdown';
+import InputStyles from './styles/Input';
+import InputGroupStyles from './styles/InputGroup';
 
 const DefaultTheme = {
     components: {
         avatar: props => AvatarStyles(props),
         badge: props => BadgeStyles(props),
         button: props => ButtonStyles(props),
-        buttonGroup: props => ButtonGroupStyles(props)
+        buttonGroup: props => ButtonGroupStyles(props),
+        dropdown: props => DropdownStyles(props),
+        input: props => InputStyles(props),
+        inputGroup: props => InputGroupStyles(props)
     },
     variables: {
         colors,
