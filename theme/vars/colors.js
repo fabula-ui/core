@@ -1,5 +1,5 @@
 const colors = {
-    aux: '#E1E8ED',
+    aux: '#999DA1',
     cold: '#8DCFFF',
     danger: '#FE7571',
     dark: '#525252',

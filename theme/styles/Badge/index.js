@@ -1,22 +1,28 @@
 // Component commons
 import { componentCommons } from '../../utils/component.utils';
 
+// Modifiers
+import colorModifier from './modifiers/color.modifier';
+
 const BadgeStyles = props => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.badge;
+    const { borderRadius } = vars;
 
     return `
         .fab-badge { ${componentCommons} }
         .fab-badge {
             align-items: center;
-            border: solid 1px;
+            border-radius: calc(${borderRadius} * .7);
             display: flex;
-            height: 1.6rem;
-            font-size: .75rem;
+            font-size: .75em;
             justify-content: center;
             line-height: 1;
-            width: 1.6rem;
+            padding: .45em;
         }
+
+        ${colorModifier(props)}
+
     `
 }
 

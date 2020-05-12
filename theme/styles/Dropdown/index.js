@@ -32,6 +32,11 @@ const DropdownStyles = props => {
         transition: all .2s ease-in-out;
         transform: translate(0, -10px);
         visibility: hidden;
+        z-index: 9999;
+    }
+
+    .fab-dropdown__menu .fab-text {
+        white-space: nowrap;
     }
     `
 };

@@ -11,6 +11,8 @@ import ButtonGroupStyles from './styles/ButtonGroup';
 import DropdownStyles from './styles/Dropdown';
 import InputStyles from './styles/Input';
 import InputGroupStyles from './styles/InputGroup';
+import ListStyles from './styles/List';
+import TextStyles from './styles/Text';
 
 const DefaultTheme = {
     components: {
@@ -20,7 +22,9 @@ const DefaultTheme = {
         buttonGroup: props => ButtonGroupStyles(props),
         dropdown: props => DropdownStyles(props),
         input: props => InputStyles(props),
-        inputGroup: props => InputGroupStyles(props)
+        inputGroup: props => InputGroupStyles(props),
+        list: props => ListStyles(props),
+        text: props => TextStyles(props)
     },
     variables: {
         colors,

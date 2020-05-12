@@ -20,6 +20,7 @@ const InputStyles = props => {
     }
     .fab-input { 
         position: relative;
+        width: ${expand ? '100%' : 'auto'};
 
         &:before {
             bottom: 0;
@@ -56,7 +57,7 @@ const InputStyles = props => {
         padding-left: ${padding};
         padding-right: ${padding};
         position: relative;
-        width: ${expand ? '100%' : 'auto'};
+        width: 100%;
 
         &:focus {
             outline: none;
