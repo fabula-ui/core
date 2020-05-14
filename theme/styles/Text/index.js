@@ -1,11 +1,12 @@
 // Component commons
-import { componentCommons } from '../../utils/component.utils';
+import componentCommons from '../../common/component.commons';
 
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
 import sizeModifier from './modifiers/size.modifier';
 
-const TextStyles = props => {
+const TextStyles = params => {
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.text;
     const { block, color, flex, size, weight } = props;

@@ -1,34 +1,23 @@
 // Component commons
-import { componentCommons } from '../../utils/component.utils';
+import componentCommons from '../../common/component.commons';
 
 // Button modifiers
 import borderModifier from './modifiers/border.modifier';
-import {
-    clearModifier,
-    colorModifier,
-    compactModifier,
-    expandModifier,
-    fadedModifier,
-    glowModifier,
-    gradientModifier,
-    invertModifier,
-    outlineModifier,
-    roundedModifier,
-    sizeModifier,
-    wideModifier,
-} from './Button.modifiers';
+import colorModifier from './modifiers/color.modifier';
+import compactModifier from './modifiers/compact.modifier';
+import glowModifier from './modifiers/glow.modifier';
+import gradientModifier from './modifiers/gradient.modifier';
+import outlineModifier from './modifiers/outline.modifier';
+import roundedModifier from './modifiers/rounded.modifier';
+import sizeModifier from './modifiers/size.modifier';
+import wideModifier from './modifiers/wide.modifier';
 
-// Utils
-import {
-    glowColor,
-    hoverColor,
-    textColor
-} from '../../utils/color.utils';
-
-const ButtonStyles = props => {
+const ButtonStyles = params => {
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.button;
-    const { borderRadiusDefault, color, focusGlowRadius, fontFamily, fontSize, paddingBottom, paddingLeft, paddingRight, paddingTop } = vars;
+    const { border, compact, expand, glow, gradient, outline, rounded, size, wide } = props;
+    const { borderRadiusDefault, color, focusGlowRadius, fontSize, paddingBottom, paddingLeft, paddingRight, paddingTop } = vars;
 
     return `
         .fab-button { ${componentCommons} }
@@ -37,8 +26,6 @@ const ButtonStyles = props => {
             background: ${color};
             border: none;
             border-radius: ${borderRadiusDefault}rem;
-            color: ${textColor(null, 'fill')};
-            font-family: ${fontFamily};
             font-size: ${fontSize};
             font-weight: 600;
             letter-spacing: -.025rem;
@@ -49,11 +36,11 @@ const ButtonStyles = props => {
             padding-top: ${paddingTop}rem;
             position: relative;
             transition: all .2s ease-in-out;
+            ${expand ? `width: 100%;` : ''}
 
             &:before {
                 bottom: 0;
                 border: solid 0;
-                border-color: ${glowColor(color, 'fill')};
                 border-radius: calc(${borderRadiusDefault}rem + ${focusGlowRadius}px);
                 content: '';
                 display: block;
@@ -76,28 +63,20 @@ const ButtonStyles = props => {
                 top: -${focusGlowRadius}px;
             }
 
-            &:hover:not([disabled]) {
-                background: ${hoverColor(color, 'fill')};
-            }
-
             &[disabled] {
                 opacity: .4;
             }
         }
 
-        ${props.border ? borderModifier(props) : ''}
-        ${clearModifier(props.color)}
-        ${colorModifier(props.color)}
-        ${compactModifier()}
-        ${expandModifier()}
-        ${fadedModifier(props.color)}
-        ${glowModifier(props.color)}
-        ${gradientModifier(props.color)}
-        ${invertModifier(props.color)}
-        ${outlineModifier(props.color)}
-        ${roundedModifier(props.color)}
-        ${sizeModifier()}
-        ${wideModifier()}
+        ${border ? borderModifier(props) : ''}
+        ${colorModifier(props)}
+        ${compact ? compactModifier() : ''}
+        ${glow ? glowModifier(props) : ''}
+        ${gradient ? gradientModifier(props) : ''}
+        ${outline ? outlineModifier() : ''}
+        ${rounded ? roundedModifier() : ''}
+        ${size ? sizeModifier(props) : ''}
+        ${wide ? wideModifier() : ''}
     `
 }
 

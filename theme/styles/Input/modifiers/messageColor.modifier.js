@@ -1,4 +1,4 @@
-import textColor from '../../../utils/colors/textColor';
+import textColor from '../../../methods/color/textColor';
 
 const messageColorModifier = colorName => {
     const theme = window.__FABTheme;

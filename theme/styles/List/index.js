@@ -1,30 +1,21 @@
 // Component commons
-import { componentCommons } from '../../utils/component.utils';
-
-// Framework-related
-import AngularListStyles from './frameworks/angular';
+import componentCommons from '../../common/component.commons';
 
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
 
-const ListStyles = props => {
+const ListStyles = params => {
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.list;
     const { padded } = props;
+    const { padding } = vars;
 
     return `
     .fab-list { ${componentCommons} }
 
     .fab-list-item {
-        ${padded ? `padding: 1.25rem 1rem;` : `padding: 1.25rem 0;`}
-    }
-
-    .fab-list-item button {
-        appearance: none;
-        background: none;
-        border: none;
-        padding: 0;
-        text-align: left;
+        ${padded ? `padding: 1.25rem ${padding};` : `padding: 1.25rem 0;`}
     }
 
     ${colorModifier(props)}

@@ -1,5 +1,5 @@
 // Component commons
-import { componentCommons } from '../../utils/component.utils';
+import componentCommons from '../../common/component.commons';
 
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
@@ -7,7 +7,8 @@ import hasModifier from './modifiers/has.modifier';
 import messageColorModifier from './modifiers/messageColor.modifier';
 import sizeModifier from './modifiers/size.modifier';
 
-const InputStyles = props => {
+const InputStyles = params => {
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.input;
     const { expand, has, messageColor, size } = props;
@@ -18,6 +19,7 @@ const InputStyles = props => {
     .fab-input-wrapper {
         font-size: ${fontSize};
     }
+
     .fab-input { 
         position: relative;
         width: ${expand ? '100%' : 'auto'};

@@ -3,7 +3,8 @@ import globals from '../globals';
 
 const list = {
     ...globals,
-    colors
+    colors,
+    padding: '1rem'
 }
 
 export default list;

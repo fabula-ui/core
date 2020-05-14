@@ -1,13 +1,15 @@
 // Component commons
-import { componentCommons } from '../../utils/component.utils';
+import componentCommons from '../../common/component.commons';
 
 // Button modifiers
-import { dividerModifier } from './modifiers/divider.modifier';
-import { gluedModifier } from './modifiers/glued.modifier';
+import dividerModifier from './modifiers/divider.modifier';
+import gluedModifier from './modifiers/glued.modifier';
 
-const ButtonGroupStyles = props => {
+const ButtonGroupStyles = params => {
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.buttonGroup;
+    const { divider, glued } = props;
 
     return `
     .fab-button-group { ${componentCommons} }
@@ -29,8 +31,8 @@ const ButtonGroupStyles = props => {
         }
     }
 
-    ${dividerModifier()}
-    ${gluedModifier()}
+    ${divider ? dividerModifier(props) : ''}
+    ${glued ? gluedModifier(props) : ''}
     `
 };
 

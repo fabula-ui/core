@@ -1,10 +1,13 @@
 // Component commons
-import { componentCommons } from '../../utils/component.utils';
+import componentCommons from '../../common/component.commons';
 
 // Modifiers
-import { colorModifier, roundedModifier, sizeModifier } from './Avatar.modifiers';
+import colorModifier from './modifiers/color.modifier';
+import roundedModifier from './modifiers/rounded.modifier';
+import sizeModifier from './modifiers/size.modifier';
 
-const AvatarStyles = props => {
+const AvatarStyles = params => {
+    const {framework, props} = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.avatar;
     const { fontFamily, fontSize, size } = vars;

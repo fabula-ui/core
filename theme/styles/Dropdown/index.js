@@ -1,9 +1,11 @@
 // Component commons
-import { componentCommons } from '../../utils/component.utils';
+import componentCommons from '../../common/component.commons';
 
-const DropdownStyles = props => {
+const DropdownStyles = params => {
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.dropdown;
+    const listVars = theme.variables.components.list;
     const { borderRadius } = vars;
 
     return `
@@ -19,6 +21,19 @@ const DropdownStyles = props => {
             visibility: visible;
         }
     }
+
+    .fab-dropdown__item {
+        appearance: none;
+        background: none;
+        border: none;
+        padding: ${listVars.padding};
+        text-align: left;
+
+        &:focus {
+            outline: none;
+        }
+    }
+    
     .fab-dropdown__menu {
         background: #FFF;
         border-radius: ${borderRadius};
@@ -33,6 +48,10 @@ const DropdownStyles = props => {
         transform: translate(0, -10px);
         visibility: hidden;
         z-index: 9999;
+    }
+
+    .fab-dropdown__menu .fab-list-item {
+        padding: 0;
     }
 
     .fab-dropdown__menu .fab-text {

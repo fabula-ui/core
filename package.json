@@ -37,6 +37,7 @@
     "Opera >= 30"
   ],
   "dependencies": {
-    "color": "^3.1.2"
+    "color": "^3.1.2",
+    "emotion": "^10.0.27"
   }
 }

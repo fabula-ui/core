@@ -1,14 +1,16 @@
 import bgColor from '../../../methods/color/bgColor';
 import textColor from '../../../methods/color/textColor';
 
-const colorModifier = props => {
+const colorModifier = colorName => {
     const theme = window.__FABTheme;
-    const vars = theme.variables.components.badge;
-    const color = vars.colors[props.color];
+    const color = theme.variables.colors[colorName];
 
     return `
-        .fab-badge {
-            background-color: ${bgColor(color, 'fill')};
+        .fab-avatar {
+            background: ${bgColor(color, 'fill')};
+        }
+
+        .fab-avatar__initials {
             color: ${textColor(color, 'fill')};
         }
     `;

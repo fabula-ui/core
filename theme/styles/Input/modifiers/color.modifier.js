@@ -1,6 +1,6 @@
-import bgColor from '../../../utils/colors/bgColor';
-import borderColor from '../../../utils/colors/borderColor';
-import focusGlowColor from '../../../utils/colors/focusGlowColor';
+import bgColor from '../../../methods/color/bgColor';
+import borderColor from '../../../methods/color/borderColor';
+import focusGlowColor from '../../../methods/color/focusGlowColor';
 
 const colorModifier = props => {
     const theme = window.__FABTheme;
@@ -14,9 +14,11 @@ const colorModifier = props => {
                 border-color: ${focusGlowColor(color, 'faded')};
             }
         }
+
         .fab-input input {
             border-color: ${borderColor(color, 'faded')};
         }
+
         .fab-input input[disabled] {
             background-color: ${bgColor(color, 'disabled')};
         }

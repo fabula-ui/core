@@ -1,6 +1,6 @@
-import dividerColor from '../../../utils/colors/dividerColor';
-import stripeColor from '../../../utils/colors/stripeColor';
-import textColor from '../../../utils/colors/textColor';
+import dividerColor from '../../../methods/color/dividerColor';
+import stripeColor from '../../../methods/color/stripeColor';
+import textColor from '../../../methods/color/textColor';
 
 
 const colorModifier = props => {
@@ -28,7 +28,7 @@ const colorModifier = props => {
             ${!props.striped ? `border-bottom: solid 1px ${dividerColor(color, 'fill')};` : ''}
         }
 
-        ${props.framework === 'angular' ? `fab-list-item:nth-child(even):not(:only-child) .fab-list-item,` : ''}
+        ${props.framework === 'angular' ? `fab-list-item:nth-child(odd):not(:only-child) .fab-list-item,` : ''}
         .fab-list-item:nth-child(odd):not(:only-child) {
             ${props.striped ? `background-color: ${stripeColor(color, 'fill')};` : ''}
         }

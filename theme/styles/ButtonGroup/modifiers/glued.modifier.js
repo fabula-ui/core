@@ -1,4 +1,4 @@
-export const gluedModifier = () => {
+const gluedModifier = () => {
     return `
         .fab-button-group[data-glued='true'] {
             margin: 0;
@@ -46,3 +46,5 @@ export const gluedModifier = () => {
         }
     `
 }
+
+export default gluedModifier;

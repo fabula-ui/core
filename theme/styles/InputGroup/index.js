@@ -1,10 +1,11 @@
 // Component commons
-import { componentCommons } from '../../utils/component.utils';
+import componentCommons from '../../common/component.commons';
 
 // Utils
 import gluedModifier from './modifiers/glued.modifier';
 
-const InputGroupStyles = props => {
+const InputGroupStyles = params => {
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.input;
     const { flow, glued } = props;

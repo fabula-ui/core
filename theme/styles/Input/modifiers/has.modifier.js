@@ -1,8 +1,8 @@
-import bgColor from '../../../utils/colors/bgColor';
-import borderColor from '../../../utils/colors/borderColor';
-import focusGlowColor from '../../../utils/colors/focusGlowColor';
-import placeholderColor from '../../../utils/colors/placeholderColor';
-import textColor from '../../../utils/colors/textColor';
+import bgColor from '../../../methods/color/bgColor';
+import borderColor from '../../../methods/color/borderColor';
+import focusGlowColor from '../../../methods/color/focusGlowColor';
+import placeholderColor from '../../../methods/color/placeholderColor';
+import textColor from '../../../methods/color/textColor';
 
 const hasModifier = has => {
     const theme = window.__FABTheme;
