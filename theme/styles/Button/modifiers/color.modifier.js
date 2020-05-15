@@ -22,12 +22,12 @@ const colorModifier = props => {
             }
 
             &:hover:not([disabled]) {
-                background: ${hoverColor(color, context)};
+                ${context !== 'gradient' ? `background: ${hoverColor(color, context)};` : ''}
                 color: ${hoverTextColor(color, context)};
             }
 
             &:active:not([disabled]) {
-                background: ${activeColor(color, context)};
+                ${context !== 'gradient' ? `background: ${activeColor(color, context)};` : ''}
             }
         }
     `;

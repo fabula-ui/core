@@ -1,5 +1,5 @@
+import borderColor from '../../../methods/color/borderColor';
 import hoverColor from '../../../methods/color/hoverColor';
-import textColor from '../../../methods/color/textColor';
 
 const outlineModifier = props => {
     const theme = window.__FABTheme;
@@ -11,7 +11,7 @@ const outlineModifier = props => {
     .fab-button {
         background: none;
         border: solid ${borderWidth}px;
-        border-color: ${textColor(color, 'outline')};
+        ${props.color ? `border-color: ${borderColor(color, 'outline')};` : ''}
 
         &:focus:before {
             border-width: ${focusGlowRadius + borderWidth}px;

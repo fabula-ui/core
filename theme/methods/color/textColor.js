@@ -29,6 +29,12 @@ const textColor = (color, context) => {
         } else {
             return bgColor(color, 'fill');
         }
+    } else if (context === 'outline') {
+        if (color) {
+            return $color;
+        } else {
+            return textColor(color, 'fill');
+        }
     }
 }
 
