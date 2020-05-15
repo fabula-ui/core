@@ -9,15 +9,7 @@ import textColor from './textColor';
 const hoverTextColor = (color, context) => {
     const $color = color ? Color(color).rgb() : Color('#FFF');
 
-    if (context === 'invert') {
-        if ($color.luminosity() > baseLuminosity) {
-            return textColor(color, 'invert');
-        } else {
-            return textColor(color, 'faded');
-        }
-    } else {
-        return textColor(color, context);
-    }
+    return textColor(color, context);
 }
 
 export default hoverTextColor;

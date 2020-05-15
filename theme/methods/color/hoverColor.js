@@ -38,7 +38,7 @@ const hoverColor = (color, context) => {
         if ($color.luminosity() > baseLuminosity) {
             return bgColor(color, 'invert').lighten(.2);
         } else {
-            return bgColor(color, 'faded');
+            return Color(bgColor(color, 'fill')).mix(Color('#FFF'), .8);
         }
     } else if (context === 'outline') {
         if (!color) {

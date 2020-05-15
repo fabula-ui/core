@@ -73,7 +73,7 @@ const ButtonStyles = params => {
         ${compact ? compactModifier() : ''}
         ${glow ? glowModifier(props) : ''}
         ${gradient ? gradientModifier(props) : ''}
-        ${outline ? outlineModifier() : ''}
+        ${outline ? outlineModifier(props) : ''}
         ${rounded ? roundedModifier() : ''}
         ${size ? sizeModifier(props) : ''}
         ${wide ? wideModifier() : ''}
