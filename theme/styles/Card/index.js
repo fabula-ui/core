@@ -12,6 +12,10 @@ const CardStyles = params => {
         .fab-card {
             border-radius: ${borderRadius};
         }
+
+        .fab-card-body[data-padding='true'] {
+            padding: 1rem;
+        }
         
         ${colorModifier(props)}
         ${glow ? glowModifier(props) : ''}

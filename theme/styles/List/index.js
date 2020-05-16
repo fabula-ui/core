@@ -5,7 +5,7 @@ import componentCommons from '../../common/component.commons';
 import colorModifier from './modifiers/color.modifier';
 
 const ListStyles = params => {
-    const { framework, props } = params;
+    const { props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.list;
     const { padded } = props;

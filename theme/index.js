@@ -11,6 +11,8 @@ import BadgeStyles from './styles/Badge';
 import ButtonStyles from './styles/Button';
 import ButtonGroupStyles from './styles/ButtonGroup';
 import CardStyles from './styles/Card';
+import CardFooterStyles from './styles/CardFooter';
+import CardImageStyles from './styles/CardImage';
 import ColumnStyles from './styles/Column';
 import DropdownStyles from './styles/Dropdown';
 import InputStyles from './styles/Input';
@@ -20,7 +22,9 @@ import RowStyles from './styles/Row';
 import TextStyles from './styles/Text';
 
 // Utils
+import alignUtils from './utils/align';
 import columnUtils from './utils/column';
+import flexUtils from './utils/flex';
 import marginUtils from './utils/margin';
 import paddingUtils from './utils/padding';
 import rowUtils from './utils/row';
@@ -41,6 +45,8 @@ const Components = {
     button: params => ButtonStyles(params),
     buttonGroup: params => ButtonGroupStyles(params),
     card: params => CardStyles(params),
+    cardFooter: params => CardFooterStyles(params),
+    cardImage: params => CardImageStyles(params),
     column: params => ColumnStyles(params),
     dropdown: params => DropdownStyles(params),
     input: params => InputStyles(params),
@@ -51,7 +57,9 @@ const Components = {
 };
 
 const Utils = {
+    align: props => alignUtils(props),
     column: props => columnUtils(props),
+    flex: props => flexUtils(props),
     margin: props => marginUtils(props),
     padding: props => paddingUtils(props),
     row: props => rowUtils(props)
