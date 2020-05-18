@@ -17,7 +17,7 @@ const TabsStyle = params => {
         .fab-tabs {
             display: flex;
             ${stacked ? `flex-direction: column;` : ''}
-            ${type === 'float' ? `padding: .7rem 1rem;` : ''}
+            ${type === 'float' || type === 'pill' ? `padding: .7rem 1rem;` : ''}
         }
 
         ${colorModifier(props)}

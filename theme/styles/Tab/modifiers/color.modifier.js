@@ -1,48 +1,100 @@
-import bgColor from "../../../methods/color/bgColor";
+import getBgColor from "../../../methods/color/bgColor";
 import getColor from '../../../methods/color/getColor';
 import getContext from '../../../methods/misc/getContext';
 import getTextColor from '../../../methods/color/textColor';
 
+// Exportable
 const colorModifier = props => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.tab;
     const { active, activeColor, type } = props;
     const { colors, textColor } = vars;
 
-    // const activeBorderColor = getColor(props.activeBorderColor, colors) || vars.activeBorderColor;
-    // const activeTextColor = getColor(props.activeTextColor, colors) || vars.activeTextColor;
-    // const inactiveTextColor = getColor(props.inactiveTextColor, colors) || vars.inactiveTextColor;
-
     // Element vars
-    const { activeBorderColor, activeTextColor, inactiveTextColor } = vars;
+    const { activeBorderColor, activeFillColor, activeTextColor, inactiveTextColor } = vars;
 
     // User-defined
     const userActiveBorderColor = getColor(props.activeBorderColor, colors);
     const userActiveTextColor = getColor(props.activeTextColor, colors);
+    const userActiveFillColor = getColor(props.activeFillColor, colors);
     const userInactiveTextColor = getColor(props.inactiveTextColor, colors);
 
     const color = getColor(props.color, colors);
     const context = getContext(props);
 
+    // Style props
+    let styleProps = {
+        base: {
+            activeBorderColor: userActiveBorderColor || !!color && getTextColor(color, context) || activeBorderColor,
+            get activeFillColor() {
+                switch (type) {
+                    case 'block':
+                    case 'float':
+                    case 'pill':
+                        return userActiveFillColor || !!color && getTextColor(color, context) || activeFillColor;
+                    default:
+                        return 'transparent';
+                }
+            },
+            get activeTextColor() {
+                switch (type) {
+                    case 'block':
+                    case 'float':
+                    case 'pill':
+                        return userActiveTextColor || !!userActiveFillColor && getTextColor(userActiveFillColor, context) || !!color && getBgColor(color, context) || getTextColor(activeFillColor, context);
+                    default:
+                        return userActiveTextColor || !!userActiveFillColor && getTextColor(userActiveFillColor, context) || !!color && getTextColor(color, context) || activeTextColor;
+                }
+            },
+            get inactiveBorderBottom() {
+                switch (type) {
+                    case 'block':
+                    case 'float':
+                    case 'pill':
+                        return 'none';
+                    default:
+                        return 'solid 2px transparent';
+                }
+            },
+            inactiveTextColor: userInactiveTextColor || !!color && getTextColor(color, context) || inactiveTextColor,
+            inactiveOpacity: active || !color ? 1 : .8
+        },
+        hover: {
+            activeTextColor: userActiveTextColor || !!color && getTextColor(color, context) || activeTextColor,
+            inactiveTextColor: userActiveTextColor || !!color && getTextColor(color, context) || activeTextColor,
+            inactiveOpacity: 1
+        },
+        active: {
+
+        }
+    };
+
+    // styleProps.inactiveTextColor = userInactiveTextColor || color || inactiveTextColor;
+    // styleProps.inactiveOpacity = active || !color ? 1 : .8;
+
     return `
-    .fab-tab {
-        color: ${inactiveTextColor};
-        ${color ? `color: ${getTextColor(color, context)};` : ''}
-        ${userInactiveTextColor ? `color: ${userInactiveTextColor};` : ''}
-        ${color ? `opacity: .8;` : ''}
+    .fab-tab > a,
+    .fab-tab > button {
+        ${`border-bottom: ${styleProps.base.inactiveBorderBottom};`}
+        color: ${styleProps.base.inactiveTextColor};
+        opacity: ${styleProps.base.inactiveOpacity};
+
+        &:hover {
+            ${!active ? `color: ${styleProps.hover.activeTextColor};` : ''}
+            opacity: ${styleProps.hover.inactiveOpacity};
+        }
+
+        &:active {
+            ${!active ? `opacity: .8;` : ''}
+        }
     }
 
     // Active
-    .fab-tab {
-        ${active ? `border-bottom-color: ${activeBorderColor};` : ''}
-        ${active && color ? `border-bottom-color: ${getTextColor(color, context)};` : ''}
-        ${active && userActiveBorderColor ? `border-bottom-color: ${userActiveBorderColor};` : ''}
-
-        ${active ? `color: ${activeTextColor};` : ''}
-        ${active && color ? `color: ${getTextColor(color, context)};` : ''}
-        ${active && userActiveTextColor ? `color: ${userActiveTextColor};` : ''}
-
-        ${active && color ? `opacity: 1;` : ''}
+    .fab-tab > a,
+    .fab-tab > button {
+        ${active ? `background-color: ${styleProps.base.activeFillColor};` : ''}
+        ${active ? `border-bottom-color: ${styleProps.base.activeBorderColor};` : ''}
+        ${active ? `color: ${styleProps.base.activeTextColor};` : ''}
     }
     `
 }

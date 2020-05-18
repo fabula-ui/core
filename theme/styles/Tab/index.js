@@ -8,7 +8,7 @@ const TabStyle = params => {
     const { props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.tab;
-    const { expand, stacked, type } = props;
+    const { active, expand, stacked, type } = props;
 
     return `
         .fab-tab { ${componentCommons} }
@@ -20,12 +20,9 @@ const TabStyle = params => {
         }
 
         .fab-tab {
-            border-bottom: solid 2px transparent;
             font-size: .9rem;
             font-weight: 500;
-            ${stacked ? `padding-left: 0;` : ''}
             text-align: ${stacked ? 'left' : 'center'};
-            transition: all .2s ease-in-out;
         }
 
         .fab-tab > a,
@@ -33,11 +30,15 @@ const TabStyle = params => {
             appearance: none;
             background: none;
             border: none;
+            border-bottom: solid 2px transparent;
             color: inherit;
             font-size: inherit;
             font-weight: inherit;
             padding: 1rem;
+            ${stacked ? `padding-left: 0;` : ''}
             text-align: inherit;
+            transition: all .2s ease-in-out;
+            ${active && stacked ? `width: 100%;` : ''}
 
             &:focus {
                 outline: none;
