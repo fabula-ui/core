@@ -8,14 +8,15 @@ const ListStyles = params => {
     const { props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.list;
-    const { padded } = props;
-    const { padding } = vars;
+    const { padding } = props;
 
     return `
     .fab-list { ${componentCommons} }
 
     .fab-list-item {
-        ${padded ? `padding: 1.25rem ${padding};` : `padding: 1.25rem 0;`}
+        padding: 1rem 0;
+        ${padding ? `padding-left: 1rem;`  : ''}
+        ${padding ? `padding-right: 1rem;` : ''}
     }
 
     ${colorModifier(props)}

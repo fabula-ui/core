@@ -9,8 +9,8 @@ const TextStyles = params => {
     const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.text;
-    const { block, color, flex, size, weight } = props;
-    const { fontSize, spacing, textColor } = vars;
+    const { aux, block, color, flex, size, weight } = props;
+    const { auxTextColor, fontSize, spacing, textColor } = vars;
 
     return `
     .fab-text-wrapper {${componentCommons}}
@@ -24,6 +24,7 @@ const TextStyles = params => {
     }
     .fab-text {
         color: ${textColor};
+        ${aux ? `color: ${auxTextColor};` : ''}
         ${block ? `display: block;` : ''}
         ${flex ? `display: flex;` : ''}
         font-size: ${fontSize};

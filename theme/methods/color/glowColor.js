@@ -16,7 +16,7 @@ const glowColor = (color, context) => {
         },
         fill: {
             dark: .75,
-            light: .9,
+            light: .95,
         },
         gradient: {
             dark: .75,

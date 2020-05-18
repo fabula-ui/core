@@ -1,10 +1,12 @@
 import bgColor from '../../../methods/color/bgColor';
+import getColor from '../../../methods/color/getColor';
 import textColor from '../../../methods/color/textColor';
 
 const colorModifier = props => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.badge;
-    const color = vars.colors[props.color];
+    const {colors} = vars;
+    const color = getColor(props.color, colors);
 
     return `
         .fab-badge {

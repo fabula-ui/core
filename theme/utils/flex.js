@@ -1,5 +1,4 @@
-const flexUtils = () => {
-    console.log('flexUtils');
+const flexUtils = props => {
     return `
         display: flex;
         flex-direction: row;

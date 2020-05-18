@@ -2,8 +2,14 @@ const rowUtils = props => {
     const { m, mb, ml, mr, mt, mx, my } = props;
 
     return `
-        display: flex;
-        margin: -1rem;
+        & {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-left: -1rem;
+            margin-right: -1rem;
+        }
     `
 }
 

@@ -1,7 +1,7 @@
 import Color from 'color';
 
 const colors = {
-    aux: '#999DA1',
+    aux: '#E1E8ED',
     cold: '#8DCFFF',
     danger: '#FE7571',
     dark: '#525252',

@@ -3,6 +3,7 @@ import componentCommons from '../../common/component.commons';
 
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
+import glowModifier from './modifiers/glow.modifier';
 import hasModifier from './modifiers/has.modifier';
 import messageColorModifier from './modifiers/messageColor.modifier';
 import sizeModifier from './modifiers/size.modifier';
@@ -11,7 +12,7 @@ const InputStyles = params => {
     const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.input;
-    const { expand, has, messageColor, size } = props;
+    const { expand, glow, has, messageColor, size } = props;
     const { borderRadius, disabledOpacity, focusGlowRadius, fontSize, minHeight, padding, placeholderColor, textColor } = vars;
 
     return `
@@ -80,6 +81,7 @@ const InputStyles = params => {
     }
 
     ${colorModifier(props)}
+    ${glow ? glowModifier(props) : ''}
     ${!!has ? hasModifier(has) : ''}
     ${!!messageColor ? messageColorModifier(messageColor) : ''}
     ${!!size ? sizeModifier(size) : ''}

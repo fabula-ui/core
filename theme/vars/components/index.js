@@ -7,6 +7,9 @@ import dropdown from './dropdown';
 import input from './input';
 import inputGroup from './inputGroup';
 import list from './list';
+import tab from './tab';
+import tabs from './tabs';
+import tag from './tag';
 import text from './text';
 
 const components = {
@@ -19,6 +22,9 @@ const components = {
     input,
     inputGroup,
     list,
+    tab,
+    tabs,
+    tag,
     text
 }
 

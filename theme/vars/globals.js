@@ -18,6 +18,8 @@ const globals = {
     sizeMultiplierSm: .9,
     sizeMultiplierXl: 1.25,
     sizeMultiplierXs: .75,
+    // Text-related
+    auxTextColor: '#999DA1',
     textColor: '#3D3D3D',
     get placeholderColor() {
         return Color(this.textColor).mix(Color('white'), .6)

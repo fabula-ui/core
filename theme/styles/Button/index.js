@@ -70,12 +70,12 @@ const ButtonStyles = params => {
 
         ${border ? borderModifier(props) : ''}
         ${colorModifier(props)}
-        ${compact ? compactModifier() : ''}
         ${glow ? glowModifier(props) : ''}
         ${gradient ? gradientModifier(props) : ''}
         ${outline ? outlineModifier(props) : ''}
         ${rounded ? roundedModifier() : ''}
         ${size ? sizeModifier(props) : ''}
+        ${compact ? compactModifier(props) : ''}
         ${wide ? wideModifier() : ''}
     `
 }

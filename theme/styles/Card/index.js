@@ -5,12 +5,13 @@ const CardStyles = params => {
     const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.card;
-    const { color, glow } = props;
+    const { color, glow, padding } = props;
     const { borderRadius } = vars;
 
     return `
         .fab-card {
             border-radius: ${borderRadius};
+            ${padding ? `padding: 1rem;` : ''}
         }
 
         .fab-card-body[data-padding='true'] {

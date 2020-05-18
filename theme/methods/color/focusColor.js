@@ -1,5 +1,7 @@
 import Color from 'color';
 
+import { baseLuminosity } from '../../common/color.commons';
+
 const focusColor = (backgroundColor) => {
     const $color = Color(backgroundColor).rgb();
 
