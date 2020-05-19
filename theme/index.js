@@ -21,6 +21,8 @@ import InputStyles from './styles/Input';
 import InputGroupStyles from './styles/InputGroup';
 import ListStyles from './styles/List';
 import RowStyles from './styles/Row';
+import SegmentStyles from './styles/Segment';
+import SegmentsStyles from './styles/Segments';
 import TabStyle from './styles/Tab';
 import TabsStyles from './styles/Tabs';
 import TagStyles from './styles/Tag';
@@ -62,6 +64,8 @@ const Components = {
     inputGroup: params => InputGroupStyles(params),
     list: params => ListStyles(params),
     row: params => RowStyles(params),
+    segment: params => SegmentStyles(params),
+    segments: params => SegmentsStyles(params),
     tab: params => TabStyle(params),
     tabs: params => TabsStyles(params),
     tag: params => TagStyles(params),

@@ -17,7 +17,6 @@ const borderColor = (color, context) => {
             return $textColor.darken(.1);
         }
     } else if (context === 'outline') {
-        console.log('outline');
         return textColor(color, context);
     } else {
         if ($bgColor.isDark()) {

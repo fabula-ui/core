@@ -7,6 +7,8 @@ import dropdown from './dropdown';
 import input from './input';
 import inputGroup from './inputGroup';
 import list from './list';
+import segment from './segment';
+import segments from './segments';
 import tab from './tab';
 import tabs from './tabs';
 import tag from './tag';
@@ -22,6 +24,8 @@ const components = {
     input,
     inputGroup,
     list,
+    segment,
+    segments,
     tab,
     tabs,
     tag,

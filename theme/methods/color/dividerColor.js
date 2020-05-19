@@ -26,9 +26,8 @@ const dividerColor = (color, context) => {
             if ($bgColor.isDark()) {
                 return $bgColor.lighten(.25);
             } else {
-                return $bgColor.lighten(.15);
+                return $bgColor.darken(.15);
             }
-
         }
     }
 }
