@@ -8,6 +8,9 @@ const tabs = {
     // Component vars
     borderColor: 'light',
     fontSize: '.9rem',
+    get inactiveFillColor() {
+        return this.colors['light']
+    },
 }
 
 export default tabs;

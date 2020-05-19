@@ -8,7 +8,7 @@ import getTextColor from '../../../methods/color/textColor';
 const colorModifier = props => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.segment;
-    const { active, activeColor, type } = props;
+    const { active, activeColor, rounded, type } = props;
     const { colors } = vars;
 
     // Element vars
@@ -41,6 +41,14 @@ const colorModifier = props => {
     };
 
     return `
+    .fab-segment {
+        ${rounded ? `border: solid 1px transparent;` : ''}
+    }
+
+    .fab-segment[data-active='true'] {
+        border-color: ${styleProps.dividerColor};
+    }
+
     .fab-segment > a,
     .fab-segment > button {
         background-color: ${styleProps.base.inactiveFillColor};
@@ -68,7 +76,7 @@ const colorModifier = props => {
 
     &:not(:last-child) > .fab-segment,
     .fab-segment:not(:last-child) {
-        border-right: solid 1px ${styleProps.dividerColor};
+        ${!rounded ? `border-right: solid 1px ${styleProps.dividerColor};` : ''}
     }
     `
 }

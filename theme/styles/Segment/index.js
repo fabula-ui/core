@@ -2,10 +2,14 @@ import colorModifier from './modifiers/color.modifier';
 
 const SegmentStyles = params => {
     const { props } = params;
+    const { rounded } = props;
+
     return `
         .fab-segment {
+            ${rounded ? `border-radius: 5rem;` : ''}
             font-size: .9rem;
             font-weight: 500;
+            overflow: hidden;
         }
 
         .fab-segment > a,
