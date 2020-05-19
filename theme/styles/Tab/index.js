@@ -38,11 +38,15 @@ const TabStyle = params => {
             ${stacked ? `padding-left: 0;` : ''}
             text-align: inherit;
             transition: all .2s ease-in-out;
-            ${active && stacked ? `width: 100%;` : ''}
-
+            
             &:focus {
                 outline: none;
             }
+        }
+
+        .fab-tab[data-active='true'] > a,
+        .fab-tab[data-active='true'] > button {
+            width: 100%;
         }
 
         ${colorModifier(props)}

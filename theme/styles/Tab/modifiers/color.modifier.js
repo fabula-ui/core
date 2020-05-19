@@ -75,26 +75,32 @@ const colorModifier = props => {
     return `
     .fab-tab > a,
     .fab-tab > button {
-        ${`border-bottom: ${styleProps.base.inactiveBorderBottom};`}
+        background-color: transparent;
+        border-bottom: ${styleProps.base.inactiveBorderBottom};
         color: ${styleProps.base.inactiveTextColor};
         opacity: ${styleProps.base.inactiveOpacity};
+    }
+
+    .fab-tab[data-active='false'] > a,
+    .fab-tab[data-active='false'] > button {
+        ${color ? `opacity: .8;` : ''}
 
         &:hover {
-            ${!active ? `color: ${styleProps.hover.activeTextColor};` : ''}
-            opacity: ${styleProps.hover.inactiveOpacity};
+            color: ${styleProps.hover.activeTextColor};
+            ${color ? `opacity: 1;` : ''}
         }
 
         &:active {
-            ${!active ? `opacity: .8;` : ''}
+            opacity: .8;
         }
     }
 
     // Active
-    .fab-tab > a,
-    .fab-tab > button {
-        ${active ? `background-color: ${styleProps.base.activeFillColor};` : ''}
-        ${active ? `border-bottom-color: ${styleProps.base.activeBorderColor};` : ''}
-        ${active ? `color: ${styleProps.base.activeTextColor};` : ''}
+    .fab-tab[data-active='true'] > a,
+    .fab-tab[data-active='true'] > button {
+        background-color: ${styleProps.base.activeFillColor};
+        border-bottom-color: ${styleProps.base.activeBorderColor};
+        color: ${styleProps.base.activeTextColor};
     }
     `
 }
