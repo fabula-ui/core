@@ -17,6 +17,7 @@ import CardImageStyles from './styles/CardImage';
 import CardSectionStyles from './styles/CardSection';
 import ColumnStyles from './styles/Column';
 import DropdownStyles from './styles/Dropdown';
+import IconStyles from './styles/Icon';
 import InputStyles from './styles/Input';
 import InputGroupStyles from './styles/InputGroup';
 import ListStyles from './styles/List';
@@ -60,6 +61,7 @@ const Components = {
     cardSection: params => CardSectionStyles(params),
     column: params => ColumnStyles(params),
     dropdown: params => DropdownStyles(params),
+    icon: params => IconStyles(params),
     input: params => InputStyles(params),
     inputGroup: params => InputGroupStyles(params),
     list: params => ListStyles(params),
