@@ -16,10 +16,10 @@ const BadgeStyles = params => {
             align-items: center;
             border-radius: calc(${borderRadius} * .7);
             display: flex;
-            font-size: .7em;
+            font-size: .8em;
             justify-content: center;
             line-height: 1;
-            padding: .5em;
+            padding: .4em;
         }
 
         ${colorModifier(props)}
