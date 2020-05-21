@@ -22,10 +22,12 @@ const ButtonStyles = params => {
     return `
         .fab-button { ${componentCommons} }
         .fab-button {
+            align-items: center;
             appearance: none;
             background: ${color};
             border: none;
             border-radius: ${borderRadiusDefault}rem;
+            display: inline-flex;
             font-size: ${fontSize};
             font-weight: 600;
             letter-spacing: -.025rem;
@@ -65,6 +67,10 @@ const ButtonStyles = params => {
 
             &[disabled] {
                 opacity: .4;
+            }
+
+            > *:not(:last-child) {
+                margin-right: .5em;
             }
         }
 

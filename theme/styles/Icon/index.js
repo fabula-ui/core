@@ -1,25 +1,35 @@
+// Modifiers
+import colorModifier from './modifiers/color.modifier';
+
 const IconStyles = params => {
     const { props } = params;
     const { name } = props;
     const svg = require(`../../../icons/${name}.svg`);
 
     return `
-        .fab-icon {
-            background-color: blue;
+        & {
             display: inline-flex;
-            height: 1em;
+        }
+
+        .fab-icon {
+            background-color: #FFF;
+            display: inline-flex;
+            height: 1.1em;
             mask-image: url('${svg}');
             mask-repeat: no-repeat;
             mask-position: center center;
             mask-size: cover;
-            width: 1em;
+            width: 1.1em;
 
             &:before {
                 background: 
                 content: '';
                 display: block;
             }
+            
         }
+
+        ${colorModifier(props)}
     `;
 }
 

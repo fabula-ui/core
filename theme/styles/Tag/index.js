@@ -11,15 +11,21 @@ const TagStyles = params => {
 
     return `
         .fab-tag {
+            align-items: center;
             border-radius: ${borderRadius};
             display: inline-flex;
             font-size: ${fontSize};
             font-weight: 500;
             ${!anchor && !button ? `padding: ${paddingY} ${paddingX};` : ''}
+
+            > *:not(:last-child) {
+                margin-right: .5em;
+            }
         }
 
         .fab-tag > a,
         .fab-tag > button {
+            align-items: center;
             appearance: none;
             background: none;
             border-radius: ${borderRadius};
@@ -32,6 +38,10 @@ const TagStyles = params => {
 
             &:focus {
                 outline: none;
+            }
+
+            > *:not(:last-child) {
+                margin-right: .5em;
             }
         }
 

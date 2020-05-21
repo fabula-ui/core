@@ -5,31 +5,6 @@ import colors from './vars/colors';
 import components from './vars/components';
 import globals from './vars/globals';
 
-// Component Styles
-import AlertStyles from './styles/Alert';
-import AvatarStyles from './styles/Avatar';
-import BadgeStyles from './styles/Badge';
-import ButtonStyles from './styles/Button';
-import ButtonGroupStyles from './styles/ButtonGroup';
-import CardStyles from './styles/Card';
-import CardFooterStyles from './styles/CardFooter';
-import CardImageStyles from './styles/CardImage';
-import CardSectionStyles from './styles/CardSection';
-import ColumnStyles from './styles/Column';
-import DropdownStyles from './styles/Dropdown';
-import IconStyles from './styles/Icon';
-import InputStyles from './styles/Input';
-import InputGroupStyles from './styles/InputGroup';
-import ListStyles from './styles/List';
-import RowStyles from './styles/Row';
-import SegmentStyles from './styles/Segment';
-import SegmentsStyles from './styles/Segments';
-import TabStyle from './styles/Tab';
-import TabsStyles from './styles/Tabs';
-import TagStyles from './styles/Tag';
-import TagGroupStyles from './styles/TagGroup';
-import TextStyles from './styles/Text';
-
 // Utils
 import alignUtils from './utils/align';
 import columnUtils from './utils/column';
@@ -50,29 +25,7 @@ const DefaultTheme = {
 }
 
 const Components = {
-    alert: params => AlertStyles(params),
-    avatar: params => AvatarStyles(params),
-    badge: params => BadgeStyles(params),
-    button: params => ButtonStyles(params),
-    buttonGroup: params => ButtonGroupStyles(params),
-    card: params => CardStyles(params),
-    cardFooter: params => CardFooterStyles(params),
-    cardImage: params => CardImageStyles(params),
-    cardSection: params => CardSectionStyles(params),
-    column: params => ColumnStyles(params),
-    dropdown: params => DropdownStyles(params),
     icon: params => IconStyles(params),
-    input: params => InputStyles(params),
-    inputGroup: params => InputGroupStyles(params),
-    list: params => ListStyles(params),
-    row: params => RowStyles(params),
-    segment: params => SegmentStyles(params),
-    segments: params => SegmentsStyles(params),
-    tab: params => TabStyle(params),
-    tabs: params => TabsStyles(params),
-    tag: params => TagStyles(params),
-    tagGroup: params => TagGroupStyles(params),
-    text: params => TextStyles(params)
 };
 
 const Utils = {
@@ -89,7 +42,7 @@ const Utils = {
 
 const attachStyles = params => {
     const { framework, host, componentName, props } = params;
-    const styles = Components[componentName]({framework, props});
+    const styles = Components[componentName]({ framework, props });
 
     host.classList.add(css(styles));
 }
@@ -114,9 +67,20 @@ const getComponentsVars = vars => {
 
     for (let componentName in vars.default) {
         if (vars.default.hasOwnProperty(componentName)) {
-            concatVars[componentName] = {
-                ...vars.default[componentName],
-                ...vars.user[componentName]
+            concatVars[componentName] = { ...vars.default[componentName] }
+
+            for (let propertyName in concatVars[componentName]) {
+                if (propertyName === 'colors') {
+                    concatVars[componentName]['colors'] = {
+                        ...concatVars[componentName]['colors'],
+                        ...vars.userColors
+                    }
+                } else if (vars.user[componentName] && vars.user[componentName][propertyName]) {
+                    concatVars[componentName][propertyName] = {
+                        ...concatVars[componentName][propertyName],
+                        ...vars.user[componentName][propertyName]
+                    }
+                }
             }
         }
     }
@@ -137,7 +101,9 @@ const setBaseTheme = userSettings => {
             },
             components: getComponentsVars({
                 default: defaultVars.components,
-                user: userVars.components
+                userColors: userVars.colors,
+                userGlobals: userVars.globals,
+                user: userVars.components,
             }),
             globals: {
                 ...defaultVars.globals,

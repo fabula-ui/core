@@ -27,13 +27,16 @@ const TabStyle = params => {
 
         .fab-tab > a,
         .fab-tab > button {
+            align-items: center;
             appearance: none;
             background: none;
             border: none;
             border-bottom: solid 2px transparent;
             color: inherit;
+            display: flex;
             font-size: inherit;
             font-weight: inherit;
+            line-height: 1;
             padding: 1rem;
             ${stacked ? `padding-left: 0;` : ''}
             text-align: inherit;
@@ -41,6 +44,10 @@ const TabStyle = params => {
             
             &:focus {
                 outline: none;
+            }
+
+            > *:not(:last-child) {
+                margin-right: .5em;
             }
         }
 

@@ -69,9 +69,6 @@ const colorModifier = props => {
         }
     };
 
-    // styleProps.inactiveTextColor = userInactiveTextColor || color || inactiveTextColor;
-    // styleProps.inactiveOpacity = active || !color ? 1 : .8;
-
     return `
     .fab-tab > a,
     .fab-tab > button {
@@ -101,6 +98,20 @@ const colorModifier = props => {
         background-color: ${styleProps.base.activeFillColor};
         border-bottom-color: ${styleProps.base.activeBorderColor};
         color: ${styleProps.base.activeTextColor};
+    }
+
+    // External
+    .fab-tab .fab-icon {
+        background-color: ${styleProps.base.inactiveTextColor};
+        transition: background-color .2s ease-in-out;
+    }
+
+    .fab-tab[data-active='false']:hover .fab-icon {
+        background-color: ${styleProps.hover.activeTextColor};
+    }
+
+    .fab-tab[data-active='true'] .fab-icon {
+        background-color: ${styleProps.base.activeTextColor};
     }
     `
 }

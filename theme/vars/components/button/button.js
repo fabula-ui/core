@@ -23,6 +23,7 @@ const button = {
     sizeMultiplierXl: globals.sizeMultiplierXl,
     sizeMultiplierXs: globals.sizeMultiplierXs,
     wideMultiplier: 4
+
 }
 
 export default button;
