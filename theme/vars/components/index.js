@@ -8,6 +8,8 @@ import icon from './icon';
 import input from './input';
 import inputGroup from './inputGroup';
 import list from './list';
+import modal from './modal';
+import modalSection from './modalSection';
 import segment from './segment';
 import segments from './segments';
 import tab from './tab';
@@ -26,6 +28,8 @@ const components = {
     input,
     inputGroup,
     list,
+    modal,
+    modalSection,
     segment,
     segments,
     tab,

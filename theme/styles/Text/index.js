@@ -30,7 +30,7 @@ const TextStyles = params => {
         font-size: ${fontSize};
         ${weight ? `font-weight: ${weight};` : ''}
         letter-spacing: -.05rem;
-        line-height: 1.3;
+        line-height: 1.5;
     }
 
     .fab-text-part {

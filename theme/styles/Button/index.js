@@ -12,6 +12,9 @@ import roundedModifier from './modifiers/rounded.modifier';
 import sizeModifier from './modifiers/size.modifier';
 import wideModifier from './modifiers/wide.modifier';
 
+// External components
+import IconExternalStyles from './external/icon';
+
 const ButtonStyles = params => {
     const { framework, props } = params;
     const theme = window.__FABTheme;
@@ -31,6 +34,7 @@ const ButtonStyles = params => {
             font-size: ${fontSize};
             font-weight: 600;
             letter-spacing: -.025rem;
+            justify-content: center;
             min-height: 3rem;
             padding-bottom: ${paddingBottom}rem;
             padding-left: ${paddingLeft}rem;
@@ -74,6 +78,10 @@ const ButtonStyles = params => {
             }
         }
 
+        .fab-button-wrapper {
+            display: inline-flex;
+        }
+
         ${border ? borderModifier(props) : ''}
         ${colorModifier(props)}
         ${glow ? glowModifier(props) : ''}
@@ -83,6 +91,9 @@ const ButtonStyles = params => {
         ${size ? sizeModifier(props) : ''}
         ${compact ? compactModifier(props) : ''}
         ${wide ? wideModifier() : ''}
+
+        // External
+        ${IconExternalStyles(props)}
     `
 }
 
