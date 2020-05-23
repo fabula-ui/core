@@ -11,18 +11,18 @@ const hasModifier = has => {
     const color = colors[has];
 
     return `
-        .fab-input[data-focus='true'] {
-            &:before {
-                border-color: ${focusGlowColor(color, 'faded')};
-            }
-        }
-
-        .fab-input__field {
+        .fab-input {
             background-color: ${bgColor(color, 'disabled')};
             border-color: ${borderColor(color, 'faded')};
 
-            &::placeholder {
+            input::placeholder {
                 color: ${placeholderColor(color)};
+            }
+        }
+
+        .fab-input[data-focus='true'] {
+            &:before {
+                border-color: ${focusGlowColor(color, 'faded')};
             }
         }
 

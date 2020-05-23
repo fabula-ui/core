@@ -9,11 +9,16 @@ const sizeModifier = size => {
             font-size: calc(${fontSize} * ${sizeMultiplier});
         }
 
-        .fab-input__field {
-            border-radius: calc(${borderRadius} * ${sizeMultiplier});
-            min-height: calc(${minHeight} * ${sizeMultiplier});
-            padding-left: calc(${padding} * ${sizeMultiplier});
-            padding-right: calc(${padding} * ${sizeMultiplier});
+        .fab-input {
+            
+            
+
+            input {
+                border-radius: calc(${borderRadius} * ${sizeMultiplier});
+                min-height: calc(${minHeight} * ${sizeMultiplier});
+                padding-left: calc(${padding} * ${sizeMultiplier});
+                padding-right: calc(${padding} * ${sizeMultiplier});
+            }
         }
     `;
 }

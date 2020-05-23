@@ -22,6 +22,9 @@ const InputStyles = params => {
     }
 
     .fab-input { 
+        background: #FFF;
+        border-radius: ${borderRadius};
+        border: solid 1px transparent;
         position: relative;
         width: ${expand ? '100%' : 'auto'};
 
@@ -40,6 +43,10 @@ const InputStyles = params => {
         }
     }
 
+    .fab-input[data-disabled='true'] {
+        opacity: ${disabledOpacity};
+    }
+
     .fab-input[data-focus='true'] {
         &:before {
             border-width: ${focusGlowRadius};
@@ -52,9 +59,8 @@ const InputStyles = params => {
 
     .fab-input__field {
         appearance: none;
-        background: #FFF;
-        border-radius: ${borderRadius};
-        border: solid 1px transparent;
+        background: none;
+        border: none;
         color: ${textColor};
         min-height: ${minHeight};
         padding-left: ${padding};
@@ -69,10 +75,6 @@ const InputStyles = params => {
         &::placeholder {
             color: ${placeholderColor};
         }
-    }
-
-    .fab-input input[disabled] {
-        opacity: ${disabledOpacity};
     }
 
     .fab-input__message {

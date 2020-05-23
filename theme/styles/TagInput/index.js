@@ -1,17 +1,16 @@
 const TagInputStyles = params => {
+    const { framework, props } = params;
+    const theme = window.__FABTheme;
+    const vars = theme.variables.components.tagInput;
+
     return `
         .fab-tag-input {
             align-items: center;
-            border: solid 1px #CCC;
             border-radius: .5em;
             display: flex;
             flex-wrap: wrap;
             min-height: 3em;
             padding: .15em .1em;
-        }
-
-        .fab-tag-input[data-focus='true'] {
-            border-color: blue;
         }
 
         .fab-tag-input__field-wrapper {
@@ -37,6 +36,7 @@ const TagInputStyles = params => {
             display: inline-flex;
             flex-wrap: wrap;
             max-width: 100%;
+            position: relative;
 
             fab-tag,
             .fab-tag-wrapper {

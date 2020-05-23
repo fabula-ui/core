@@ -9,18 +9,18 @@ const colorModifier = props => {
     const color = colors[props.color];
 
     return `
+        .fab-input {
+            border-color: ${borderColor(color, 'faded')};
+        }
+
+        .fab-input[data-disabled='true'] {
+            background-color: ${bgColor(color, 'disabled')};
+        }
+
         .fab-input[data-focus='true'] {
             &:before {
                 border-color: ${focusGlowColor(color, 'faded')};
             }
-        }
-
-        .fab-input__field {
-            border-color: ${borderColor(color, 'faded')};
-        }
-
-        .fab-input__field[disabled] {
-            background-color: ${bgColor(color, 'disabled')};
         }
     `;
 }

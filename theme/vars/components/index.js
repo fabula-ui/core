@@ -15,6 +15,7 @@ import segments from './segments';
 import tab from './tab';
 import tabs from './tabs';
 import tag from './tag';
+import tagInput from './tagInput';
 import text from './text';
 
 const components = {
@@ -35,6 +36,7 @@ const components = {
     tab,
     tabs,
     tag,
+    tagInput,
     text
 }
 
