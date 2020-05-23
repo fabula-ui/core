@@ -9,7 +9,7 @@ const sizeModifier = size => {
             font-size: calc(${fontSize} * ${sizeMultiplier});
         }
 
-        .fab-input input {
+        .fab-input__field {
             border-radius: calc(${borderRadius} * ${sizeMultiplier});
             min-height: calc(${minHeight} * ${sizeMultiplier});
             padding-left: calc(${padding} * ${sizeMultiplier});

@@ -10,13 +10,18 @@ const TagStyles = params => {
     const { borderRadius, fontSize, paddingX, paddingY } = vars;
 
     return `
+        .fab-tag-wrapper {
+            display: inline-flex;
+        }
+
         .fab-tag {
             align-items: center;
             border-radius: ${borderRadius};
-            display: inline-flex;
+            display: block;
             font-size: ${fontSize};
             font-weight: 500;
             ${!anchor && !button ? `padding: ${paddingY} ${paddingX};` : ''}
+            width: 100%;
 
             > *:not(:last-child) {
                 margin-right: .5em;

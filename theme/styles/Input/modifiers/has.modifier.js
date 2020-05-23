@@ -17,7 +17,7 @@ const hasModifier = has => {
             }
         }
 
-        .fab-input input {
+        .fab-input__field {
             background-color: ${bgColor(color, 'disabled')};
             border-color: ${borderColor(color, 'faded')};
 

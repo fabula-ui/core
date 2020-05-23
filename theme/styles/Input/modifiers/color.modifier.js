@@ -15,11 +15,11 @@ const colorModifier = props => {
             }
         }
 
-        .fab-input input {
+        .fab-input__field {
             border-color: ${borderColor(color, 'faded')};
         }
 
-        .fab-input input[disabled] {
+        .fab-input__field[disabled] {
             background-color: ${bgColor(color, 'disabled')};
         }
     `;

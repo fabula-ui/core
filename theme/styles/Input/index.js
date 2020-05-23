@@ -50,11 +50,11 @@ const InputStyles = params => {
         }
     }
 
-    .fab-input input {
+    .fab-input__field {
         appearance: none;
         background: #FFF;
         border-radius: ${borderRadius};
-        border: solid 1px #000;
+        border: solid 1px transparent;
         color: ${textColor};
         min-height: ${minHeight};
         padding-left: ${padding};

@@ -10,7 +10,7 @@ const glowModifier = props => {
     const context = getContext(props);
 
     return `
-        .fab-input input {
+        .fab-input__field {
             box-shadow: 0 2px 2px ${glowColor(color, context)};
         }
     `;
