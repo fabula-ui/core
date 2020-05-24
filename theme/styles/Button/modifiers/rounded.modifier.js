@@ -5,10 +5,10 @@ const roundedModifier = () => {
 
     return `
         .fab-button {
-            border-radius: ${borderRadiusRounded};
+            border-radius: 999px;
 
             &:before {
-                border-radius: ${borderRadiusRounded};
+                border-radius: 999px;
             }
         }
     `;

@@ -21,8 +21,15 @@ const ButtonStyles = params => {
     const vars = theme.variables.components.button;
     const { border, compact, expand, glow, gradient, outline, rounded, size, wide } = props;
     const { borderRadiusDefault, color, focusGlowRadius, fontSize, paddingBottom, paddingLeft, paddingRight, paddingTop } = vars;
+    let wrapper = framework === 'angular' ? '.fab-button-wrapper' : '&';
 
     return `
+        ${wrapper} { ${componentCommons} }
+        ${wrapper} {
+            display: inline-flex;
+            ${expand ? `width: 100%;` : ''}
+        }
+
         .fab-button { ${componentCommons} }
         .fab-button {
             align-items: center;
@@ -30,6 +37,7 @@ const ButtonStyles = params => {
             background: ${color};
             border: none;
             border-radius: ${borderRadiusDefault}rem;
+            cursor: pointer;
             display: inline-flex;
             font-size: ${fontSize};
             font-weight: 600;
@@ -70,16 +78,13 @@ const ButtonStyles = params => {
             }
 
             &[disabled] {
+                cursor: default;
                 opacity: .4;
             }
 
             > *:not(:last-child) {
                 margin-right: .5em;
             }
-        }
-
-        .fab-button-wrapper {
-            display: inline-flex;
         }
 
         ${border ? borderModifier(props) : ''}

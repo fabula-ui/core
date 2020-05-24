@@ -13,10 +13,11 @@ const ButtonGroupStyles = params => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.buttonGroup;
     const { divider, glued } = props;
+    let wrapper = framework === 'angular' ? '.fab-button-group' : '&';
     
     return `
-    .fab-button-group { ${componentCommons} }
-    .fab-button-group {
+    ${wrapper} { ${componentCommons} }
+    ${wrapper} {
         ${!hasAlignment(props) ? `align-items: flex-start;` : ''}
         box-sizing: border-box;
         display: flex;

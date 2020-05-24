@@ -9,9 +9,11 @@ const dividerModifier = props => {
     const color = vars.colors[props.color];
     const context = getContext(props);
     const { framework, glued, outline } = props;
+    const wrapper = framework === 'angular' ? '.fab-button-group' : '&';
+    const buttonWrapper = framework === 'angular' ? 'fab-button' : '.fab-button-wrapper';
 
     return `
-        .fab-button-group {
+        ${wrapper} {
             .fab-button-wrapper {
                 ${outline ? `border-right: none;` : ''}
 
@@ -20,14 +22,7 @@ const dividerModifier = props => {
                 }
             }
 
-            // Angular related
-            fab-button:not(:last-child) {
-                .fab-button-wrapper {
-                    ${glued ? `border-right: solid 1px ${dividerColor(color, context)};` : ''}
-                }
-            }
-
-            .fab-button-wrapper:not(:last-child) {
+            ${buttonWrapper}:not(:last-child) .fab-button {
                 ${glued ? `border-right: solid 1px ${dividerColor(color, context)};` : ''}
             }
         }

@@ -24,10 +24,6 @@ const DefaultTheme = {
     }
 }
 
-const Components = {
-    icon: params => IconStyles(params),
-};
-
 const Utils = {
     align: props => alignUtils(props),
     column: props => columnUtils(props),
@@ -39,13 +35,6 @@ const Utils = {
 };
 
 // Methods
-
-const attachStyles = params => {
-    const { framework, host, componentName, props } = params;
-    const styles = Components[componentName]({ framework, props });
-
-    host.classList.add(css(styles));
-}
 
 const attachUtils = params => {
     const { framework, host, utilName, props } = params;
@@ -75,7 +64,7 @@ const getComponentsVars = vars => {
                         ...concatVars[componentName]['colors'],
                         ...vars.userColors
                     }
-                } else if (vars.user[componentName] && vars.user[componentName][propertyName]) {
+                } else if (vars.user && vars.user[componentName] && vars.user[componentName][propertyName]) {
                     concatVars[componentName][propertyName] = {
                         ...concatVars[componentName][propertyName],
                         ...vars.user[componentName][propertyName]
@@ -115,7 +104,6 @@ const setBaseTheme = userSettings => {
 
 export default DefaultTheme;
 export {
-    attachStyles,
     attachUtils,
     setBaseTheme
 };

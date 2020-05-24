@@ -1,46 +1,45 @@
-const gluedModifier = () => {
+const gluedModifier = props => {
+    const { framework } = props;
+    const wrapper = framework === 'angular' ? '.fab-button-group' : '&';
+    const buttonWrapper = framework === 'angular' ? 'fab-button' : '.fab-button-wrapper';
+
     return `
-        .fab-button-group[data-glued='true'] {
+       ${wrapper}[data-glued='true'] {
             margin: 0;
     
             .fab-button-wrapper {
                 padding: 0;
             }
 
-            // Angular related
-            fab-button:first-child:not(:only-child) {
-                .fab-button,
-                .fab-button:before {
+            ${buttonWrapper}:first-child:not(:only-child) .fab-button {
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+
+                &:before {
                     border-bottom-right-radius: 0;
+                    border-right: none;
                     border-top-right-radius: 0;
                 }
-
-                .fab-button:before {
-                    border-right: none;
-                }
             }
 
-            fab-button:not(:first-child):not(:last-child) {
-                .fab-button,
-                .fab-button:before {
+            ${buttonWrapper}:not(:first-child):not(:last-child) .fab-button {
+                border-radius: 0;
+
+                &:before {
+                    border-left: none;
                     border-radius: 0;
-                }
-
-                .fab-button:before {
-                    border-left: none;
                     border-right: none;
                 }
             }
 
-            fab-button:last-child:not(:only-child) {
-                .fab-button,
-                .fab-button:before {
+            ${buttonWrapper}:last-child:not(:only-child) .fab-button {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+                
+                &:before {
                     border-bottom-left-radius: 0;
-                    border-top-left-radius: 0;
-                }
-
-                .fab-button:before {
                     border-left: none;
+                    border-top-left-radius: 0;
                 }
             }
         }
