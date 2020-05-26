@@ -16,7 +16,7 @@ import wideModifier from './modifiers/wide.modifier';
 import IconExternalStyles from './external/icon';
 
 const ButtonStyles = params => {
-    const { framework, props } = params;
+    const { framework, props, utils } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.button;
     const { border, compact, expand, glow, gradient, outline, rounded, size, wide } = props;
@@ -99,6 +99,9 @@ const ButtonStyles = params => {
 
         // External
         ${IconExternalStyles(props)}
+
+        // Utils
+        ${utils ? require('../../utils').default(params) : ''}
     `
 }
 
