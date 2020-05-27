@@ -7,32 +7,46 @@ import glowModifier from './modifiers/glow.modifier';
 const ToastStyles = params => {
     const { framework, props } = params;
     const vars = window.__FABTheme.variables.components.toast;
-    const { glow, height } = props;
+    const { glow, height, stacked } = props;
     const { borderColor } = vars;
-    
+
     const wrapper = framework === 'angular' ? '.fab-toast-wrapper' : '&';
 
     return `
         ${wrapper} { ${componentCommons} }
 
-        ${wrapper} {
-            animation: animate-toast .2s ease-in-out;
-            transition: all .5s ease-in-out;
-
-            @keyframes animate-toast {
-                from {
-                    opacity: 0;
-                    transform: translate(0, 100%);
-                    visibility: hidden;
-                }
-            }
+        ${wrapper} { 
+            z-index: 9999;
         }
 
-        ${wrapper}[data-hiding='true'] {
-            // height: 0;
-            margin-bottom: -${height}px;
-            opacity: 0;
-            visibility: hidden;
+        ${stacked ? `
+            ${wrapper} {
+                animation: animate-toast .2s ease-in-out;
+                padding: .5rem 0;
+                transition: all .2s ease-in-out;
+
+                @keyframes animate-toast {
+                    from {
+                        opacity: 0;
+                        transform: translate(0, 100%);
+                        visibility: hidden;
+                    }
+                }
+            }
+            ` : ''
+        }
+
+        ${stacked ? `
+            ${wrapper}[data-hiding='true'] {
+                margin-bottom: -${height}px;
+                opacity: 0;
+                visibility: hidden;
+
+                &.fab-toast {
+                    z-index: 1;
+                }
+            }
+            ` : ''
         }
 
         .fab-toast {
@@ -45,7 +59,8 @@ const ToastStyles = params => {
             font-weight: 600;
             letter-spacing: -.025em;
             padding: 1em;
-            transition: all .5s ease-in-out;
+            position: relative;
+            z-index: 1;
         }
 
         .fab-toast__message:not(:last-child) {

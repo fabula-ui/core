@@ -1,11 +1,16 @@
 const growUtils = props => {
     const { grow } = props;
 
-    return `
-        & {
-        ${grow ? `flex-grow: ${grow};` : ''}
-        }
-    `;
+    if (grow) {
+        return `
+            & {
+                flex-grow: ${grow};
+            }
+        `;
+    } else {
+        return '';
+    }
+    
 }
 
 export default growUtils;

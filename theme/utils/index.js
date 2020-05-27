@@ -13,12 +13,13 @@ const UtilsStyles = params => {
     return `
         ${alignUtils(params)}
         ${columnUtils(props)}
-        ${flexUtils(props)}
+        ${flexUtils(params)}
         ${growUtils(props)}
         ${marginUtils(params)}
         ${paddingUtils(props)}
         ${rowUtils(props)}
     `;
 }
+
 
 export default UtilsStyles;
