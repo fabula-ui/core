@@ -21,17 +21,8 @@ const ToastStyles = params => {
 
         ${stacked ? `
             ${wrapper} {
-                animation: animate-toast .2s ease-in-out;
                 padding: .5rem 0;
                 transition: all .2s ease-in-out;
-
-                @keyframes animate-toast {
-                    from {
-                        opacity: 0;
-                        transform: translate(0, 100%);
-                        visibility: hidden;
-                    }
-                }
             }
             ` : ''
         }

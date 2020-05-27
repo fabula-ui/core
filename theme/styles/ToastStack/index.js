@@ -25,6 +25,18 @@ const ToastStackStyles = params => {
             z-index: 9999;
         }
 
+        ${wrapper} .fab-toast-wrapper {
+            animation: animate-toast-${placement.y} .2s ease-in-out;
+
+            @keyframes animate-toast-${placement.y} {
+                from {
+                    opacity: 0;
+                    ${placement.y === 'top' ? `transform: translate(0, -100%);` :  `transform: translate(0, 100%);`}
+                    visibility: hidden;
+                }
+            }
+        }
+
         ${wrapper} .fab-toast {
             ${placement.x === 'center' ? `transform: translate(-50%, 0);` : ''}
             z-index: 2;
