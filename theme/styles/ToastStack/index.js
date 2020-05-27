@@ -8,10 +8,18 @@ const ToastStackStyles = params => {
         ${wrapper} { ${componentCommons} }
 
         ${wrapper} {
-            background: green;
+            align-items: flex-end;
             bottom: 0;
+            display: flex;
+            flex-direction: column-reverse;
+            // padding: 1rem;
+            padding: .5rem 1rem;
             position: fixed;
             right: 0;
+        }
+
+        ${wrapper} .fab-toast-wrapper {
+            padding: .5rem 0;
         }
     `
 }

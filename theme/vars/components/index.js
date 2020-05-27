@@ -17,6 +17,7 @@ import tabs from './tabs';
 import tag from './tag';
 import tagInput from './tagInput';
 import text from './text';
+import toast from './toast';
 
 const components = {
     avatar,
@@ -37,7 +38,8 @@ const components = {
     tabs,
     tag,
     tagInput,
-    text
+    text,
+    toast
 }
 
 export default components;
