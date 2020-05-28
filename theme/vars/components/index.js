@@ -4,6 +4,7 @@ import button from './button/button';
 import buttonGroup from './buttonGroup';
 import card from './card';
 import dropdown from './dropdown';
+import fileInput from './fileInput';
 import icon from './icon';
 import input from './input';
 import inputGroup from './inputGroup';
@@ -26,6 +27,7 @@ const components = {
     buttonGroup,
     card,
     dropdown,
+    fileInput,
     icon,
     input,
     inputGroup,

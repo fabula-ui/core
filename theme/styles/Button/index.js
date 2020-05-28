@@ -19,9 +19,9 @@ const ButtonStyles = params => {
     const { framework, props, utils } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.button;
-    const { border, compact, expand, glow, gradient, outline, rounded, size, wide } = props;
+    const { border, compact, expand, glow, gradient, outline, rounded, size, smashed, wide } = props;
     const { borderRadiusDefault, color, focusGlowRadius, fontSize, paddingBottom, paddingLeft, paddingRight, paddingTop } = vars;
-    let wrapper = framework === 'angular' ? '.fab-button-wrapper' : '&';
+    const wrapper = framework === 'angular' ? '.fab-button-wrapper' : '&';
 
     return `
         ${wrapper} { ${componentCommons} }
@@ -36,18 +36,18 @@ const ButtonStyles = params => {
             appearance: none;
             background: ${color};
             border: none;
-            border-radius: ${borderRadiusDefault}rem;
+            ${smashed ? `border-radius: .33em;` : `border-radius: ${borderRadiusDefault}rem;`}
             cursor: pointer;
             display: inline-flex;
             font-size: ${fontSize};
             font-weight: 600;
             letter-spacing: -.025rem;
             justify-content: center;
-            min-height: 3rem;
-            padding-bottom: ${paddingBottom}rem;
-            padding-left: ${paddingLeft}rem;
-            padding-right: ${paddingRight}rem;
-            padding-top: ${paddingTop}rem;
+            ${smashed ? `min-height: 2rem;` : `min-height: 3rem;`}
+            ${smashed ? `padding-bottom: ${paddingBottom / 2}rem;` : `padding-bottom: ${paddingBottom}rem;`}
+            padding-left: ${smashed ? `1em;` : `${paddingLeft};`}
+            padding-right: ${smashed ? `1em;` : `${paddingRight};`}
+            ${smashed ? `padding-top: ${paddingTop / 2}rem;` : `padding-top: ${paddingTop}rem;`}
             position: relative;
             transition: all .2s ease-in-out;
             ${expand ? `width: 100%;` : ''}
@@ -55,7 +55,7 @@ const ButtonStyles = params => {
             &:before {
                 bottom: 0;
                 border: solid 0;
-                border-radius: calc(${borderRadiusDefault}rem + ${focusGlowRadius}px);
+                border-radius: ${smashed ? `calc(.33em + ${focusGlowRadius}px);` : `calc(${borderRadiusDefault}rem + ${focusGlowRadius}px);`}
                 content: '';
                 display: block;
                 left: 0;

@@ -1,19 +1,20 @@
+import getBgColor from '../../../methods/color/bgColor';
 import getColorName from '../../../methods/color/getColor';
 import getContext from '../../../methods/misc/getContext';
-import getTextColor from '../../../methods/color/textColor';
 
-const colorModifier = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.icon;
+const colorModifier = params => {
+    const { framework, props } = params;
+    const vars = window.__FABTheme.variables.components.icon;
     const { color } = props;
     const { colors } = vars;
+    const element = framework === 'angular' ? '.fab-icon' : '&';
 
     const colorName = getColorName(color, colors);
     const context = getContext(props);
-    
+
     return `
-        .fab-icon {
-            background-color: ${getTextColor(colorName, context)};
+        ${element} {
+            color: ${getBgColor(colorName, context)};
         }
     `;
 }

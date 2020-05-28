@@ -49,11 +49,11 @@ const InputStyles = params => {
 
     .fab-input[data-focus='true'] {
         &:before {
-            border-width: ${focusGlowRadius};
-            bottom: -${focusGlowRadius};
-            left: -${focusGlowRadius};
-            right: -${focusGlowRadius};
-            top: -${focusGlowRadius};
+            border-width: calc(${focusGlowRadius} + 1px);
+            bottom: calc(-${focusGlowRadius} - 1px);
+            left: calc(-${focusGlowRadius} - 1px);
+            right: calc(-${focusGlowRadius} - 1px);
+            top: calc(-${focusGlowRadius} - 1px);
         }
     }
 
