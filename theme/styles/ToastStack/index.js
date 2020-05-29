@@ -5,8 +5,6 @@ const ToastStackStyles = params => {
     const { placement } = props;
     const wrapper = framework === 'angular' ? '.fab-toast-stack' : '&';
 
-    console.log('placement', placement);
-
     return `
         ${wrapper} { ${componentCommons} }
 

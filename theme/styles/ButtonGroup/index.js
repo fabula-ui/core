@@ -9,12 +9,12 @@ import gluedModifier from './modifiers/glued.modifier';
 import hasAlignment from '../../methods/misc/hasAlignment';
 
 const ButtonGroupStyles = params => {
-    const { framework, props } = params;
+    const { framework, props, utils } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.buttonGroup;
     const { divider, glued } = props;
     let wrapper = framework === 'angular' ? '.fab-button-group' : '&';
-    
+
     return `
     ${wrapper} { ${componentCommons} }
     ${wrapper} {
@@ -37,6 +37,9 @@ const ButtonGroupStyles = params => {
 
     ${divider ? dividerModifier(props) : ''}
     ${glued ? gluedModifier(props) : ''}
+
+    // Utils
+    ${utils ? require('../../utils').default(params) : ''}
     `
 };
 

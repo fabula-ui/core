@@ -45,8 +45,8 @@ const ButtonStyles = params => {
             justify-content: center;
             ${smashed ? `min-height: 2rem;` : `min-height: 3rem;`}
             ${smashed ? `padding-bottom: ${paddingBottom / 2}rem;` : `padding-bottom: ${paddingBottom}rem;`}
-            padding-left: ${smashed ? `1em;` : `${paddingLeft};`}
-            padding-right: ${smashed ? `1em;` : `${paddingRight};`}
+            padding-left: ${smashed ? `1em;` : `${paddingLeft}rem;`}
+            padding-right: ${smashed ? `1em;` : `${paddingRight}rem;`}
             ${smashed ? `padding-top: ${paddingTop / 2}rem;` : `padding-top: ${paddingTop}rem;`}
             position: relative;
             transition: all .2s ease-in-out;

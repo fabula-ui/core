@@ -18,11 +18,21 @@ const AvatarStyles = params => {
         .fab-avatar {
             background: ${vars.defaultColor};
             border-radius: ${vars.borderRadiusDefault}rem;
+            color: #FFF;
+            display: flex;
+            font-size: 1.25rem;
             height: ${size}rem;
             font-family: ${fontFamily};
             font-weight: 400;
             position: relative;
             width: ${size}rem;
+        }
+
+        .fab-avatar .fab-icon {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .fab-avatar__initials {
