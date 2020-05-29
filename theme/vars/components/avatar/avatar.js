@@ -2,6 +2,12 @@ import colors from '../../colors';
 import globals from '../../globals';
 
 const avatar = {
+    ...globals,
+    colors,
+
+    get bgColor() {
+        return colors['aux']
+    },
     borderRadiusDefault: globals.borderRadiusDefault,
     borderRadiusRounded: '50%',
     defaultColor: colors.aux,

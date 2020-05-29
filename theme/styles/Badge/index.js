@@ -19,6 +19,7 @@ const BadgeStyles = params => {
             ${rounded ? `border-radius: 2em;` : ''}
             display: flex;
             font-size: .8em;
+            font-weight: 600;
             justify-content: center;
             line-height: 1;
             padding: .4em;

@@ -35,6 +35,16 @@ const AvatarStyles = params => {
             transform: translate(-50%, -50%);
         }
 
+        .fab-avatar__image {
+            background-position: center center;
+            background-size: cover;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
         .fab-avatar__initials {
             font-size: ${fontSize};
             font-weight: 500;
@@ -49,7 +59,7 @@ const AvatarStyles = params => {
             user-select: none;
         }
 
-        ${colorModifier(props.color)}
+        ${colorModifier(props)}
         ${roundedModifier()}
         ${sizeModifier(props.size)}
     `

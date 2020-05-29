@@ -3,14 +3,15 @@ import colorModifier from './modifiers/color.modifier';
 import sizeModifier from './modifiers/size.modifier';
 
 const TagStyles = params => {
-    const { props } = params;
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.tag;
     const { anchor, button, size } = props;
     const { borderRadius, fontSize, paddingX, paddingY } = vars;
+    const wrapper = framework === 'angular' ? '.fab-tag-wrapper' : '&';
 
     return `
-        .fab-tag-wrapper {
+        ${wrapper} {
             display: inline-flex;
         }
 

@@ -9,7 +9,14 @@ import gradientColor from './gradientColor';
 const bgColor = (color, context) => {
     const $color = color ? Color(color).rgb() : Color('#FFF');
 
-    if (context === 'clear') {
+    if (context === 'adapt') {
+        if ($color.isLight()) {
+            return $color.darken(.1);
+        } else {
+            return $color.lighten(.1);
+        }
+        
+    } else if (context === 'clear') {
         return 'none';
     } else if (context === 'disabled') {
         return $color.mix(Color('white'), .95);
