@@ -3,19 +3,21 @@ import stripeColor from '../../../methods/color/stripeColor';
 import textColor from '../../../methods/color/textColor';
 
 
-const colorModifier = props => {
+const colorModifier = params => {
+    const {framework, props} = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.text;
     const { colors } = vars;
     const color = colors[props.color];
+    const wrapper = framework === 'angular' ? '.fab-list' : '&';
 
     return `
-        .fab-list {
+        ${wrapper} {
             background-color: ${color};
             color: ${textColor(color, 'fill')};
         }
 
-        .fab-list .fab-text[data-inherit-color='true'] {
+        ${wrapper} .fab-text[data-inherit-color='true'] {
             color: inherit;
             
             &[data-aux='true'] {

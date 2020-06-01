@@ -7,9 +7,9 @@ import textColor from '../../../methods/color/textColor';
 
 const colorModifier = props => {
     const theme = window.__FABTheme;
-    const vars = theme.variables.components.badge;
+    const vars = theme.variables.components.alert;
     const { colors } = vars;
-    const color = getColor(props.color, colors);
+    const color = getColor(props.color || vars.color, colors);
     const context = getContext(props);
 
     return `

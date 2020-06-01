@@ -6,11 +6,14 @@ import colorModifier from './modifiers/color.modifier';
 import placementModifier from './modifiers/placement.modifier';
 import sizeModifier from './modifiers/size.modifier';
 
+// Utils
+import UtilsStyles from '../../utils';
+
 const BadgeStyles = params => {
     const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.badge;
-    const { circle, placement, rounded } = props;
+    const { circle, placement, rounded, utils } = props;
     const { borderRadius, fontSize } = vars;
     const wrapper = framework === 'angular' ? '.fab-badge-wrapper' : '&';
 

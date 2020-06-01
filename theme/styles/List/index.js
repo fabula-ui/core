@@ -5,13 +5,14 @@ import componentCommons from '../../common/component.commons';
 import colorModifier from './modifiers/color.modifier';
 
 const ListStyles = params => {
-    const { props } = params;
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.list;
     const { padding } = props;
+    const wrapper = framework === 'angular' ? '.fab-list' : '&';
 
     return `
-    .fab-list { ${componentCommons} }
+    ${wrapper} { ${componentCommons} }
 
     .fab-list-item {
         padding: 1rem 0;
@@ -19,7 +20,7 @@ const ListStyles = params => {
         ${padding ? `padding-right: 1rem;` : ''}
     }
 
-    ${colorModifier(props)}
+    ${colorModifier(params)}
     `
 };
 

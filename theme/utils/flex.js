@@ -1,18 +1,33 @@
 const flexUtils = params => {
     const { framework, props } = params;
-    const { flex } = props;
+    const { alItems, alignItems, fl, flGrow, flex, flexGrow, flow, justContent, justifyContent } = props;
     const wrapper = framework === 'angular' ? '' : '&';
+    const alignmentTypes = {
+        center: 'center',
+        end: 'flex-end',
+        left: 'flex-start',
+        right: 'flex-end',
+        start: 'flex-start'
+    };
+    const flowTypes = {
+        column: 'column',
+        h: 'row',
+        horizontal: 'row',
+        row: 'row',
+        v: 'column',
+        vertical: 'column'
+    };
 
-    if (flex) {
-        return `
-            ${wrapper} {
-                display: flex;
-                flex-direction: row;
-            }
-        `;
-    } else {
-        return '';
+    return `
+    ${wrapper} {
+        ${!!alItems || !!alignItems ?  `align-items: ${alignmentTypes[alItems || alignItems] || alItems || alignItems};` : ''}
+        ${!!fl || !!flex ? `display: flex;` : ''}
+        ${!!fl || !!flex ? `flex-direction: row;` : ''}
+        ${!!flow ?  `flex-direction: ${flowTypes[flow] || flow};` : ''}
+        ${!!flGrow || !!flexGrow ?  `flex-grow: ${flGrow || flexGrow};` : ''}
+        ${!!justContent || !!justifyContent ?  `justify-content: ${alignmentTypes[justContent || justifyContent] || justContent || justifyContent};` : ''}
     }
+    `;
 
 }
 

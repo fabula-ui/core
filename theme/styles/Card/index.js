@@ -20,7 +20,6 @@ const CardStyles = params => {
         }
         
         ${colorModifier(params)}
-        ${glow ? glowModifier(props) : ''}
     `;
 }
 

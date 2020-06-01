@@ -1,11 +1,17 @@
+import componentCommons from '../../common/component.commons';
+
+// Modifiers
 import colorModifier from './modifiers/color.modifier';
 import markerModifier from './modifiers/marker.modifier';
 
 const AlertStyles = params => {
-    const { props } = params;
+    const { framework, props } = params;
     const { marker } = props;
+    const wrapper = framework === 'angular' ? '.fab-alert-wrapper' : '&';
 
     return `
+        ${wrapper} { ${componentCommons} }
+
         .fab-alert {
             border-radius: .5rem;
             display: flex;
@@ -34,7 +40,15 @@ const AlertStyles = params => {
         .fab-alert__title {
             font-weight: 600;
             line-height: 1;
-            margin-bottom: .1em;
+            margin-bottom: .25rem;
+        }
+        
+        .fab-text {
+            line-height: 1;
+
+            + .fab-text {
+                margin-top: .25rem;
+            }
         }
 
         ${colorModifier(props)}

@@ -1,3 +1,4 @@
+import alert from './alert';
 import avatar from './avatar/avatar';
 import badge from './badge';
 import button from './button/button';
@@ -21,6 +22,7 @@ import text from './text';
 import toast from './toast';
 
 const components = {
+    alert,
     avatar,
     badge,
     button,
