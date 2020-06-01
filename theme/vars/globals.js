@@ -9,6 +9,14 @@ const globals = {
     focusGlowRadius: '3px',
     fontFamily: '\'Inter\', sans-serif',
     fontSize: '1rem',
+    sizeMultipliers: {
+        xs: .75,
+        sm: .9,
+        md: 1,
+        lg: 1.1,
+        xl: 1.25,
+        xxl: 1.5
+    },
     sizeMultiplier__xs: .75,
     sizeMultiplier__sm: .9,
     sizeMultiplier__lg: 1.1,

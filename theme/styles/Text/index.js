@@ -4,27 +4,23 @@ import componentCommons from '../../common/component.commons';
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
 import sizeModifier from './modifiers/size.modifier';
+import UtilsStyles from '../../utils';
 
 const TextStyles = params => {
-    const { framework, props } = params;
+    const { framework, props, utils } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.text;
     const { aux, block, color, flex, size, weight } = props;
     const { auxTextColor, fontSize, spacing, textColor } = vars;
+    const wrapper = framework === 'angular' ? '.fab-text' : '&';
 
     return `
-    .fab-text-wrapper {${componentCommons}}
-    .fab-text-wrapper[data-has-children='true'] {
-        margin: calc(-${spacing} / 2);
-
-        .fab-text {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    }
-    .fab-text {
+    ${wrapper} {${componentCommons}}
+    
+    ${wrapper} {
         color: ${textColor};
         ${aux ? `color: ${auxTextColor};` : ''}
+        display: inline-flex;
         ${block ? `display: block;` : ''}
         ${flex ? `display: flex;` : ''}
         font-size: ${fontSize};
@@ -33,12 +29,21 @@ const TextStyles = params => {
         line-height: 1.5;
     }
 
+    ${wrapper} > p,
+    ${wrapper} > small,
+    ${wrapper} > span,
+    ${wrapper} > strong {
+        align-items: flex-start;
+        display: inline-flex;
+    }
+
     .fab-text-part {
         padding: calc(${spacing} / 2);
     }
 
-    ${color ? colorModifier(color) : ''}
-    ${size ? sizeModifier(size) : ''}
+    ${color ? colorModifier(params) : ''}
+    ${size ? sizeModifier(params) : ''}
+    ${utils ? UtilsStyles(params) : ''}
     `
 };
 

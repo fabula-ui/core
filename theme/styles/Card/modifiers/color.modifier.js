@@ -1,20 +1,22 @@
-import bgColor from '../../../methods/color/bgColor'
-import dividerColor from '../../../methods/color/dividerColor';;
+import getBgColor from '../../../methods/color/bgColor'
+import getColorName from '../../../methods/color/getColor'
 import getContext from '../../../methods/misc/getContext';
-import textColor from '../../../methods/color/textColor';
+import getDividerColor from '../../../methods/color/dividerColor';;
+import getTextColor from '../../../methods/color/textColor';
 
 
-const colorModifier = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.button;
-    const color = vars.colors[props.color];
+const colorModifier = params => {
+    const { props } = params;
+    const vars = window.__FABTheme.variables.components.card;
+    const { colors } = vars;
+    const colorName = getColorName(props.color || vars.color, colors);
     const context = getContext(props);
 
     return `
         .fab-card {
-            background: ${bgColor(color, context)};
-            border: solid 1px ${dividerColor(color, 'fill')};
-            color: ${textColor(color, context)};
+            background: ${getBgColor(colorName, context)};
+            border: solid 1px ${getDividerColor(colorName, 'fill')};
+            color: ${getTextColor(colorName, context)};
         }
     `;
 };

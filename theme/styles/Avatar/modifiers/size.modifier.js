@@ -3,17 +3,18 @@ import capitalize from '../../../methods/misc/capitalize';
 const sizeModifier = sizeName => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.avatar;
-    const { borderRadiusDefault, fontSize, size } = vars;
-    const multiplier = vars[`sizeMultiplier${capitalize(sizeName)}`];
+    const { borderRadiusDefault, fontSize, size, sizeMultipliers } = vars;
+    const multiplier = sizeMultipliers[sizeName];
 
     return `
-    .fab-avatar[data-size='${sizeName.toLowerCase()}'] {
-        border-radius: ${borderRadiusDefault * multiplier}rem;
-        height: ${size * multiplier}rem;
-        width: ${size * multiplier}rem;
+    .fab-avatar {
+        border-radius: calc(${borderRadiusDefault} * ${multiplier});
+        font-size: calc(${fontSize} * ${multiplier});
+        height: calc(${size} * ${multiplier});
+        width: calc(${size} * ${multiplier});
 
         .fab-avatar__initials {
-            font-size: ${fontSize * multiplier}rem;
+            font-size: calc(${fontSize} * ${multiplier});
         }
     }
     `;

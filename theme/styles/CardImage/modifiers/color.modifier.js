@@ -1,15 +1,18 @@
-import bgColor from '../../../methods/color/bgColor';
+import getBgColor from '../../../methods/color/bgColor';
+import getColor from '../../../methods/color/getColor';
 
-const colorModifier = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.card;
-    const {colors} = vars;
-    const color = colors[props.color];
+const colorModifier = params => {
+    const { framework, props } = params;
+    const vars = window.__FABTheme.variables.components.card;
+    const { adaptColor, color } = props;
+    const { colors } = vars;
+    const colorName = getColor(color, colors);
+    const wrapper = framework === 'angular' ? '.fab-card-image' : '&';
 
     return `
-        .fab-card-image {
+        ${wrapper} {
             background-color: ${colors['placeholderImageColor']};
-            ${color ? `background-color: ${bgColor(color, 'fill')};` : ''}
+            ${color ? `background: ${getBgColor(colorName, adaptColor ? 'adapt' : 'fill')};` : ''}
         }
     `;
 }

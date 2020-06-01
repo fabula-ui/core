@@ -1,16 +1,20 @@
-const colorModifier = colorName => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.text;
-    const { colors } = vars;
-    const color = colorName === 'inherit' ? 'inherit' : colors[colorName];
+import getBgColor from '../../../methods/color/bgColor';
+import getColor from '../../../methods/color/getColor';
+
+const colorModifier = params => {
+    const { framework, props } = params;
+    const { aux } = props;
+    const vars = window.__FABTheme.variables.components.text;
+    const colorName = getColor(props.color || vars.color, vars.colors);
+    const wrapper = framework === 'angular' ? '.fab-text' : '&';
 
     return `
-        .fab-text {
-            color: ${color};
+        ${wrapper} {
+            color: ${props.color === 'inherit' ? 'inherit' : getBgColor(colorName, 'fill')};
         }
 
-        ${colorName === 'inherit' ?
-            `.fab-text[data-aux='true'] {
+        ${aux && colorName === 'inherit' ?
+            `${wrapper} {
                 opacity: .8;
             }` : ''
         }

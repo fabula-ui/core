@@ -1,14 +1,19 @@
-const gluedModifier = props => {
-    const { framework } = props;
+const gluedModifier = params => {
+    const { framework } = params;
     const wrapper = framework === 'angular' ? '.fab-button-group' : '&';
     const buttonWrapper = framework === 'angular' ? 'fab-button' : '.fab-button-wrapper';
 
     return `
-       ${wrapper}[data-glued='true'] {
+       ${wrapper} {
             margin: 0;
     
             .fab-button-wrapper {
                 padding: 0;
+            }
+
+            .fab-button-wrapper[data-border='true']:not(:first-child),
+            .fab-button-wrapper[data-outline='true']:not(:first-child) {
+                margin-left: -1px;
             }
 
             ${buttonWrapper}:first-child:not(:only-child) .fab-button {

@@ -8,16 +8,12 @@ const avatar = {
     get bgColor() {
         return colors['aux']
     },
-    borderRadiusDefault: globals.borderRadiusDefault,
+    borderRadius: globals.borderRadius,
     borderRadiusRounded: '50%',
     defaultColor: colors.aux,
     fontFamily: globals.fontFamily,
-    fontSize: 1.15,
-    size: 3,
-    sizeMultiplierLg: globals.sizeMultiplierLg,
-    sizeMultiplierSm: globals.sizeMultiplierSm,
-    sizeMultiplierXl: globals.sizeMultiplierXl,
-    sizeMultiplierXs: globals.sizeMultiplierXs,
+    fontSize: '1rem',
+    size: '3rem'
 }
 
 export default avatar;

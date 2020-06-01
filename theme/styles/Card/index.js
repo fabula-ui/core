@@ -7,6 +7,7 @@ const CardStyles = params => {
     const vars = theme.variables.components.card;
     const { color, glow, padding } = props;
     const { borderRadius } = vars;
+    const wrapper = framework === 'angular' ? '.fab-card-wrapper' : '&';
 
     return `
         .fab-card {
@@ -18,7 +19,7 @@ const CardStyles = params => {
             padding: 1rem;
         }
         
-        ${colorModifier(props)}
+        ${colorModifier(params)}
         ${glow ? glowModifier(props) : ''}
     `;
 }

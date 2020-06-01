@@ -1,12 +1,14 @@
-const sizeModifier = size => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.text;
-    const { fontSize } = vars;
-    const sizeMultiplier = vars[`sizeMultiplier__${size}`];
+const sizeModifier = params => {
+    const { framework, props } = params;
+    const { size } = props;
+    const vars = window.__FABTheme.variables.components.text;
+    const { fontSize, sizeMultipliers } = vars;
+    const multiplier = sizeMultipliers[size];
+    const wrapper = framework === 'angular' ? '.fab-text' : '&';
 
     return `
-        .fab-text {
-            font-size: calc(${fontSize} * ${sizeMultiplier});
+        ${wrapper} {
+            font-size: calc(${fontSize} * ${multiplier});
         }
     `;
 }

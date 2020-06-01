@@ -4,14 +4,15 @@ import getHeight from '../../methods/misc/getHeight';
 import colorModifier from './modifiers/color.modifier';
 
 const CardImageStyles = params => {
-    const { props } = params;
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.card;
     const { color, cover, height } = props;
     const { borderRadius } = vars;
+    const wrapper = framework === 'angular' ? '.fab-card-image' : '&';
 
     return `
-        .fab-card-image {
+        ${wrapper} {
             ${cover ? `height: 100px;` : ''}
             ${height ? `height: ${getHeight(height)};` : ''}
             
@@ -22,23 +23,23 @@ const CardImageStyles = params => {
             }
         }
 
-        &:first-child {
-            > .fab-card-image {
+        ${framework === 'angular' ? `&:first-child > .fab-card-image {` : ''}
+        ${framework !== 'angular' ? `&:first-child {` : ''}
                 border-top-left-radius: ${borderRadius};
                 border-top-right-radius: ${borderRadius};
                 overflow: hidden;
             }
         }
 
-        &:last-child {
-            > .fab-card-image {
+        ${framework === 'angular' ? `&:last-child > .fab-card-image {` : ''}
+        ${framework !== 'angular' ? `&:last-child {` : ''}
                 border-bottom-left-radius: ${borderRadius};
                 border-bottom-right-radius: ${borderRadius};
                 overflow: hidden;
             }
         }
 
-        ${colorModifier(props)}
+        ${colorModifier(params)}
     `
 }
 

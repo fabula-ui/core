@@ -12,6 +12,10 @@ import roundedModifier from './modifiers/rounded.modifier';
 import sizeModifier from './modifiers/size.modifier';
 import wideModifier from './modifiers/wide.modifier';
 
+// Methods
+import getContext from '../../methods/misc/getContext';
+import getFocusGlowColor from '../../methods/color/focusGlowColor';
+
 // External components
 import IconExternalStyles from './external/icon';
 
@@ -19,8 +23,9 @@ const ButtonStyles = params => {
     const { framework, props, utils } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.button;
-    const { border, compact, expand, glow, gradient, outline, rounded, size, smashed, wide } = props;
-    const { borderRadiusDefault, color, focusGlowRadius, fontSize, paddingBottom, paddingLeft, paddingRight, paddingTop } = vars;
+    const { border, color, compact, expand, glow, gradient, outline, rounded, size, smashed, wide } = props;
+    const { borderRadius, focusGlowColor, focusGlowRadius, fontSize, paddingBottom, paddingLeft, paddingRight, paddingTop } = vars;
+    const context = getContext(props);
     const wrapper = framework === 'angular' ? '.fab-button-wrapper' : '&';
 
     return `
@@ -34,9 +39,8 @@ const ButtonStyles = params => {
         .fab-button {
             align-items: center;
             appearance: none;
-            background: ${color};
             border: none;
-            ${smashed ? `border-radius: .33em;` : `border-radius: ${borderRadiusDefault}rem;`}
+            ${smashed ? `border-radius: .33em;` : `border-radius: ${borderRadius};`}
             cursor: pointer;
             display: inline-flex;
             font-size: ${fontSize};
@@ -44,18 +48,18 @@ const ButtonStyles = params => {
             letter-spacing: -.025rem;
             justify-content: center;
             ${smashed ? `min-height: 2rem;` : `min-height: 3rem;`}
-            ${smashed ? `padding-bottom: ${paddingBottom / 2}rem;` : `padding-bottom: ${paddingBottom}rem;`}
-            padding-left: ${smashed ? `1em;` : `${paddingLeft}rem;`}
-            padding-right: ${smashed ? `1em;` : `${paddingRight}rem;`}
-            ${smashed ? `padding-top: ${paddingTop / 2}rem;` : `padding-top: ${paddingTop}rem;`}
+            ${smashed ? `padding-bottom: calc(${paddingBottom} / 2);` : `padding-bottom: ${paddingBottom};`}
+            padding-left: ${smashed ? `1em;` : `${paddingLeft};`}
+            padding-right: ${smashed ? `1em;` : `${paddingRight};`}
+            ${smashed ? `padding-top: calc(${paddingTop} / 2);` : `padding-top: ${paddingTop};`}
             position: relative;
             transition: all .2s ease-in-out;
             ${expand ? `width: 100%;` : ''}
 
             &:before {
                 bottom: 0;
-                border: solid 0;
-                border-radius: ${smashed ? `calc(.33em + ${focusGlowRadius}px);` : `calc(${borderRadiusDefault}rem + ${focusGlowRadius}px);`}
+                border: solid 0 ${getFocusGlowColor(null, context)};
+                border-radius: ${smashed ? `calc(.33em + ${focusGlowRadius}px);` : `calc(${borderRadius} + ${focusGlowRadius}px);`}
                 content: '';
                 display: block;
                 left: 0;
@@ -88,7 +92,7 @@ const ButtonStyles = params => {
         }
 
         ${border ? borderModifier(props) : ''}
-        ${colorModifier(props)}
+        ${color ? colorModifier(props) : ''}
         ${glow ? glowModifier(props) : ''}
         ${gradient ? gradientModifier(props) : ''}
         ${outline ? outlineModifier(props) : ''}

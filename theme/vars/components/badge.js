@@ -3,7 +3,12 @@ import globals from '../globals';
 
 const badge = {
     ...globals,
-    colors
+    colors,
+
+    get color() {
+        return '#FFF'
+    },
+    fontSize: '.75em'
 }
 
 export default badge;

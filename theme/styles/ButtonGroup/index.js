@@ -12,7 +12,7 @@ const ButtonGroupStyles = params => {
     const { framework, props, utils } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.buttonGroup;
-    const { divider, glued } = props;
+    const { dividerColor, glued } = props;
     let wrapper = framework === 'angular' ? '.fab-button-group' : '&';
 
     return `
@@ -35,8 +35,8 @@ const ButtonGroupStyles = params => {
         }
     }
 
-    ${divider ? dividerModifier(props) : ''}
-    ${glued ? gluedModifier(props) : ''}
+    ${dividerColor ? dividerModifier(params) : ''}
+    ${glued ? gluedModifier(params) : ''}
 
     // Utils
     ${utils ? require('../../utils').default(params) : ''}

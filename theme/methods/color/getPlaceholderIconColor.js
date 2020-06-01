@@ -1,13 +1,21 @@
 import Color from 'color';
 
+// Commons
+import { baseLuminosity } from '../../common/color.commons';
+
 const getPlaceholderIconColor = (color, context) => {
     const $color = color ? Color(color).rgb() : Color('#FFF');
-    const intensity = context === 'adapt' ? .25 : .15;
+    const intensity = context === 'adapt' ? .2 : .1;
 
-    if ($color.isLight()) {
+    if ($color.luminosity() > baseLuminosity) {
         return $color.darken(intensity);
     } else {
-        return $color.lighten(intensity + .2);
+        if ($color.isLight()) {
+            return $color.darken(intensity + .1);
+        } else {
+            return $color.lighten(intensity + .1);
+        }
+        
     }
 }
 

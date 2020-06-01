@@ -1,31 +1,39 @@
 // Component commons
 import componentCommons from '../../common/component.commons';
 
+// External
+import BadgeExternalStyles from './external/badge';
+
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
 import roundedModifier from './modifiers/rounded.modifier';
 import sizeModifier from './modifiers/size.modifier';
 
 const AvatarStyles = params => {
-    const {framework, props} = params;
+    const {framework, props, utils} = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.avatar;
     const { fontFamily, fontSize, size } = vars;
+    const wrapper = framework === 'angular' ? '.fab-avatar-wrapper' : '&';
 
     return `
-        .fab-avatar { ${componentCommons} }
+        ${wrapper} { ${componentCommons} }
+
+        ${wrapper} {
+            display: inline-flex;
+            position: relative;
+        }
 
         .fab-avatar {
             background: ${vars.defaultColor};
-            border-radius: ${vars.borderRadiusDefault}rem;
+            border-radius: ${vars.borderRadius};
             color: #FFF;
-            display: flex;
             font-size: 1.25rem;
-            height: ${size}rem;
+            height: ${size};
             font-family: ${fontFamily};
             font-weight: 400;
             position: relative;
-            width: ${size}rem;
+            width: ${size};
         }
 
         .fab-avatar .fab-icon {
@@ -62,6 +70,11 @@ const AvatarStyles = params => {
         ${colorModifier(props)}
         ${roundedModifier()}
         ${sizeModifier(props.size)}
+
+        ${BadgeExternalStyles(params)}
+
+        // Utils
+        ${utils ? require('../../utils').default(params) : ''}
     `
 }
 

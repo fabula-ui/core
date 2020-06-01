@@ -33,7 +33,7 @@ const glowColor = (color, context) => {
     };
 
     if (!color || $color.luminosity() > baseLuminosity) {
-        return $color.fade(fadeIntensity[context].light);
+        return $color.darken(.05);
     } else {
         return $color.fade(fadeIntensity[context].dark);
     }

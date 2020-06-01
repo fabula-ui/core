@@ -1,18 +1,18 @@
+import getNumber from '../methods/misc/getNumber'
+
 const marginUtils = params => {
     const { framework, props } = params;
     const { m, mb, ml, mr, mt, mx, my } = props;
 
-    if (mb) { console.log('mb', mb, framework); }
-
     return `
-        ${framework !== 'angular' ? '& {' : ''}
-        ${m ? `margin: calc(1rem * ${m});` : ''}
-        ${mb ? `margin-bottom: calc(1rem * ${mb});` : ''}
-        ${ml ? `margin-left: calc(1rem * ${ml});` : ''}
-        ${mr ? `margin-right: calc(1rem * ${mr});` : ''}
-        ${mt ? `margin-top: calc(1rem * ${mt});` : ''}
-        ${mx ? `margin-left: calc(1rem * ${mx}); margin-right: calc(1rem * ${mx});` : ''}
-        ${my ? `margin-bottom: calc(1rem * ${my}); margin-top: calc(1rem * ${my});` : ''}
+        ${framework !== 'angular' ? '' : ''}
+        ${m ? `margin: ${getNumber(m, 'rem')};` : ''}
+        ${mb ? `margin-bottom: ${getNumber(mb, 'rem')};` : ''}
+        ${ml ? `margin-left: ${getNumber(ml, 'rem')};` : ''}
+        ${mr ? `margin-right: ${getNumber(mr, 'rem')};` : ''}
+        ${mt ? `margin-top: ${getNumber(mt, 'rem')};` : ''}
+        ${mx ? `margin-left: ${getNumber(mx, 'rem')}; margin-right: ${getNumber(mx, 'rem')};` : ''}
+        ${my ? `margin-bottom: ${getNumber(my, 'rem')}; margin-top: ${getNumber(my, 'rem')};` : ''}
         ${framework !== 'angular' ? '}' : ''}
     `
 }

@@ -15,7 +15,6 @@ const bgColor = (color, context) => {
         } else {
             return $color.lighten(.1);
         }
-        
     } else if (context === 'clear') {
         return 'none';
     } else if (context === 'disabled') {

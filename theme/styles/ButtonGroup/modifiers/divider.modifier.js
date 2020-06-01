@@ -1,14 +1,16 @@
-import dividerColor from '../../../methods/color/dividerColor';
-
 // Methods
+import getBgColor from '../../../methods/color/bgColor';
+import getDividerColor from '../../../methods/color/dividerColor';
+import getColor from '../../../methods/color/getColor';
 import getContext from '../../../methods/misc/getContext';
 
-const dividerModifier = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.button;
-    const color = vars.colors[props.color];
+const dividerModifier = params => {
+    const { framework, props } = params;
+    const { dividerColor, glued, outline } = props;
+    const { colors } = window.__FABTheme.variables.components.button;
+    
+    const colorName = getColor(dividerColor, colors);
     const context = getContext(props);
-    const { framework, glued, outline } = props;
     const wrapper = framework === 'angular' ? '.fab-button-group' : '&';
     const buttonWrapper = framework === 'angular' ? 'fab-button' : '.fab-button-wrapper';
 
@@ -16,14 +18,11 @@ const dividerModifier = props => {
         ${wrapper} {
             .fab-button-wrapper {
                 ${outline ? `border-right: none;` : ''}
-
-                .fab-button {
-                    ${outline ? `margin-right: -1px;` : ''}
-                }
             }
 
             ${buttonWrapper}:not(:last-child) .fab-button {
-                ${glued ? `border-right: solid 1px ${dividerColor(color, context)};` : ''}
+                ${glued ? `border-right: solid 1px;` : ''}
+                border-right-color: ${colors[dividerColor] ? getDividerColor(colorName, context) : getBgColor(colorName, context)};
             }
         }
     `

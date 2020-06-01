@@ -5,8 +5,8 @@ const wideModifier = () => {
 
     return `
         .fab-button {
-            padding-left: ${paddingLeft * wideMultiplier}rem;
-            padding-right: ${paddingRight * wideMultiplier}rem;
+            padding-left: calc(${paddingLeft} * ${wideMultiplier});
+            padding-right: calc(${paddingRight} * ${wideMultiplier});
         }
     `;
 }
