@@ -6,7 +6,7 @@ import markerModifier from './modifiers/marker.modifier';
 
 const AlertStyles = params => {
     const { framework, props } = params;
-    const { marker } = props;
+    const { color, marker } = props;
     const wrapper = framework === 'angular' ? '.fab-alert-wrapper' : '&';
 
     return `
@@ -16,11 +16,13 @@ const AlertStyles = params => {
             border-radius: .5rem;
             display: flex;
             padding: 1rem;
+            position: relative;
         }
 
         .fab-alert__stage {
             display: flex;
             flex-direction: column;
+            width: 100%;
 
             &:not(:first-child) {
                 margin-left: .75em;

@@ -1,10 +1,11 @@
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
 import UtilsStyles from '../../utils';
+import sizeModifier from './modifiers/size.modifier';
 
 const IconStyles = params => {
     const { framework, props } = params;
-    const { color, name, utils } = props;
+    const { color, size, utils } = props;
     const element = framework === 'angular' ? '.fab-icon' : '&';
 
     return `
@@ -39,6 +40,7 @@ const IconStyles = params => {
         }
 
         ${color ? colorModifier(params) : ''}
+        ${size ? sizeModifier(params) : ''}
         ${utils ? UtilsStyles(params) : ''}
     `;
 }
