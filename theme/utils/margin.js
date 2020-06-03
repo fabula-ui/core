@@ -1,4 +1,4 @@
-import getNumber from '../methods/misc/getNumber'
+import getNumber from '../methods/misc/getNumber';
 
 const marginUtils = params => {
     const { framework, props } = params;

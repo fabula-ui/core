@@ -54,7 +54,7 @@ const ButtonStyles = params => {
             ${smashed ? `padding-top: calc(${paddingTop} / 2);` : `padding-top: ${paddingTop};`}
             position: relative;
             transition: all .2s ease-in-out;
-            ${expand ? `width: 100%;` : ''}
+            width: 100%;
 
             &:before {
                 bottom: 0;
@@ -92,7 +92,7 @@ const ButtonStyles = params => {
         }
 
         ${border ? borderModifier(props) : ''}
-        ${color ? colorModifier(props) : ''}
+        ${colorModifier(props)}
         ${glow ? glowModifier(props) : ''}
         ${gradient ? gradientModifier(props) : ''}
         ${outline ? outlineModifier(props) : ''}

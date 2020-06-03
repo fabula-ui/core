@@ -1,6 +1,5 @@
 const getColor = (color, colors) => {
     const paletteColor = colors[color];
-    let handledColor;
 
     if (!color) {
         return null;

@@ -51,18 +51,33 @@ const ToastStyles = params => {
             letter-spacing: -.025em;
             padding: 1em;
             position: relative;
+            width: 100%;
             z-index: 1;
+        }
+
+        .fab-toast__message {
+            flex-grow: 1;
         }
 
         .fab-toast__message:not(:last-child) {
             margin-right: 1em;
         }
+
+        // External components
         
-        .fab-toast .fab-button[data-close-button] {
+        .fab-button[data-close-button] {
             border-radius: .4em;
             min-height: initial;
             padding-bottom: .4em;
             padding-top: .4em;
+        }
+
+        .fab-icon {
+            margin-right: .75em;
+        }
+
+        .fab-link {
+            font-size: .9em;
         }
 
         ${colorModifier(props)}

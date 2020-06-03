@@ -9,6 +9,7 @@ import fileInput from './fileInput';
 import icon from './icon';
 import input from './input';
 import inputGroup from './inputGroup';
+import link from './link';
 import list from './list';
 import modal from './modal';
 import modalSection from './modalSection';
@@ -33,6 +34,7 @@ const components = {
     icon,
     input,
     inputGroup,
+    link,
     list,
     modal,
     modalSection,

@@ -19,7 +19,7 @@ const colorModifier = props => {
         .fab-alert {
             background: ${bgColor(userColor, context)};
             border: solid 1px;
-            border-color: ${clear || outline ? `${getBorderColor(userColor, context)};` : `${getDividerColor(userColor, context)};`}
+            border-color: ${outline ? `${getBorderColor(userColor, context)};` : `${getDividerColor(userColor, context)};`}
             ${glow ? `box-shadow: 0 2px 2px ${glowColor(userColor || baseColor, context)};` : ''}
             color: ${textColor(userColor, context)};
         }

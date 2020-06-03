@@ -9,13 +9,7 @@ import bgColor from './bgColor';
 const textColor = (color, context) => {
     const $color = color ? Color(color).rgb() : Color('#FFF');
 
-    if (context === 'clear') {
-        if (!color) {
-            return textColor(color, 'fill');
-        } else {
-            return $color;
-        }
-    } else if (context === 'faded') {
+    if (context === 'faded') {
         return $color.darken(.4);
     } else if (context === 'fill' || context === 'gradient') {
         if ($color.luminosity() > baseLuminosity) {
@@ -29,11 +23,11 @@ const textColor = (color, context) => {
         } else {
             return bgColor(color, 'fill');
         }
-    } else if (context === 'outline') {
-        if (color) {
-            return $color;
-        } else {
+    } else if (context === 'clear' || context === 'outline') {
+        if (!color) {
             return textColor(color, 'fill');
+        } else {
+            return $color;
         }
     }
 }

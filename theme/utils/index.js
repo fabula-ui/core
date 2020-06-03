@@ -6,6 +6,7 @@ import growUtils from './grow';
 import marginUtils from './margin';
 import paddingUtils from './padding';
 import rowUtils from './row';
+import sizeUtils from './size';
 
 const UtilsStyles = params => {
     const { props } = params;
@@ -18,6 +19,7 @@ const UtilsStyles = params => {
         ${marginUtils(params)}
         ${paddingUtils(props)}
         ${rowUtils(props)}
+        ${sizeUtils(params)}
     `;
 }
 

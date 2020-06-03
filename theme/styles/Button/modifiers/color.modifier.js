@@ -1,39 +1,42 @@
 import activeColor from '../../../methods/color/activeColor';
-import bgColor from '../../../methods/color/bgColor';
+import getBgColor from '../../../methods/color/bgColor';
 import focusGlowColor from '../../../methods/color/focusGlowColor';
 import getColor from '../../../methods/color/getColor';
 import getContext from '../../../methods/misc/getContext';
 import hoverColor from '../../../methods/color/hoverColor';
 import hoverTextColor from '../../../methods/color/hoverTextColor';
-import textColor from '../../../methods/color/textColor';
+import getTextColor from '../../../methods/color/textColor';
 
 const colorModifier = props => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.button;
     const { colors } = vars;
 
-    const baseColor = vars.color;
-    const userColor = props.color;
+    // const baseColor = vars.color;
+    // const userColor = props.color;
 
-    const colorName = getColor(userColor || baseColor, colors);
+    const baseBgColor = getColor(vars.color, colors);
     const context = getContext(props);
+    const textColor = getColor(props.textColor || vars.textColor, colors);
+    const userBgColor = getColor(props.color, colors);
 
     return `
         .fab-button {
-            background: ${bgColor(colorName, context)};
-            color: ${textColor(colorName, context)};
+            background: ${getBgColor(userBgColor || baseBgColor, context)};
+            color: ${props.color ? `${getTextColor(userBgColor, context)}` : `${textColor}`};
 
             &:before {
-                border-color: ${focusGlowColor(colorName, context)};
+                border-color: ${focusGlowColor(userBgColor || baseBgColor, context)};
             }
 
             &:hover:not([disabled]) {
-                ${context !== 'gradient' ? `background: ${hoverColor(colorName, context)};` : ''}
-                color: ${hoverTextColor(colorName, context)};
+                ${context !== 'gradient' ? `background: ${hoverColor(userBgColor || baseBgColor, context)};` : ''}
+                color: ${hoverTextColor(textColor, context)};
+                color: ${props.color ? `${hoverTextColor(userBgColor, context)}` : textColor};
             }
 
             &:active:not([disabled]) {
-                ${context !== 'gradient' ? `background: ${activeColor(colorName, context)};` : ''}
+                ${context !== 'gradient' ? `background: ${activeColor(userBgColor || baseBgColor, context)};` : ''}
             }
         }
     `;

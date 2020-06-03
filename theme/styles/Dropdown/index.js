@@ -7,11 +7,17 @@ const DropdownStyles = params => {
     const vars = theme.variables.components.dropdown;
     const listVars = theme.variables.components.list;
     const { borderRadius } = vars;
+    const wrapper = framework === 'angular' ? '.fab-dropdown-wrapper' : '&';
 
     return `
-    .fab-dropdown { ${componentCommons} }
+    ${wrapper} { ${componentCommons} }
+    ${wrapper} {
+        display: inline-flex;
+    }
+
     .fab-dropdown {
         position: relative;
+        width: 100%;
     }
 
     .fab-dropdown[data-open='true'] {
@@ -26,12 +32,18 @@ const DropdownStyles = params => {
         appearance: none;
         background: none;
         border: none;
+        color: inherit;
         padding: ${listVars.padding};
         text-align: left;
 
         &:focus {
             outline: none;
         }
+    }
+
+    button.fab-dropdown__item {
+        cursor: pointer;
+        width: 100%;
     }
     
     .fab-dropdown__menu {
@@ -42,7 +54,9 @@ const DropdownStyles = params => {
         margin-top: 5px;
         min-width: 100%;
         opacity: 0;
+        overflow: hidden;
         position: absolute;
+        text-align: left;
         top: 100%;
         transition: all .2s ease-in-out;
         transform: translate(0, -10px);
@@ -50,11 +64,36 @@ const DropdownStyles = params => {
         z-index: 9999;
     }
 
-    .fab-dropdown__menu .fab-list-item {
-        padding: 0;
+    .fab-dropdown-toggle__label {
+        flex-grow: 1;
+        text-align: left;
     }
 
-    .fab-dropdown__menu .fab-text {
+    // External components
+
+    .fab-dropdown[data-open='true'] .fab-icon[data-toggle-icon] {
+        transform: rotateZ(180deg);
+    }
+
+    .fab-dropdown .fab-list-item {
+        padding: 0;
+        width: 100%;
+    }
+
+    .fab-dropdown .fab-list-item .fab-button-wrapper {
+        width: 100%;
+    }
+
+    .fab-dropdown .fab-list-item .fab-button {
+        border-radius: 0;
+        justify-content: flex-start;
+
+        &:focus:before {
+            border: none;
+        }
+    }
+
+    .fab-drodpown .fab-text {
         white-space: nowrap;
     }
     `

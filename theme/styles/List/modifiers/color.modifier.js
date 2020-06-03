@@ -17,6 +17,10 @@ const colorModifier = params => {
             color: ${textColor(color, 'fill')};
         }
 
+        .fab-list-item {
+            color: inherit;
+        }
+
         ${wrapper} .fab-text[data-inherit-color='true'] {
             color: inherit;
             
