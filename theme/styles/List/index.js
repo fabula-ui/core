@@ -15,9 +15,16 @@ const ListStyles = params => {
     ${wrapper} { ${componentCommons} }
 
     .fab-list-item {
+        appearance: none;
+        border: none;
         padding: 1rem 0;
         ${padding ? `padding-left: 1rem;`  : ''}
         ${padding ? `padding-right: 1rem;` : ''}
+        width: 100%;
+    }
+
+    .fab-list-item[data-button='true'] {
+        padding: 0;
     }
 
     ${colorModifier(params)}

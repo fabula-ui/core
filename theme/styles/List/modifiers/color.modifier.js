@@ -1,7 +1,7 @@
 import dividerColor from '../../../methods/color/dividerColor';
 import stripeColor from '../../../methods/color/stripeColor';
 import textColor from '../../../methods/color/textColor';
-
+import getHoverTextColor from '../../../methods/color/hoverTextColor';
 
 const colorModifier = params => {
     const {framework, props} = params;

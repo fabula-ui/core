@@ -18,9 +18,10 @@ const TagStyles = params => {
         .fab-tag {
             align-items: center;
             border-radius: ${borderRadius};
-            display: block;
+            display: flex;
             font-size: ${fontSize};
             font-weight: 500;
+            line-height: 1;
             ${!anchor && !button ? `padding: ${paddingY} ${paddingX};` : ''}
             width: 100%;
 

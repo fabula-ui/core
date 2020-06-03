@@ -23,7 +23,7 @@ const ButtonStyles = params => {
     const { framework, props, utils } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.button;
-    const { border, color, compact, expand, glow, gradient, outline, rounded, size, smashed, wide } = props;
+    const { align, border, color, compact, expand, glow, gradient, outline, rounded, size, smashed, wide } = props;
     const { borderRadius, focusGlowColor, focusGlowRadius, fontSize, paddingBottom, paddingLeft, paddingRight, paddingTop } = vars;
     const context = getContext(props);
     const wrapper = framework === 'angular' ? '.fab-button-wrapper' : '&';
@@ -46,12 +46,15 @@ const ButtonStyles = params => {
             font-size: ${fontSize};
             font-weight: 600;
             letter-spacing: -.025rem;
-            justify-content: center;
+            ${align === 'center' ? `justify-content: center;` : ''}
+            ${align === 'left' || align === 'start' ? `justify-content: flex-start;` : ''}
+            ${align === 'right' || align === 'end' ? `justify-content: flex-end;` : ''}
             ${smashed ? `min-height: 2rem;` : `min-height: 3rem;`}
             ${smashed ? `padding-bottom: calc(${paddingBottom} / 2);` : `padding-bottom: ${paddingBottom};`}
             padding-left: ${smashed ? `1em;` : `${paddingLeft};`}
             padding-right: ${smashed ? `1em;` : `${paddingRight};`}
             ${smashed ? `padding-top: calc(${paddingTop} / 2);` : `padding-top: ${paddingTop};`}
+            ${!!align ? `text-align: ${align};` : ''}
             position: relative;
             transition: all .2s ease-in-out;
             width: 100%;
