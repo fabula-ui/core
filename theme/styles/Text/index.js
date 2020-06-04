@@ -29,6 +29,10 @@ const TextStyles = params => {
         line-height: 1.5;
     }
 
+    ${wrapper} .fab-text:not([data-color]) {
+        color: inherit;
+    }
+
     ${wrapper} > p,
     ${wrapper} > small,
     ${wrapper} > span,

@@ -1,12 +1,14 @@
 import bgColor from '../../../methods/color/bgColor';
 import borderColor from '../../../methods/color/borderColor';
-import focusGlowColor from '../../../methods/color/focusGlowColor';
+import getFocusGlowColor from '../../../methods/color/focusGlowColor';
+import getColor from '../../../methods/color/getColor';
 
 const colorModifier = props => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.input;
     const { colors } = vars;
-    const color = colors[props.color];
+    const color = getColor(props.color || vars.color, colors);
+    const focusGlowColor = props.color ? color : vars.focusGlowColor;
 
     return `
         .fab-input {
@@ -19,7 +21,7 @@ const colorModifier = props => {
 
         .fab-input[data-focus='true'] {
             &:before {
-                border-color: ${focusGlowColor(color, 'faded')};
+                border-color: ${getFocusGlowColor(focusGlowColor, 'faded')};
             }
         }
     `;

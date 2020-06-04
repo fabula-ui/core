@@ -6,11 +6,11 @@ const glowModifier = props => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.input;
     const { colors } = vars;
-    const color = getColor(props.color, colors);
+    const color = getColor(props.color || vars.color, colors);
     const context = getContext(props);
 
     return `
-        .fab-input__field {
+        .fab-input {
             box-shadow: 0 2px 2px ${glowColor(color, context)};
         }
     `;

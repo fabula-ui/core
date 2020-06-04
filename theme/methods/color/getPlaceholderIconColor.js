@@ -3,19 +3,22 @@ import Color from 'color';
 // Commons
 import { baseLuminosity } from '../../common/color.commons';
 
+// Methods
+import getBgColor from '../../methods/color/bgColor';
+
 const getPlaceholderIconColor = (color, context) => {
     const $color = color ? Color(color).rgb() : Color('#FFF');
-    const intensity = context === 'adapt' ? .2 : .1;
+    const $bgColor = color ? Color(getBgColor(color, context)) : Color('#FFF');
+    // const intensity = context === 'adapt' ? .15 : .15;
 
     if ($color.luminosity() > baseLuminosity) {
-        return $color.darken(intensity);
+        return $bgColor.darken(.1);
     } else {
         if ($color.isLight()) {
-            return $color.darken(intensity + .1);
+            return $bgColor.darken(.15);
         } else {
-            return $color.lighten(intensity + .1);
+            return $bgColor.lighten(.15);
         }
-        
     }
 }
 

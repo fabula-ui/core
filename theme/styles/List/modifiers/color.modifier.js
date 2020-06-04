@@ -1,15 +1,17 @@
 import dividerColor from '../../../methods/color/dividerColor';
-import stripeColor from '../../../methods/color/stripeColor';
+import getStripeColor from '../../../methods/color/stripeColor';
 import textColor from '../../../methods/color/textColor';
 import getHoverTextColor from '../../../methods/color/hoverTextColor';
+import getContext from '../../../methods/misc/getContext';
 
 const colorModifier = params => {
     const {framework, props} = params;
     const theme = window.__FABTheme;
-    const vars = theme.variables.components.text;
-    const { colors } = vars;
+    const vars = theme.variables.components.list;
+    const { colors, stripeColor } = vars;
     const color = colors[props.color];
-    const wrapper = framework === 'angular' ? '.fab-list' : '&';
+    const context = getContext(props);
+    const wrapper = framework === 'angular' ? '.fab-list-wrapper' : '&';
 
     return `
         ${wrapper} {
@@ -21,7 +23,7 @@ const colorModifier = params => {
             color: inherit;
         }
 
-        ${wrapper} .fab-text[data-inherit-color='true'] {
+        ${wrapper} .fab-text:not([data-color]) {
             color: inherit;
             
             &[data-aux='true'] {
@@ -31,12 +33,13 @@ const colorModifier = params => {
 
         ${props.framework === 'angular' ? `fab-list-item:not(:last-child) .fab-list-item,` : ''}
         .fab-list-item:not(:last-child) {
-            ${!props.striped ? `border-bottom: solid 1px ${dividerColor(color, 'fill')};` : ''}
+            ${!props.striped ? `border-bottom: solid 1px ${dividerColor(color, context)};` : ''}
         }
 
         ${props.framework === 'angular' ? `fab-list-item:nth-child(odd):not(:only-child) .fab-list-item,` : ''}
         .fab-list-item:nth-child(odd):not(:only-child) {
-            ${props.striped ? `background-color: ${stripeColor(color, 'fill')};` : ''}
+            ${!color && props.striped ? `background-color: ${stripeColor}` : ''}
+            ${color && props.striped ? `background-color: ${getStripeColor(color, context)};` : ''}
         }
     `;
 }

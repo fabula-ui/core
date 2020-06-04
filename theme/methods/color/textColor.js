@@ -11,7 +11,7 @@ const textColor = (color, context) => {
 
     if (context === 'faded') {
         return $color.darken(.4);
-    } else if (context === 'fill' || context === 'gradient') {
+    } else if (context === 'darken' || context === 'fill' || context === 'gradient') {
         if ($color.luminosity() > baseLuminosity) {
             return $color.darken(.75);
         } else {

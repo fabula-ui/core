@@ -10,6 +10,7 @@ import sizeUtils from './size';
 
 const UtilsStyles = params => {
     const { props } = params;
+    const { ov, overflow } = props;
 
     return `
         ${alignUtils(params)}
@@ -20,6 +21,11 @@ const UtilsStyles = params => {
         ${paddingUtils(props)}
         ${rowUtils(props)}
         ${sizeUtils(params)}
+        
+        [data-fab-component] {
+            ${!!ov || !!overflow ? `overflow: ${ov || overflow};` : ''}
+        }
+        
     `;
 }
 

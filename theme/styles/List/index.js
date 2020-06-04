@@ -9,7 +9,7 @@ const ListStyles = params => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.list;
     const { padding } = props;
-    const wrapper = framework === 'angular' ? '.fab-list' : '&';
+    const wrapper = framework === 'angular' ? '.fab-list-wrapper' : '&';
 
     return `
     ${wrapper} { ${componentCommons} }

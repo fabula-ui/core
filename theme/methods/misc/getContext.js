@@ -1,6 +1,10 @@
 const getContext = props => {
-    if (props.clear) {
+    if (props.adapt || props.adaptColor) {
+        return 'adapt';
+    } else if (props.clear) {
         return 'clear';
+    } if (props.darken) {
+        return 'darken'
     } else if (props.faded) {
         return 'faded';
     } else if (props.gradient) {

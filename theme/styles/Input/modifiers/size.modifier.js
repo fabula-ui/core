@@ -1,24 +1,20 @@
-const sizeModifier = size => {
+const sizeModifier = params => {
+    const { framework, props } = params;
+    const { size } = props;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.input;
-    const { borderRadius, fontSize, minHeight, padding } = vars;
-    const sizeMultiplier = vars[`sizeMultiplier__${size}`];
+    const { borderRadius, fontSize, minHeight, sizeMultipliers } = vars;
+    const sizeMultiplier = sizeMultipliers[size || 'md'];
+    const wrapper = framework === 'angular' ? '.fab-input-wrapper' : '&';
 
     return `
-        .fab-input-wrapper {
+        ${wrapper} {
             font-size: calc(${fontSize} * ${sizeMultiplier});
         }
 
-        .fab-input {
-            
-            
-
-            input {
-                border-radius: calc(${borderRadius} * ${sizeMultiplier});
-                min-height: calc(${minHeight} * ${sizeMultiplier});
-                padding-left: calc(${padding} * ${sizeMultiplier});
-                padding-right: calc(${padding} * ${sizeMultiplier});
-            }
+        .fab-input__field {
+            border-radius: calc(${borderRadius} * ${sizeMultiplier});
+            min-height: calc(${minHeight} * ${sizeMultiplier});
         }
     `;
 }

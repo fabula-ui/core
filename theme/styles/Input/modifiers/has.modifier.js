@@ -14,6 +14,7 @@ const hasModifier = has => {
         .fab-input {
             background-color: ${bgColor(color, 'disabled')};
             border-color: ${borderColor(color, 'faded')};
+            color: ${bgColor(color, 'fill')};
 
             input::placeholder {
                 color: ${placeholderColor(color)};

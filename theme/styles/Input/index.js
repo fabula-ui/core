@@ -12,12 +12,14 @@ const InputStyles = params => {
     const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.input;
-    const { expand, glow, has, messageColor, size } = props;
+    const { expand, glow, has, icon, iconEnd, iconStart, messageColor, size } = props;
     const { borderRadius, disabledOpacity, focusGlowRadius, fontSize, minHeight, padding, placeholderColor, textColor } = vars;
+    const wrapper = framework === 'angular' ? '.fab-input-wrapper' : '&';
 
     return `
-    .fab-input-wrapper {${componentCommons}}
-    .fab-input-wrapper {
+    ${wrapper} {${componentCommons}}
+
+    ${wrapper} {
         font-size: ${fontSize};
     }
 
@@ -25,6 +27,8 @@ const InputStyles = params => {
         background: #FFF;
         border-radius: ${borderRadius};
         border: solid 1px transparent;
+        color: ${textColor};
+        font-size: ${fontSize};
         position: relative;
         width: ${expand ? '100%' : 'auto'};
 
@@ -61,10 +65,11 @@ const InputStyles = params => {
         appearance: none;
         background: none;
         border: none;
-        color: ${textColor};
+        color: inherit;
+        font-size: inherit;
         min-height: ${minHeight};
-        padding-left: ${padding};
-        padding-right: ${padding};
+        padding-left: ${icon || iconStart ? `calc(${padding} + 2em)` : padding};
+        padding-right: ${iconEnd ? `calc(${padding} + 2em)` : padding};
         position: relative;
         width: 100%;
 
@@ -79,14 +84,31 @@ const InputStyles = params => {
 
     .fab-input__message {
         color: ${textColor};
+        display: block;
         font-size: .85em;
+        margin-top: .5em;
+    }
+
+    // External components
+    ${wrapper} .fab-icon {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    ${wrapper} .fab-icon[data-placement='end'] {
+        right: ${padding};
+    }
+
+    ${wrapper} .fab-icon[data-placement='start'] {
+        left: ${padding};
     }
 
     ${colorModifier(props)}
     ${glow ? glowModifier(props) : ''}
     ${!!has ? hasModifier(has) : ''}
     ${!!messageColor ? messageColorModifier(messageColor) : ''}
-    ${!!size ? sizeModifier(size) : ''}
+    ${!!size ? sizeModifier(params) : ''}
     `
 };
 

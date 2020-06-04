@@ -11,9 +11,9 @@ const stripeColor = (color, context) => {
     const $bgColor = color ? Color(_bgColor) : Color('#FFF');
 
     if ($bgColor.luminosity() > baseLuminosity) {
-        return $bgColor.mix(Color('#000'), .03);
+        return $bgColor.darken(.03);
     } else {
-        return $bgColor.mix(Color('#000'), .05);
+        return $bgColor.darken(.05);
     }
 
 }

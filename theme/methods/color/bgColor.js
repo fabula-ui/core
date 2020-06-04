@@ -17,6 +17,8 @@ const bgColor = (color, context) => {
         }
     } else if (context === 'clear') {
         return 'none';
+    } else if (context === 'darken') {
+        return $color.darken(.2);
     } else if (context === 'disabled') {
         return $color.mix(Color('white'), .95);
     } else if (context === 'faded') {
@@ -29,6 +31,8 @@ const bgColor = (color, context) => {
         return textColor(color, 'fill');
     } else if (context === 'outline') {
         return 'none';
+    } else if (context === 'lighten') {
+        return $color.lighten(.2);
     }
 }
 
