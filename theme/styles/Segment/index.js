@@ -1,23 +1,25 @@
 import colorModifier from './modifiers/color.modifier';
 
 const SegmentStyles = params => {
-    const { props } = params;
+    const { framework, props } = params;
     const { rounded } = props;
+    const wrapper = framework === 'angular' ? '.fab-segment' : '&';
 
     return `
-        .fab-segment {
+        ${wrapper} {
             ${rounded ? `border-radius: 5rem;` : ''}
             font-size: .9rem;
             font-weight: 500;
             overflow: hidden;
         }
 
-        .fab-segment > a,
-        .fab-segment > button {
+        ${wrapper} > a,
+        ${wrapper} > button {
             appearance: none;
             background: none;
             border: none;
             color: inherit;
+            cursor: pointer;
             font-size: inherit;
             font-weight: inherit;
             padding: .75rem 1.5rem;
@@ -29,7 +31,7 @@ const SegmentStyles = params => {
             }
         }
 
-        ${colorModifier(props)}
+        ${colorModifier(params)}
     `;
 }
 

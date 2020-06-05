@@ -21,7 +21,6 @@ const InputStyles = params => {
 
     ${wrapper} {
         font-size: ${fontSize};
-        min-height: 3rem;
     }
 
     .fab-input { 

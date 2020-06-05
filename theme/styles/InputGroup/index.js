@@ -1,6 +1,9 @@
 // Component commons
 import componentCommons from '../../common/component.commons';
 
+// Methods
+import getNumber from '../../methods/misc/getNumber';
+
 // Utils
 import gluedModifier from './modifiers/glued.modifier';
 
@@ -27,8 +30,8 @@ const InputGroupStyles = params => {
     }
     
     .fab-input-group > *:not(:last-child) {
-        ${flow === 'horizontal' ? `margin-right: ${props.spacing || spacing}` : ''};
-        ${flow === 'vertical' ? `margin-bottom: ${props.spacing || spacing}` : ''};
+        ${flow === 'horizontal' ? `margin-right: ${getNumber(props.spacing, 'rem') || spacing}` : ''};
+        ${flow === 'vertical' ? `margin-bottom: ${getNumber(props.spacing, 'rem') || spacing}` : ''};
     }
 
     .fab-input-group .fab-input-wrapper {

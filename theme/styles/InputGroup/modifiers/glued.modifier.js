@@ -57,10 +57,6 @@ const gluedModifier = props => {
             ${flow === 'horizontal' ? `margin-right: -1px;` : ''}
             ${flow === 'vertical' ? `margin-bottom: -1px;` : ''}
         }
-
-        .fab-input-group .fab-dropdown-toggle {
-            height: 100%;
-        }
     `;
 }
 

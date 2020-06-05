@@ -7,7 +7,8 @@ const sizeModifier = props => {
     const { borderRadius, focusGlowRadius, minHeight, paddingBottom, fontSize, paddingLeft, paddingRight, paddingTop, sizeMultipliers } = vars;
     const multiplier = sizeMultipliers[size];
 
-    return `.fab-button {
+    return `
+        .fab-button {
                 font-size: calc(${fontSize} * ${multiplier});
                 min-height: calc(${minHeight} * ${multiplier});
             }

@@ -5,11 +5,13 @@ import getContext from '../../../methods/misc/getContext';
 import getTextColor from '../../../methods/color/textColor';
 
 // Exportable
-const colorModifier = props => {
+const colorModifier = params => {
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.segment;
     const { active, activeColor, rounded, type } = props;
     const { colors } = vars;
+    const wrapper = framework === 'angular' ? '.fab-segment' : '&';
 
     // Element vars
     const { activeFillColor, activeTextColor, inactiveTextColor__hover, inactiveFillColor, inactiveTextColor } = vars;
@@ -41,22 +43,22 @@ const colorModifier = props => {
     };
 
     return `
-    .fab-segment {
+    ${wrapper} {
         ${rounded ? `border: solid 1px transparent;` : ''}
     }
 
-    .fab-segment[data-active='true'] {
+    ${wrapper}[data-active='true'] {
         border-color: ${styleProps.dividerColor};
     }
 
-    .fab-segment > a,
-    .fab-segment > button {
+    ${wrapper} > a,
+    ${wrapper} > button {
         background-color: ${styleProps.base.inactiveFillColor};
         color: ${styleProps.base.inactiveTextColor};
     }
 
-    .fab-segment[data-active='false'] > a,
-    .fab-segment[data-active='false'] > button {
+    ${wrapper}[data-active='false'] > a,
+    ${wrapper}[data-active='false'] > button {
         &:hover {
             color: ${styleProps.hover.inactiveTextColor};
             ${color ? `opacity: .9;` : ''}
@@ -68,14 +70,14 @@ const colorModifier = props => {
     }
 
     // Active
-    .fab-segment[data-active='true'] > a,
-    .fab-segment[data-active='true'] > button {
+    ${wrapper}[data-active='true'] > a,
+    ${wrapper}[data-active='true'] > button {
         background-color: ${styleProps.base.activeFillColor};
         color: ${styleProps.base.activeTextColor};
     }
 
     &:not(:last-child) > .fab-segment,
-    .fab-segment:not(:last-child) {
+    ${wrapper}:not(:last-child) {
         ${!rounded ? `border-right: solid 1px ${styleProps.dividerColor};` : ''}
     }
     `
