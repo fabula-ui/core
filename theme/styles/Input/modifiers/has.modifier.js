@@ -4,11 +4,14 @@ import focusGlowColor from '../../../methods/color/focusGlowColor';
 import placeholderColor from '../../../methods/color/placeholderColor';
 import textColor from '../../../methods/color/textColor';
 
-const hasModifier = has => {
+const hasModifier = params => {
+    const { framework, props } = params;
+    const { has } = props;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.input;
     const { colors } = vars;
     const color = colors[has];
+    const wrapper = framework === 'angular' ? '.fab-input-wrapper' : '&';
 
     return `
         .fab-input {
@@ -27,7 +30,7 @@ const hasModifier = has => {
             }
         }
 
-        .fab-input__message {
+        ${wrapper} .fab-text {
             color: ${textColor(color, 'clear')};
         }
     `;

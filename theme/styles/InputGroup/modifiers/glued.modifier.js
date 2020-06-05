@@ -1,9 +1,24 @@
 const gluedModifier = props => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.input;
-    const {flow} = props;
+    const { flow } = props;
 
     return `
+        .fab-input-group > * {
+            align-self: stretch;
+        }
+
+        .fab-input-group .fab-button:focus,
+        .fab-input-group .fab-input[data-focus='true'] {
+            z-index: 1;
+        }
+
+        .fab-input-group .fab-button,
+        .fab-input-group .fab-dropdown-toggle,
+        .fab-input-group .fab-dropdown-toggle .fab-button-wrapper {
+            height: 100%;
+        }
+    
         .fab-input-group > *:first-child:not(:only-child) {
             .fab-button,
             .fab-button:before,
@@ -36,15 +51,15 @@ const gluedModifier = props => {
                 border-top-left-radius: 0;
                 ${flow === 'vertical' ? `border-top-right-radius: 0;` : ''}
             }
-
-            .fab-button:before {
-                ${flow === 'horizontal' ? `border-left: none;` : ''}
-            }
         }
 
         .fab-input-group > *:not(:last-child) {
             ${flow === 'horizontal' ? `margin-right: -1px;` : ''}
             ${flow === 'vertical' ? `margin-bottom: -1px;` : ''}
+        }
+
+        .fab-input-group .fab-dropdown-toggle {
+            height: 100%;
         }
     `;
 }

@@ -2,6 +2,7 @@ import bgColor from '../../../methods/color/bgColor';
 import borderColor from '../../../methods/color/borderColor';
 import getFocusGlowColor from '../../../methods/color/focusGlowColor';
 import getColor from '../../../methods/color/getColor';
+import getPlaceholderColor from '../../../methods/color/placeholderColor';
 
 const colorModifier = props => {
     const theme = window.__FABTheme;
@@ -23,6 +24,10 @@ const colorModifier = props => {
             &:before {
                 border-color: ${getFocusGlowColor(focusGlowColor, 'faded')};
             }
+        }
+
+        .fab-input__password-toggle {
+            color: ${getPlaceholderColor(color, 'fill')};
         }
     `;
 }

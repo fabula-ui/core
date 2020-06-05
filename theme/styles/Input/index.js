@@ -21,6 +21,7 @@ const InputStyles = params => {
 
     ${wrapper} {
         font-size: ${fontSize};
+        min-height: 3rem;
     }
 
     .fab-input { 
@@ -82,15 +83,36 @@ const InputStyles = params => {
         }
     }
 
-    .fab-input__message {
-        color: ${textColor};
-        display: block;
-        font-size: .85em;
-        margin-top: .5em;
+    .fab-input__password-toggle {
+        appearance: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        height: 100%;
+        line-height: 1;
+        padding: 0 ${padding};
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        transition: all .2s ease-in-out;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            opacity: .7;
+        }
+
+        &:active {
+            opacity: .9;
+        }
     }
 
     // External components
-    ${wrapper} .fab-icon {
+    ${wrapper} .fab-icon[data-placement] {
         position: absolute;
         top: 50%;
         transform: translate(0, -50%);
@@ -104,10 +126,16 @@ const InputStyles = params => {
         left: ${padding};
     }
 
+    ${wrapper} .fab-text {
+        display: block;
+        font-size: .85em;
+        margin-top: .5em;
+    }
+
     ${colorModifier(props)}
     ${glow ? glowModifier(props) : ''}
-    ${!!has ? hasModifier(has) : ''}
-    ${!!messageColor ? messageColorModifier(messageColor) : ''}
+    ${!!has ? hasModifier(params) : ''}
+    ${!!messageColor ? messageColorModifier(params) : ''}
     ${!!size ? sizeModifier(params) : ''}
     `
 };

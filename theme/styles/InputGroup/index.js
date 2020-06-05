@@ -10,10 +10,13 @@ const InputGroupStyles = params => {
     const vars = theme.variables.components.input;
     const { flow, glued } = props;
     const { spacing } = vars;
+    const {wrapper} = framework ? `.fab-input-group-wrapper` : '&';
 
     return `
-    .fab-input-group {${componentCommons}}
+    ${wrapper} {${componentCommons}}
+
     .fab-input-group {
+        align-items: flex-start;
         display: flex;
         flex-direction: ${flow === 'horizontal' ? 'row' : 'column'};
     }
@@ -26,6 +29,10 @@ const InputGroupStyles = params => {
     .fab-input-group > *:not(:last-child) {
         ${flow === 'horizontal' ? `margin-right: ${props.spacing || spacing}` : ''};
         ${flow === 'vertical' ? `margin-bottom: ${props.spacing || spacing}` : ''};
+    }
+
+    .fab-input-group .fab-input-wrapper {
+        flex-grow: 1;
     }
 
     ${glued ? gluedModifier(props) : ''}
