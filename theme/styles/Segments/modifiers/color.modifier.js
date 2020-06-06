@@ -10,9 +10,6 @@ const colorModifier = props => {
     const color = getColor(props.color, colors);
     const context = getContext(props);
 
-    // Base vars
-    // const baseBorderColor = getColor(borderColor, colors);
-
     // User-defined
     const userBorderColor = getColor(props.borderColor, colors);
     const userInactiveFillColor = getColor(props.inactiveFillColor, colors);

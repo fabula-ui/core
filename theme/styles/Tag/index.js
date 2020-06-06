@@ -6,7 +6,7 @@ const TagStyles = params => {
     const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.tag;
-    const { anchor, button, rounded, size } = props;
+    const { anchor, button, color, rounded, size } = props;
     const { borderRadius, fontSize, paddingX, paddingY } = vars;
     const wrapper = framework === 'angular' ? '.fab-tag-wrapper' : '&';
 
@@ -17,7 +17,7 @@ const TagStyles = params => {
 
         .fab-tag {
             align-items: center;
-            border-radius: ${rounded ? `999px;` : borderRadius}
+            border-radius: ${rounded ? `999px` : borderRadius};
             display: flex;
             font-size: ${fontSize};
             font-weight: 500;
@@ -35,12 +35,15 @@ const TagStyles = params => {
             align-items: center;
             appearance: none;
             background: none;
-            border-radius: ${borderRadius};
+            border-radius: inherit;
             cursor: pointer;
             color: inherit;
             display: flex;
+            font-size: inherit;
             font-weight: inherit;
+            margin: -${paddingY} -${paddingX};
             padding: ${paddingY} ${paddingX};
+            text-decoration: none;
             transition: all .2s ease-in-out;
 
             &:focus {

@@ -1,18 +1,10 @@
-import getActiveColor from '../../../methods/color/activeColor';
-import getBgColor from '../../../methods/color/bgColor';
-import getColor from '../../../methods/color/getColor';
-import getContext from '../../../methods/misc/getContext';
-import getTextColor from '../../../methods/color/textColor';
-import getHoverColor from '../../../methods/color/hoverColor';
-import getHoverTextColor from '../../../methods/color/hoverTextColor';
-
-const blockType = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.tab;
-    const {stacked} = props;
+const blockType = params => {
+    const {framework, props} = params;
+    const { stacked } = props;
+    const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
-        .fab-tab {
+        ${wrapper} {
             > a,
             > button {
                 border-bottom: none;
@@ -23,47 +15,49 @@ const blockType = props => {
     `;
 }
 
-const floatType = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.tab;
-    const { stacked } = props;
+const floatType = params => {
+    const {framework} = params;
+    const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
-    .fab-tab { 
+    ${wrapper} { 
         > a,
         > button {
             border-bottom: none;
-            border-radius: .5rem;
-            padding: .3rem 1rem;
+            border-radius: .3em;
+            padding: .5em 1em;
         }
     }
     `;
 }
 
-const pillType = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.tab;
+const pillType = params => {
+    const {framework} = params;
+    const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
-    .fab-tab { 
+    ${wrapper} { 
         > a,
         > button {
             border-bottom: none;
-            border-radius: 2rem;
-            padding: .3rem 1rem;
+            border-radius: 999px;
+            padding: .5em 1em;
         }
     }
     `;
 }
 
-const typeModifier = props => {
+const typeModifier = params => {
+    const { framework, props } = params;
     const { stacked, type } = props;
-    return `
-        ${type === 'block' ? blockType(props) : ''}
-        ${type === 'float' ? floatType(props) : ''}
-        ${type === 'pill' ? pillType(props) : ''}
+    const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
-        .fab-tab {
+    return `
+        ${type === 'block' ? blockType(params) : ''}
+        ${type === 'float' ? floatType(params) : ''}
+        ${type === 'pill' ? pillType(params) : ''}
+
+        ${wrapper} {
             ${stacked && (type === 'float' || type === 'pill') ? `padding: .25rem 0;` : ''}
         }
     `;

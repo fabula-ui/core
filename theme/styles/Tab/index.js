@@ -5,42 +5,43 @@ import colorModifier from './modifiers/color.modifier';
 import typeModifier from './modifiers/type.modifier';
 
 const TabStyle = params => {
-    const { props } = params;
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.tab;
-    const { active, expand, stacked, type } = props;
+    const { framework, props } = params;
+    const { expand, stacked, type } = props;
+    const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
-        .fab-tab { ${componentCommons} }
+        ${wrapper} { ${componentCommons} }
 
-        fab-tab,
-        .fab-tab {
+        ${framework === 'angular' ? `fab-tab,` : ''}
+        ${wrapper} {
             ${expand ? `flex-grow: 1;` : ''}
             ${expand ? `flex-shrink: 0;` : ''}
         }
 
-        .fab-tab {
+        ${wrapper} {
             font-size: .9rem;
             font-weight: 500;
-            text-align: ${stacked ? 'left' : 'center'};
         }
 
-        .fab-tab > a,
-        .fab-tab > button {
+        ${wrapper} > a,
+        ${wrapper} > button {
             align-items: center;
             appearance: none;
             background: none;
             border: none;
             border-bottom: solid 2px transparent;
             color: inherit;
+            cursor: pointer;
             display: flex;
             font-size: inherit;
             font-weight: inherit;
             line-height: 1;
+            justify-content: ${stacked ? 'flex-start' : 'center'};
             padding: 1rem;
             ${stacked ? `padding-left: 0;` : ''}
-            text-align: inherit;
+            text-align: ${stacked ? 'left' : 'center'};
             transition: all .2s ease-in-out;
+            width: 100%;
             
             &:focus {
                 outline: none;
@@ -51,13 +52,8 @@ const TabStyle = params => {
             }
         }
 
-        .fab-tab[data-active='true'] > a,
-        .fab-tab[data-active='true'] > button {
-            width: 100%;
-        }
-
-        ${colorModifier(props)}
-        ${type ? typeModifier(props) : ''}
+        ${colorModifier(params)}
+        ${type ? typeModifier(params) : ''}
     `
 }
 

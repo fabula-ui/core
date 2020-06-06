@@ -20,7 +20,7 @@ const TabsStyle = params => {
             ${type === 'float' || type === 'pill' ? `padding: .7rem 1rem;` : ''}
         }
 
-        ${colorModifier(props)}
+        ${colorModifier(params)}
     `
 }
 

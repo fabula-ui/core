@@ -4,11 +4,13 @@ import getContext from '../../../methods/misc/getContext';
 import getTextColor from '../../../methods/color/textColor';
 
 // Exportable
-const colorModifier = props => {
+const colorModifier = params => {
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.tab;
     const { active, activeColor, type } = props;
     const { colors, textColor } = vars;
+    const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     // Element vars
     const { activeBorderColor, activeFillColor, activeTextColor, inactiveTextColor } = vars;
@@ -70,16 +72,16 @@ const colorModifier = props => {
     };
 
     return `
-    .fab-tab > a,
-    .fab-tab > button {
+    ${wrapper} > a,
+    ${wrapper} > button {
         background-color: transparent;
         border-bottom: ${styleProps.base.inactiveBorderBottom};
         color: ${styleProps.base.inactiveTextColor};
         opacity: ${styleProps.base.inactiveOpacity};
     }
 
-    .fab-tab[data-active='false'] > a,
-    .fab-tab[data-active='false'] > button {
+    ${wrapper}[data-active='false'] > a,
+    ${wrapper}[data-active='false'] > button {
         ${color ? `opacity: .8;` : ''}
 
         &:hover {
@@ -93,26 +95,14 @@ const colorModifier = props => {
     }
 
     // Active
-    .fab-tab[data-active='true'] > a,
-    .fab-tab[data-active='true'] > button {
+    ${wrapper}[data-active='true'] > a,
+    ${wrapper}[data-active='true'] > button {
         background-color: ${styleProps.base.activeFillColor};
         border-bottom-color: ${styleProps.base.activeBorderColor};
         color: ${styleProps.base.activeTextColor};
+        opacity: 1;
     }
-
-    // External
-    .fab-tab .fab-icon {
-        background-color: ${styleProps.base.inactiveTextColor};
-        transition: background-color .2s ease-in-out;
-    }
-
-    .fab-tab[data-active='false']:hover .fab-icon {
-        background-color: ${styleProps.hover.activeTextColor};
-    }
-
-    .fab-tab[data-active='true'] .fab-icon {
-        background-color: ${styleProps.base.activeTextColor};
-    }
+    
     `
 }
 

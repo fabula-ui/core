@@ -7,6 +7,12 @@ const tag = {
 
     // Component vars
     borderRadius: `calc(${globals.borderRadius} * .8)`,
+    get color() {
+        return this.colors['aux']
+    },
+    get fillColor() {
+        return this.colors['aux']
+    },
     fontSize: '.9em',
     paddingX: '.7rem',
     paddingY: '.5em'
