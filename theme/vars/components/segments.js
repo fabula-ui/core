@@ -6,7 +6,9 @@ const tabs = {
     colors,
 
     // Component vars
-    borderColor: 'light',
+    get borderColor() {
+        return this.colors['light']
+    },
     fontSize: '.9rem',
     get inactiveFillColor() {
         return this.colors['light']

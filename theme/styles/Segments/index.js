@@ -6,13 +6,13 @@ import colorModifier from './modifiers/color.modifier';
 
 const SegmentsStyles = params => {
     const { framework, props } = params;
-    const { rounded } = props;
+    const { expand, rounded } = props;
     const wrapper = framework === 'angular' ? '.fab-segments-wrapper' : '&';
     
     return `
         ${wrapper} { ${componentCommons }}
         ${wrapper} {
-            display: inline-flex;
+            display: flex;
         }
 
         .fab-segments {
@@ -21,6 +21,13 @@ const SegmentsStyles = params => {
             display: flex;
             overflow: hidden;
             ${rounded ? `padding: 1px;` : ''}
+            text-align: center;
+            width: 100%;
+        }
+
+        .fab-segments .fab-segment {
+            flex-grow: 1;
+            flex-shrink: 0;
         }
 
         ${colorModifier(props)}

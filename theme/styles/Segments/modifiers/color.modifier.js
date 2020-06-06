@@ -11,7 +11,7 @@ const colorModifier = props => {
     const context = getContext(props);
 
     // Base vars
-    const baseBorderColor = getColor(borderColor, colors);
+    // const baseBorderColor = getColor(borderColor, colors);
 
     // User-defined
     const userBorderColor = getColor(props.borderColor, colors);
@@ -20,15 +20,27 @@ const colorModifier = props => {
     // Style props
     let styleProps;
 
-    styleProps = {
-        borderColor: userBorderColor || !!color && getDividerColor(color, context) || getDividerColor(baseBorderColor, context),
-        inactiveFillColor: userInactiveFillColor || !!color && getBgColor(color, context) || inactiveFillColor,
-    };
+    let baseBorderColor = borderColor;
+    let baseInactiveFillColor = userInactiveFillColor || !!color && getBgColor(color, context) || inactiveFillColor;
+
+    if (!!color) {
+        baseBorderColor = getDividerColor(color, context);
+    } else {
+        if (context === 'clear' || context === 'invert') {
+            baseBorderColor = getDividerColor(color, 'fill');
+        } else {
+            baseBorderColor = getDividerColor(color, context);
+        }
+    }
+
+    if (userBorderColor) {
+        borderColor = userBorderColor;
+    }
 
     return `
         .fab-segments {
-            background: ${styleProps.inactiveFillColor};
-            border: solid 1px ${styleProps.borderColor};
+            background: ${baseInactiveFillColor};
+            border: solid 1px ${baseBorderColor};
         }
     `;
 }

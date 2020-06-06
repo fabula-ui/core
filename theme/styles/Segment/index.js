@@ -25,6 +25,7 @@ const SegmentStyles = params => {
             padding: .75rem 1.5rem;
             text-align: inherit;
             transition: all .2s ease-in-out;
+            width: 100%;
             
             &:focus {
                 outline: none;

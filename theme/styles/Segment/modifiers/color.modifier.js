@@ -1,8 +1,9 @@
-import getBgColor from "../../../methods/color/bgColor";
+import getBgColor from '../../../methods/color/bgColor';
 import getDividerColor from '../../../methods/color/dividerColor';
 import getColor from '../../../methods/color/getColor';
 import getContext from '../../../methods/misc/getContext';
 import getTextColor from '../../../methods/color/textColor';
+import getColors from '../../../methods/color/getColors';
 
 // Exportable
 const colorModifier = params => {
@@ -25,22 +26,46 @@ const colorModifier = params => {
     const color = getColor(props.color, colors);
     const context = getContext(props);
 
-    // Style props
-    let styleProps = {
-        base: {
-            activeFillColor: userActiveFillColor || !!color && getTextColor(color, context) || activeFillColor,
-            activeTextColor: userActiveTextColor || !!userActiveFillColor && getTextColor(userActiveFillColor, context) || !!color && getBgColor(color, context) || activeTextColor,
-            inactiveFillColor: userInactiveFillColor || !!color && getBgColor(color, context) || inactiveFillColor,
-            inactiveTextColor: userInactiveTextColor || !!color && getTextColor(color, context) || inactiveTextColor,
-        },
-        hover: {
-            inactiveTextColor: !!color && getTextColor(color, context) || inactiveTextColor__hover,
-        },
-        active: {
+    const componentColors = getColors({ colors, props });
 
-        },
-        dividerColor: !!color && getDividerColor(color, context) || getDividerColor(inactiveFillColor, context)
-    };
+    let baseActiveFillColor = activeFillColor;
+    let baseActiveTextColor = activeTextColor;
+    let baseInactiveFillColor = userInactiveFillColor || !!color && getBgColor(color, context) || inactiveFillColor;
+    let baseInactiveTextColor =  userInactiveTextColor || !!userInactiveFillColor && getTextColor(userInactiveFillColor, 'fill') || !!color && getTextColor(color, context) || inactiveTextColor;
+    let dividerColor = getDividerColor(inactiveFillColor, context);
+
+    if (!!color) {
+        if (context === 'clear' || context === 'fill' || context === 'invert' || context === 'outline') {
+            baseActiveFillColor = componentColors.textColor;
+        } else if (context === 'faded') {
+            baseActiveFillColor = getBgColor(color, 'darken');
+        } else {
+            baseActiveFillColor = componentColors.bgColor;
+        }
+
+        if (context === 'fill') {
+            baseActiveTextColor = getBgColor(color, 'fill');
+        } else {
+            baseActiveTextColor = getTextColor(color, 'fill');
+        }
+
+        dividerColor = getDividerColor(color, context);
+    } else {
+        if (context === 'clear' || context === 'invert') {
+            dividerColor = getDividerColor(color, 'fill');
+        } else {
+            dividerColor = getDividerColor(color, context);
+        }
+    }
+
+    if (userActiveFillColor) {
+        baseActiveFillColor = userActiveFillColor;
+        baseActiveTextColor = getTextColor(userActiveFillColor, 'fill');
+    }
+
+    if (userActiveTextColor) {
+        baseActiveTextColor = userActiveTextColor;
+    }
 
     return `
     ${wrapper} {
@@ -48,37 +73,37 @@ const colorModifier = params => {
     }
 
     ${wrapper}[data-active='true'] {
-        border-color: ${styleProps.dividerColor};
+        border-color: ${dividerColor};
     }
 
     ${wrapper} > a,
     ${wrapper} > button {
-        background-color: ${styleProps.base.inactiveFillColor};
-        color: ${styleProps.base.inactiveTextColor};
+        background-color: ${baseInactiveFillColor};
+        color: ${baseInactiveTextColor};
     }
 
     ${wrapper}[data-active='false'] > a,
     ${wrapper}[data-active='false'] > button {
         &:hover {
-            color: ${styleProps.hover.inactiveTextColor};
-            ${color ? `opacity: .9;` : ''}
+            color: ${baseInactiveTextColor};
+            opacity: .8;
         }
 
         &:active {
-            opacity: 1;
+            opacity: .9;
         }
     }
 
     // Active
     ${wrapper}[data-active='true'] > a,
     ${wrapper}[data-active='true'] > button {
-        background-color: ${styleProps.base.activeFillColor};
-        color: ${styleProps.base.activeTextColor};
+        background-color: ${baseActiveFillColor};
+        color: ${baseActiveTextColor};
     }
 
     &:not(:last-child) > .fab-segment,
     ${wrapper}:not(:last-child) {
-        ${!rounded ? `border-right: solid 1px ${styleProps.dividerColor};` : ''}
+        ${!rounded ? `border-right: solid 1px ${dividerColor};` : ''}
     }
     `
 }
