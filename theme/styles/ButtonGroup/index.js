@@ -6,6 +6,7 @@ import dividerModifier from './modifiers/divider.modifier';
 import gluedModifier from './modifiers/glued.modifier';
 
 // Methods
+import getNumber from '../../methods/misc/getNumber';
 import hasAlignment from '../../methods/misc/hasAlignment';
 
 const ButtonGroupStyles = params => {
@@ -24,10 +25,10 @@ const ButtonGroupStyles = params => {
         flex-direction: ${props.flow === 'horizontal' ? 'row' : 'column'};
         flex-wrap: ${props.wrap ? 'wrap' : 'nowrap'};
         ${!hasAlignment(props) ? `justify-content: flex-start;` : ''}
-        margin: ${props.spacing ? `calc(-${props.spacing} / 2)` : `-${vars.spacing}`};
+        margin: ${props.spacing !== null ? `calc(-${getNumber(props.spacing, 'rem')} / 2)` : `-${vars.spacing}`};
     
         .fab-button-wrapper {
-            padding: ${props.spacing ? `calc(${props.spacing} / 2)` : vars.spacing};
+            padding: ${props.spacing !== null ? `calc(${getNumber(props.spacing, 'rem')} / 2)` : vars.spacing};
         }
     
         > * {

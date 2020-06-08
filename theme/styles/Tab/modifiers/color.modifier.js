@@ -55,7 +55,7 @@ const colorModifier = params => {
                     case 'pill':
                         return 'none';
                     default:
-                        return 'solid 2px transparent';
+                        return 'solid 3px transparent';
                 }
             },
             inactiveTextColor: userInactiveTextColor || !!color && getTextColor(color, context) || inactiveTextColor,
@@ -75,7 +75,7 @@ const colorModifier = params => {
     ${wrapper} > a,
     ${wrapper} > button {
         background-color: transparent;
-        border-bottom: ${styleProps.base.inactiveBorderBottom};
+        ${type === 'block' || type === 'float' || type === 'pill' ? `border-bottom: none;` : ''}
         color: ${styleProps.base.inactiveTextColor};
         opacity: ${styleProps.base.inactiveOpacity};
     }

@@ -11,11 +11,12 @@ const hoverColor = (color, context) => {
     const $color = color ? Color(color).rgb() : Color('#FFF');
 
     if (context === 'clear') {
-        if ($color.luminosity() > baseLuminosity) {
-            return $color.darken(.3).mix(Color('#FFF'), .8);
-        } else {
-            return $color.mix(Color('#FFF'), .8);
-        }
+        return 'none';
+        // if ($color.luminosity() > baseLuminosity) {
+        //     return $color.darken(.3).mix(Color('#FFF'), .8);
+        // } else {
+        //     return $color.mix(Color('#FFF'), .8);
+        // }
     } else if (context === 'faded') {
         if ($color.luminosity() > baseLuminosity) {
             return $color.darken(.1).mix(Color('white'), .6);

@@ -12,9 +12,6 @@ const colorModifier = props => {
     const vars = theme.variables.components.button;
     const { colors } = vars;
 
-    // const baseColor = vars.color;
-    // const userColor = props.color;
-
     const baseBgColor = getColor(vars.color, colors);
     const context = getContext(props);
     const textColor = getColor(props.textColor || vars.textColor, colors);

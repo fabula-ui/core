@@ -4,6 +4,7 @@ import badge from './badge';
 import button from './button/button';
 import buttonGroup from './buttonGroup';
 import card from './card';
+import checkbox from './checkbox';
 import dropdown from './dropdown';
 import fileInput from './fileInput';
 import icon from './icon';
@@ -29,6 +30,7 @@ const components = {
     button,
     buttonGroup,
     card,
+    checkbox,
     dropdown,
     fileInput,
     icon,

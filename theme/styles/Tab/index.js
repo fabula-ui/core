@@ -6,7 +6,7 @@ import typeModifier from './modifiers/type.modifier';
 
 const TabStyle = params => {
     const { framework, props } = params;
-    const { expand, stacked, type } = props;
+    const { expand, layout, stacked, type } = props;
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
@@ -29,7 +29,7 @@ const TabStyle = params => {
             appearance: none;
             background: none;
             border: none;
-            border-bottom: solid 2px transparent;
+            border-bottom: solid 3px transparent;
             color: inherit;
             cursor: pointer;
             display: flex;
@@ -43,12 +43,14 @@ const TabStyle = params => {
             transition: all .2s ease-in-out;
             width: 100%;
             
+            
             &:focus {
                 outline: none;
             }
 
             > *:not(:last-child) {
-                margin-right: .5em;
+                
+                ${layout === 'vertical' ? 'margin-bottom: .5em;' : 'margin-right: .5em;'}
             }
         }
 

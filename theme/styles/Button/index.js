@@ -57,6 +57,7 @@ const ButtonStyles = params => {
             ${!!align ? `text-align: ${align};` : ''}
             position: relative;
             transition: all .2s ease-in-out;
+            white-space: nowrap;
             width: 100%;
 
             &:before {
@@ -82,6 +83,14 @@ const ButtonStyles = params => {
                 left: -${focusGlowRadius}px;
                 right: -${focusGlowRadius}px;
                 top: -${focusGlowRadius}px;
+            }
+
+            &:hover {
+                ${context === 'clear' ? `opacity: .8;` : ''}
+            }
+
+            &:active {
+                ${context === 'clear' ? `opacity: .6;` : ''}
             }
 
             &[disabled] {

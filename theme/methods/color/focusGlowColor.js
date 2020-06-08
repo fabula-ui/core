@@ -12,7 +12,7 @@ const focusGlowColor = (color, context) => {
     const passContext = context === 'gradient' ? 'gradient_glow' : context;
     const $hoverColor = hoverColor(color, passContext);
 
-    return $hoverColor.darken(.25).fade(fadeIntensity[context]);
+    return context ? 'transparent' : $hoverColor.darken(.25).fade(fadeIntensity[context]);
 }
 
 export default focusGlowColor;
