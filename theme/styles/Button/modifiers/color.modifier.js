@@ -1,6 +1,6 @@
 import activeColor from '../../../methods/color/activeColor';
 import getBgColor from '../../../methods/color/bgColor';
-import focusGlowColor from '../../../methods/color/focusGlowColor';
+import getFocusGlowColor from '../../../methods/color/focusGlowColor';
 import getColor from '../../../methods/color/getColor';
 import getContext from '../../../methods/misc/getContext';
 import hoverColor from '../../../methods/color/hoverColor';
@@ -10,7 +10,7 @@ import getTextColor from '../../../methods/color/textColor';
 const colorModifier = props => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.button;
-    const { colors } = vars;
+    const { colors, focusGlowColor } = vars;
 
     const baseBgColor = getColor(vars.color, colors);
     const context = getContext(props);
@@ -23,7 +23,7 @@ const colorModifier = props => {
             color: ${props.color ? `${getTextColor(userBgColor, context)}` : `${textColor}`};
 
             &:before {
-                border-color: ${focusGlowColor(userBgColor || baseBgColor, context)};
+                border-color: ${getFocusGlowColor(userBgColor || focusGlowColor, context)};
             }
 
             &:hover:not([disabled]) {

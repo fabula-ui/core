@@ -1,10 +1,9 @@
 const gluedModifier = params => {
     const { framework } = params;
-    const wrapper = framework === 'angular' ? '.fab-button-group' : '&';
     const buttonWrapper = framework === 'angular' ? 'fab-button' : '.fab-button-wrapper';
 
     return `
-       ${wrapper} {
+       .fab-button-group {
             margin: 0;
     
             .fab-button-wrapper {

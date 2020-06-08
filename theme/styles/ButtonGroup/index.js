@@ -14,21 +14,21 @@ const ButtonGroupStyles = params => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.buttonGroup;
     const { dividerColor, glued } = props;
-    let wrapper = framework === 'angular' ? '.fab-button-group' : '&';
+    let wrapper = framework === 'angular' ? '.fab-button-group-wrapper' : '&';
 
     return `
     ${wrapper} { ${componentCommons} }
-    ${wrapper} {
+    .fab-button-group {
         ${!hasAlignment(props) ? `align-items: flex-start;` : ''}
         box-sizing: border-box;
         display: flex;
         flex-direction: ${props.flow === 'horizontal' ? 'row' : 'column'};
         flex-wrap: ${props.wrap ? 'wrap' : 'nowrap'};
         ${!hasAlignment(props) ? `justify-content: flex-start;` : ''}
-        margin: ${props.spacing !== null ? `calc(-${getNumber(props.spacing, 'rem')} / 2)` : `-${vars.spacing}`};
+        margin: ${props.spacing === null || props.spacing === undefined ? `-${vars.spacing}` : `calc(-${getNumber(props.spacing, 'rem')} / 2)`};
     
         .fab-button-wrapper {
-            padding: ${props.spacing !== null ? `calc(${getNumber(props.spacing, 'rem')} / 2)` : vars.spacing};
+            padding: ${props.spacing === null || props.spacing === undefined ? vars.spacing : `calc(${getNumber(props.spacing, 'rem')} / 2)`};
         }
     
         > * {

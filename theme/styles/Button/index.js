@@ -62,7 +62,7 @@ const ButtonStyles = params => {
 
             &:before {
                 bottom: 0;
-                border: solid 0 ${getFocusGlowColor(null, context)};
+                border: solid 0 transparent;
                 border-radius: ${smashed ? `calc(.33em + ${focusGlowRadius}px);` : `calc(${borderRadius} + ${focusGlowRadius}px);`}
                 content: '';
                 display: block;
@@ -78,11 +78,11 @@ const ButtonStyles = params => {
             }
 
             &:focus:before {
-                border-width: ${focusGlowRadius}px;
-                bottom: -${focusGlowRadius}px;
-                left: -${focusGlowRadius}px;
-                right: -${focusGlowRadius}px;
-                top: -${focusGlowRadius}px;
+                border-width: ${border || outline ? `calc(${focusGlowRadius}px + 1px)` : `${focusGlowRadius}px`};
+                bottom: ${border || outline ? `calc(-${focusGlowRadius}px - 1px)` : `-${focusGlowRadius}px`};
+                left: ${border || outline ? `calc(-${focusGlowRadius}px - 1px)` : `-${focusGlowRadius}px`};
+                right: ${border || outline ? `calc(-${focusGlowRadius}px - 1px)` : `-${focusGlowRadius}px`};
+                top: ${border || outline ? `calc(-${focusGlowRadius}px - 1px)` : `-${focusGlowRadius}px`};
             }
 
             &:hover {

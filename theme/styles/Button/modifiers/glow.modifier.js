@@ -4,11 +4,9 @@ import glowColor from '../../../methods/color/glowColor';
 
 const glowModifier = props => {
     const theme = window.__FABTheme;
-    const vars = theme.variables.components.badge;
+    const vars = theme.variables.components.button;
     const { colors } = vars;
-    const baseColor = vars.color;
-    const userColor = props.color;
-    const colorName = getColor(userColor || baseColor, colors);
+    const colorName = getColor(props.color || vars.color, colors);
     const context = getContext(props);
 
     return `
