@@ -32,7 +32,9 @@ const glowColor = (color, context) => {
         },
     };
 
-    if (!color || $color.luminosity() > baseLuminosity) {
+    if (context === 'clear') {
+        return 'transparent';
+    } else if (!color || $color.luminosity() > baseLuminosity) {
         return $color.darken(.05);
     } else {
         return $color.fade(fadeIntensity[context].dark);
