@@ -11,6 +11,9 @@ const AlertStyles = params => {
 
     return `
         ${wrapper} { ${componentCommons} }
+        ${wrapper} {
+            ${framework === 'angular' ? 'width: 100%;' : ''}
+        }
 
         .fab-alert {
             border-radius: .5rem;

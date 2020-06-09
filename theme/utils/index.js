@@ -10,7 +10,7 @@ import sizeUtils from './size';
 
 const UtilsStyles = params => {
     const { props } = params;
-    const { ov, overflow } = props;
+    const { fl, flex, ov, overflow } = props;
 
     return `
         ${alignUtils(params)}
@@ -23,6 +23,8 @@ const UtilsStyles = params => {
         ${sizeUtils(params)}
         
         [data-fab-component] {
+            ${!!fl || !!flex ? `display: flex;` : ''}
+            ${!!fl || !!flex ? `flex-direction: row;` : ''}
             ${!!ov || !!overflow ? `overflow: ${ov || overflow};` : ''}
         }
         

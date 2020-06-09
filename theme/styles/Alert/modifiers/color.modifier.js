@@ -3,11 +3,13 @@ import getBorderColor from '../../../methods/color/borderColor';
 import getDividerColor from '../../../methods/color/dividerColor';
 import getColor from '../../../methods/color/getColor';
 import getContext from '../../../methods/misc/getContext';
+import getTheme from '../../../methods/misc/getTheme';
 import glowColor from '../../../methods/color/glowColor';
 import textColor from '../../../methods/color/textColor';
 
 const colorModifier = props => {
-    const vars = window.__FABTheme.variables.components.alert;
+    const theme = getTheme();
+    const vars = theme.variables.components.alert;
     const { clear, glow, outline } = props;
     const { colors } = vars;
 
