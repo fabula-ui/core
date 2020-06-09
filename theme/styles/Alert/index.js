@@ -38,7 +38,6 @@ const AlertStyles = params => {
         }
 
         .fab-alert__text {
-            font-size: .9em;
             font-weight: 400;
         }
 
@@ -52,8 +51,12 @@ const AlertStyles = params => {
             line-height: 1;
 
             + .fab-text {
-                margin-top: .25rem;
+                
             }
+        }
+
+        .fab-text + .fab-text {
+            margin-top: .25rem;
         }
 
         ${colorModifier(props)}
