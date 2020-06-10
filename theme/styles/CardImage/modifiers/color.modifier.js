@@ -14,11 +14,11 @@ const colorModifier = params => {
 
     return `
         ${wrapper} {
-            ${!color ? `background: ${colors['placeholderImageColor']};` : ''}
+            ${!color ? `background: ${vars['placeholderImageColor']};` : ''}
             ${color ? `background: ${getBgColor(colorName, adaptColor ? 'adapt' : context)};` : ''}
 
             &:before {
-                ${!color ? `background: ${getPlaceholderIconColor(colors['placeholderImageColor'], context)};` : ''}
+                ${!color ? `background: ${getPlaceholderIconColor(vars['placeholderImageColor'], context)};` : ''}
                 ${color ? `background: ${getPlaceholderIconColor(colorName, context)}` : ''}
             }
         }

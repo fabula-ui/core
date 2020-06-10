@@ -1,12 +1,11 @@
 import bgColor from '../../../methods/color/bgColor';
 import getColor from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
-import getTheme from '../../../methods/misc/getTheme';
 import dividerColor from '../../../methods/color/dividerColor';
 
 const markerModifier = props => {
-    const theme = getTheme();
-    const vars = theme.variables.components.badge;
+    const vars = getComponentVars('alert');
     const { marker } = props;
     const { colors } = vars;
     const color = getColor(marker, colors);
@@ -25,7 +24,7 @@ const markerModifier = props => {
                 left: 0;
                 position: absolute;
                 top: 0;
-                width: 4px;
+                width: ${vars['markerWidth']};
             }
         }
     `

@@ -2,28 +2,24 @@ import bgColor from '../../../methods/color/bgColor';
 import getBorderColor from '../../../methods/color/borderColor';
 import getDividerColor from '../../../methods/color/dividerColor';
 import getColor from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
-import getTheme from '../../../methods/misc/getTheme';
-import glowColor from '../../../methods/color/glowColor';
-import textColor from '../../../methods/color/textColor';
+import getTextColor from '../../../methods/color/textColor';
+import getGlowColor from '../../../methods/color/glowColor';
 
 const colorModifier = props => {
-    const theme = getTheme();
-    const vars = theme.variables.components.alert;
-    const { clear, glow, outline } = props;
-    const { colors } = vars;
+    const vars = getComponentVars('alert');
+    const { glow, outline } = props;
 
-    const baseColor = getColor(vars.color, colors);
-    const context = getContext(props);
-    const userColor = getColor(props.color, colors);
+    const color = props.color ? getColor(props.color, vars.colors) : vars.color;
+    const context = props.color ? getContext(props) : 'fill';
 
     return `
         .fab-alert {
-            background: ${bgColor(userColor, context)};
-            border: solid 1px;
-            border-color: ${outline ? `${getBorderColor(userColor, context)};` : `${getDividerColor(userColor, context)};`}
-            ${glow ? `box-shadow: 0 2px 2px ${glowColor(userColor || baseColor, context)};` : ''}
-            color: ${textColor(userColor, context)};
+            background: ${bgColor(color, context)};
+            border-color: ${outline ? `${getBorderColor(color, context)};` : `${getDividerColor(color, context)};`}
+            ${glow ? `box-shadow: 0 ${vars.glowRadiusX} ${vars.glowRadiusY} ${getGlowColor(color, context)};` : ''}
+            color: ${getTextColor(color, context)};
         }
     `
 }

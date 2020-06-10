@@ -1,12 +1,17 @@
 import componentCommons from '../../common/component.commons';
 
+// Methods
+import getComponentVars from '../../methods/misc/getComponentVars';
+import getGlowColor from '../../methods/color/glowColor';
+
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
 import markerModifier from './modifiers/marker.modifier';
 
 const AlertStyles = params => {
+    const vars = getComponentVars('alert');
     const { framework, props } = params;
-    const { color, marker } = props;
+    const { color, glow, marker } = props;
     const wrapper = framework === 'angular' ? '.fab-alert-wrapper' : '&';
 
     return `
@@ -16,9 +21,12 @@ const AlertStyles = params => {
         }
 
         .fab-alert {
-            border-radius: .5rem;
+            background: ${vars.color};
+            border: solid ${vars.borderWidth} ${vars.borderColor};
+            border-radius: ${vars.borderRadius};
+            color: ${vars.textColor};
             display: flex;
-            padding: 1rem;
+            padding: ${vars.padding};
             position: relative;
         }
 
@@ -28,7 +36,7 @@ const AlertStyles = params => {
             width: 100%;
 
             &:not(:first-child) {
-                margin-left: .75em;
+                margin-left: ${vars.spacingX};
             }
         }
 
@@ -38,25 +46,23 @@ const AlertStyles = params => {
         }
 
         .fab-alert__text {
-            font-weight: 400;
+            font-weight: ${vars.textFontWeight};
         }
 
         .fab-alert__title {
-            font-weight: 600;
-            line-height: 1;
-            margin-bottom: .25rem;
+            font-weight: ${vars.titleFontWeight};
+            line-height: ${vars.titleLineHeight};
+            margin-bottom: ${vars.spacingY};
         }
+
+        // External
         
         .fab-text {
-            line-height: 1;
-
-            + .fab-text {
-                
-            }
+            line-height: ${vars.textLineHeight};
         }
 
         .fab-text + .fab-text {
-            margin-top: .25rem;
+            margin-top: ${vars.spacingY};
         }
 
         ${colorModifier(props)}

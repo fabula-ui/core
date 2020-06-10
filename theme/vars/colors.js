@@ -10,9 +10,6 @@ const colors = {
     },
     hot: '#F7993C',
     light: '#F6F8FA',
-    get placeholderImageColor() {
-        return Color(this.light).darken(.05)
-    },
     primary: '#44B0FF',
     secondary: '#49D8D2',
     success: '#6FD367',
