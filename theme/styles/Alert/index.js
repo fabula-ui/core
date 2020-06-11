@@ -8,8 +8,8 @@ import colorModifier from './modifiers/color.modifier';
 import markerModifier from './modifiers/marker.modifier';
 
 const AlertStyles = params => {
-    const vars = getComponentVars('alert');
     const { framework, props } = params;
+    const vars = getComponentVars('alert');
     const wrapper = framework === 'angular' ? '.fab-alert-wrapper' : '&';
 
     return `
