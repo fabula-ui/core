@@ -42,7 +42,7 @@ const BadgeStyles = params => {
 
         ${colorModifier(props)}
         ${props.placement ? placementModifier(params) : ''}
-        ${sizeModifier(params)}
+        ${sizeModifier(props)}
     `
 }
 

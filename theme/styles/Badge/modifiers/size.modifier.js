@@ -1,13 +1,12 @@
-const sizeModifier = params => {
-    const { framework, props } = params;
-    const { size } = props;
-    const { fontSize, sizeMultipliers } = window.__FABTheme.variables.components.badge;
-    const multiplier = sizeMultipliers[size || 'md'];
-    const wrapper = framework === 'angular' ? '.fab-badge-wrapper' : '&';
+import getComponentVars from '../../../methods/misc/getComponentVars';
+
+const sizeModifier = props => {
+    const vars = getComponentVars('badge');
+    const multiplier = vars.sizeMultipliers[props.size || 'md'];
 
     return `
         .fab-badge {
-            font-size: calc(${fontSize} * ${multiplier});
+            font-size: calc(${vars.fontSize} * ${multiplier});
         }
     `;
 }
