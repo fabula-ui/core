@@ -1,16 +1,13 @@
-import capitalize from '../../../methods/misc/capitalize';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 
 const sizeModifier = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.button;
-    const { rounded, size } = props;
-    const { borderRadius, focusGlowRadius, minHeight, paddingBottom, fontSize, paddingLeft, paddingRight, paddingTop, sizeMultipliers } = vars;
-    const multiplier = sizeMultipliers[size];
+    const vars = getComponentVars('button');
+    const multiplier = vars.sizeMultipliers[props.size];
 
     return `
-        .fab-button {
-                font-size: calc(${fontSize} * ${multiplier});
-                min-height: calc(${minHeight} * ${multiplier});
+            .fab-button {
+                font-size: calc(${vars.fontSize} * ${multiplier});
+                min-height: calc(${vars.minHeight} * ${multiplier});
             }
         `;
 }

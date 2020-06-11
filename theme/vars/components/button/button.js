@@ -7,21 +7,38 @@ const button = {
     borderRadius: '.5em',
     borderRadiusDefault: .5,
     borderRadiusRounded: globals.borderRadiusRounded,
+    borderRadiusSmashed: '.33em',
     borderWidth: 1,
+    childrenSpacing: '.5em',
     color: '#FFF',
     compactMultiplier: .6,
+    disabledOpacity: .6,
     get focusGlowColor() {
-        return colors['primary']
+        return colors.primary
     },
-    focusGlowRadius: 3,
+    focusGlowRadius: '3px',
     fontFamily: globals.fontFamily,
     fontSize: globals.fontSize,
     fontWeight: 600,
+    glowX: 0,
+    glowY: '3px',
+    glowRadius: '1px',
+    glowSpread: '-1px',
     minHeight: '3rem',
-    paddingBottom: '.7em',
-    paddingLeft: '1.5em',
-    paddingRight: '1.5em',
-    paddingTop: '.7em',
+    paddingX: '1.5em',
+    paddingY: '.7em',
+    get paddingBottom() {
+        return this.paddingY
+    },
+    get paddingLeft() {
+        return this.paddingX
+    },
+    get paddingRight() {
+        return this.paddingX
+    },
+    get paddingTop() {
+        return this.paddingY
+    },
     sizeMultiplierLg: globals.sizeMultiplierLg,
     sizeMultiplierSm: globals.sizeMultiplierSm,
     sizeMultiplierXl: globals.sizeMultiplierXl,

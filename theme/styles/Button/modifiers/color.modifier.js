@@ -1,39 +1,44 @@
 import activeColor from '../../../methods/color/activeColor';
 import getBgColor from '../../../methods/color/bgColor';
-import getFocusGlowColor from '../../../methods/color/focusGlowColor';
+import getBorderColor from '../../../methods/color/borderColor';
 import getColor from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
+import getFocusGlowColor from '../../../methods/color/focusGlowColor';
+import getGlowColor from '../../../methods/color/glowColor';
 import hoverColor from '../../../methods/color/hoverColor';
 import hoverTextColor from '../../../methods/color/hoverTextColor';
 import getTextColor from '../../../methods/color/textColor';
 
 const colorModifier = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.button;
-    const { colors, focusGlowColor } = vars;
+    const vars = getComponentVars('button');
+    const color = props.color ? getColor(props.color, vars.colors) : vars.color;
+    const context = props.color ? getContext(props) : 'fill';
+    const focusGlowColor = !!props.focusGlowColor && getColor(props.focusGlowColor) || props.color ? color : vars.focusGlowColor;
 
-    const baseBgColor = getColor(vars.color, colors);
-    const context = getContext(props);
-    const textColor = getColor(props.textColor || vars.textColor, colors);
-    const userBgColor = getColor(props.color, colors);
+    // User defined colors
+    const userBgColor = props.bgColor ? getColor(props.bgColor, vars.colors) : null;
+    const userTextColor = props.textColor ? getColor(props.textColor, vars.colors) : null;
 
     return `
         .fab-button {
-            background: ${getBgColor(userBgColor || baseBgColor, context)};
-            color: ${props.color ? `${getTextColor(userBgColor, context)}` : `${textColor}`};
+            background: ${userBgColor ? userBgColor : getBgColor(color, context)};
+            ${props.border || props.outline ? `border: solid 1px ${getBorderColor(color, context)};` : ''}
+            ${props.glow ? `box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${getGlowColor(color, context)};` : ''}
+            color: ${userTextColor ? userTextColor : getTextColor(userBgColor || color, context)};
 
-            &:before {
-                border-color: ${getFocusGlowColor(userBgColor || focusGlowColor, context)};
+            &:focus {
+                box-shadow: 0 0 0 3px ${getFocusGlowColor(focusGlowColor, context)};
             }
 
             &:hover:not([disabled]) {
-                ${context !== 'gradient' ? `background: ${hoverColor(userBgColor || baseBgColor, context)};` : ''}
-                color: ${hoverTextColor(textColor, context)};
-                color: ${props.color ? `${hoverTextColor(userBgColor, context)}` : textColor};
+                ${context !== 'gradient' ? `background: ${hoverColor(userBgColor || color, context)};` : ''}
+                ${props.bgColor || props.color ? `color: ${hoverTextColor(userBgColor || color, context)}` : ''}
+                ${props.userTextColor ? `color: ${hoverTextColor(userTextColor, 'invert')};` : ''}
             }
 
             &:active:not([disabled]) {
-                ${context !== 'gradient' ? `background: ${activeColor(userBgColor || baseBgColor, context)};` : ''}
+                ${context !== 'gradient' ? `background: ${activeColor(userBgColor || color, context)};` : ''}
             }
         }
     `;

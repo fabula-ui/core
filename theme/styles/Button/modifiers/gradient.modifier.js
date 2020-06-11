@@ -1,17 +1,21 @@
-import gradientColor from '../../../methods/color/gradientColor';
+import getColor from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
+import getContext from '../../../methods/misc/getContext';
+import getGradientColor from '../../../methods/color/gradientColor';
 
 const gradientModifier = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.button;
-    const color = vars.colors[props.color];
+    const vars = getComponentVars('button');
+    const color = props.color ? getColor(props.color, vars.colors) : vars.color;
+    const context = props.color ? getContext(props) : 'fill';
 
     return `
         .fab-button {
-            background: ${gradientColor(color)};
+            background: ${getGradientColor(color)};
             position: relative;
 
             &:after {
                 background: rgba(255, 255, 255, .2);
+                border-radius: inherit;
                 bottom: 0;
                 content: '';
                 display: block;

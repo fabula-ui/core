@@ -17,7 +17,7 @@ const NavbarStyles = params => {
             align-items: center;
             background-color: #FFF;
             display: flex;
-            height: ${height ? getNumber(height, 'px') : `4rem;`}
+            min-height: ${height ? getNumber(height, 'px') : `4rem;`}
         }
 
         .fab-navbar-logo {
@@ -33,12 +33,6 @@ const NavbarStyles = params => {
         }
 
         // External
-
-        .fab-button {
-            max-height: 80%;
-            min-height: initial;
-        }
-
         .fab-tabs-wrapper {
             align-self: stretch;
         }
