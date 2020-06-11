@@ -1,28 +1,23 @@
 import getBgColor from '../../../methods/color/bgColor';
 import getColorName from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 import getPlaceholderIconColor from '../../../methods/color/getPlaceholderIconColor';
-import textColor from '../../../methods/color/textColor';
+import getTextColor from '../../../methods/color/textColor';
 import getContext from '../../../methods/misc/getContext';
 
 const colorModifier = props => {
-    const { adaptColor, color } = props;
-    const { bgColor, colors } = window.__FABTheme.variables.components.avatar;
-    const colorName = getColorName(color || bgColor, colors);
+    const vars = getComponentVars('avatar');
+    const color = getColorName(props.color || vars.color, vars.colors);
     const context = getContext(props);
     
     return `
         .fab-avatar {
-            background: ${getBgColor(colorName, context)};
-            color: ${getPlaceholderIconColor(colorName, context)}
+            background: ${getBgColor(color, context)};
+            color: ${getPlaceholderIconColor(color, context)};
         }
 
         .fab-avatar__initials {
-            color: ${textColor(colorName, context)};
-        }
-
-        // External
-        .fab-avatar .fab-icon {
-            
+            color: ${getTextColor(color, context)};
         }
     `;
 };

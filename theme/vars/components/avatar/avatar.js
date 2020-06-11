@@ -5,14 +5,17 @@ const avatar = {
     ...globals,
     colors,
 
-    get bgColor() {
-        return colors['aux']
+    get color() {
+        return this.colors['aux']
     },
     borderRadius: globals.borderRadius,
-    borderRadiusRounded: '50%',
     defaultColor: colors.aux,
     fontFamily: globals.fontFamily,
     fontSize: '1rem',
+    iconSize: '1.25rem',
+    initialsFontSize: '1rem',
+    initialsFontWeight: 500,
+    initialsOpacity: .8,
     size: '3rem'
 }
 

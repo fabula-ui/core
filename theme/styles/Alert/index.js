@@ -2,7 +2,6 @@ import componentCommons from '../../common/component.commons';
 
 // Methods
 import getComponentVars from '../../methods/misc/getComponentVars';
-import getGlowColor from '../../methods/color/glowColor';
 
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
@@ -11,7 +10,6 @@ import markerModifier from './modifiers/marker.modifier';
 const AlertStyles = params => {
     const vars = getComponentVars('alert');
     const { framework, props } = params;
-    const { color, glow, marker } = props;
     const wrapper = framework === 'angular' ? '.fab-alert-wrapper' : '&';
 
     return `
@@ -26,6 +24,7 @@ const AlertStyles = params => {
             border-radius: ${vars.borderRadius};
             color: ${vars.textColor};
             display: flex;
+            font-family: ${vars.fontFamily};
             padding: ${vars.padding};
             position: relative;
         }
@@ -66,7 +65,7 @@ const AlertStyles = params => {
         }
 
         ${colorModifier(props)}
-        ${marker ? markerModifier(props) : ''}
+        ${props.marker ? markerModifier(props) : ''}
     `;
 }
 

@@ -1,15 +1,13 @@
-import capitalize from '../../../methods/misc/capitalize';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 
-const sizeModifier = sizeName => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.avatar;
-    const { borderRadiusDefault, fontSize, size, sizeMultipliers } = vars;
-    const multiplier = sizeMultipliers[sizeName];
+const sizeModifier = props => {
+    const { borderRadius, fontSize, iconSize, size, sizeMultipliers } = getComponentVars('avatar');
+    const multiplier = sizeMultipliers[props.size];
 
     return `
     .fab-avatar {
-        border-radius: calc(${borderRadiusDefault} * ${multiplier});
-        font-size: calc(${fontSize} * ${multiplier});
+        ${!props.rounded ? `border-radius: calc(${borderRadius} * ${multiplier});` : ''}
+        font-size: calc(${iconSize} * ${multiplier});
         height: calc(${size} * ${multiplier});
         width: calc(${size} * ${multiplier});
 

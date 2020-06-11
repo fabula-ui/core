@@ -4,16 +4,16 @@ import componentCommons from '../../common/component.commons';
 // External
 import BadgeExternalStyles from './external/badge';
 
+// Methods
+import getComponentVars from '../../methods/misc/getComponentVars';
+
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
-import roundedModifier from './modifiers/rounded.modifier';
 import sizeModifier from './modifiers/size.modifier';
 
 const AvatarStyles = params => {
-    const {framework, props, utils} = params;
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.avatar;
-    const { fontFamily, fontSize, size } = vars;
+    const { framework, props } = params;
+    const vars = getComponentVars('avatar');
     const wrapper = framework === 'angular' ? '.fab-avatar-wrapper' : '&';
 
     return `
@@ -25,15 +25,15 @@ const AvatarStyles = params => {
         }
 
         .fab-avatar {
-            background: ${vars.defaultColor};
-            border-radius: ${vars.borderRadius};
+            background: ${vars.color};
+            border-radius: ${props.rounded ? '999px' : vars.borderRadius};
             color: #FFF;
-            font-size: 1.25rem;
-            height: ${size};
-            font-family: ${fontFamily};
+            font-size: ${vars.iconSize};
+            height: ${vars.size};
+            font-family: ${vars.fontFamily};
             font-weight: 400;
             position: relative;
-            width: ${size};
+            width: ${vars.size};
         }
 
         .fab-avatar .fab-icon {
@@ -54,12 +54,12 @@ const AvatarStyles = params => {
         }
 
         .fab-avatar__initials {
-            font-size: ${fontSize};
-            font-weight: 500;
+            font-size: ${vars.initialsFontSize};
+            font-weight: ${vars.initialsFontWeight};
             left: 50%;
             letter-spacing: -1px;
             line-height: 1;
-            opacity: .8;
+            opacity: ${vars.initialsOpacity};
             position: absolute;
             text-transform: uppercase;
             top: 50%;
@@ -68,13 +68,10 @@ const AvatarStyles = params => {
         }
 
         ${colorModifier(props)}
-        ${roundedModifier()}
-        ${sizeModifier(props.size)}
+        ${sizeModifier(props)}
 
+        // External
         ${BadgeExternalStyles(params)}
-
-        // Utils
-        ${utils ? require('../../utils').default(params) : ''}
     `
 }
 
