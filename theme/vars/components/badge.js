@@ -5,7 +5,7 @@ const badge = {
     ...globals,
     colors,
 
-    borderRadius: '.5em',
+    borderRadius: '.33em',
     circleSize: '1.75em',
     get color() {
         return '#FFF'

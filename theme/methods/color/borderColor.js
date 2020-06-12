@@ -18,7 +18,9 @@ const borderColor = (color, context) => {
         }
     } else if (context === 'outline') {
         return textColor(color, context);
-    } else {
+    } else if (context === 'invert') {
+        return color;
+    } else  {
         if ($bgColor.isDark()) {
             return $bgColor.lighten(.1);
         } else {

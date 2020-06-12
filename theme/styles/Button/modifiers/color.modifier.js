@@ -23,7 +23,7 @@ const colorModifier = props => {
     return `
         .fab-button {
             background: ${userBgColor ? userBgColor : getBgColor(color, context)};
-            ${props.border || props.outline ? `border: solid 1px ${getBorderColor(color, context)};` : ''}
+            ${props.border || props.outline ? `border: solid 1px ${getBorderColor(color, context === 'gradient' ? 'fill' : context)};` : ''}
             ${props.glow ? `box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${getGlowColor(color, context)};` : ''}
             color: ${userTextColor ? userTextColor : getTextColor(userBgColor || color, context)};
 
