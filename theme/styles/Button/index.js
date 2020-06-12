@@ -58,11 +58,11 @@ const ButtonStyles = params => {
             }
 
             &:hover {
-                ${context === 'clear' ? `opacity: .8;` : ''}
+                ${props.color && context === 'clear' ? `opacity: .8;` : ''}
             }
 
             &:active {
-                ${context === 'clear' ? `opacity: .6;` : ''}
+                ${props.color && context === 'clear' ? `opacity: .6;` : ''}
             }
 
             &[disabled] {
