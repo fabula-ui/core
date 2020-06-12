@@ -17,7 +17,9 @@ const ButtonGroupStyles = params => {
     let wrapper = framework === 'angular' ? '.fab-button-group-wrapper' : '&';
 
     return `
+    ${framework === 'angular' ? `& { display: block; }` : ''}
     ${wrapper} { ${componentCommons} }
+
     .fab-button-group {
         ${!hasAlignment(props) ? `align-items: flex-start;` : ''}
         box-sizing: border-box;

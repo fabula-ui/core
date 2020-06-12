@@ -33,10 +33,11 @@ const ButtonStyles = params => {
             display: inline-flex;
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
-            letter-spacing: -.025rem;
+            justify-content: center;
             ${props.align === 'center' ? `justify-content: center;` : ''}
             ${props.align === 'left' || props.align === 'start' ? `justify-content: flex-start;` : ''}
             ${props.align === 'right' || props.align === 'end' ? `justify-content: flex-end;` : ''}
+            letter-spacing: -.025rem;
             ${props.smashed ? `min-height: 2rem;` : `min-height: 3rem;`}
             ${props.smashed ? `padding-bottom: calc(${vars.paddingBottom} / 2);` : `padding-bottom: ${vars.paddingBottom};`}
             padding-left: ${props.smashed ? `calc(${vars.paddingLeft} - .5em);` : `${vars.paddingLeft};` }
