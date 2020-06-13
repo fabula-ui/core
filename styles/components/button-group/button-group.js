@@ -1,9 +1,6 @@
-// Component commons
-import componentCommons from '../../common/component.commons';
-
 // Button modifiers
-import dividerModifier from './modifiers/divider.modifier';
-import gluedModifier from './modifiers/glued.modifier';
+import dividerModifier from './modifiers/button-group-divider.modifier';
+import gluedModifier from './modifiers/button-group-glued.modifier';
 
 // Methods
 import getComponentVars from '../../methods/misc/getComponentVars';
@@ -12,11 +9,8 @@ import getNumber from '../../methods/misc/getNumber';
 const ButtonGroupStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('buttonGroup');
-    let wrapper = framework === 'angular' ? '.fab-button-group-wrapper' : '&';
 
     return `
-    ${wrapper} { ${componentCommons} }
-
     ${framework === 'angular' ? `& { display: block; }` : ''}
 
     .fab-button-group {
@@ -37,6 +31,7 @@ const ButtonGroupStyles = params => {
         }
     }
 
+    // Modifiers
     ${props.dividerColor ? dividerModifier(params) : ''}
     ${props.glued ? gluedModifier(params) : ''}
     `
