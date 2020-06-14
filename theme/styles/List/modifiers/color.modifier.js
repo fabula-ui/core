@@ -24,21 +24,19 @@ const colorModifier = params => {
         }
 
         ${wrapper} .fab-text:not([data-color]) {
-            color: inherit;
+            ${props.color ? `color: inherit;` : ''}
             
             &[data-aux='true'] {
-                opacity: .8;
+                ${props.color ? `opacity: .8;` : ''}
             }
         }
 
-        ${props.framework === 'angular' ? `fab-list-item:not(:last-child) .fab-list-item,` : ''}
-        .fab-list-item:not(:last-child) {
+        ${framework === 'angular' ? 'fab-list-item:not(:last-child) .fab-list-item' : '.fab-list-item:not(:last-child)'} {
             ${!props.striped ? `border-bottom: solid 1px ${dividerColor(color, context)};` : ''}
         }
 
-        ${props.framework === 'angular' ? `fab-list-item:nth-child(odd):not(:only-child) .fab-list-item,` : ''}
-        .fab-list-item:nth-child(odd):not(:only-child) {
-            ${!color && props.striped ? `background-color: ${stripeColor}` : ''}
+        ${framework === 'angular' ? 'fab-list-item:nth-child(odd):not(:only-child) .fab-list-item' : '.fab-list-item:nth-child(odd):not(:only-child)'} {
+            ${!color && props.striped ? `background-color: ${stripeColor};` : ''}
             ${color && props.striped ? `background-color: ${getStripeColor(color, context)};` : ''}
         }
     `;

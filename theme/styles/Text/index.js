@@ -15,9 +15,12 @@ const TextStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-text' : '&';
 
     return `
+    ${framework === 'angular' && !!props.block && !!props.flex ? `& { display: inline-flex; }` : ''}
+    
     ${wrapper} {${componentCommons}}
     
     ${wrapper} {
+        align-items: flex-start;
         color: ${textColor};
         ${aux ? `color: ${auxTextColor};` : ''}
         display: inline-flex;

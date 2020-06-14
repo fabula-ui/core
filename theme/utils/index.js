@@ -21,8 +21,10 @@ const UtilsStyles = params => {
         ${paddingUtils(props)}
         ${rowUtils(props)}
         ${sizeUtils(params)}
+
+        ${props.block ? 'display: block!important;' : ''}
         
-        [data-fab-component] {
+        > [data-fab-component] {
             ${!!fl || !!flex ? `display: flex;` : ''}
             ${!!fl || !!flex ? `flex-direction: row;` : ''}
             ${!!ov || !!overflow ? `overflow: ${ov || overflow};` : ''}

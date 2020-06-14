@@ -19,6 +19,7 @@ const BadgeStyles = params => {
 
     return `
         ${wrapper} { ${componentCommons} }
+        ${framework === 'angular' ? `& { display: inline-flex; }` : ''}
 
         ${wrapper} {
             display: inline-flex;
