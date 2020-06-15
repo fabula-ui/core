@@ -12,8 +12,8 @@ import getTextColor from '../../../methods/color/textColor';
 
 const colorModifier = props => {
     const vars = getComponentVars('button');
-    const color = props.color ? getColor(props.color, vars.colors) : vars.color;
-    const context = props.color ? getContext(props) : 'fill';
+    const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
+    const context = props.color || props.clear ? getContext(props) : 'fill';
     const focusGlowColor = !!props.focusGlowColor && getColor(props.focusGlowColor) || props.color ? color : vars.focusGlowColor;
 
     // User defined colors
