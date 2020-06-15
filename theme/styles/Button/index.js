@@ -29,10 +29,14 @@ const ButtonStyles = params => {
             border: none;
             ${props.smashed ? `border-radius: ${vars.borderRadiusSmashed};` : `border-radius: ${vars.borderRadius};`}
             ${props.rounded ? `border-radius: 999px;` : ''}
+            ${props.circle ? `border-radius: 50%;` : ''}
             cursor: pointer;
             display: inline-flex;
-            font-size: ${vars.fontSize};
+            font-family: ${vars.fontFamily};
+            ${!!props.smashed ? `font-size: calc(${vars.fontSize} * .9);` : `font-size: ${vars.fontSize};`}
             font-weight: ${vars.fontWeight};
+            ${!!props.circle && !props.smashed ? 'height: 3rem;' : ''}
+            ${!!props.circle && props.smashed ? 'height: 2rem;' : ''}
             justify-content: center;
             ${props.align === 'center' ? `justify-content: center;` : ''}
             ${props.align === 'left' || props.align === 'start' ? `justify-content: flex-start;` : ''}
@@ -52,6 +56,8 @@ const ButtonStyles = params => {
             transition: all .2s ease-in-out;
             white-space: nowrap;
             width: 100%;
+            ${!!props.circle && !props.smashed ? 'width: 3rem;' : ''}
+            ${!!props.circle && props.smashed ? 'width: 2rem;' : ''}
 
             &:focus {
                 outline: none;
@@ -73,6 +79,10 @@ const ButtonStyles = params => {
             > *:not(:last-child) {
                 margin-right: ${vars.childrenSpacing};
             }
+        }
+
+        .fab-icon__svg {
+            font-size: 85%;
         }
 
         ${colorModifier(props)}

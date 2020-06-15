@@ -21,15 +21,19 @@ const InputStyles = params => {
 
     ${wrapper} {
         font-size: ${fontSize};
+        position: relative;
     }
 
     .fab-input { 
         background: #FFF;
         border-radius: ${borderRadius};
+        ${props.rounded ? 'border-radius: 999px;' : ''}
         border: solid 1px transparent;
         color: ${textColor};
+        font-family: ${vars.fontFamily};
         font-size: ${fontSize};
         position: relative;
+        transition: all .2s ease-in-out;
         width: ${expand ? '100%' : 'auto'};
 
         &:before {
@@ -51,21 +55,12 @@ const InputStyles = params => {
         opacity: ${disabledOpacity};
     }
 
-    .fab-input[data-focus='true'] {
-        &:before {
-            border-width: calc(${focusGlowRadius} + 1px);
-            bottom: calc(-${focusGlowRadius} - 1px);
-            left: calc(-${focusGlowRadius} - 1px);
-            right: calc(-${focusGlowRadius} - 1px);
-            top: calc(-${focusGlowRadius} - 1px);
-        }
-    }
-
     .fab-input__field {
         appearance: none;
         background: none;
         border: none;
         color: inherit;
+        font-family: inherit;
         font-size: inherit;
         min-height: ${minHeight};
         padding-left: ${icon || iconStart ? `calc(${padding} + 2em)` : padding};
@@ -111,7 +106,36 @@ const InputStyles = params => {
     }
 
     // External components
-    ${wrapper} .fab-icon[data-placement] {
+    .fab-input__elements .fab-button-wrapper {
+        align-items: center;
+        display: flex;
+        height: 2em;
+        
+        position: absolute;
+        right: .6em;
+        top: 50%;
+        transform: translate(0, -50%);
+        
+    }
+
+    .fab-input__elements .fab-button-wrapper[data-circle='true'] {
+        width: 2em;
+    }
+
+    .fab-input__elements .fab-button-wrapper[data-rounded='true'] {
+        right: .65em;
+    }
+
+    .fab-input__elements .fab-button {
+        font-size: .9em;
+        height: 100%;
+        min-height: initial;
+        padding-bottom: 0;
+        padding-top: 0;
+        width: 100%;
+    }
+
+    .fab-input .fab-icon[data-placement] {
         position: absolute;
         top: 50%;
         transform: translate(0, -50%);

@@ -1,5 +1,6 @@
 import bgColor from '../../../methods/color/bgColor';
 import borderColor from '../../../methods/color/borderColor';
+import getContext from '../../../methods/misc/getContext';
 import getFocusGlowColor from '../../../methods/color/focusGlowColor';
 import getColor from '../../../methods/color/getColor';
 import getPlaceholderColor from '../../../methods/color/placeholderColor';
@@ -7,8 +8,8 @@ import getPlaceholderColor from '../../../methods/color/placeholderColor';
 const colorModifier = props => {
     const theme = window.__FABTheme;
     const vars = theme.variables.components.input;
-    const { colors } = vars;
-    const color = getColor(props.color || vars.color, colors);
+    const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
+    const context = props.color || props.clear ? getContext(props) : 'fill';
     const focusGlowColor = props.color ? color : vars.focusGlowColor;
 
     return `
@@ -21,9 +22,8 @@ const colorModifier = props => {
         }
 
         .fab-input[data-focus='true'] {
-            &:before {
-                border-color: ${getFocusGlowColor(focusGlowColor, 'faded')};
-            }
+            border-color: ${getFocusGlowColor(focusGlowColor, 'fill')};
+            box-shadow: 0 0 0 ${vars.focusGlowRadius} ${getFocusGlowColor(focusGlowColor, 'faded')};
         }
 
         .fab-input__password-toggle {

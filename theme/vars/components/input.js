@@ -8,6 +8,9 @@ const input = {
     get focusGlowColor() {
         return this.colors['primary']
     },
+    get focusGlowRadius() {
+        return '3px'
+    },
     fontSize: '1em',
     minHeight: '3rem',
     padding: '1em',

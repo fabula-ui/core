@@ -1,6 +1,6 @@
 import bgColor from '../../../methods/color/bgColor';
 import borderColor from '../../../methods/color/borderColor';
-import focusGlowColor from '../../../methods/color/focusGlowColor';
+import getFocusGlowColor from '../../../methods/color/focusGlowColor';
 import placeholderColor from '../../../methods/color/placeholderColor';
 import textColor from '../../../methods/color/textColor';
 
@@ -25,9 +25,8 @@ const hasModifier = params => {
         }
 
         .fab-input[data-focus='true'] {
-            &:before {
-                border-color: ${focusGlowColor(color, 'faded')};
-            }
+            border-color: ${getFocusGlowColor(color, 'fill')};
+            box-shadow: 0 0 0 ${vars.focusGlowRadius} ${getFocusGlowColor(color, 'faded')};
         }
 
         ${wrapper} .fab-text {
