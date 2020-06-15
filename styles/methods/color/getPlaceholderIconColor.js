@@ -1,15 +1,14 @@
 import Color from 'color';
 
 // Commons
-import { baseLuminosity } from '../../common/color.commons';
+import { baseLuminosity } from '../../variables/core';
 
 // Methods
-import getBgColor from '../../methods/color/bgColor';
+import getBgColor from '../../methods/color/getBgColor';
 
 const getPlaceholderIconColor = (color, context) => {
     const $color = color ? Color(color).rgb() : Color('#FFF');
     const $bgColor = color ? Color(getBgColor(color, context)) : Color('#FFF');
-    // const intensity = context === 'adapt' ? .15 : .15;
 
     if ($color.luminosity() > baseLuminosity) {
         return $bgColor.darken(.1);

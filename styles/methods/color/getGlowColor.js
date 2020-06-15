@@ -1,9 +1,9 @@
 import Color from 'color';
 
 // Commons
-import { baseLuminosity } from '../../common/color.commons';
+import { baseLuminosity } from '../../variables/core';
 
-const glowColor = (color, context) => {
+const getGlowColor = (color, context) => {
     const $color = Color(color).rgb();
     const fadeIntensity = {
         clear: {
@@ -41,4 +41,4 @@ const glowColor = (color, context) => {
     }
 }
 
-export default glowColor;
+export default getGlowColor;
