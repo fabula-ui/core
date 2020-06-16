@@ -9,7 +9,7 @@ const toggle = {
         return this.colors.primary
     },
     fontSize: '1em',
-    size: '1.25em'
+    size: '1.1em'
 }
 
 export default toggle;

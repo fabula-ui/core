@@ -5,7 +5,7 @@ import colorModifier from './modifiers/toggle-color.modifier';
 import sizeModifier from './modifiers/toggle-size.modifier';
 
 const ToggleStyles = params => {
-    const { framework } = params;
+    const { framework, props } = params;
     const vars = getComponentVars('toggle');
     const wrapper = framework === 'angular' ? '.fab-toggle-wrapper' : '&';
 
@@ -68,7 +68,7 @@ const ToggleStyles = params => {
 
     .fab-toggle__label {
         cursor: pointer;
-        font-weight: 600;
+        font-weight: ${props.weight ? props.weight : '400'};
         letter-spacing: -.025em;
         padding-left: .5rem;
     }

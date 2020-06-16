@@ -1,20 +1,23 @@
 import componentCommons from '../../common/component.commons';
+import getComponentVars from '../../../styles/methods/misc/getComponentVars';
 
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
+import sizeModifier from './modifiers/size.modifier';
+
 
 const CheckboxStyles = params => {
     const { framework, props } = params;
     const { rounded } = props;
+    const vars = getComponentVars('checkbox');
     const wrapper = framework === 'angular' ? '.fab-checkbox-wrapper' : '&';
 
-    return `
-        ${wrapper} { ${componentCommons} }
-        
+    return `        
         ${wrapper} {
             align-items: center;
             cursor: pointer;
             display: flex;
+            font-family: ${vars.fontFamily};
             user-select: none;
         }
 
@@ -50,15 +53,18 @@ const CheckboxStyles = params => {
             align-items: center;
             border-radius: ${rounded ? '50%' : '.2em'};
             display: flex;
-            font-size: 1.1em;
-            height: 1em;
+            font-size: 1em;
+            height: ${vars.size};
             justify-content: center;
-            margin-right: .5em;
-            width: 1em;
+            width: ${vars.size};
         }
 
         .fab-checkbox__label {
             cursor: inherit;
+            font-size: ${vars.fontSize};
+            font-weight: ${props.weight ? props.weight : '400'};
+            padding-left: .5em;
+            
         }
 
         // External
@@ -70,6 +76,7 @@ const CheckboxStyles = params => {
         }
 
         ${colorModifier(params)}
+        ${sizeModifier(params)}
     `;
 }
 
