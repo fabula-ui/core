@@ -1,6 +1,6 @@
-import hoverColor from './hoverColor';
+import getHoverColor from './getHoverColor';
 
-const focusGlowColor = (color, context) => {
+const getFocusGlowColor = (color, context) => {
     const fadeIntensity = {
         clear: .7,
         faded: .7,
@@ -10,7 +10,7 @@ const focusGlowColor = (color, context) => {
         outline: .7
     };
     const passContext = context === 'gradient' ? 'gradient_glow' : context;
-    const $hoverColor = hoverColor(color, passContext);
+    const $hoverColor = getHoverColor(color, passContext);
 
     if (context === 'clear') {
         return 'transparent';
@@ -20,4 +20,4 @@ const focusGlowColor = (color, context) => {
     
 }
 
-export default focusGlowColor;
+export default getFocusGlowColor;

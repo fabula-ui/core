@@ -22,6 +22,7 @@ import tag from './tag';
 import tagInput from './tagInput';
 import text from './text';
 import toast from './toast';
+import toggle from './toggle';
 
 const components = {
     alert,
@@ -47,7 +48,8 @@ const components = {
     tag,
     tagInput,
     text,
-    toast
+    toast,
+    toggle
 }
 
 export default components;

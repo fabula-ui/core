@@ -27,9 +27,10 @@ const InputStyles = params => {
     .fab-input { 
         background: #FFF;
         border-radius: ${borderRadius};
-        ${props.rounded ? 'border-radius: 999px;' : ''}
+        ${props.rounded && !props.textarea ? 'border-radius: 999px;' : ''}
         border: solid 1px transparent;
         color: ${textColor};
+        display: flex;
         font-family: ${vars.fontFamily};
         font-size: ${fontSize};
         position: relative;
@@ -77,6 +78,14 @@ const InputStyles = params => {
         }
     }
 
+    textarea.fab-input__field {
+        line-height: 1.5;
+        min-height: calc(${minHeight} * 3);
+        padding-bottom: ${padding};
+        padding-top: ${padding};
+        resize: vertical;
+    }
+
     .fab-input__password-toggle {
         appearance: none;
         background: none;
@@ -114,8 +123,7 @@ const InputStyles = params => {
         position: absolute;
         right: .6em;
         top: 50%;
-        transform: translate(0, -50%);
-        
+        transform: translate(0, -50%);   
     }
 
     .fab-input__elements .fab-button-wrapper[data-circle='true'] {
@@ -137,8 +145,8 @@ const InputStyles = params => {
 
     .fab-input .fab-icon[data-placement] {
         position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
+        ${props.textarea ? `top: ${padding};` : 'top: 50%;'}
+        ${!props.textarea ? 'transform: translate(0, -50%);' : ''}
     }
 
     ${wrapper} .fab-icon[data-placement='end'] {

@@ -1,26 +1,21 @@
 import Color from 'color';
 
 // Commons
-import { baseLuminosity } from '../../common/color.commons';
+import { baseLuminosity } from '../../variables/core';
 
 // Methods
-import hoverColor from './hoverColor';
+import getHoverColor from './getHoverColor';
 
-const activeColor = (color, context) => {
+const getActiveColor = (color, context) => {
     const $color = color ? Color(color).rgb() : Color('#FFF');
 
     if (context === 'clear') {
         return 'none';
-        // if ($color.luminosity() > baseLuminosity) {
-        //     return $color.darken(.1).mix(Color('#FFF'), .7);
-        // } else {
-        //     return $color.mix(Color('#FFF'), .7);
-        // }
     } else if (context === 'faded') {
         if ($color.luminosity() > baseLuminosity) {
-            return hoverColor(color, context).darken(.1);
+            return getHoverColor(color, context).darken(.1);
         } else {
-            return hoverColor(color, context).darken(.1);
+            return getHoverColor(color, context).darken(.1);
         }
     } else if (context === 'fill') {
         if ($color.luminosity() > baseLuminosity) {
@@ -33,10 +28,10 @@ const activeColor = (color, context) => {
             }
         }
     } else if (context === 'invert') {
-        return hoverColor(color, context).darken(.1);
+        return getHoverColor(color, context).darken(.1);
     } else if (context === 'outline') {
-        return hoverColor(color, context).darken(.1);
+        return getHoverColor(color, context).darken(.1);
     }
 }
 
-export default activeColor;
+export default getActiveColor;
