@@ -1,6 +1,7 @@
 import componentCommons from '../../common/component.commons';
 
 import glowModifier from './modifiers/glow.modifier';
+import colorModifier from './modifiers/color.modifier';
 
 const ModalStyles = params => {
     const { framework, props } = params;
@@ -44,9 +45,8 @@ const ModalStyles = params => {
 
         .fab-modal {
             animation: showModal .2s ease-in-out;
-            background: #FFF;
             border-radius: .5rem;
-            box-shadow: 0 2px 2px rgba(0,0,0,.5);
+            box-shadow: 0 2px 2px rgba(0,0,0,.1);
             left: 50%;
             min-width: 800px;
             max-width: 800px;
@@ -85,6 +85,7 @@ const ModalStyles = params => {
             }
         }
         
+        ${colorModifier(params)}
         ${glow ? glowModifier(props) : ''}
     `;
 }
