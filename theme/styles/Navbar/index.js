@@ -25,7 +25,6 @@ const NavbarStyles = params => {
             align-self: stretch;
             display: flex;
             
-
             img {
                 max-height: 60%;
                 width: auto;

@@ -1,13 +1,11 @@
 import componentCommons from '../../common/component.commons';
 
-import glowModifier from './modifiers/glow.modifier';
 import colorModifier from './modifiers/color.modifier';
+import glowModifier from './modifiers/glow.modifier';
+import sizeModifier from './modifiers/size.modifier';
 
 const ModalStyles = params => {
     const { framework, props } = params;
-    const theme = window.__FABTheme;
-    // const vars = theme.variables.components.modal;
-    const { glow } = props;
     const wrapper = framework === 'angular' ? '.fab-modal-wrapper' : '&';
 
     return `
@@ -48,8 +46,6 @@ const ModalStyles = params => {
             border-radius: .5rem;
             box-shadow: 0 2px 2px rgba(0,0,0,.1);
             left: 50%;
-            min-width: 800px;
-            max-width: 800px;
             opacity: 1;
             position: absolute;
             top: 50%;
@@ -86,7 +82,8 @@ const ModalStyles = params => {
         }
         
         ${colorModifier(params)}
-        ${glow ? glowModifier(props) : ''}
+        ${props.glow ? glowModifier(props) : ''}
+        ${sizeModifier(props)}
     `;
 }
 

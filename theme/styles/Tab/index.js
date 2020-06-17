@@ -19,7 +19,7 @@ const TabStyle = params => {
         }
 
         ${wrapper} {
-            font-size: .9rem;
+            font-size: 1rem;
             font-weight: 500;
         }
 

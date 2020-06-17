@@ -5,7 +5,13 @@ const modal = {
     ...globals,
     colors,
 
-    color: '#FFF'
+    color: '#FFF',
+    sizes: {
+        sm: '320px',
+        md: '480px',
+        lg: '640px',
+        xl: '800px'
+    }
 }
 
 export default modal;
