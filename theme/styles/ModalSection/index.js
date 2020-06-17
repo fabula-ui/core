@@ -4,15 +4,16 @@ import dividerModifier from './modifiers/divider.modifier';
 const ModalSectionStyles = params => {
     const { framework, props } = params;
     const { divider } = props;
+    const wrapper = framework === 'angular' ? '.fab-modal-section' : '&';
     
     return `
-        .fab-modal-section {
+        ${wrapper} {
             padding: 1.25rem;
         }
         
         ${framework === 'angular' ?
             `&:first-child > .fab-modal-section` :
-            `.fab-modal-section:first-child`
+            `${wrapper}:first-child`
         } {
             border-top-left-radius: .5rem;
             border-top-right-radius: .5rem;
@@ -20,14 +21,14 @@ const ModalSectionStyles = params => {
 
         ${framework === 'angular' ?
             `&:last-child > .fab-modal-section` :
-            `.fab-modal-section:last-child`
+            `${wrapper}:last-child`
         } {
             border-bottom-left-radius: .5rem;
             border-bottom-right-radius: .5rem;
         }
 
-        ${colorModifier(props)}
-        ${divider && dividerModifier(props)}
+        ${colorModifier(params)}
+        ${divider && dividerModifier(params)}
     `
 }
 

@@ -1,8 +1,11 @@
 const closeIcon = require('../../../icons/x.svg');
 
 const ModalHeaderStyles = params => {
+    const {framework} = params;
+    const wrapper = framework === 'angular' ? '.fab-modal-header' : '&';
+
     return `
-        .fab-modal-header {
+        ${wrapper} {
             display: flex;
         }
 
@@ -11,11 +14,13 @@ const ModalHeaderStyles = params => {
             appearance: none;
             border: none;
             border-radius: 50%;
+            cursor: pointer;
             display: flex;
             flex-shrink: 0;
             height: 2rem;
             justify-content: center;
             margin-left: .5rem;
+            transition: all .2s ease-in-out;
             width: 2rem;
 
             &:before {

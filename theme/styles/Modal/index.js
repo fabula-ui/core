@@ -7,9 +7,10 @@ const ModalStyles = params => {
     const theme = window.__FABTheme;
     // const vars = theme.variables.components.modal;
     const { glow } = props;
+    const wrapper = framework === 'angular' ? '.fab-modal-wrapper' : '&';
 
     return `
-        .fab-modal-wrapper {
+        ${wrapper} {
             bottom: 0;
             display: none;
             left: 0;
@@ -19,11 +20,11 @@ const ModalStyles = params => {
             z-index: 9999;
         }
 
-        .fab-modal-wrapper[data-open='true'] {
+        ${wrapper}[data-open='true'] {
             display: block;
         }
 
-        .fab-modal-wrapper[data-closing='true'] {
+        ${wrapper}[data-closing='true'] {
             .fab-modal,
             .fab-modal__backdrop {
                 opacity: 0;
@@ -35,7 +36,7 @@ const ModalStyles = params => {
             }
         }
 
-        .fab-modal-wrapper,
+        ${wrapper},
         .fab-modal,
         .fab-modal__backdrop {
             transition: all .2s ease-in-out;
@@ -84,7 +85,6 @@ const ModalStyles = params => {
             }
         }
         
-        ${componentCommons}
         ${glow ? glowModifier(props) : ''}
     `;
 }

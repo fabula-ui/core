@@ -15,7 +15,7 @@ const TextStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-text' : '&';
 
     return `
-    ${framework === 'angular' && !!props.block && !!props.flex ? `& { display: inline-flex; }` : ''}
+    ${framework === 'angular' && !!props.block && !!props.flex ? `& { display: inline-  ; }` : ''}
     
     ${wrapper} {${componentCommons}}
     
@@ -40,8 +40,7 @@ const TextStyles = params => {
     ${wrapper} > small,
     ${wrapper} > span,
     ${wrapper} > strong {
-        align-items: flex-start;
-        display: inline-flex;
+        display: inline;
     }
 
     .fab-text-part {
