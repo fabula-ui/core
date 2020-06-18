@@ -7,19 +7,34 @@ const TagInputStyles = params => {
     const inputVars = getComponentVars('input');
 
     return `
-        .fab-input__field {
-            height: 2.75em;
-            min-height: initial;
-            padding: calc(${inputVars.padding} / 2);
-        }
-
-        .fab-tag-input__field-wrapper {
+        .fab-tag-input__click-area {
+            cursor: text;
             flex-grow: 1;
-            position: relative;
+        }
+        
+        .fab-tag-input__fake-input {
+            align-items: center;
+            cursor: text;
+            display: inline-flex;
+            max-width: 100%;
+            padding: calc(${inputVars.padding} / 2);
+            white-space: break-word;
+
+            &:before {
+                color: ${inputVars.placeholderColor};
+                content: '${props.placeholder}';
+                display: inline-flex;
+            }
+
+            &:focus {
+                outline: none;
+            }
         }
 
-        .fab-tag-input__field-wrapper:only-child {
-            padding-left: calc(${inputVars.padding} / 2);
+        .fab-tag-input__fake-input[data-show-placeholder='false'] {
+            &:before {
+                display: none;
+            }
         }
 
         .fab-tag-input__stage {
@@ -32,23 +47,41 @@ const TagInputStyles = params => {
             width: 100%;
         }
 
-        .fab-tag-group {
-            padding-bottom: calc(${inputVars.padding} / 2);
-            padding-top: calc(${inputVars.padding} / 2);
+        // External
+
+        .fab-tag-input .fab-icon {
+            align-items: center;
+            padding-left: .6em;
+            padding-right: .25em;
         }
 
-        .fab-tag-wrapper {
+        .fab-tag-input .fab-input__field {
+            height: 2.75em;
+            min-height: initial;
+            padding: calc(${inputVars.padding} / 2);
+        }
+
+        .fab-tag-input .fab-tag-input__field-wrapper {
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .fab-tag-input .fab-tag-input__field-wrapper:only-child {
+            padding-left: calc(${inputVars.padding} / 4);
+        }
+
+        .fab-tag-input .fab-tag-wrapper {
             max-width: 100%;
             padding: calc(${inputVars.padding} / 4);
         }
 
-        .fab-tag {
-            height: 2.5em;
+        .fab-tag-input .fab-tag {
+            height: 2em;
             overflow: hidden;
             width: 100%;
         }
 
-        .fab-tag span {
+        .fab-tag-inut .fab-tag span {
             display: block;
             line-height: 1.5;
             min-width: 0;
@@ -61,55 +94,3 @@ const TagInputStyles = params => {
 }
 
 export default TagInputStyles;
-
-/*
-.fab-tag-input {
-            align-items: center;
-            border-radius: .5em;
-            display: flex;
-            flex-wrap: wrap;
-            min-height: 3em;
-            padding: .15em .1em;
-        }
-
-        .fab-tag-input__field-wrapper {
-            align-items: center;
-            display: inline-flex;
-            max-width: 100%;
-            overflow: hidden;
-            padding: .2em .3em;
-        }
-
-        .fab-tag-input__field {
-            align-items: center;
-            border: none;
-            display: flex;
-            height: 2rem;
-
-            &:focus {
-                outline: none;
-            }
-        }
-
-        .fab-tag-input__stage {
-            display: inline-flex;
-            flex-wrap: wrap;
-            max-width: 100%;
-            position: relative;
-
-            fab-tag,
-            .fab-tag-wrapper {
-                max-width: 100%;
-            }
-
-            .fab-tag-wrapper {
-                padding: .2em;
-            }
-
-            .fab-tag {
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
-        }
-        */
