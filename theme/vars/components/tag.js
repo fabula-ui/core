@@ -6,7 +6,7 @@ const tag = {
     colors,
 
     // Component vars
-    borderRadius: `calc(${globals.borderRadius} * .8)`,
+    borderRadius: `calc(${globals.borderRadius} * .6)`,
     get color() {
         return this.colors['aux']
     },
