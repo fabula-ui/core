@@ -58,7 +58,7 @@ const FileInputStyles = params => {
             position: absolute;
         }
 
-        .fab-file-input .fab-list-item[data-dropdown-item] {
+        .fab-file-input .fab-dropdown-item {
             align-items: center;
             display: flex;
             padding: .5em;
