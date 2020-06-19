@@ -17,6 +17,7 @@ const globals = {
     fontFamily: '\'Inter\', sans-serif',
     fontSize: '1rem',
     sizeMultipliers: {
+        xxs: .6,
         xs: .75,
         sm: .9,
         md: 1,

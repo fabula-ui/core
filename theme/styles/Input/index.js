@@ -119,7 +119,6 @@ const InputStyles = params => {
         align-items: center;
         display: flex;
         height: 2em;
-        
         position: absolute;
         right: .6em;
         top: 50%;
@@ -157,7 +156,7 @@ const InputStyles = params => {
         left: ${padding};
     }
 
-    ${wrapper} .fab-text {
+    .fab-input__message {
         display: block;
         font-size: .85em;
         margin-top: .5em;

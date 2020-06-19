@@ -52,7 +52,7 @@ const DropdownMenuStyles = params => {
         width: 100%;
     }
 
-    .fab-list-item .fab-button-wrapper {
+    .fab-list-item__button > .fab-button-wrapper {
         width: 100%;
     }
 

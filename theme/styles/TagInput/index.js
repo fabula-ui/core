@@ -38,8 +38,10 @@ const TagInputStyles = params => {
         }
 
         .fab-tag-input__stage {
+            align-items: center;
             display: flex;
             flex-wrap: wrap;
+            min-height: ${inputVars.minHeight};
             padding-bottom: .25em;
             padding-left: .25em;
             padding-right: .25em;
@@ -56,9 +58,9 @@ const TagInputStyles = params => {
         }
 
         .fab-tag-input .fab-input__field {
-            height: 2.75em;
-            min-height: initial;
-            padding: calc(${inputVars.padding} / 2);
+            // height: 2.75em;
+            // min-height: initial;
+            // padding: calc(${inputVars.padding} / 2);
         }
 
         .fab-tag-input .fab-tag-input__field-wrapper {
