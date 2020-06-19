@@ -2,6 +2,7 @@ import componentCommons from '../../common/component.commons';
 
 // Methods
 import getComponentVars from '../../methods/misc/getComponentVars';
+import getFocusGlowColor from '../../methods/color/focusGlowColor';
 
 const FileInputStyles = params => {
     const { framework, props } = params;
@@ -9,10 +10,15 @@ const FileInputStyles = params => {
     const { expand } = props;
     const inputVars = getComponentVars('input');
     const wrapper = framework === 'angular' ? '.fab-file-input-wrapper' : '&';
+    const focusGlowColor = props.color ? color : inputVars.focusGlowColor;
 
     return `
         .fab-file-input[data-has-files='true'] {
             cursor: pointer;
+
+            &:hover {
+                border-color: ${getFocusGlowColor(focusGlowColor, 'fill')};
+            }
         }
 
         .fab-file-input input[type='file'] {
@@ -42,14 +48,14 @@ const FileInputStyles = params => {
         // External
         .fab-file-input__stage .fab-avatar-wrapper {
             height: 100%;
-            margin-right: .7em;
+            margin-right: 1em;
         }
 
         .fab-file-input__stage .fab-avatar {
             border-radius: 0;
             font-size: .9em;
             height: 100%;
-            width: 2.5em;
+            width: 2.75em;
         }
         
         .fab-file-input .fab-badge {
@@ -61,10 +67,10 @@ const FileInputStyles = params => {
         .fab-file-input .fab-dropdown-item {
             align-items: center;
             display: flex;
-            padding: .5em;
-
+            padding: 0 .5em;
+            
             .fab-avatar { 
-                margin-right: .6em;
+                margin-right: .75em;
             }
 
             span {
@@ -76,6 +82,10 @@ const FileInputStyles = params => {
             }
         }
 
+        .fab-file-input .fab-dropdown-menu {
+            cursor: default;
+        }
+
         .fab-file-input__icon .fab-icon {
             color: ${placeholderColor};
         }
@@ -85,7 +95,7 @@ const FileInputStyles = params => {
             background: #FFF;
             box-shadow: -5px 0 6px 0 #FFF;
             display: flex;
-            height: 100%;
+            height: calc(100% - 2px);
             position: absolute;
             right: .6em;
 
@@ -99,8 +109,18 @@ const FileInputStyles = params => {
             }
         }
 
+        .fab-file-input[data-file-list-is-open='true'] .fab-input__elements {
+            .fab-icon {
+                transform: rotateZ(180deg);
+            }
+        }
+
         .fab-file-input .fab-tag-wrapper {
             height: 2em;
+
+            &:not(:last-child) {
+                margin-right: .5em;
+            }
         }
 
         .fab-file-input .fab-tag {
@@ -124,106 +144,3 @@ const FileInputStyles = params => {
 }
 
 export default FileInputStyles;
-
-// ${wrapper} { ${componentCommons} }
-//         ${wrapper} {
-//             display: inline-flex;
-//             font-size: 1rem;
-//             min-width: 20rem;
-//             max-width: 100%;
-//             ${expand ? `width: 100%;` : ''}
-//         }
-
-//         .fab-file-input {
-//             width: 100%;
-//         }
-
-//         .fab-file-input__button {
-//             flex-shrink: 0;
-//             position: relative;
-//         }
-
-//         .fab-file-input__button input[type='file'] {
-//             opacity: 0;
-//             position: absolute;
-//             width: 100%;
-//         }
-
-//         .fab-file-input__field {
-//             align-items: center;
-//             color: ${placeholderColor};
-//             display: flex;
-//             height: 3rem;
-//             padding-left: 1em;
-//             padding-right: .5em;
-//         }
-
-//         .fab-file-input__icon {
-//             display: inline-flex;
-//             margin-right: .75em;
-//         }
-
-//         .fab-file-input__placeholder {
-//             flex-grow: 1;
-//             line-height: 1;
-//         }
-
-//         .fab-file-input__stage {
-//             display: flex;
-//             flex-grow: 1;
-//             overflow-x: hidden;
-//             position: relative;
-
-//             &:after {
-//                 background: linear-gradient(to right, rgba(255,255,255, 0), rgba(255, 255, 255, 1));
-//                 bottom: 0;
-//                 content: '';
-//                 position: absolute;
-//                 right: 0;
-//                 top: 0;
-//                 width: 20px;
-//             }
-//         }
-
-//         .fab-file-input__tag {
-//             display: flex;
-//         }
-
-//         // External
-
-//         .fab-file-input .fab-badge {
-//             align-items: center;
-//             display: inline-flex;
-//             font-size: .6em;
-//             padding: .25em .4em;
-//         }
-
-//         .fab-file-input__tag .fab-avatar-wrapper:not(:last-child) {
-//             margin-right: .7em;
-//         }
-
-//         .fab-file-input__tag .fab-avatar {
-//             border-radius: 0;
-//             font-size: 1em;
-//             height: 2rem;
-//             width: 2rem;
-//         }
-
-//         .fab-file-input__tag .fab-tag {
-//             display: flex;
-//             flex-wrap: nowrap;
-//             font-size: .85em;
-//             font-weight: 600;
-//             overflow: hidden;
-//             padding-bottom: 0;
-//             padding-left: 0;
-//             padding-top: 0;
-//             text-overflow: ellipsis;
-//             white-space: nowrap;
-//         }
-
-//         .fab-file-input__tag:not(:last-child) {
-//             margin-right: .5em;
-//         }
-
-//         ${InputStyles(params)}

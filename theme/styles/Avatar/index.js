@@ -32,6 +32,7 @@ const AvatarStyles = params => {
             height: ${vars.size};
             font-family: ${vars.fontFamily};
             font-weight: 400;
+            overflow: hidden;
             position: relative;
             width: ${vars.size};
         }
