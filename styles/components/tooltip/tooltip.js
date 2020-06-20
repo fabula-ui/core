@@ -1,13 +1,17 @@
 import getComponentVars from '../../methods/misc/getComponentVars';
+import getNumber from '../../methods/misc/getNumber';
+
+// Modifiers
+import colorModifier from './modifiers/tooltip-color.modifier';
 
 const TooltipStyles = params => {
-    const { framework } = params;
+    const { framework, props } = params;
     const vars = getComponentVars('tooltip');
     const wrapper = framework === 'angular' ? '.fab-tooltip' : '&';
+    const offset = props.offset ? getNumber(props.offset, 'rem') : vars.offset;
 
     return `
         ${wrapper} {
-            background: ${vars.color};
             border-radius: .5em;
             color: #FFF;
             display: inline-flex;
@@ -22,7 +26,7 @@ const TooltipStyles = params => {
             z-index: 9999;
 
             &:before {
-                background: ${vars.color};
+                background: inherit;
                 border-radius: .125em;
                 content: '';
                 display: block;
@@ -34,7 +38,7 @@ const TooltipStyles = params => {
 
         ${wrapper}[data-placement='bottom'] {
             animation: show-tooltip-bottom .2s ease-in-out;
-            transform: translate(-50%, ${vars.spacing});
+            transform: translate(-50%, ${offset});
 
             &:before {
                 left: 50%;
@@ -51,7 +55,7 @@ const TooltipStyles = params => {
 
         ${wrapper}[data-placement='left'] {
             animation: show-tooltip-left .2s ease-in-out;
-            transform: translate(calc(-100% - ${vars.spacing}), -50%);
+            transform: translate(calc(-100% - ${offset}), -50%);
 
             &:before {
                 right: 0;
@@ -68,7 +72,7 @@ const TooltipStyles = params => {
 
         ${wrapper}[data-placement='right'] {
             animation: show-tooltip-right .2s ease-in-out;
-            transform: translate(${vars.spacing}, -50%);
+            transform: translate(${offset}, -50%);
 
             &:before {
                 left: 0;
@@ -85,7 +89,7 @@ const TooltipStyles = params => {
 
         ${wrapper}[data-placement='top'] {
             animation: show-tooltip-top .2s ease-in-out;
-            transform: translate(-50%, calc(-100% - ${vars.spacing}));
+            transform: translate(-50%, calc(-100% - ${offset}));
 
             &:before {
                 bottom: 0;
@@ -110,6 +114,8 @@ const TooltipStyles = params => {
             position: relative;
             z-index: 1;
         }
+
+        ${colorModifier(params)}
     `
 }
 

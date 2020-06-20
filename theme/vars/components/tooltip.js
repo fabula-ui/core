@@ -8,7 +8,7 @@ const tooltip = {
     get color() {
         return colors['dark']
     },
-    spacing: '.75em'
+    offset: '.75em'
 }
 
 export default tooltip;
