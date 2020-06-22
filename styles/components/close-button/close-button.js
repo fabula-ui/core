@@ -1,52 +1,50 @@
-import getBgColor from '../../methods/color/bgColor';
+import getBgColor from '../../methods/color/getBgColor';
 import getColor from '../../methods/color/getColor';
 import getComponentVars from '../../methods/misc/getComponentVars';
-import getContext from '../../methods/misc/getContext';
-import getTextColor from '../../methods/color/textColor';
-
+import getTextColor from '../../methods/color/getTextColor';
 
 // Assets
 const closeIcon = require('../../../icons/x.svg');
 
-const ModalHeaderStyles = params => {
-    const { framework, props } = params;
-    const vars = getComponentVars('modal');
-    const wrapper = framework === 'angular' ? '.fab-modal-header' : '&';
+const CloseButtonStyles = params => {
+    const {framework, props} = params;
+    const vars = getComponentVars('button');
+    const wrapper = framework === 'angular' ? '.fab-close-button' : '&';
 
     const color = props.color || props.parentColor ? getColor(props.color || props.parentColor, vars.colors) : vars.color;
-    const context = props.color || props.parentColor ? getContext(props) : 'fill';
+    const multiplier = vars.sizeMultipliers[props.size || 'md'];
 
     return `
         ${wrapper} {
-            display: flex;
-        }
-
-        .fab-modal-header__close {
-            align-items: center;
             appearance: none;
             background: ${getBgColor(color, props.color || props.parentColor ? 'adapt' : 'fill')};
             border: none;
             border-radius: 50%;
             cursor: pointer;
-            display: flex;
+            display: inline-flex;
             flex-shrink: 0;
-            height: 2rem;
-            justify-content: center;
+            height: calc(2em * ${multiplier});
             margin-left: .5rem;
+            padding: 0;
+            position: relative;
             transition: all .2s ease-in-out;
-            width: 2rem;
+            width: calc(2em * ${multiplier});
 
             &:before {
                 background-color: ${getTextColor(color, 'fill')};
                 content: '';
                 display: block;
-                height: 1.25em;
+                height: 60%;
+                left: 50%;
                 mask-image: url('${closeIcon}');
                 mask-repeat: no-repeat;
                 mask-position: center center;
                 mask-size: contain;
+                position: absolute;
+                transform: translate(-50%, -50%);
                 transition: all .2s ease-in-out;
-                width: 1.25em;
+                top: 50%;
+                width: 60%;
             }
 
             &:focus {
@@ -66,16 +64,11 @@ const ModalHeaderStyles = params => {
             }
         }
 
-        .fab-modal-header__content {
-            flex-grow: 1;
+        ${wrapper} .fab-icon__svg {
+            height: 1.1em;
+            width: 1.1em;
         }
-
-        .fab-modal-header__title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -.025em;
-        }
-    `
+    `;
 }
 
-export default ModalHeaderStyles;
+export default CloseButtonStyles;

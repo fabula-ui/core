@@ -51,11 +51,13 @@ const AlertStyles = params => {
         .fab-alert__title {
             font-weight: ${vars.titleFontWeight};
             line-height: ${vars.titleLineHeight};
+        }
+
+        .fab-alert__title:not(:last-child) {
             margin-bottom: ${vars.spacingY};
         }
 
         // External
-        
         .fab-text {
             line-height: ${vars.textLineHeight};
         }
