@@ -1,8 +1,7 @@
-import bgColor from '../../../methods/color/bgColor';
 import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
-import dividerColor from '../../../methods/color/dividerColor';
+import getDividerColor from '../../../methods/color/getDividerColor';
 
 const markerModifier = props => {
     const vars = getComponentVars('alert');
@@ -17,7 +16,7 @@ const markerModifier = props => {
             position: relative;
 
             &:before {
-                background: ${dividerColor(color, context)};
+                background: ${getDividerColor(color, context)};
                 bottom: 0;
                 content: '';
                 display: block;

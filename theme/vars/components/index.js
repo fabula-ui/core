@@ -5,6 +5,7 @@ import button from './button/button';
 import buttonGroup from './buttonGroup';
 import card from './card';
 import checkbox from './checkbox';
+import closeButton from './closeButton';
 import dropdown from './dropdown';
 import fileInput from './fileInput';
 import icon from './icon';
@@ -33,6 +34,7 @@ const components = {
     buttonGroup,
     card,
     checkbox,
+    closeButton,
     dropdown,
     fileInput,
     icon,

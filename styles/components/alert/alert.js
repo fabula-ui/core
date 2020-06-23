@@ -1,5 +1,3 @@
-import componentCommons from '../../common/component.commons';
-
 // Methods
 import getComponentVars from '../../methods/misc/getComponentVars';
 
@@ -13,7 +11,6 @@ const AlertStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-alert-wrapper' : '&';
 
     return `
-        ${wrapper} { ${componentCommons} }
         ${wrapper} {
             ${framework === 'angular' ? 'width: 100%;' : ''}
         }

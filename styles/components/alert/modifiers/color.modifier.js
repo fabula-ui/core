@@ -1,11 +1,11 @@
-import bgColor from '../../../methods/color/bgColor';
-import getBorderColor from '../../../methods/color/borderColor';
-import getDividerColor from '../../../methods/color/dividerColor';
+import getBgColor from '../../../methods/color/getBgColor';
+import getBorderColor from '../../../methods/color/getBorderColor';
+import getDividerColor from '../../../methods/color/getDividerColor';
 import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
-import getTextColor from '../../../methods/color/textColor';
-import getGlowColor from '../../../methods/color/glowColor';
+import getTextColor from '../../../methods/color/getTextColor';
+import getGlowColor from '../../../methods/color/getGlowColor';
 
 const colorModifier = props => {
     const vars = getComponentVars('alert');
@@ -15,7 +15,7 @@ const colorModifier = props => {
 
     return `
         .fab-alert {
-            background: ${bgColor(color, context)};
+            background: ${getBgColor(color, context)};
             border-color: ${props.border || props.outline ? `${getBorderColor(borderColor, context)};` : `${getDividerColor(borderColor, context)};`}
             ${props.glow ? `box-shadow: 0 ${vars.glowRadiusX} ${vars.glowRadiusY} ${getGlowColor(color, context)};` : ''}
             color: ${getTextColor(color, context)};

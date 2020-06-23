@@ -1,13 +1,13 @@
 import Color from 'color';
 
 // Methods
-import bgColor from './bgColor';
-import textColor from './textColor';
+import getBgColor from './getBgColor';
+import getTextColor from './getTextColor';
 
-const borderColor = (color, context) => {
-    const _bgColor = bgColor(color, context);
+const getBorderColor = (color, context) => {
+    const _bgColor = getBgColor(color, context);
     const $bgColor = _bgColor !== 'none' ? Color(_bgColor) : Color('#FFF');
-    const _textColor = textColor(color, context);
+    const _textColor = getTextColor(color, context);
     const $textColor = Color(_textColor);
 
     if (context === 'clear') {
@@ -17,7 +17,7 @@ const borderColor = (color, context) => {
             return $textColor.darken(.1);
         }
     } else if (context === 'outline') {
-        return textColor(color, context);
+        return getTextColor(color, context);
     } else if (context === 'invert') {
         return color;
     } else  {
@@ -29,4 +29,4 @@ const borderColor = (color, context) => {
     }
 }
 
-export default borderColor;
+export default getBorderColor;

@@ -8,10 +8,11 @@ const closeIcon = require('../../../icons/x.svg');
 
 const CloseButtonStyles = params => {
     const {framework, props} = params;
-    const vars = getComponentVars('button');
+    const vars = getComponentVars('closeButton');
     const wrapper = framework === 'angular' ? '.fab-close-button' : '&';
 
     const color = props.color || props.parentColor ? getColor(props.color || props.parentColor, vars.colors) : vars.color;
+    const hoverColor = props.color || props.parentColor ? getTextColor(color, 'fill') : vars.hoverColor;
     const multiplier = vars.sizeMultipliers[props.size || 'md'];
 
     return `
@@ -52,11 +53,11 @@ const CloseButtonStyles = params => {
             }
 
             &:hover {
-                background-color: ${getTextColor(color, 'fill')};
+                background-color: ${hoverColor};
             }
 
             &:hover:before {
-                background-color: ${getBgColor(color, 'fill')};
+                background-color: ${props.color || props.parentColor ? getBgColor(color, 'fill') : getTextColor(hoverColor, 'fill')};
             }
 
             &:active {
