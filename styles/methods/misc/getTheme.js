@@ -1,4 +1,4 @@
-import { setBaseTheme } from '../../index';
+import setBaseTheme from './setBaseTheme';
 
 const getTheme = () => {
     if (!window['__FABTheme']) { setBaseTheme(); }
