@@ -1,6 +1,6 @@
-import colors from '../../../theme/vars/colors';
-import components from '../../../theme/vars/components';
-import globals from '../../../theme/vars/globals';
+import colors from '../../variables/colors';
+import components from '../../variables/components';
+import globals from '../../variables/globals';
 
 const setBaseTheme = userSettings => {
     const userVars = userSettings && userSettings.theme || {};
