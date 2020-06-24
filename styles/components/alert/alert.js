@@ -48,6 +48,11 @@ const AlertStyles = params => {
         .fab-alert__title {
             font-weight: ${vars.titleFontWeight};
             line-height: ${vars.titleLineHeight};
+
+            .fab-text {
+                font-weight: inherit;
+                line-height: inherit;
+            }
         }
 
         .fab-alert__title:not(:last-child) {
