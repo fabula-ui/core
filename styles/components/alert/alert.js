@@ -43,6 +43,11 @@ const AlertStyles = params => {
 
         .fab-alert__text {
             font-weight: ${vars.textFontWeight};
+
+            .fab-text {
+                font-weight: inherit;
+                line-height: inherit;
+            }
         }
 
         .fab-alert__title {
@@ -62,10 +67,6 @@ const AlertStyles = params => {
         // External
         .fab-text {
             line-height: ${vars.textLineHeight};
-        }
-
-        .fab-text + .fab-text {
-            margin-top: ${vars.spacingY};
         }
 
         ${colorModifier(props)}
