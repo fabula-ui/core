@@ -1,16 +1,10 @@
-// Component commons
-import componentCommons from '../../common/component.commons';
-
 // Methods
 import getComponentVars from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/color.modifier';
-import placementModifier from './modifiers/placement.modifier';
-import sizeModifier from './modifiers/size.modifier';
-
-// Utils
-import UtilsStyles from '../../utils';
+import colorModifier from './modifiers/badge-color.modifier';
+import placementModifier from './modifiers/badge-placement.modifier';
+import sizeModifier from './modifiers/badge-size.modifier';
 
 const BadgeStyles = params => {
     const { framework, props } = params;
@@ -18,7 +12,6 @@ const BadgeStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-badge-wrapper' : '&';
 
     return `
-        ${wrapper} { ${componentCommons} }
         ${framework === 'angular' ? `& { display: inline-flex; }` : ''}
 
         ${wrapper} {
@@ -30,6 +23,7 @@ const BadgeStyles = params => {
             border-radius: ${vars.borderRadius};
             ${props.circle || props.rounded ? `border-radius: 999px;` : ''}
             display: flex;
+            font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
             ${props.circle ? `height: ${vars.circleSize};` : ''}
