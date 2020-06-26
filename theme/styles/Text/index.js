@@ -36,13 +36,6 @@ const TextStyles = params => {
         color: inherit;
     }
 
-    ${wrapper} > p,
-    ${wrapper} > small,
-    ${wrapper} > span,
-    ${wrapper} > strong {
-        display: inline;
-    }
-
     .fab-text-part {
         padding: calc(${spacing} / 2);
     }
