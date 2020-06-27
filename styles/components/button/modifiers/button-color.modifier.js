@@ -1,14 +1,14 @@
-import activeColor from '../../../methods/color/activeColor';
-import getBgColor from '../../../methods/color/bgColor';
-import getBorderColor from '../../../methods/color/borderColor';
+import getActiveColor from '../../../methods/color/getActiveColor';
+import getBgColor from '../../../methods/color/getBgColor';
+import getBorderColor from '../../../methods/color/getBorderColor';
 import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
-import getFocusGlowColor from '../../../methods/color/focusGlowColor';
-import getGlowColor from '../../../methods/color/glowColor';
-import hoverColor from '../../../methods/color/hoverColor';
-import hoverTextColor from '../../../methods/color/hoverTextColor';
-import getTextColor from '../../../methods/color/textColor';
+import getFocusGlowColor from '../../../methods/color/getFocusGlowColor';
+import getGlowColor from '../../../methods/color/getGlowColor';
+import getHoverColor from '../../../methods/color/getHoverColor';
+import getHoverTextColor from '../../../methods/color/getHoverTextColor';
+import getTextColor from '../../../methods/color/getTextColor';
 
 const colorModifier = props => {
     const vars = getComponentVars('button');
@@ -32,13 +32,13 @@ const colorModifier = props => {
             }
 
             &:hover:not([disabled]) {
-                ${context !== 'gradient' ? `background: ${hoverColor(userBgColor || color, context)};` : ''}
-                ${props.bgColor || props.color ? `color: ${hoverTextColor(userBgColor || color, context)}` : ''}
-                ${props.userTextColor ? `color: ${hoverTextColor(userTextColor, 'invert')};` : ''}
+                ${context !== 'gradient' ? `background: ${getHoverColor(userBgColor || color, context)};` : ''}
+                ${props.bgColor || props.color ? `color: ${getHoverTextColor(userBgColor || color, context)}` : ''}
+                ${props.userTextColor ? `color: ${getHoverTextColor(userTextColor, 'invert')};` : ''}
             }
 
             &:active:not([disabled]) {
-                ${context !== 'gradient' ? `background: ${activeColor(userBgColor || color, context)};` : ''}
+                ${context !== 'gradient' ? `background: ${getActiveColor(userBgColor || color, context)};` : ''}
             }
         }
     `;

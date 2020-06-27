@@ -1,8 +1,8 @@
 import Color from 'color';
 
-import { baseLuminosity } from '../../common/color.commons';
+import { baseLuminosity } from '../../variables/core';
 
-const focusColor = (backgroundColor) => {
+const getFocusColor = (backgroundColor) => {
     const $color = Color(backgroundColor).rgb();
 
     if ($color.luminosity() > baseLuminosity) {
@@ -12,4 +12,4 @@ const focusColor = (backgroundColor) => {
     }
 }
 
-export default focusColor;
+export default getFocusColor;

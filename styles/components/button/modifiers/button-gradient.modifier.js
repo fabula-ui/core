@@ -1,7 +1,7 @@
 import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
-import getGradientColor from '../../../methods/color/gradientColor';
+import getGradientColor from '../../../methods/color/getGradientColor';
 
 const gradientModifier = props => {
     const vars = getComponentVars('button');

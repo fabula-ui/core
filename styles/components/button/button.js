@@ -1,10 +1,7 @@
-// Component commons
-import componentCommons from '../../common/component.commons';
-
 // Button modifiers
-import colorModifier from './modifiers/color.modifier';
-import gradientModifier from './modifiers/gradient.modifier';
-import sizeModifier from './modifiers/size.modifier';
+import colorModifier from './modifiers/button-color.modifier';
+import gradientModifier from './modifiers/button-gradient.modifier';
+import sizeModifier from './modifiers/button-size.modifier';
 
 // Methods
 import getComponentVars from '../../methods/misc/getComponentVars';
@@ -17,7 +14,6 @@ const ButtonStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-button-wrapper' : '&';
 
     return `
-        ${wrapper} { ${componentCommons} }
         ${wrapper} {
             display: inline-flex;
             ${props.expand ? `width: 100%;` : ''}
