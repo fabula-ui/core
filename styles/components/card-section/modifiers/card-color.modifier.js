@@ -16,8 +16,10 @@ const colorModifier = params => {
         ${wrapper} {
             ${props.color ? `background-color: ${getBgColor(color, context)};` : ''}
             ${props.color ? `color: ${getTextColor(color, context)};` : ''}
-            ${props.divider === 'both' || props.divider === 'bottom' ? `border-bottom: solid 1px ${getDividerColor(color, context)};` : ''}
-            ${props.divider === 'both' || props.divider === 'top' ? `border-top: solid 1px ${getDividerColor(color, context)};` : ''}
+            ${props.divider === 'x' || props.divider === 'left' ? `border-left: solid 1px ${getDividerColor(color, context)};` : ''}
+            ${props.divider === 'y' || props.divider === 'bottom' ? `border-bottom: solid 1px ${getDividerColor(color, context)};` : ''}
+            ${props.divider === 'y' || props.divider === 'top' ? `border-top: solid 1px ${getDividerColor(color, context)};` : ''}
+            ${props.divider === 'x' || props.divider === 'right' ? `border-right: solid 1px ${getDividerColor(color, context)};` : ''}
         }
     `;
 }

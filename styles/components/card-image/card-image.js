@@ -19,6 +19,7 @@ const CardImageStyles = params => {
             ${props.cover ? `height: ${vars.imageHeight};` : ''}
             ${props.height ? `height: ${getHeight(props.height)};` : ''}
             position: relative;
+            width: ${props.layout === 'h' || props.layout === 'horizontal' ? '10rem' : '100%'};
 
             &:before {
                 content: '';
@@ -45,16 +46,18 @@ const CardImageStyles = params => {
 
         ${framework === 'angular' ? `&:first-child > .fab-card-image {` : ''}
         ${framework !== 'angular' ? `&:first-child {` : ''}
+                border-bottom-left-radius: ${props.layout === 'h' || props.layout === 'horizontal' ? vars.borderRadius : 0};
                 border-top-left-radius: ${vars.borderRadius};
-                border-top-right-radius: ${vars.borderRadius};
+                border-top-right-radius: ${props.layout === 'h' || props.layout === 'horizontal' ? 0 : vars.borderRadius};
                 overflow: hidden;
             }
         }
 
         ${framework === 'angular' ? `&:last-child > .fab-card-image {` : ''}
         ${framework !== 'angular' ? `&:last-child {` : ''}
-                border-bottom-left-radius: ${vars.borderRadius};
+                border-bottom-left-radius: ${props.layout === 'h' || props.layout === 'horizontal' ? 0 : vars.borderRadius};
                 border-bottom-right-radius: ${vars.borderRadius};
+                border-top-right-radius: ${props.layout === 'h' || props.layout === 'horizontal' ? vars.borderRadius : 0};
                 overflow: hidden;
             }
         }

@@ -3,6 +3,7 @@ import getComponentVars from '../../methods/misc/getComponentVars';
 
 // Modifiers
 import colorModifier from './modifiers/card-color.modifier';
+import layoutModifier from './modifiers/card-layout.modifier';
 
 const CardStyles = params => {
     const { props } = params;
@@ -15,6 +16,7 @@ const CardStyles = params => {
         }
         
         ${colorModifier(params)}
+        ${layoutModifier(params)}
     `;
 }
 
