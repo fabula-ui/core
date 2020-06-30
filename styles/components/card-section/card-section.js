@@ -10,7 +10,13 @@ const CardSectionStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-card-section' : '&';
 
     return `
+        ${framework === 'angular' && props.expand ? '& { flex-grow: 1; }' : ''}
+        
         ${wrapper} {
+            display: flex;
+            flex-direction: column;
+            ${framework !== 'angular' && props.expand ? 'flex-grow: 1;' : ''}
+            ${framework === 'angular' && props.expand && (props.layout === 'v' || props.layout === 'vertical')  ? 'height: 100%;' : ''}
             ${props.padding ? `padding: 1rem;` : ''}
         }
 
