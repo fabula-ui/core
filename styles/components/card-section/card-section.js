@@ -11,7 +11,6 @@ const CardSectionStyles = params => {
 
     return `
         ${wrapper} {
-            height: 100%;
             ${props.padding ? `padding: 1rem;` : ''}
         }
 
