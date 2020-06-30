@@ -11,20 +11,23 @@ const CardSectionStyles = params => {
 
     return `
         ${wrapper} {
+            height: 100%;
             ${props.padding ? `padding: 1rem;` : ''}
         }
 
         ${framework === 'angular' ? `&:first-child > .fab-card-section {` : ''}
         ${framework !== 'angular' ? `&:first-child {` : ''}
+                border-bottom-left-radius: ${props.layout === 'h' || props.layout === 'horizontal' ? vars.borderRadius : 0};
                 border-top-left-radius: ${vars.borderRadius};
-                border-top-right-radius: ${vars.borderRadius};
+                border-top-right-radius: ${props.layout === 'h' || props.layout === 'horizontal' ? 0 : vars.borderRadius};
             }
         }
 
         ${framework === 'angular' ? `&:last-child > .fab-card-section {` : ''}
         ${framework !== 'angular' ? `&:last-child {` : ''}
-                border-bottom-left-radius: ${vars.borderRadius};
+                border-bottom-left-radius: ${props.layout === 'h' || props.layout === 'horizontal' ? 0 : vars.borderRadius};
                 border-bottom-right-radius: ${vars.borderRadius};
+                border-top-right-radius: ${props.layout === 'h' || props.layout === 'horizontal' ? vars.borderRadius : 0};
             }
         }
 

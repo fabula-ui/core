@@ -1,6 +1,7 @@
 // Methods
 import getComponentVars from '../../methods/misc/getComponentVars';
 import getHeight from '../../methods/misc/getHeight';
+import getNumber from '../../methods/misc/getNumber';
 
 // Modifiers
 import colorModifier from './modifiers/card-color.modifier';
@@ -18,8 +19,10 @@ const CardImageStyles = params => {
         ${wrapper} {
             ${props.cover ? `height: ${vars.imageHeight};` : ''}
             ${props.height ? `height: ${getHeight(props.height)};` : ''}
+            ${framework === 'angular' && !props.height && (props.layout === 'h' || props.layout === 'horizontal') ? 'height: 100%;' : ''}
             position: relative;
             width: ${props.layout === 'h' || props.layout === 'horizontal' ? '10rem' : '100%'};
+            ${props.width ? `width: ${getNumber(props.width, 'px')};` : ''}
 
             &:before {
                 content: '';
@@ -36,7 +39,7 @@ const CardImageStyles = params => {
             }
             
             img {
-                ${props.height || props.cover ? `height: 100%;` : 'height: auto;' }
+                ${props.height || props.cover ? `height: 100%;` : 'height: auto;'}
                 margin: 0;
                 ${props.height || props.cover ? `object-fit: cover;` : ''}
                 position: relative;
