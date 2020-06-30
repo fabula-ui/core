@@ -14,14 +14,14 @@ const alignUtils = params => {
         ${
         al || align ?
             `
-                align-items: ${alignments[al || align] || al || align};
-                justify-content: ${alignments[al || align] || al || align};
+                align-items: ${alignments[al || align] || al || align}!important;
+                justify-content: ${alignments[al || align] || al || align}!important;
             `
             : ''
         }
 
-        ${alH || alignH ? `justify-content: ${alignments[alH || alignH] || alH || alignH};` : ''}
-        ${alV || alignV ? `align-items: ${alignments[alV || alignV] || alV || alignV};` : ''}
+        ${alH || alignH ? `justify-content: ${alignments[alH || alignH] || alH || alignH}!important;` : ''}
+        ${alV || alignV ? `align-items: ${alignments[alV || alignV] || alV || alignV}!important;` : ''}
         ${framework === 'angular' ? '' : '}'}
     `
 }

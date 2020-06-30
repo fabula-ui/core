@@ -8,7 +8,7 @@ describe('Button Group', () => {
 
     // Flow
     it('flow', async () => {
-        await page.goto(`http://localhost:${port}/iframe.html?id=buttongroup--flow`, { waitUntil: 'load', timeout: 10000 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=button-group--flow`, { waitUntil: 'load', timeout: 10000 });
         await page.waitFor(1000);
         const image = await page.screenshot();
 
@@ -20,7 +20,7 @@ describe('Button Group', () => {
 
     // Glued
     it('glued:general check', async () => {
-        await page.goto(`http://localhost:${port}/iframe.html?id=buttongroup--glued`, { waitUntil: 'load', timeout: 10000 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=button-group--glued`, { waitUntil: 'load', timeout: 10000 });
         await page.waitFor(1000);
         const image = await page.screenshot();
 
@@ -47,7 +47,7 @@ describe('Button Group', () => {
 
     // Spaced
     it('spaced', async () => {
-        await page.goto(`http://localhost:${port}/iframe.html?id=buttongroup--spaced`, { waitUntil: 'load', timeout: 10000 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=button-group--spaced`, { waitUntil: 'load', timeout: 10000 });
         await page.waitFor(1000);
         const image = await page.screenshot();
 

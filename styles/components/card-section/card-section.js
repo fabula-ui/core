@@ -18,6 +18,7 @@ const CardSectionStyles = params => {
             ${framework !== 'angular' && props.expand ? 'flex-grow: 1;' : ''}
             ${framework === 'angular' && props.expand && (props.layout === 'v' || props.layout === 'vertical')  ? 'height: 100%;' : ''}
             ${props.padding ? `padding: 1rem;` : ''}
+            ${props.layout === 'h' || props.layout === 'horizontal' ? 'width: 100%;' : ''}
         }
 
         ${framework === 'angular' ? `&:first-child > .fab-card-section {` : ''}
