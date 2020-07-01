@@ -21,10 +21,11 @@ const alignUtils = params => {
         }
 
         ${alV || alignV ? `align-items: ${alignments[alV || alignV] || alV || alignV}!important;` : ''}
-        ${alH || alignH ? `justify-content: ${alignments[alH || alignH] || alH || alignH}!important;` : ''}
-
         ${(props.layout === 'h' || props.layout === 'horizontal') && (alV || alignV) ? `align-items: ${alignments[alV || alignV] || alV || alignV}!important;` : ''}
+
+        ${alH || alignH ? `justify-content: ${alignments[alH || alignH] || alH || alignH}!important;` : ''}
         ${(props.layout === 'v' || props.layout === 'vertical') && (alV || alignV) ? `justify-content: ${alignments[alV || alignV] || alV || alignV}!important;` : ''}
+        
         ${framework === 'angular' ? '' : '}'}
     `
 }
