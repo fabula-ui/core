@@ -17,6 +17,7 @@ const CardImageStyles = params => {
 
     return `
         ${wrapper} {
+            flex-shrink: 0;
             ${props.cover ? `height: ${vars.imageHeight};` : ''}
             ${props.height ? `height: ${getHeight(props.height)};` : ''}
             ${framework === 'angular' && !props.height && (props.layout === 'h' || props.layout === 'horizontal') ? 'height: 100%;' : ''}
@@ -27,15 +28,16 @@ const CardImageStyles = params => {
             &:before {
                 content: '';
                 display: block;
-                height: 50%;
+                height: ${props.layout === 'h' || props.layout === 'horizontal' ? '50%' : '50%'};
+                ${props.layout === 'h' || props.layout === 'horizontal' ? 'left: 50%;' : ''}
                 mask: url(${icon});
                 mask-position: center center;
                 mask-repeat: no-repeat;
                 mask-size: contain;
                 position: absolute;
                 top: 50%;
-                transform: translate(0, -50%);
-                width: 100%;
+                transform: ${props.layout === 'h' || props.layout === 'horizontal' ? 'translate(-50%, -50%)' : 'translate(0, -50%)'};
+                width: ${props.layout === 'h' || props.layout === 'horizontal' ? '50%' : '100%'};
             }
             
             img {
