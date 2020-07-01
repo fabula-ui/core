@@ -10,6 +10,10 @@ const gluedModifier = params => {
                 padding: 0;
             }
 
+            .fab-button:focus {
+                z-index: 1;
+            }
+
             fab-button:not(:first-child) .fab-button-wrapper[data-border='true'],
             fab-button:not(:first-child) .fab-button-wrapper[data-outline='true'],
             .fab-button-wrapper[data-border='true']:not(:first-child),
@@ -23,7 +27,6 @@ const gluedModifier = params => {
 
                 &:before {
                     border-bottom-right-radius: 0;
-                    border-right: none;
                     border-top-right-radius: 0;
                 }
             }
@@ -32,9 +35,7 @@ const gluedModifier = params => {
                 border-radius: 0;
 
                 &:before {
-                    border-left: none;
                     border-radius: 0;
-                    border-right: none;
                 }
             }
 
@@ -44,7 +45,6 @@ const gluedModifier = params => {
                 
                 &:before {
                     border-bottom-left-radius: 0;
-                    border-left: none;
                     border-top-left-radius: 0;
                 }
             }

@@ -1,8 +1,12 @@
 describe('Alert', () => {
     const port = process.env.PORT || '9009';
+
+    afterAll(async() => {
+        await page.waitFor(1000);
+    });
+
     beforeAll(async () => {
         jest.setTimeout(100000);
-        // page.setViewport({ width: 1920, height: 1080 });
     });
 
     it('border', async () => {
