@@ -1,10 +1,9 @@
 import getComponentVars from '../../../methods/misc/getComponentVars';
 
 const sizeModifier = params => {
-    const { framework, props } = params;
+    const { props } = params;
     const vars = getComponentVars('toggle');
     const sizeMultiplier = vars.sizeMultipliers[props.size || 'md'];
-    const wrapper = framework === 'angular' ? '.fab-toggle-wrapper' : '&';
 
     return `
         .fab-checkbox {
