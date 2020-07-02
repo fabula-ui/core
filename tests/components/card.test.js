@@ -3,13 +3,15 @@ describe('Card', () => {
 
     beforeAll(async () => {
         jest.setTimeout(100000);
-        page.setViewport({ width: 1920, height: 1080 });
     });
 
     // Clear
     it('examples', async () => {
+        page.setViewport({ width: 1800, height: 600 });
+
         await page.goto(`http://localhost:${port}/iframe.html?id=card--examples`, { waitUntil: 'load', timeout: 10000 });
-        await page.waitFor(2000);
+        await page.waitFor(200);
+        
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -19,8 +21,11 @@ describe('Card', () => {
     });
 
     it('color', async () => {
+        page.setViewport({ width: 1200, height: 900 });
+
         await page.goto(`http://localhost:${port}/iframe.html?id=card--color`, { waitUntil: 'load', timeout: 10000 });
-        await page.waitFor(2000);
+        await page.waitFor(200);
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -30,8 +35,11 @@ describe('Card', () => {
     });
 
     it('glow', async () => {
+        page.setViewport({ width: 1200, height: 900 });
+
         await page.goto(`http://localhost:${port}/iframe.html?id=card--glow`, { waitUntil: 'load', timeout: 10000 });
-        await page.waitFor(2000);
+        await page.waitFor(200);
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -41,8 +49,11 @@ describe('Card', () => {
     });
 
     it('layout', async () => {
+        page.setViewport({ width: 1800, height: 600 });
+
         await page.goto(`http://localhost:${port}/iframe.html?id=card--layout`, { waitUntil: 'load', timeout: 10000 });
-        await page.waitFor(2000);
+        await page.waitFor(200);
+        
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({

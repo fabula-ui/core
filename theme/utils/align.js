@@ -10,7 +10,6 @@ const alignUtils = params => {
     };
 
     return `
-        ${framework === 'angular' ? '' : '& {'}
         ${
         al || align ?
             `
@@ -25,8 +24,6 @@ const alignUtils = params => {
 
         ${alH || alignH ? `justify-content: ${alignments[alH || alignH] || alH || alignH}!important;` : ''}
         ${(props.layout === 'v' || props.layout === 'vertical') && (alV || alignV) ? `justify-content: ${alignments[alV || alignV] || alV || alignV}!important;` : ''}
-        
-        ${framework === 'angular' ? '' : '}'}
     `
 }
 
