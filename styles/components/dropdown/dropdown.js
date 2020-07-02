@@ -23,20 +23,6 @@ const DropdownStyles = params => {
     .fab-dropdown-toggle__label {
         flex-grow: 1;
     }
-
-    // External components
-
-    .fab-dropdown-toggle > .fab-button-wrapper {
-        width: 100%;
-    }
-
-    .fab-dropdown[data-open='true'] .fab-icon[data-toggle-icon] {
-        transform: ${props.direction === 'down' ? `rotateZ(180deg)` : `rotateZ(0)`};
-    }
-
-    .fab-icon[data-toggle-icon] {
-        transform: ${props.direction === 'down' ? `rotateZ(0)` : `rotateZ(180deg)`};
-    }
     `
 };
 

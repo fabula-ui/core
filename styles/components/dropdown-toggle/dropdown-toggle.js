@@ -9,6 +9,10 @@ const DropdownToggleStyles = params => {
     const icon = !!props.icon ? require(`../../../icons/${typeof props.icon === 'object' ? props.icon.name : props.icon}.svg`) : null;
 
     return `
+        .fab-button-wrapper {
+            width: 100%;
+        }
+
         .fab-dropdown-toggle__chevron,
         .fab-dropdown-toggle__icon {
             height: 1em;
@@ -20,6 +24,8 @@ const DropdownToggleStyles = params => {
 
         .fab-dropdown-toggle__chevron {
             mask-image: url('${chevronIcon}');
+            ${props.direction === 'down' ? `transform: ${props.open ? `rotateZ(180deg)` : `rotateZ(0)`};` : ''}
+            ${props.direction === 'up' ? `transform: ${props.open ? `rotateZ(0)` : `rotateZ(180deg)`};` : ''}
         }
 
         .fab-dropdown-toggle__icon {
