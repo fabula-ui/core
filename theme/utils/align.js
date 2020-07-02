@@ -2,11 +2,13 @@ const alignUtils = params => {
     const { framework, props } = params;
     const { al, alH, alV, align, alignH, alignV } = props;
     const alignments = {
+        bottom: 'flex-end',
         center: 'center',
         end: 'flex-end',
         left: 'flex-start',
         right: 'flex-end',
-        start: 'flex-start'
+        start: 'flex-start',
+        top: 'flex-start'
     };
 
     return `
