@@ -1,19 +1,14 @@
-// Component commons
-import componentCommons from '../../common/component.commons';
+import getComponentVars from '../../methods/misc/getComponentVars';
 
 const DropdownStyles = params => {
     const { framework, props } = params;
-    const vars = window.__FABTheme.variables.components.dropdown;
-    const listVars = window.__FABTheme.variables.components.list;
-    const { align, direction, expand } = props;
-    const { borderRadius } = vars;
+    const vars = getComponentVars('dropdown');
     const wrapper = framework === 'angular' ? '.fab-dropdown-wrapper' : '&';
 
     return `
-    ${wrapper} { ${componentCommons} }
     ${wrapper} {
         display: inline-flex;
-        ${expand ? `width: 100%;` : ''} 
+        ${props.expand ? `width: 100%;` : ''} 
     }
 
     .fab-dropdown {
@@ -22,7 +17,7 @@ const DropdownStyles = params => {
     }
 
     .fab-dropdown-toggle {
-        ${expand ? `width: 100%;` : ''}
+        ${props.expand ? `width: 100%;` : ''}
     }
 
     .fab-dropdown-toggle__label {
@@ -36,11 +31,11 @@ const DropdownStyles = params => {
     }
 
     .fab-dropdown[data-open='true'] .fab-icon[data-toggle-icon] {
-        transform: ${direction === 'down' ? `rotateZ(180deg)` : `rotateZ(0)`};
+        transform: ${props.direction === 'down' ? `rotateZ(180deg)` : `rotateZ(0)`};
     }
 
     .fab-icon[data-toggle-icon] {
-        transform: ${direction === 'down' ? `rotateZ(0)` : `rotateZ(180deg)`};
+        transform: ${props.direction === 'down' ? `rotateZ(0)` : `rotateZ(180deg)`};
     }
     `
 };
