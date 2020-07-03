@@ -25,6 +25,11 @@ const DropdownMenuStyles = params => {
         z-index: 9999;
     }
 
+    .fab-dropdown-menu[data-open='false'] {
+        cursor: default;
+        pointer-events: none;
+    }
+
     .fab-dropdown-menu[data-open='true'] {
         opacity: 1;
         transform: ${props.direction === 'down' ? `translate(0, 0)` : 'translate(0, -100%)'} ;
@@ -38,6 +43,11 @@ const DropdownMenuStyles = params => {
 
     // External components
 
+    fab-button[data-dropdown-item] .fab-button-wrapper {
+        width: 100%;
+    }
+
+    fab-button[data-dropdown-item] .fab-button,
     .fab-button[data-dropdown-item] {
         border-radius: 0;
         justify-content: flex-start;
@@ -46,13 +56,10 @@ const DropdownMenuStyles = params => {
             box-shadow: none;
         }
     }
-
+    
+    fab-list-item[data-dropdown-item] .fab-list-item,
     .fab-list-item[data-dropdown-item] {
         padding: 0;
-        width: 100%;
-    }
-
-    .fab-list-item__button > .fab-button-wrapper {
         width: 100%;
     }
 

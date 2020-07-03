@@ -1,15 +1,15 @@
 const DropdownItemStyles = params => {
     const { framework } = params;
-    const wrapper = framework === 'angular' ? '.fab-dropdown-item' : '&';
+    const wrapper = framework === 'angular' ? '.fab-dropdown-item.fab-list-item' : '&';
 
     return `
-        ${wrapper}.fab-list-item {
+        ${wrapper} {
             padding-bottom: 0;
             padding-top: 0;
         }
 
-        .fab-dropdown-item__button,
-        .fab-dropdown-item__button > .fab-button-wrapper {
+        .fab-button-wrapper[data-dropdown-item],
+        .fab-button[data-dropdown-item] {
             width: 100%;
         }
     `;

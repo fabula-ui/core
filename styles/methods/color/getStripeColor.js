@@ -1,13 +1,13 @@
 import Color from 'color';
 
 // Commons
-import { baseLuminosity } from '../../common/color.commons';
+import { baseLuminosity } from '../../variables/core';
 
 // Methods
-import bgColor from './bgColor';
+import getBgColor from './getBgColor';
 
 const stripeColor = (color, context) => {
-    const _bgColor = bgColor(color, context);
+    const _bgColor = getBgColor(color, context);
     const $bgColor = color ? Color(_bgColor) : Color('#FFF');
 
     if ($bgColor.luminosity() > baseLuminosity) {
