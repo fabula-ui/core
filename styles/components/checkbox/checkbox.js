@@ -56,6 +56,7 @@ const CheckboxStyles = params => {
             align-items: center;
             border-radius: ${rounded ? '50%' : vars.borderRadius};
             display: flex;
+            flex-shrink: 0;
             font-size: 1em;
             height: ${vars.size};
             justify-content: center;
