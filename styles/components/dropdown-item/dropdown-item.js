@@ -12,6 +12,11 @@ const DropdownItemStyles = params => {
         .fab-button[data-dropdown-item] {
             width: 100%;
         }
+
+        // External
+        fab-list-item {
+            width: 100%;
+        }
     `;
 }
 

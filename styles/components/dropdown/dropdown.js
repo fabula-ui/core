@@ -6,6 +6,8 @@ const DropdownStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-dropdown-wrapper' : '&';
 
     return `
+    ${props.expand && framework === 'angular' ? '& { display: flex; }' : ''}
+
     ${wrapper} {
         display: inline-flex;
         ${props.expand ? `width: 100%;` : ''} 

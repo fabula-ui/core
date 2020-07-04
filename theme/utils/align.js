@@ -1,5 +1,17 @@
 const alignUtils = params => {
-    const { framework, props } = params;
+    const { framework } = params;
+
+    return `
+        ${framework === 'angular' ? '> [data-fab-component], > [data-fab-wrapper] {' : ''}
+        ${alignCSS(params)}
+        ${framework === 'angular' ? '}' : ''}
+
+        ${alignCSS(params)}
+    `
+}
+
+const alignCSS = params => {
+    const { props } = params;
     const { al, alH, alV, align, alignH, alignV } = props;
     const alignments = {
         bottom: 'flex-end',

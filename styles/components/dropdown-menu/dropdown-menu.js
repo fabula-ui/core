@@ -51,6 +51,7 @@ const DropdownMenuStyles = params => {
     .fab-button[data-dropdown-item] {
         border-radius: 0;
         justify-content: flex-start;
+        text-align: left;
 
         &:focus {
             box-shadow: none;
@@ -59,11 +60,10 @@ const DropdownMenuStyles = params => {
     
     fab-list-item[data-dropdown-item] .fab-list-item,
     .fab-list-item[data-dropdown-item] {
-        padding: 0;
         width: 100%;
     }
 
-    .fab-drodpown .fab-text {
+    .fab-dropdown .fab-text {
         white-space: nowrap;
     }
     `

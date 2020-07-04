@@ -4,7 +4,7 @@ import getTextColor from '../../../methods/color/getTextColor';
 import getContext from '../../../methods/misc/getContext';
 
 const colorModifier = params => {
-    const {framework, props} = params;
+    const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.list;
     const { colors, stripeColor } = vars;
@@ -30,7 +30,12 @@ const colorModifier = params => {
             }
         }
 
-        ${framework === 'angular' ? 'fab-list-item:not(:last-child) .fab-list-item' : '.fab-list-item:not(:last-child)'} {
+        ${framework === 'angular' ?
+            `fab-list-item:not(:last-child) .fab-list-item,
+            [list-item]:not(:last-child) .fab-list-item`
+            :
+            '.fab-list-item:not(:last-child)'
+        } {
             ${props.divider && !props.striped ? `border-bottom: solid 1px ${dividerColor(color, context)};` : ''}
         }
 

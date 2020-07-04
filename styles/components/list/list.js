@@ -21,6 +21,7 @@ const ListStyles = params => {
         width: 100%;
     }
 
+    fab-list-item[data-button='true'] .fab-list-item,
     .fab-list-item[data-button='true'] {
         padding: 0;
     }
