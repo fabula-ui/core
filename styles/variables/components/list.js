@@ -6,6 +6,8 @@ import globals from '../globals';
 const list = {
     ...globals,
     colors,
+
+    color: '#FFF',
     padding: '1rem',
     get stripeColor() {
         return Color(colors['primary']).desaturate(.5).mix(Color('#FFF'), .925);

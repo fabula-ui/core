@@ -4,20 +4,20 @@ const DropdownItemStyles = params => {
 
     return `
         ${wrapper} {
-            
-        }
-
-        fab-button[data-dropdown-item],
-        fab-button[data-dropdown-item] .fab-button-wrapper {
-            width: 100%;
-        }
-
-        .fab-button-wrapper[data-dropdown-item],
-        .fab-button[data-dropdown-item] {
             width: 100%;
         }
 
         // External
+        .fab-button-wrapper[data-expand='true'] .fab-button {
+            border-radius: 0;
+            justify-content: flex-start;
+            text-align: left;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
         fab-list-item {
             width: 100%;
         }

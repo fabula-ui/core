@@ -18,10 +18,6 @@ const colorModifier = params => {
             color: ${getTextColor(color, 'fill')};
         }
 
-        .fab-list-item {
-            color: inherit;
-        }
-
         ${wrapper} .fab-text:not([data-color]) {
             ${props.color ? `color: inherit;` : ''}
             

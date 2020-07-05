@@ -42,23 +42,6 @@ const DropdownMenuStyles = params => {
     }
 
     // External components
-
-    fab-button[data-dropdown-item] .fab-button,
-    .fab-button[data-dropdown-item] {
-        border-radius: 0;
-        justify-content: flex-start;
-        text-align: left;
-
-        &:focus {
-            box-shadow: none;
-        }
-    }
-    
-    fab-list-item[data-dropdown-item] .fab-list-item,
-    .fab-list-item[data-dropdown-item] {
-        width: 100%;
-    }
-
     .fab-dropdown .fab-text {
         white-space: nowrap;
     }
