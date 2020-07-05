@@ -1,16 +1,16 @@
-const growUtils = props => {
-    const { grow } = props;
+const growUtils = params => {
+    const { props } = params;
 
-    if (grow) {
+    if (props.grow) {
         return `
             & {
-                flex-grow: ${grow};
+                flex-grow: ${props.grow};
             }
         `;
     } else {
         return '';
     }
-    
+
 }
 
 export default growUtils;

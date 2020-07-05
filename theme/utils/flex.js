@@ -28,7 +28,6 @@ const flexUtils = params => {
         ${!!justContent || !!justifyContent ?  `justify-content: ${alignmentTypes[justContent || justifyContent] || justContent || justifyContent};` : ''}
     }
     `;
-
 }
 
 export default flexUtils;

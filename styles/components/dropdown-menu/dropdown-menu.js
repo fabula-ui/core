@@ -43,10 +43,6 @@ const DropdownMenuStyles = params => {
 
     // External components
 
-    fab-button[data-dropdown-item] .fab-button-wrapper {
-        width: 100%;
-    }
-
     fab-button[data-dropdown-item] .fab-button,
     .fab-button[data-dropdown-item] {
         border-radius: 0;

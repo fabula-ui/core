@@ -4,8 +4,12 @@ const DropdownItemStyles = params => {
 
     return `
         ${wrapper} {
-            padding-bottom: 0;
-            padding-top: 0;
+            
+        }
+
+        fab-button[data-dropdown-item],
+        fab-button[data-dropdown-item] .fab-button-wrapper {
+            width: 100%;
         }
 
         .fab-button-wrapper[data-dropdown-item],

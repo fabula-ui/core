@@ -1,7 +1,7 @@
 import getNumber from '../methods/misc/getNumber';
 
 const marginUtils = params => {
-    const { framework, props } = params;
+    const { angularElement, framework, props } = params;
     const { m, mb, ml, mr, mt, mx, my } = props;
 
     return `

@@ -16,7 +16,7 @@ const UtilsStyles = params => {
         ${alignUtils(params)}
         ${columnUtils(props)}
         ${flexUtils(params)}
-        ${growUtils(props)}
+        ${growUtils(params)}
         ${marginUtils(params)}
         ${paddingUtils(props)}
         ${rowUtils(props)}
