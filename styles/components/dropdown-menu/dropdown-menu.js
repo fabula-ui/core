@@ -1,5 +1,8 @@
 import getComponentVars from '../../methods/misc/getComponentVars';
 
+// Modifiers
+import colorModifier from './modifiers/dropdown-menu-color.modifier';
+
 const DropdownMenuStyles = params => {
     const {framework, props} = params;
     const vars = getComponentVars('dropdown');
@@ -45,6 +48,8 @@ const DropdownMenuStyles = params => {
     .fab-dropdown .fab-text {
         white-space: nowrap;
     }
+
+    ${colorModifier(params)}
     `
 }
 
