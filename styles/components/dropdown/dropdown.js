@@ -6,7 +6,7 @@ const DropdownStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-dropdown-wrapper' : '&';
 
     return `
-    ${props.expand && framework === 'angular' ? '& { display: flex; }' : ''}
+    ${props.expand && framework === 'angular' ? '& { width: 100%; }' : ''}
 
     ${wrapper} {
         display: inline-flex;
@@ -16,10 +16,6 @@ const DropdownStyles = params => {
     .fab-dropdown {
         position: relative;
         width: 100%;
-    }
-
-    .fab-dropdown-toggle {
-        ${props.expand ? `width: 100%;` : ''}
     }
 
     .fab-dropdown-toggle__label {

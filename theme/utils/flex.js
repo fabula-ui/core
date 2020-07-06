@@ -20,6 +20,7 @@ const flexUtils = params => {
 
     return `
     ${wrapper} {
+        ${!!fl || !!flex ? `align-items: flex-start;` : ''}
         ${!!alItems || !!alignItems ?  `align-items: ${alignmentTypes[alItems || alignItems] || alItems || alignItems};` : ''}
         ${!!fl || !!flex ? `display: flex;` : ''}
         ${!!fl || !!flex ? `flex-direction: row;` : ''}
