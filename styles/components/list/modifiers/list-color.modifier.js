@@ -1,15 +1,16 @@
-import dividerColor from '../../../methods/color/getDividerColor';
+import getColor from '../../../methods/color/getColor';
+import getContext from '../../../methods/misc/getContext';
+import getDividerColor from '../../../methods/color/getDividerColor';
 import getStripeColor from '../../../methods/color/getStripeColor';
 import getTextColor from '../../../methods/color/getTextColor';
-import getContext from '../../../methods/misc/getContext';
+
 
 const colorModifier = params => {
     const { framework, props } = params;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.list;
-    const { colors, stripeColor } = vars;
-    const color = colors[props.color];
-    const context = getContext(props);
+    const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
+    const context = props.color || props.clear ? getContext(props) : 'fill';
     const wrapper = framework === 'angular' ? '.fab-list-wrapper' : '&';
 
     return `
@@ -32,11 +33,11 @@ const colorModifier = params => {
             :
             '.fab-list-item:not(:last-child)'
         } {
-            ${props.divider && !props.striped ? `border-bottom: solid 1px ${dividerColor(color, context)};` : ''}
+            ${props.divider && !props.striped ? `border-bottom: solid 1px ${getDividerColor(color, context)};` : ''}
         }
 
         ${framework === 'angular' ? 'fab-list-item:nth-child(odd):not(:only-child) .fab-list-item' : '.fab-list-item:nth-child(odd):not(:only-child)'} {
-            ${!color && props.striped ? `background-color: ${stripeColor};` : ''}
+            ${!color && props.striped ? `background-color: ${vars.stripeColor};` : ''}
             ${color && props.striped ? `background-color: ${getStripeColor(color, context)};` : ''}
         }
     `;

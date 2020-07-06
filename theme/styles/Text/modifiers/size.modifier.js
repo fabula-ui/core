@@ -9,6 +9,10 @@ const sizeModifier = params => {
     return `
         ${wrapper} {
             font-size: calc(${fontSize} * ${multiplier});
+
+            .fab-text {
+                font-size: inherit;
+            }
         }
     `;
 }

@@ -13,7 +13,7 @@ const colorModifier = params => {
             color: ${props.color === 'inherit' ? 'inherit' : getBgColor(colorName, 'fill')};
         }
 
-        ${aux && colorName === 'inherit' ?
+        ${aux && props.color === 'inherit' ?
             `${wrapper} {
                 opacity: .8;
             }` : ''
