@@ -3,15 +3,13 @@ import getTextColor from '../../../methods/color/getTextColor';
 
 const messageColorModifier = params => {
     const { framework, props } = params;
-    const { messageColor } = props;
     const theme = window.__FABTheme;
     const vars = theme.variables.components.input;
-    const color = getColor(messageColor, vars.colors);
-    const wrapper = framework === 'angular' ? '.fab-input-wrapper' : '&';
+    const color = getColor(props.messageColor || props.message.color, vars.colors);
 
     return `
-        ${wrapper} .fab-text {
-            color: ${textColor(color, 'clear')};
+        .fab-input__message {
+            color: ${getTextColor(color, 'clear')};
         }
     `;
 }

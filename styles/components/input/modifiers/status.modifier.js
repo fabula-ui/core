@@ -6,12 +6,10 @@ import getPlaceholderColor from '../../../methods/color/getPlaceholderColor';
 import getTextColor from '../../../methods/color/getTextColor';
 
 
-const hasModifier = params => {
+const statusModifier = params => {
     const { framework, props } = params;
-    const { has } = props;
     const vars = getComponentVars('input');
-    const color = vars.colors[has];
-    const wrapper = framework === 'angular' ? '.fab-input-wrapper' : '&';
+    const color = vars.colors[props.status];
 
     return `
         .fab-input {
@@ -33,10 +31,10 @@ const hasModifier = params => {
             background-color: ${getBgColor(color, 'fill')};
         }
 
-        ${wrapper} .fab-text {
+        .fab-input__message {
             color: ${getTextColor(color, 'clear')};
         }
     `;
 }
 
-export default hasModifier;
+export default statusModifier;

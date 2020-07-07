@@ -3,9 +3,13 @@ import getComponentVars from '../../methods/misc/getComponentVars';
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
 import glowModifier from './modifiers/glow.modifier';
-import hasModifier from './modifiers/has.modifier';
 import messageColorModifier from './modifiers/messageColor.modifier';
 import sizeModifier from './modifiers/size.modifier';
+import statusModifier from './modifiers/status.modifier';
+
+// Icons
+const toggleIcon = require(`../../../icons/eye.svg`);
+const toggleOffIcon = require(`../../../icons/eye-off.svg`);
 
 const InputStyles = params => {
     const { framework, props } = params;
@@ -13,13 +17,14 @@ const InputStyles = params => {
     const icon = !!props.icon ? require(`../../../icons/${typeof props.icon === 'object' ? props.icon.name : props.icon}.svg`) : null;
     const iconEnd = !!props.iconEnd ? require(`../../../icons/${typeof props.iconEnd === 'object' ? props.iconEnd.name : props.iconEnd}.svg`) : null;
     const iconStart = !!props.iconStart ? require(`../../../icons/${typeof props.iconStart === 'object' ? props.iconStart.name : props.iconStart}.svg`) : null;
-    const { expand, glow, has, messageColor, size } = props;
-    const { borderRadius, disabledOpacity, focusGlowRadius, fontSize, minHeight, padding, placeholderColor, textColor } = vars;
+
     const wrapper = framework === 'angular' ? '.fab-input-wrapper' : '&';
 
     return `
     ${wrapper} {
-        font-size: ${fontSize};
+        color: ${vars.textColor};
+        font-family: ${vars.fontFamily};
+        font-size: ${vars.fontSize};
         position: relative;
     }
 
@@ -28,9 +33,7 @@ const InputStyles = params => {
         border-radius: ${vars.borderRadius};
         ${props.rounded && !props.textarea ? 'border-radius: 999px;' : ''}
         border: solid 1px transparent;
-        color: ${vars.textColor};
         display: flex;
-        font-family: ${vars.fontFamily};
         font-size: ${vars.fontSize};
         position: relative;
         transition: all .2s ease-in-out;
@@ -86,6 +89,7 @@ const InputStyles = params => {
     }
 
     .fab-input__icon {
+        background-color: ${vars.textColor};
         display: block;
         height: 1.1em;
         mask-repeat: no-repeat;
@@ -140,7 +144,12 @@ const InputStyles = params => {
     }
 
     .fab-input__password-toggle .fab-input__icon {
+        mask-image: url(${toggleIcon});
         position: static;
+    }
+
+    .fab-input__password-toggle[data-toggled='true'] .fab-input__icon {
+        mask-image: url(${toggleOffIcon});
     }
 
     // External components
@@ -178,10 +187,10 @@ const InputStyles = params => {
     }
 
     ${colorModifier(props)}
-    ${glow ? glowModifier(props) : ''}
-    ${!!has ? hasModifier(params) : ''}
-    ${!!messageColor ? messageColorModifier(params) : ''}
-    ${!!size ? sizeModifier(params) : ''}
+    ${props.glow ? glowModifier(props) : ''}
+    ${(!!props.message && props.message.color) || !!props.messageColor ? messageColorModifier(params) : ''}
+    ${!!props.size ? sizeModifier(params) : ''}
+    ${!!props.status ? statusModifier(params) : ''}
     `
 };
 

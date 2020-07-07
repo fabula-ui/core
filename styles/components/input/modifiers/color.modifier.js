@@ -22,16 +22,12 @@ const colorModifier = props => {
         }
 
         .fab-input[data-disabled='true'] {
-            background-color: ${getBgColor(color, 'disabled')};
+            //background-color: ${getBgColor(color, 'disabled')};
         }
 
         .fab-input[data-focus='true'] {
             border-color: ${getFocusGlowColor(focusGlowColor, 'fill')};
             box-shadow: 0 0 0 ${vars.focusGlowRadius} ${getFocusGlowColor(focusGlowColor, 'faded')};
-        }
-
-        .fab-input__icon {
-            background-color: ${getTextColor(color, context)}; 
         }
 
         .fab-input__icon[data-placement='end'] {
@@ -42,8 +38,8 @@ const colorModifier = props => {
             ${(!!iconColor || !!iconStartColor) ? `background-color: ${iconColor || iconStartColor};` : ''}
         }
 
-        .fab-input__password-toggle {
-            color: ${getPlaceholderColor(color, 'fill')};
+        .fab-input__password-toggle .fab-input__icon {
+            background-color: ${getPlaceholderColor(color, 'fill')};
         }
     `;
 }
