@@ -1,20 +1,18 @@
+import getComponentVars from '../../../methods/misc/getComponentVars';
+
 const sizeModifier = params => {
     const { framework, props } = params;
-    const { size } = props;
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.input;
-    const { borderRadius, fontSize, minHeight, sizeMultipliers } = vars;
-    const sizeMultiplier = sizeMultipliers[size || 'md'];
+    const vars = getComponentVars('input');
+    const sizeMultiplier = vars.sizeMultipliers[props.size || 'md'];
     const wrapper = framework === 'angular' ? '.fab-input-wrapper' : '&';
 
     return `
         ${wrapper} {
-            font-size: calc(${fontSize} * ${sizeMultiplier});
+            font-size: calc(${vars.fontSize} * ${sizeMultiplier});
         }
 
         .fab-input__field {
-            border-radius: calc(${borderRadius} * ${sizeMultiplier});
-            min-height: calc(${minHeight} * ${sizeMultiplier});
+            min-height: calc(${vars.minHeight} * ${sizeMultiplier});
         }
     `;
 }

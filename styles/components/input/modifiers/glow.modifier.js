@@ -1,12 +1,11 @@
 import getColor from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
 import getGlowColor from '../../../methods/color/getGlowColor';
 
 const glowModifier = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.input;
-    const { colors } = vars;
-    const color = getColor(props.color || vars.color, colors);
+    const vars = getComponentVars('input');
+    const color = getColor(props.color || vars.color, vars.colors);
     const context = getContext(props);
 
     return `

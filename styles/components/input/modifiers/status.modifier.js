@@ -7,7 +7,7 @@ import getTextColor from '../../../methods/color/getTextColor';
 
 
 const statusModifier = params => {
-    const { framework, props } = params;
+    const { props } = params;
     const vars = getComponentVars('input');
     const color = vars.colors[props.status];
 

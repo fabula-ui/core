@@ -1,16 +1,12 @@
-import getBgColor from '../../../methods/color/getBgColor';
 import getBorderColor from '../../../methods/color/getBorderColor';
-import getComponentVars from '../../../methods/misc/getComponentVars';
-import getContext from '../../../methods/misc/getContext';
-import getFocusGlowColor from '../../../methods/color/getFocusGlowColor';
 import getColor from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
+import getFocusGlowColor from '../../../methods/color/getFocusGlowColor';
 import getPlaceholderColor from '../../../methods/color/getPlaceholderColor';
-import getTextColor from '../../../methods/color/getTextColor';
 
 const colorModifier = props => {
     const vars = getComponentVars('input');
     const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
-    const context = props.color || props.clear ? getContext(props) : 'fill';
     const focusGlowColor = props.color ? color : vars.focusGlowColor;
     const iconColor = !!props.icon && typeof props.icon === 'object' ? getColor(props.icon.color, vars.colors) : '';
     const iconEndColor = !!props.iconEnd && typeof props.iconEnd === 'object' ? getColor(props.iconEnd.color, vars.colors) : '';
@@ -19,10 +15,6 @@ const colorModifier = props => {
     return `
         .fab-input {
             border-color: ${getBorderColor(color, 'faded')};
-        }
-
-        .fab-input[data-disabled='true'] {
-            //background-color: ${getBgColor(color, 'disabled')};
         }
 
         .fab-input[data-focus='true'] {

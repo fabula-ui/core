@@ -1,10 +1,10 @@
 import getColor from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 import getTextColor from '../../../methods/color/getTextColor';
 
 const messageColorModifier = params => {
-    const { framework, props } = params;
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.input;
+    const { props } = params;
+    const vars = getComponentVars('input');
     const color = getColor(props.messageColor || props.message.color, vars.colors);
 
     return `
