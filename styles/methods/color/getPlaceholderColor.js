@@ -1,7 +1,7 @@
 import Color from 'color';
 
 // Commons
-import { baseLuminosity } from '../../common/color.commons';
+import { baseLuminosity } from '../../variables/core';
 
 const placeholderColor = color => {
     const $color = color ? Color(color).rgb() : Color('#FFF');

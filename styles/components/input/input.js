@@ -1,5 +1,4 @@
-// Component commons
-import componentCommons from '../../common/component.commons';
+import getComponentVars from '../../methods/misc/getComponentVars';
 
 // Modifiers
 import colorModifier from './modifiers/color.modifier';
@@ -10,8 +9,7 @@ import sizeModifier from './modifiers/size.modifier';
 
 const InputStyles = params => {
     const { framework, props } = params;
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.input;
+    const vars = getComponentVars('input');
     const icon = !!props.icon ? require(`../../../icons/${typeof props.icon === 'object' ? props.icon.name : props.icon}.svg`) : null;
     const iconEnd = !!props.iconEnd ? require(`../../../icons/${typeof props.iconEnd === 'object' ? props.iconEnd.name : props.iconEnd}.svg`) : null;
     const iconStart = !!props.iconStart ? require(`../../../icons/${typeof props.iconStart === 'object' ? props.iconStart.name : props.iconStart}.svg`) : null;
@@ -20,8 +18,6 @@ const InputStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-input-wrapper' : '&';
 
     return `
-    ${wrapper} {${componentCommons}}
-
     ${wrapper} {
         font-size: ${fontSize};
         position: relative;
@@ -29,22 +25,22 @@ const InputStyles = params => {
 
     .fab-input { 
         background: #FFF;
-        border-radius: ${borderRadius};
+        border-radius: ${vars.borderRadius};
         ${props.rounded && !props.textarea ? 'border-radius: 999px;' : ''}
         border: solid 1px transparent;
-        color: ${textColor};
+        color: ${vars.textColor};
         display: flex;
         font-family: ${vars.fontFamily};
-        font-size: ${fontSize};
+        font-size: ${vars.fontSize};
         position: relative;
         transition: all .2s ease-in-out;
-        width: ${expand ? '100%' : 'auto'};
+        width: ${vars.expand ? '100%' : 'auto'};
 
         &:before {
             bottom: 0;
             border: solid 0;
             border-color: transparent;
-            border-radius: calc(${borderRadius} + ${focusGlowRadius});
+            border-radius: calc(${vars.borderRadius} + ${vars.focusGlowRadius});
             content: '';
             display: block;
             left: 0;
@@ -56,7 +52,7 @@ const InputStyles = params => {
     }
 
     .fab-input[data-disabled='true'] {
-        opacity: ${disabledOpacity};
+        opacity: ${vars.disabledOpacity};
     }
 
     .fab-input__field {
@@ -66,9 +62,9 @@ const InputStyles = params => {
         color: inherit;
         font-family: inherit;
         font-size: inherit;
-        min-height: ${minHeight};
-        padding-left: ${props.icon || props.iconStart ? `calc(${padding} + 2em)` : padding};
-        padding-right: ${props.iconEnd ? `calc(${padding} + 2em)` : padding};
+        min-height: ${vars.minHeight};
+        padding-left: ${props.icon || props.iconStart ? `calc(${vars.padding} + 2em)` : vars.padding};
+        padding-right: ${props.iconEnd ? `calc(${vars.padding} + 2em)` : vars.padding};
         position: relative;
         width: 100%;
 
@@ -77,15 +73,15 @@ const InputStyles = params => {
         }
 
         &::placeholder {
-            color: ${placeholderColor};
+            color: ${vars.placeholderColor};
         }
     }
 
     textarea.fab-input__field {
         line-height: 1.5;
-        min-height: calc(${minHeight} * 3);
-        padding-bottom: ${padding};
-        padding-top: ${padding};
+        min-height: calc(${vars.minHeight} * 3);
+        padding-bottom: ${vars.padding};
+        padding-top: ${vars.padding};
         resize: vertical;
     }
 
@@ -101,18 +97,18 @@ const InputStyles = params => {
 
     .fab-input__icon[data-placement] {
         position: absolute;
-        ${props.textarea ? `top: ${padding};` : 'top: 50%;'}
+        ${props.textarea ? `top: ${vars.padding};` : 'top: 50%;'}
         ${!props.textarea ? 'transform: translate(0, -50%);' : ''}
     }
 
     .fab-input__icon[data-placement='end'] {
         mask-image: url(${iconEnd});
-        right: ${padding};
+        right: ${vars.padding};
     }
 
     .fab-input__icon[data-placement='start'] {
         mask-image: url(${iconStart || icon});
-        left: ${padding};
+        left: ${vars.padding};
     }
 
     .fab-input__password-toggle {
@@ -123,7 +119,7 @@ const InputStyles = params => {
         font-size: 1em;
         height: 100%;
         line-height: 1;
-        padding: 0 ${padding};
+        padding: 0 ${vars.padding};
         position: absolute;
         right: 0;
         top: 50%;
@@ -141,6 +137,10 @@ const InputStyles = params => {
         &:active {
             opacity: .9;
         }
+    }
+
+    .fab-input__password-toggle .fab-input__icon {
+        position: static;
     }
 
     // External components

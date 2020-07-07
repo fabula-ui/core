@@ -1,13 +1,12 @@
-import componentCommons from "../../common/component.commons";
-
 const TagGroupStyles = params => {
     const {framework, props} = params;
     const wrapper = framework === 'angular' ? '.fab-tag-group-wrapper' : '&';
 
     return `
-        ${wrapper} { ${componentCommons} }
+        ${framework === 'angular' ? `& { display: block; }` : ''}    
 
         .fab-tag-group {
+            align-items: flex-start;
             display: flex;
             flex-wrap: wrap;
             margin: -.25rem;

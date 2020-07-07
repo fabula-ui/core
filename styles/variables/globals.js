@@ -8,7 +8,7 @@ const globals = {
     get borderColor() {
         return this.colors['aux']
     },
-    borderRadius: '.5rem',
+    borderRadius: '.5em',
     borderRadiusDefault: .5,
     borderRadiusRounded: '5em',
     borderWidth: '1px',

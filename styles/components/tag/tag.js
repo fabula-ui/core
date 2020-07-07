@@ -1,13 +1,12 @@
+import getComponentVars from '../../methods/misc/getComponentVars';
+
 // Modifiers
-import colorModifier from './modifiers/color.modifier';
-import sizeModifier from './modifiers/size.modifier';
+import colorModifier from './modifiers/tag-color.modifier';
+import sizeModifier from './modifiers/tag-size.modifier';
 
 const TagStyles = params => {
     const { framework, props } = params;
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.tag;
-    const { anchor, button, color, rounded, size } = props;
-    const { borderRadius, fontFamily, fontSize, paddingX, paddingY } = vars;
+    const vars = getComponentVars('tag');
     const wrapper = framework === 'angular' ? '.fab-tag-wrapper' : '&';
 
     return `
@@ -17,13 +16,13 @@ const TagStyles = params => {
 
         .fab-tag {
             align-items: center;
-            border-radius: ${rounded ? `999px` : borderRadius};
+            border-radius: ${props.rounded ? `999px` : vars.borderRadius};
             display: flex;
-            font-family: ${fontFamily};
-            font-size: ${fontSize};
+            font-family: ${vars.fontFamily};
+            font-size: ${vars.fontSize};
             font-weight: 500;
             line-height: 1;
-            ${!anchor && !button ? `padding: ${paddingY} ${paddingX};` : ''}
+            ${!props.anchor && !props.button ? `padding: ${vars.paddingY} ${vars.paddingX};` : ''}
             width: 100%;
 
             > *:not(:last-child) {
@@ -40,10 +39,11 @@ const TagStyles = params => {
             cursor: pointer;
             color: inherit;
             display: flex;
+            font-family: inherit;
             font-size: inherit;
             font-weight: inherit;
-            margin: -${paddingY} -${paddingX};
-            padding: ${paddingY} ${paddingX};
+            margin: -${vars.paddingY} -${vars.paddingX};
+            padding: ${vars.paddingY} ${vars.paddingX};
             text-decoration: none;
             transition: all .2s ease-in-out;
 
@@ -71,7 +71,7 @@ const TagStyles = params => {
         }
 
         ${colorModifier(props)}
-        ${size ? sizeModifier(props) : ''}
+        ${props.size ? sizeModifier(props) : ''}
     `;
 }
 

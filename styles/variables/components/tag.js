@@ -14,7 +14,7 @@ const tag = {
         return this.colors['aux']
     },
     fontSize: '.9em',
-    paddingX: '.7rem',
+    paddingX: '.7em',
     paddingY: '.5em'
 }
 

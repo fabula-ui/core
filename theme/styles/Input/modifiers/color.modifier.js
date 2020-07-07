@@ -4,6 +4,7 @@ import getContext from '../../../methods/misc/getContext';
 import getFocusGlowColor from '../../../methods/color/focusGlowColor';
 import getColor from '../../../methods/color/getColor';
 import getPlaceholderColor from '../../../methods/color/placeholderColor';
+import getTextColor from '../../../methods/color/textColor';
 
 const colorModifier = props => {
     const theme = window.__FABTheme;
@@ -11,6 +12,7 @@ const colorModifier = props => {
     const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
     const context = props.color || props.clear ? getContext(props) : 'fill';
     const focusGlowColor = props.color ? color : vars.focusGlowColor;
+    const iconColor = props.icon && typeof props.icon === 'string' ? props.icon.color : '';
 
     return `
         .fab-input {
@@ -24,6 +26,14 @@ const colorModifier = props => {
         .fab-input[data-focus='true'] {
             border-color: ${getFocusGlowColor(focusGlowColor, 'fill')};
             box-shadow: 0 0 0 ${vars.focusGlowRadius} ${getFocusGlowColor(focusGlowColor, 'faded')};
+        }
+
+        .fab-input__icon {
+            background-color: ${getTextColor(color, context)}; 
+        }
+
+        .fab-input__icon[data-placement='start'] {
+            
         }
 
         .fab-input__password-toggle {
