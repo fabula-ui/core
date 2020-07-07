@@ -11,21 +11,6 @@ const ListStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-list-wrapper' : '&';
 
     return `
-    .fab-list-item {
-        appearance: none;
-        border: none;
-        font-family: ${vars.fontFamily};
-        padding: 1rem 0;
-        ${props.padding ? `padding-left: 1rem;`  : ''}
-        ${props.padding ? `padding-right: 1rem;` : ''}
-        width: 100%;
-    }
-
-    fab-list-item[data-button='true'] .fab-list-item,
-    .fab-list-item[data-button='true'] {
-        padding: 0;
-    }
-
     ${colorModifier(params)}
     `
 };

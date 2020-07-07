@@ -1,7 +1,5 @@
 import getColor from '../../../methods/color/getColor';
 import getContext from '../../../methods/misc/getContext';
-import getDividerColor from '../../../methods/color/getDividerColor';
-import getStripeColor from '../../../methods/color/getStripeColor';
 import getTextColor from '../../../methods/color/getTextColor';
 
 
@@ -25,20 +23,6 @@ const colorModifier = params => {
             &[data-aux='true'] {
                 ${props.color ? `opacity: .8;` : ''}
             }
-        }
-
-        ${framework === 'angular' ?
-            `fab-list-item:not(:last-child) .fab-list-item,
-            [list-item]:not(:last-child) .fab-list-item`
-            :
-            '.fab-list-item:not(:last-child)'
-        } {
-            ${props.divider && !props.striped ? `border-bottom: solid 1px ${getDividerColor(color, context)};` : ''}
-        }
-
-        ${framework === 'angular' ? 'fab-list-item:nth-child(odd):not(:only-child) .fab-list-item' : '.fab-list-item:nth-child(odd):not(:only-child)'} {
-            ${!color && props.striped ? `background-color: ${vars.stripeColor};` : ''}
-            ${color && props.striped ? `background-color: ${getStripeColor(color, context)};` : ''}
         }
     `;
 }
