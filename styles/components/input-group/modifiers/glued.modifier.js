@@ -1,8 +1,4 @@
 const gluedModifier = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.input;
-    const { flow } = props;
-
     return `
         .fab-input-group > * {
             align-self: stretch;
@@ -25,9 +21,9 @@ const gluedModifier = props => {
             .fab-input,
             .fab-input:before,
             .fab-input input {
-                ${flow === 'vertical' ? `border-bottom-left-radius: 0;` : ''}
+                ${props.flow === 'vertical' ? `border-bottom-left-radius: 0;` : ''}
                 border-bottom-right-radius: 0;
-                ${flow === 'horizontal' ? `border-top-right-radius: 0;` : ''}
+                ${props.flow === 'horizontal' ? `border-top-right-radius: 0;` : ''}
             }
         }
 
@@ -47,15 +43,15 @@ const gluedModifier = props => {
             .fab-input,
             .fab-input:before,
             .fab-input input {
-                ${flow === 'horizontal' ? `border-bottom-left-radius: 0;` : ''}
+                ${props.flow === 'horizontal' ? `border-bottom-left-radius: 0;` : ''}
                 border-top-left-radius: 0;
-                ${flow === 'vertical' ? `border-top-right-radius: 0;` : ''}
+                ${props.flow === 'vertical' ? `border-top-right-radius: 0;` : ''}
             }
         }
 
         .fab-input-group > *:not(:last-child) {
-            ${flow === 'horizontal' ? `margin-right: -1px;` : ''}
-            ${flow === 'vertical' ? `margin-bottom: -1px;` : ''}
+            ${props.flow === 'horizontal' ? `margin-right: -1px;` : ''}
+            ${props.flow === 'vertical' ? `margin-bottom: -1px;` : ''}
         }
     `;
 }
