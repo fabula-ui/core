@@ -46,6 +46,7 @@ const DropdownToggleStyles = params => {
 
         .fab-dropdown-toggle__chevron {
             mask-image: url('${chevronIcon}');
+            transition: all .2s ease-in-out;
         }
 
         .fab-dropdown-toggle__icon {
