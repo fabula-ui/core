@@ -11,6 +11,7 @@ const ButtonStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('button');
     const context = getContext(props);
+    const icon = !!props.icon ? require(`../../../icons/${typeof props.icon === 'object' ? props.icon.name : props.icon}.svg`) : null;
     const wrapper = framework === 'angular' ? '.fab-button-wrapper' : '&';
 
     return `
@@ -25,14 +26,14 @@ const ButtonStyles = params => {
             border: none;
             ${props.smashed ? `border-radius: ${vars.borderRadiusSmashed};` : `border-radius: ${vars.borderRadius};`}
             ${props.rounded ? `border-radius: 999px;` : ''}
-            ${props.circle ? `border-radius: 50%;` : ''}
+            ${(!!props.circle || !!props.icon) ? `border-radius: 50%;` : ''}
             cursor: pointer;
             display: inline-flex;
             font-family: ${vars.fontFamily};
             ${!!props.smashed ? `font-size: calc(${vars.fontSize} * .9);` : `font-size: ${vars.fontSize};`}
             font-weight: ${vars.fontWeight};
-            ${!!props.circle && !props.smashed ? 'height: 3rem;' : ''}
-            ${!!props.circle && props.smashed ? 'height: 2rem;' : ''}
+            ${(!!props.circle || !!props.icon) && !props.smashed ? 'height: 3rem;' : ''}
+            ${(!!props.circle || !!props.icon) && props.smashed ? 'height: 2rem;' : ''}
             justify-content: center;
             ${props.align === 'center' ? `justify-content: center;` : ''}
             ${props.align === 'left' || props.align === 'start' ? `justify-content: flex-start;` : ''}
@@ -45,6 +46,8 @@ const ButtonStyles = params => {
             ${props.smashed ? `padding-top: calc(${vars.paddingTop} / 2);` : `padding-top: ${vars.paddingTop};`}
             ${props.compact ? `padding-left: calc(${vars.paddingLeft} * ${vars.compactMultiplier});` : ''}
             ${props.compact ? `padding-right: calc(${vars.paddingRight} * ${vars.compactMultiplier});`: ''}
+            ${!!props.icon ? `padding-left: 0;` : ''}
+            ${!!props.icon ? `padding-right: 0;` : ''}
             ${props.wide ? `padding-left: calc(${vars.paddingLeft} * ${vars.wideMultiplier});` : ''}
             ${props.wide ? `padding-right: calc(${vars.paddingRight} * ${vars.wideMultiplier});`: ''}
             ${!!props.align ? `text-align: ${props.align};` : ''}
@@ -52,8 +55,8 @@ const ButtonStyles = params => {
             transition: all .2s ease-in-out;
             white-space: nowrap;
             width: 100%;
-            ${!!props.circle && !props.smashed ? 'width: 3rem;' : ''}
-            ${!!props.circle && props.smashed ? 'width: 2rem;' : ''}
+            ${(!!props.circle || !!props.icon) && !props.smashed ? 'width: 3rem;' : ''}
+            ${(!!props.circle || !!props.icon) && props.smashed ? 'width: 2rem;' : ''}
 
             &:focus {
                 outline: none;
@@ -75,6 +78,15 @@ const ButtonStyles = params => {
             > *:not(:last-child) {
                 margin-right: ${vars.childrenSpacing};
             }
+        }
+
+        .fab-button__icon {
+            height: 1em;
+            mask-image: url(${icon});
+            mask-position: center center;
+            mask-repeat: no-repeat;
+            mask-size: contain;
+            width: 1em;
         }
 
         .fab-icon__svg {

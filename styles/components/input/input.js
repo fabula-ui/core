@@ -58,6 +58,10 @@ const InputStyles = params => {
         opacity: ${vars.disabledOpacity};
     }
 
+    .fab-input__elements {
+        padding-right: .6em;
+    }
+
     .fab-input__field {
         appearance: none;
         background: none;
@@ -156,15 +160,18 @@ const InputStyles = params => {
     .fab-input__elements .fab-button-wrapper {
         align-items: center;
         display: flex;
-        height: 2em;
-        position: absolute;
-        right: .6em;
-        top: 50%;
-        transform: translate(0, -50%);   
+        height: 100%;
+        // position: absolute;
+        
     }
 
-    .fab-input__elements .fab-button-wrapper[data-circle='true'] {
+    .fab-input__elements .fab-button-wrapper[data-circle='true'] .fab-button {
         width: 2em;
+    }
+
+    .fab-input__elements .fab-button {
+        height: 2em;
+        min-height: auto;
     }
 
     .fab-input__elements .fab-button-wrapper[data-rounded='true'] {
@@ -173,11 +180,9 @@ const InputStyles = params => {
 
     .fab-input__elements .fab-button {
         font-size: .9em;
-        height: 100%;
         min-height: initial;
         padding-bottom: 0;
         padding-top: 0;
-        width: 100%;
     }
 
     .fab-input__message {

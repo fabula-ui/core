@@ -41,6 +41,10 @@ const colorModifier = props => {
                 ${context !== 'gradient' ? `background: ${getActiveColor(userBgColor || color, context)};` : ''}
             }
         }
+
+        .fab-button__icon {
+            background: ${userTextColor ? userTextColor : getTextColor(userBgColor || color, context)};
+        }
     `;
 };
 
