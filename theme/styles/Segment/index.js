@@ -6,8 +6,11 @@ const SegmentStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-segment' : '&';
 
     return `
+        ${framework === 'angular' ? `& { flex-grow: 1; flex-shrink: 0; }` : ''}
         ${wrapper} {
             ${rounded ? `border-radius: 5rem;` : ''}
+            flex-grow: 1;
+            flex-shrink: 0;
             font-size: .9rem;
             font-weight: 500;
             overflow: hidden;
