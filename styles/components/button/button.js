@@ -46,8 +46,8 @@ const ButtonStyles = params => {
             ${props.smashed ? `padding-top: calc(${vars.paddingTop} / 2);` : `padding-top: ${vars.paddingTop};`}
             ${props.compact ? `padding-left: calc(${vars.paddingLeft} * ${vars.compactMultiplier});` : ''}
             ${props.compact ? `padding-right: calc(${vars.paddingRight} * ${vars.compactMultiplier});`: ''}
-            ${!!props.icon ? `padding-left: 0;` : ''}
-            ${!!props.icon ? `padding-right: 0;` : ''}
+            ${!!props.circle || !!props.icon ? `padding-left: 0;` : ''}
+            ${!!props.circle || !!props.icon ? `padding-right: 0;` : ''}
             ${props.wide ? `padding-left: calc(${vars.paddingLeft} * ${vars.wideMultiplier});` : ''}
             ${props.wide ? `padding-right: calc(${vars.paddingRight} * ${vars.wideMultiplier});`: ''}
             ${!!props.align ? `text-align: ${props.align};` : ''}
