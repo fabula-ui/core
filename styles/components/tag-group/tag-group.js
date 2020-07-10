@@ -1,6 +1,10 @@
+import getComponentVars from '../../methods/misc/getComponentVars';
+import getNumber from '../../../theme/methods/misc/getNumber';
+
 const TagGroupStyles = params => {
-    const {framework, props} = params;
-    const wrapper = framework === 'angular' ? '.fab-tag-group-wrapper' : '&';
+    const { framework, props } = params;
+    const vars = getComponentVars('tagGroup');
+    const spacing = props.spacing ? getNumber(props.spacing, 'rem'): vars.spacing;
 
     return `
         ${framework === 'angular' ? `& { display: block; }` : ''}    
@@ -9,11 +13,11 @@ const TagGroupStyles = params => {
             align-items: flex-start;
             display: flex;
             flex-wrap: wrap;
-            margin: -.25rem;
+            margin: -${spacing};
         }
 
         .fab-tag-wrapper {
-            padding: .25rem;
+            padding: ${spacing};
         }
     `;
 }

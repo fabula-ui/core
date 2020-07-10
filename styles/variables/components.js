@@ -20,6 +20,7 @@ import segments from './components/segments';
 import tab from './components/tab';
 import tabs from './components/tabs';
 import tag from './components/tag';
+import tagGroup from './components/tagGroup';
 import tagInput from './components/tagInput';
 import text from './components/text';
 import toast from './components/toast';
@@ -49,6 +50,7 @@ const components = {
     tab,
     tabs,
     tag,
+    tagGroup,
     tagInput,
     text,
     toast,
