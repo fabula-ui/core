@@ -1,6 +1,10 @@
 const SegmentContentStyles = params => {
+    const { framework } = params;
+
+    const wrapper = framework === 'angular' ? '.fab-segment-content' : '&';
+
     return `
-        &[data-segment-is-active='false'] {
+        ${wrapper}[data-active='false'] {
             display: none;
         }
     `
