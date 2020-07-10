@@ -1,24 +1,21 @@
-import getBgColor from '../../../methods/color/bgColor';
+import getBgColor from '../../../methods/color/getBgColor';
 import getColor from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
-import getDividerColor from '../../../methods/color/dividerColor';
+import getDividerColor from '../../../methods/color/getDividerColor';
 
 const colorModifier = props => {
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.segments;
-    const { borderColor, colors, inactiveFillColor } = vars;
-    const color = getColor(props.color, colors);
+    const vars = getComponentVars('segments');
+    const color = getColor(props.color, vars.colors);
     const context = getContext(props);
 
     // User-defined
-    const userBorderColor = getColor(props.borderColor, colors);
-    const userInactiveFillColor = getColor(props.inactiveFillColor, colors);
+    const userBorderColor = getColor(props.borderColor, vars.colors);
+    const userInactiveFillColor = getColor(props.inactiveFillColor, vars.colors);
 
     // Style props
-    let styleProps;
-
-    let baseBorderColor = borderColor;
-    let baseInactiveFillColor = userInactiveFillColor || !!color && getBgColor(color, context) || inactiveFillColor;
+    let baseBorderColor = vars.borderColor;
+    let baseInactiveFillColor = userInactiveFillColor || !!color && getBgColor(color, context) || vars.inactiveFillColor;
 
     if (!!color) {
         baseBorderColor = getDividerColor(color, context);
@@ -31,7 +28,7 @@ const colorModifier = props => {
     }
 
     if (userBorderColor) {
-        borderColor = userBorderColor;
+        baseBorderColor = userBorderColor;
     }
 
     return `

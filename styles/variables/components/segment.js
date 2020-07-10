@@ -22,6 +22,7 @@ const segment = {
         return this.textColor
     },
     fontSize: '.9rem',
+    fontWeight: 500,
     paddingX: '1.5rem',
     paddingY: '.75rem'
 }

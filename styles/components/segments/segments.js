@@ -1,9 +1,12 @@
+// Methods
+import getComponentVars from '../../methods/misc/getComponentVars';
+
 // Modifiers
-import colorModifier from './modifiers/color.modifier';
+import colorModifier from './modifiers/segments-color.modifier';
 
 const SegmentsStyles = params => {
     const { framework, props } = params;
-    const { expand, rounded } = props;
+    const vars = getComponentVars('segments');
     const wrapper = framework === 'angular' ? '.fab-segments-wrapper' : '&';
     
     return `
@@ -13,11 +16,11 @@ const SegmentsStyles = params => {
         }
 
         .fab-segments {
-            border-radius: .5rem;
-            ${rounded ? `border-radius: 5rem;` : ''}
+            border-radius: ${vars.borderRadius};
+            ${props.rounded ? `border-radius: 999px;` : ''}
             display: flex;
             overflow: hidden;
-            ${rounded ? `padding: 1px;` : ''}
+            ${props.rounded ? `padding: 1px;` : ''}
             text-align: center;
             width: 100%;
         }

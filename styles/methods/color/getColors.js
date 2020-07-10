@@ -1,6 +1,6 @@
-import getBgColor from './bgColor';
+import getBgColor from './getBgColor';
 import getTargetColor from './getTargetColor';
-import getTextColor from './textColor';
+import getTextColor from './getTextColor';
 import getContext from '../misc/getContext';
 
 const getColors = params => {

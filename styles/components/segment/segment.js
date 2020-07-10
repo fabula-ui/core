@@ -1,18 +1,22 @@
-import colorModifier from './modifiers/color.modifier';
+// Methods
+import getComponentVars from '../../methods/misc/getComponentVars';
+
+// Modifiers
+import colorModifier from './modifiers/segment-color.modifier';
 
 const SegmentStyles = params => {
     const { framework, props } = params;
-    const { rounded } = props;
+    const vars = getComponentVars('segments');
     const wrapper = framework === 'angular' ? '.fab-segment' : '&';
 
     return `
         ${framework === 'angular' ? `& { flex-grow: 1; flex-shrink: 0; }` : ''}
         ${wrapper} {
-            ${rounded ? `border-radius: 5rem;` : ''}
+            ${props.rounded ? `border-radius: 5rem;` : ''}
             flex-grow: 1;
             flex-shrink: 0;
-            font-size: .9rem;
-            font-weight: 500;
+            font-size: ${vars.fontSize};
+            font-weight: ${vars.fontWeight};
             overflow: hidden;
         }
 
@@ -25,7 +29,7 @@ const SegmentStyles = params => {
             cursor: pointer;
             font-size: inherit;
             font-weight: inherit;
-            padding: .75rem 1.5rem;
+            padding: ${vars.paddingY} ${vars.paddingX};
             text-align: inherit;
             transition: all .2s ease-in-out;
             width: 100%;

@@ -1,38 +1,34 @@
-import getBgColor from '../../../methods/color/bgColor';
-import getDividerColor from '../../../methods/color/dividerColor';
+import getBgColor from '../../../methods/color/getBgColor';
 import getColor from '../../../methods/color/getColor';
-import getContext from '../../../methods/misc/getContext';
-import getTextColor from '../../../methods/color/textColor';
 import getColors from '../../../methods/color/getColors';
+import getComponentVars from '../../../methods/misc/getComponentVars';
+import getContext from '../../../methods/misc/getContext';
+import getDividerColor from '../../../methods/color/getDividerColor';
+import getTextColor from '../../../methods/color/getTextColor';
 
 // Exportable
 const colorModifier = params => {
     const { framework, props } = params;
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.segment;
-    const { active, activeColor, rounded, type } = props;
-    const { colors } = vars;
+    const vars = getComponentVars('segments');
+    const { rounded } = props;
     const wrapper = framework === 'angular' ? '.fab-segment' : '&';
 
-    // Element vars
-    const { activeFillColor, activeTextColor, inactiveTextColor__hover, inactiveFillColor, inactiveTextColor } = vars;
-
     // User-defined
-    const userActiveFillColor = getColor(props.activeFillColor, colors);
-    const userActiveTextColor = getColor(props.activeTextColor, colors);
-    const userInactiveFillColor = getColor(props.inactiveFillColor, colors);
-    const userInactiveTextColor = getColor(props.inactiveTextColor, colors);
+    const userActiveFillColor = getColor(props.activeFillColor, vars.colors);
+    const userActiveTextColor = getColor(props.activeTextColor, vars.colors);
+    const userInactiveFillColor = getColor(props.inactiveFillColor, vars.colors);
+    const userInactiveTextColor = getColor(props.inactiveTextColor, vars.colors);
 
-    const color = getColor(props.color, colors);
+    const color = getColor(props.color, vars.colors);
     const context = getContext(props);
 
-    const componentColors = getColors({ colors, props });
+    const componentColors = getColors({ colors: vars.colors, props });
 
-    let baseActiveFillColor = activeFillColor;
-    let baseActiveTextColor = activeTextColor;
-    let baseInactiveFillColor = userInactiveFillColor || !!color && getBgColor(color, context) || inactiveFillColor;
-    let baseInactiveTextColor =  userInactiveTextColor || !!userInactiveFillColor && getTextColor(userInactiveFillColor, 'fill') || !!color && getTextColor(color, context) || inactiveTextColor;
-    let dividerColor = getDividerColor(inactiveFillColor, context);
+    let baseActiveFillColor = vars.activeFillColor;
+    let baseActiveTextColor = vars.activeTextColor;
+    let baseInactiveFillColor = userInactiveFillColor || !!color && getBgColor(color, context) || vars.inactiveFillColor;
+    let baseInactiveTextColor =  userInactiveTextColor || !!userInactiveFillColor && getTextColor(userInactiveFillColor, 'fill') || !!color && getTextColor(color, context) || vars.inactiveTextColor;
+    let dividerColor = getDividerColor(vars.inactiveFillColor, context);
 
     if (!!color) {
         if (context === 'clear' || context === 'fill' || context === 'invert' || context === 'outline') {
