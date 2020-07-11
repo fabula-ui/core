@@ -11,7 +11,14 @@ const TooltipStyles = params => {
     const offset = props.offset ? getNumber(props.offset, 'rem') : vars.offset;
 
     return `
+        & {
+            display: block;
+            position: absolute;
+            z-index: 9999;
+        }
+
         ${wrapper} {
+            animation: show-tooltip .2s ease-in-out;
             border-radius: .5em;
             color: #FFF;
             display: inline-flex;
@@ -19,11 +26,7 @@ const TooltipStyles = params => {
             font-size: .85rem;
             font-weight: 600;
             padding: .5em 1em;
-            position: absolute;
-            opacity: 0;
             transition: all .2s ease-in-out;
-            visibility: hidden;
-            z-index: 9999;
 
             &:before {
                 background: inherit;
@@ -36,78 +39,92 @@ const TooltipStyles = params => {
             }
         }
 
-        ${wrapper}[data-placement='bottom'] {
+        &[data-placement='bottom'] {
             animation: show-tooltip-bottom .2s ease-in-out;
             transform: translate(-50%, ${offset});
 
+            @keyframes show-tooltip-bottom {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, 0);
+                    visibility: hidden;
+                }
+            }
+        }
+
+        &[data-placement='bottom'] .fab-tooltip,
+        &[data-placement='bottom'] {
             &:before {
                 left: 50%;
                 transform:  translate(-50%, -50%) rotateZ(45deg);
                 top: 0;
             }
+        }
 
-            @keyframes show-tooltip-bottom {
+        &[data-placement='left'] {
+            animation: show-tooltip-left .2s ease-in-out;
+            transform: translate(calc(-100% - ${offset}), -50%);
+
+            @keyframes show-tooltip-left {
                 from {
-                    transform: translate(-50%, 0);
+                    opacity: 0;
+                    transform: translate(-100%, -50%);
+                    visibility: hidden;
                 }
             }
         }
 
-        ${wrapper}[data-placement='left'] {
-            animation: show-tooltip-left .2s ease-in-out;
-            transform: translate(calc(-100% - ${offset}), -50%);
-
+        &[data-placement='left'] .fab-tooltip,
+        &[data-placement='left'] {
             &:before {
                 right: 0;
                 top: 50%;
                 transform:  translate(50%, -50%) rotateZ(45deg);
             }
+        }
 
-            @keyframes show-tooltip-left {
+        &[data-placement='right'] {
+            animation: show-tooltip-right .2s ease-in-out;
+            transform: translate(${offset}, -50%);
+
+            @keyframes show-tooltip-right {
                 from {
-                    transform: translate(-100%, -50%);
+                    opacity: 0;
+                    transform: translate(0, -50%);
+                    visibility: hidden;
                 }
             }
         }
 
-        ${wrapper}[data-placement='right'] {
-            animation: show-tooltip-right .2s ease-in-out;
-            transform: translate(${offset}, -50%);
-
+        &[data-placement='right'] .fab-tooltip,
+        &[data-placement='right'] {
             &:before {
                 left: 0;
                 top: 50%;
                 transform:  translate(-50%, -50%) rotateZ(45deg);
             }
-
-            @keyframes show-tooltip-right {
-                from {
-                    transform: translate(0, -50%);
-                }
-            }
         }
 
-        ${wrapper}[data-placement='top'] {
+        &[data-placement='top'] {
             animation: show-tooltip-top .2s ease-in-out;
             transform: translate(-50%, calc(-100% - ${offset}));
 
-            &:before {
-                bottom: 0;
-                left: 50%;
-                
-                transform:  translate(-50%, 50%) rotateZ(45deg);
-            }
-
             @keyframes show-tooltip-top {
                 from {
+                    opacity: 0;
                     transform: translate(-50%, -100%);
+                    visibility: hidden;
                 }
             }
         }
 
-        ${wrapper}[data-ready='true'] {
-            opacity: 1;
-            visibility: visible;
+        &[data-placement='top'] .fab-tooltip,
+        &[data-placement='top'] {
+            &:before {
+                bottom: 0;
+                left: 50%; 
+                transform:  translate(-50%, 50%) rotateZ(45deg);
+            }
         }
 
         .fab-tooltip__label {
