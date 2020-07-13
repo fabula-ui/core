@@ -1,9 +1,11 @@
 import colorModifier from './modifiers/color.modifier';
 
 const TabsStyle = params => {
-    const { props } = params;
+    const { framework, props } = params;
 
     return `
+        ${framework === 'angular' ? '& { display: block; }' : ''}
+
         .fab-tabs {
             display: flex;
             ${props.stacked ? `flex-direction: column;` : ''}

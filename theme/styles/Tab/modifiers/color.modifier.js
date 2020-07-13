@@ -1,4 +1,4 @@
-import getBgColor from "../../../methods/color/bgColor";
+import getBgColor from '../../../methods/color/bgColor';
 import getColor from '../../../methods/color/getColor';
 import getContext from '../../../methods/misc/getContext';
 import getTextColor from '../../../methods/color/textColor';

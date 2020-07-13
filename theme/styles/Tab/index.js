@@ -10,9 +10,9 @@ const TabStyle = params => {
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
-        ${wrapper} { ${componentCommons} }
-
-        ${framework === 'angular' ? `fab-tab,` : ''}
+        ${expand ? `flex-grow: 1;` : ''}
+        ${expand ? `flex-shrink: 0;` : ''}
+        
         ${wrapper} {
             ${expand ? `flex-grow: 1;` : ''}
             ${expand ? `flex-shrink: 0;` : ''}
