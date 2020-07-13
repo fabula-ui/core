@@ -20,7 +20,6 @@ const TooltipStyles = params => {
         ${wrapper} {
             animation: show-tooltip .2s ease-in-out;
             border-radius: .5em;
-            color: #FFF;
             display: inline-flex;
             font-family: ${vars.fontFamily};
             font-size: .85rem;
