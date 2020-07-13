@@ -15,6 +15,7 @@ const tab = {
     get activeTextColor() {
         return this.textColor
     },
+    color: '#FFF',
     get inactiveTextColor() {
         return this.auxTextColor
     },

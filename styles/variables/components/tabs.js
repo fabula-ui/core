@@ -9,6 +9,7 @@ const tabs = {
     get activeBorderColor() {
         return this.colors['primary']
     },
+    color: '#FFF',
     get inactiveTextColor() {
         return this.auxTextColor
     },

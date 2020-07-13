@@ -1,55 +1,50 @@
-import getBgColor from '../../../methods/color/bgColor';
+import getBgColor from '../../../methods/color/getBgColor';
 import getColor from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
-import getTextColor from '../../../methods/color/textColor';
+import getTextColor from '../../../methods/color/getTextColor';
 
 // Exportable
 const colorModifier = params => {
     const { framework, props } = params;
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.tab;
-    const { active, activeColor, type } = props;
-    const { colors, textColor } = vars;
+    const vars = getComponentVars('tab');
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
-    // Element vars
-    const { activeBorderColor, activeFillColor, activeTextColor, inactiveTextColor } = vars;
-
     // User-defined
-    const userActiveBorderColor = getColor(props.activeBorderColor, colors);
-    const userActiveTextColor = getColor(props.activeTextColor, colors);
-    const userActiveFillColor = getColor(props.activeFillColor, colors);
-    const userInactiveTextColor = getColor(props.inactiveTextColor, colors);
+    const userActiveBorderColor = getColor(props.activeBorderColor, vars.colors);
+    const userActiveTextColor = getColor(props.activeTextColor, vars.colors);
+    const userActiveFillColor = getColor(props.activeFillColor, vars.colors);
+    const userInactiveTextColor = getColor(props.inactiveTextColor, vars.colors);
 
-    const color = getColor(props.color, colors);
-    const context = getContext(props);
+    const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
+    const context = props.color || props.clear ? getContext(props) : 'fill';
 
     // Style props
     let styleProps = {
         base: {
-            activeBorderColor: userActiveBorderColor || !!color && getTextColor(color, context) || activeBorderColor,
+            activeBorderColor: userActiveBorderColor || !!props.color && getTextColor(color, context) || vars.activeBorderColor,
             get activeFillColor() {
-                switch (type) {
+                switch (props.type) {
                     case 'block':
                     case 'float':
                     case 'pill':
-                        return userActiveFillColor || !!color && getTextColor(color, context) || activeFillColor;
+                        return userActiveFillColor || !!props.color && getTextColor(color, context) || vars.activeFillColor;
                     default:
                         return 'transparent';
                 }
             },
             get activeTextColor() {
-                switch (type) {
+                switch (props.type) {
                     case 'block':
                     case 'float':
                     case 'pill':
-                        return userActiveTextColor || !!userActiveFillColor && getTextColor(userActiveFillColor, context) || !!color && getBgColor(color, context) || getTextColor(activeFillColor, context);
+                        return userActiveTextColor || !!userActiveFillColor && getTextColor(userActiveFillColor, context) || !!color && getBgColor(color, context) || getTextColor(vars.activeFillColor, context);
                     default:
-                        return userActiveTextColor || !!userActiveFillColor && getTextColor(userActiveFillColor, context) || !!color && getTextColor(color, context) || activeTextColor;
+                        return userActiveTextColor || !!userActiveFillColor && getTextColor(userActiveFillColor, context) || !!color && getTextColor(color, context) || vars.activeTextColor;
                 }
             },
             get inactiveBorderBottom() {
-                switch (type) {
+                switch (props.type) {
                     case 'block':
                     case 'float':
                     case 'pill':
@@ -58,16 +53,13 @@ const colorModifier = params => {
                         return 'solid 3px transparent';
                 }
             },
-            inactiveTextColor: userInactiveTextColor || !!color && getTextColor(color, context) || inactiveTextColor,
-            inactiveOpacity: active || !color ? 1 : .8
+            inactiveTextColor: userInactiveTextColor || !!color && getTextColor(color, context) || vars.inactiveTextColor,
+            inactiveOpacity: props.active || !color ? 1 : .8
         },
         hover: {
-            activeTextColor: userActiveTextColor || !!color && getTextColor(color, context) || activeTextColor,
-            inactiveTextColor: userActiveTextColor || !!color && getTextColor(color, context) || activeTextColor,
+            activeTextColor: userActiveTextColor || !!color && getTextColor(color, context) || vars.activeTextColor,
+            inactiveTextColor: userActiveTextColor || !!color && getTextColor(color, context) || vars.activeTextColor,
             inactiveOpacity: 1
-        },
-        active: {
-
         }
     };
 
@@ -75,7 +67,7 @@ const colorModifier = params => {
     ${wrapper} > a,
     ${wrapper} > button {
         background-color: transparent;
-        ${type === 'block' || type === 'float' || type === 'pill' ? `border-bottom: none;` : ''}
+        ${props.type === 'block' || props.type === 'float' || props.type === 'pill' ? `border-bottom: none;` : ''}
         color: ${styleProps.base.inactiveTextColor};
         opacity: ${styleProps.base.inactiveOpacity};
     }

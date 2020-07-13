@@ -1,4 +1,4 @@
-import colorModifier from './modifiers/color.modifier';
+import colorModifier from './modifiers/tabs-color.modifier';
 
 const TabsStyle = params => {
     const { framework, props } = params;

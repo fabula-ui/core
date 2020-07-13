@@ -1,21 +1,18 @@
-import componentCommons from '../../common/component.commons';
-
 // Modifiers
-import colorModifier from './modifiers/color.modifier';
-import typeModifier from './modifiers/type.modifier';
+import colorModifier from './modifiers/tab-color.modifier';
+import typeModifier from './modifiers/tab-type.modifier';
 
 const TabStyle = params => {
     const { framework, props } = params;
-    const { expand, layout, stacked, type } = props;
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
-        ${expand ? `flex-grow: 1;` : ''}
-        ${expand ? `flex-shrink: 0;` : ''}
+        ${props.expand ? `flex-grow: 1;` : ''}
+        ${props.expand ? `flex-shrink: 0;` : ''}
         
         ${wrapper} {
-            ${expand ? `flex-grow: 1;` : ''}
-            ${expand ? `flex-shrink: 0;` : ''}
+            ${props.expand ? `flex-grow: 1;` : ''}
+            ${props.expand ? `flex-shrink: 0;` : ''}
         }
 
         ${wrapper} {
@@ -36,10 +33,10 @@ const TabStyle = params => {
             font-size: inherit;
             font-weight: inherit;
             line-height: 1;
-            justify-content: ${stacked ? 'flex-start' : 'center'};
+            justify-content: ${props.stacked ? 'flex-start' : 'center'};
             padding: 1rem;
-            ${stacked ? `padding-left: 0;` : ''}
-            text-align: ${stacked ? 'left' : 'center'};
+            ${props.stacked ? `padding-left: 0;` : ''}
+            text-align: ${props.stacked ? 'left' : 'center'};
             transition: all .2s ease-in-out;
             width: 100%;
             
@@ -49,13 +46,12 @@ const TabStyle = params => {
             }
 
             > *:not(:last-child) {
-                
-                ${layout === 'vertical' ? 'margin-bottom: .5em;' : 'margin-right: .5em;'}
+                ${props.layout === 'vertical' ? 'margin-bottom: .5em;' : 'margin-right: .5em;'}
             }
         }
 
         ${colorModifier(params)}
-        ${type ? typeModifier(params) : ''}
+        ${props.type ? typeModifier(params) : ''}
     `
 }
 
