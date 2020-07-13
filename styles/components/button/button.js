@@ -26,14 +26,14 @@ const ButtonStyles = params => {
             border: none;
             ${props.smashed ? `border-radius: ${vars.borderRadiusSmashed};` : `border-radius: ${vars.borderRadius};`}
             ${props.rounded ? `border-radius: 999px;` : ''}
-            ${(!!props.circle || !!props.icon) ? `border-radius: 50%;` : ''}
+            ${(!!props.circle || (!!props.icon && !props.label)) ? `border-radius: 50%;` : ''}
             cursor: pointer;
             display: inline-flex;
             font-family: ${vars.fontFamily};
             ${!!props.smashed ? `font-size: calc(${vars.fontSize} * .9);` : `font-size: ${vars.fontSize};`}
             font-weight: ${vars.fontWeight};
-            ${(!!props.circle || !!props.icon) && !props.smashed ? 'height: 3rem;' : ''}
-            ${(!!props.circle || !!props.icon) && props.smashed ? 'height: 2rem;' : ''}
+            ${(!!props.circle || (!!props.icon && !props.label)) && !props.smashed ? 'height: 3rem;' : ''}
+            ${(!!props.circle || (!!props.icon && !props.label)) && props.smashed ? 'height: 2rem;' : ''}
             justify-content: center;
             ${props.align === 'center' ? `justify-content: center;` : ''}
             ${props.align === 'left' || props.align === 'start' ? `justify-content: flex-start;` : ''}
@@ -46,8 +46,8 @@ const ButtonStyles = params => {
             ${props.smashed ? `padding-top: calc(${vars.paddingTop} / 2);` : `padding-top: ${vars.paddingTop};`}
             ${props.compact ? `padding-left: calc(${vars.paddingLeft} * ${vars.compactMultiplier});` : ''}
             ${props.compact ? `padding-right: calc(${vars.paddingRight} * ${vars.compactMultiplier});`: ''}
-            ${!!props.circle || !!props.icon ? `padding-left: 0;` : ''}
-            ${!!props.circle || !!props.icon ? `padding-right: 0;` : ''}
+            ${!!props.circle || (!!props.icon && !props.label) ? `padding-left: 0;` : ''}
+            ${!!props.circle || (!!props.icon && !props.label) ? `padding-right: 0;` : ''}
             ${props.wide ? `padding-left: calc(${vars.paddingLeft} * ${vars.wideMultiplier});` : ''}
             ${props.wide ? `padding-right: calc(${vars.paddingRight} * ${vars.wideMultiplier});`: ''}
             ${!!props.align ? `text-align: ${props.align};` : ''}
@@ -55,8 +55,8 @@ const ButtonStyles = params => {
             transition: all .2s ease-in-out;
             white-space: nowrap;
             width: 100%;
-            ${(!!props.circle || !!props.icon) && !props.smashed ? 'width: 3rem;' : ''}
-            ${(!!props.circle || !!props.icon) && props.smashed ? 'width: 2rem;' : ''}
+            ${(!!props.circle || (!!props.icon && !props.label)) && !props.smashed ? 'width: 3rem;' : ''}
+            ${(!!props.circle || (!!props.icon && !props.label)) && props.smashed ? 'width: 2rem;' : ''}
 
             &:focus {
                 outline: none;

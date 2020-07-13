@@ -1,12 +1,11 @@
 const alignUtils = params => {
-    const { framework } = params;
+    const { angularElement, framework } = params;
+    let wrapper = angularElement ? '> [data-fab-component], > [data-fab-wrapper]' : '';
 
     return `
-        ${framework === 'angular' ? '> [data-fab-component], > [data-fab-wrapper] {' : ''}
+        ${wrapper ? `${wrapper} {` : ''}
         ${alignCSS(params)}
-        ${framework === 'angular' ? '}' : ''}
-
-        ${alignCSS(params)}
+        ${wrapper ? '}' : ''}
     `
 }
 
