@@ -16,16 +16,12 @@ const ToastStyles = params => {
             z-index: 9999;
         }
 
-        ${props.stacked ? `
-            ${wrapper} {
-                padding: ${vars.spacing} 0;
-                transition: all .2s ease-in-out;
-            }
-            ` : ''
-        }
 
-        ${props.stacked ? `
-            ${wrapper}[data-hiding='true'] {
+        ${wrapper}[data-stacked='true'] {
+            padding: ${vars.spacing} 0;
+            transition: all .2s ease-in-out;
+
+            &[data-hiding='true'] {
                 margin-bottom: -${props.height}px;
                 opacity: 0;
                 visibility: hidden;
@@ -34,7 +30,6 @@ const ToastStyles = params => {
                     z-index: 1;
                 }
             }
-            ` : ''
         }
 
         .fab-toast {
