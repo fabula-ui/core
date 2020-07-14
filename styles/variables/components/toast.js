@@ -1,5 +1,3 @@
-import Color from 'color';
-
 import colors from '../colors';
 import globals from '../globals';
 
@@ -7,6 +5,7 @@ const toast = {
     ...globals,
     colors,
 
+    color: '#FFF',
     fontSize: '.95rem',
     fontWeight: 600,
     letterSpacing: '-.025em',
