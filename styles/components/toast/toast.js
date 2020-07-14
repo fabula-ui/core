@@ -1,35 +1,32 @@
-import componentCommons from '../../common/component.commons';
+// Methods
+import getComponentVars from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/color.modifier';
-import glowModifier from './modifiers/glow.modifier';
+import colorModifier from './modifiers/toast-color.modifier';
+import glowModifier from './modifiers/toast-glow.modifier';
 
 const ToastStyles = params => {
     const { framework, props } = params;
-    const vars = window.__FABTheme.variables.components.toast;
-    const { glow, height, stacked } = props;
-    const { borderColor } = vars;
-
+    const vars = getComponentVars('toast');
     const wrapper = framework === 'angular' ? '.fab-toast-wrapper' : '&';
 
     return `
-        ${wrapper} { ${componentCommons} }
-
         ${wrapper} { 
+            font-family: ${vars.fontFamily};
             z-index: 9999;
         }
 
-        ${stacked ? `
+        ${props.stacked ? `
             ${wrapper} {
-                padding: .5rem 0;
+                padding: ${vars.spacing} 0;
                 transition: all .2s ease-in-out;
             }
             ` : ''
         }
 
-        ${stacked ? `
+        ${props.stacked ? `
             ${wrapper}[data-hiding='true'] {
-                margin-bottom: -${height}px;
+                margin-bottom: -${props.height}px;
                 opacity: 0;
                 visibility: hidden;
 
@@ -44,12 +41,12 @@ const ToastStyles = params => {
             align-items: center;
             background: #FFF;
             border: solid 1px transparent;
-            border-radius: .5em;
+            border-radius: ${vars.borderRadius};
             display: inline-flex;
-            font-size: .95rem;
-            font-weight: 600;
-            letter-spacing: -.025em;
-            padding: 1em;
+            font-size: ${vars.fontSize};
+            font-weight: ${vars.fontWeight};
+            letter-spacing: ${vars.letterSpacing};
+            padding: ${vars.paddingY} ${vars.paddingX};
             position: relative;
             width: 100%;
             z-index: 1;
@@ -65,7 +62,7 @@ const ToastStyles = params => {
 
         // External components
         
-        .fab-button[data-close-button] {
+        .fab-toast__close-button .fab-button {
             border-radius: .4em;
             min-height: initial;
             padding-bottom: .4em;
@@ -81,7 +78,7 @@ const ToastStyles = params => {
         }
 
         ${colorModifier(props)}
-        ${glow ? glowModifier(props) : ''}
+        ${props.glow ? glowModifier(props) : ''}
     `;
 }
 
