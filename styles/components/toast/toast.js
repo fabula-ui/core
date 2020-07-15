@@ -16,7 +16,6 @@ const ToastStyles = params => {
             z-index: 9999;
         }
 
-
         ${wrapper}[data-stacked='true'] {
             padding: ${vars.spacing} 0;
             transition: all .2s ease-in-out;
