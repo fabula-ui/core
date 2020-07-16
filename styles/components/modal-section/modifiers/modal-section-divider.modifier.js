@@ -1,13 +1,11 @@
 import getColor from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
-import getDividerColor from '../../../methods/color/dividerColor';
+import getDividerColor from '../../../methods/color/getDividerColor';
 
 const dividerModifier = params => {
     const { framework, props } = params;
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.modalSection;
-    const { divider } = props;
-    const { colors } = vars;
+    const vars = getComponentVars('modalSection');
     const wrapper = framework === 'angular' ? '.fab-modal-section' : '&';
 
     const color = props.color || props.parentColor ? getColor(props.color || props.parentColor, vars.colors) : vars.color;
@@ -15,8 +13,8 @@ const dividerModifier = params => {
 
     return `
         ${wrapper} {
-            ${divider === 'bottom' || divider === 'both' ? `border-bottom: solid 1px ${getDividerColor(color, context)};` : ''} 
-            ${divider === 'top' || divider === 'both' ? `border-top: solid 1px ${getDividerColor(color, context)};` : ''} 
+            ${props.divider === 'bottom' || props.divider === 'both' ? `border-bottom: solid 1px ${getDividerColor(color, context)};` : ''} 
+            ${props.divider === 'top' || props.divider === 'both' ? `border-top: solid 1px ${getDividerColor(color, context)};` : ''} 
         }
     `
 }

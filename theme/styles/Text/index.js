@@ -15,9 +15,7 @@ const TextStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-text' : '&';
 
     return `
-    ${framework === 'angular' && !!props.block && !!props.flex ? `& { display: inline-  ; }` : ''}
-    
-    ${wrapper} {${componentCommons}}
+    ${framework === 'angular' && !!props.block && !!props.flex ? `& { display: inline-flex; }` : ''}
     
     ${wrapper} {
         align-items: flex-start;
@@ -26,6 +24,7 @@ const TextStyles = params => {
         display: inline-flex;
         ${block ? `display: block;` : ''}
         ${flex ? `display: flex;` : ''}
+        font-family: ${vars.fontFamily};
         font-size: ${fontSize};
         ${weight ? `font-weight: ${weight};` : ''}
         letter-spacing: -.05rem;

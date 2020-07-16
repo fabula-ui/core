@@ -1,9 +1,8 @@
-import colorModifier from './modifiers/color.modifier';
-import dividerModifier from './modifiers/divider.modifier';
+import colorModifier from './modifiers/modal-section-color.modifier';
+import dividerModifier from './modifiers/modal-section-divider.modifier';
 
 const ModalSectionStyles = params => {
     const { framework, props } = params;
-    const { divider } = props;
     const wrapper = framework === 'angular' ? '.fab-modal-section' : '&';
     
     return `
@@ -28,7 +27,7 @@ const ModalSectionStyles = params => {
         }
 
         ${colorModifier(params)}
-        ${divider && dividerModifier(params)}
+        ${props.divider && dividerModifier(params)}
     `
 }
 
