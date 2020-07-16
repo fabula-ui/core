@@ -9,7 +9,6 @@ const TabsStyle = params => {
         .fab-tabs {
             display: flex;
             ${props.stacked ? `flex-direction: column;` : ''}
-            height: 100%;
             ${props.type === 'float' || props.type === 'pill' ? `padding: .7rem 1rem;` : ''}
         }
 

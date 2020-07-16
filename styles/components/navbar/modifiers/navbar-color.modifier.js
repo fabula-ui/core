@@ -1,13 +1,14 @@
-import getBgColor from '../../../methods/color/bgColor';
+import getBgColor from '../../../methods/color/getBgColor';
 import getColor from '../../../methods/color/getColor';
+import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
 
 const colorModifier = params => {
     const { framework, props } = params;
-    const { colors } = window.__FABTheme.variables.components.tab;
+    const vars = getComponentVars('navbar');
     const wrapper = framework === 'angular' ? '.fab-navbar' : '&';
-    const color = getColor(props.color, colors);
-    const context = getContext(props);
+    const color = props.color ? getColor(props.color, vars.colors) : vars.color;
+    const context = props.color ? getContext(props) : 'fill';
 
     return `
         ${wrapper} {
