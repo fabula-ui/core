@@ -1,8 +1,6 @@
-import componentCommons from '../../common/component.commons';
-
-import colorModifier from './modifiers/color.modifier';
-import glowModifier from './modifiers/glow.modifier';
-import sizeModifier from './modifiers/size.modifier';
+import colorModifier from './modifiers/modal-color.modifier';
+import glowModifier from './modifiers/modal-glow.modifier';
+import sizeModifier from './modifiers/modal-size.modifier';
 
 const ModalStyles = params => {
     const { framework, props } = params;
