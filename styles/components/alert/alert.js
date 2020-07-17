@@ -2,8 +2,8 @@
 import getComponentVars from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/color.modifier';
-import markerModifier from './modifiers/marker.modifier';
+import colorModifier from './modifiers/avatar-color.modifier';
+import markerModifier from './modifiers/avatar-marker.modifier';
 
 const AlertStyles = params => {
     const { framework, props } = params;
@@ -15,7 +15,12 @@ const AlertStyles = params => {
             ${framework === 'angular' ? 'width: 100%;' : ''}
         }
 
+        &[data-visible='false'] {
+            display: none;
+        }
+
         .fab-alert {
+            align-items: flex-start;
             background: ${vars.color};
             border: solid ${vars.borderWidth} ${vars.borderColor};
             border-radius: ${vars.borderRadius};
@@ -24,6 +29,12 @@ const AlertStyles = params => {
             font-family: ${vars.fontFamily};
             padding: ${vars.padding};
             position: relative;
+            transition: ${vars.transition};
+        }
+
+        .fab-alert[data-closing='true'] {
+            opacity: 0;
+            visibility: hidden;
         }
 
         .fab-alert__stage {
@@ -38,10 +49,11 @@ const AlertStyles = params => {
 
         .fab-alert__text,
         .fab-alert__title {
-            letter-spacing: -.025em;
+            letter-spacing: ${vars.letterSpacing};
         }
 
         .fab-alert__text {
+            font-size: ${vars.textFontSize};
             font-weight: ${vars.textFontWeight};
 
             .fab-text {
@@ -51,6 +63,7 @@ const AlertStyles = params => {
         }
 
         .fab-alert__title {
+            font-size: ${vars.titleFontSize};
             font-weight: ${vars.titleFontWeight};
             line-height: ${vars.titleLineHeight};
 
@@ -65,6 +78,15 @@ const AlertStyles = params => {
         }
 
         // External
+        .fab-close-button {
+            margin: calc(-${vars.padding} / 4) 0;
+        }
+
+        .fab-alert[data-title='true'] .fab-inner-icon {
+            height: .95em;
+            width: .95em;
+        }
+
         .fab-text {
             line-height: ${vars.textLineHeight};
         }

@@ -12,7 +12,6 @@ const InnerIconStyles = params => {
             background: #000;
             display: inline-flex;
             height: 1.1em;
-            margin-right: .75em;
             mask-image: url(${icon});
             mask-position: center center;
             mask-repeat: no-repeat;

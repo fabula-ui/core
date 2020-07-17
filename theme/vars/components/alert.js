@@ -12,9 +12,11 @@ const alert = {
     padding: '1em',
     spacingX: '.75em',
     spacingY: '.25em',
+    textFontSize: '1rem',
     textFontWeight: 400,
     textLineHeight: 1,
-    titleFontWeight: 600,
+    titleFontSize: '.5rem',
+    titleFontWeight: 700,
     titleLineHeight: 1,
 }
 

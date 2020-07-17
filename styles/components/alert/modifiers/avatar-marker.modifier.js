@@ -5,9 +5,7 @@ import getDividerColor from '../../../methods/color/getDividerColor';
 
 const markerModifier = props => {
     const vars = getComponentVars('alert');
-    const { marker } = props;
-    const { colors } = vars;
-    const color = getColor(marker, colors);
+    const color = getColor(props.marker, vars.colors);
     const context = getContext(props);
 
     return `
@@ -23,7 +21,7 @@ const markerModifier = props => {
                 left: 0;
                 position: absolute;
                 top: 0;
-                width: ${vars['markerWidth']};
+                width: ${vars.markerWidth};
             }
         }
     `

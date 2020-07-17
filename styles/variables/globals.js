@@ -16,6 +16,7 @@ const globals = {
     focusGlowRadius: '3px',
     fontFamily: '\'Inter\', sans-serif',
     fontSize: '1rem',
+    letterSpacing: '-.025em',
     sizeMultipliers: {
         xxs: .6,
         xs: .75,
@@ -24,6 +25,11 @@ const globals = {
         lg: 1.1,
         xl: 1.25,
         xxl: 1.5
+    },
+    transitionDuration: '.2s',
+    transitionTimingFunction: 'ease-in-out',
+    get transition() {
+        return `${this.transitionDuration} ${this.transitionTimingFunction}`
     },
     
     // Text-related
