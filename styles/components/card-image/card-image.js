@@ -17,6 +17,7 @@ const CardImageStyles = params => {
 
     return `
         ${wrapper} {
+            display: flex;
             flex-shrink: 0;
             ${props.cover ? `height: ${vars.imageHeight};` : ''}
             ${props.height ? `height: ${getHeight(props.height)};` : ''}
