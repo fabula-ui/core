@@ -1,5 +1,5 @@
 import alert from './components/alert';
-import avatar from './components/avatar/avatar';
+import avatar from './components/avatar';
 import badge from './components/badge';
 import button from './components/button/button';
 import buttonGroup from './components/buttonGroup';

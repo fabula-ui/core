@@ -6,7 +6,6 @@ const sizeModifier = props => {
 
     return `
     .fab-avatar {
-        ${!props.rounded ? `border-radius: calc(${vars.borderRadius} * ${multiplier});` : ''}
         font-size: calc(${vars.iconSize} * ${multiplier});
         height: calc(${vars.size} * ${multiplier});
         width: calc(${vars.size} * ${multiplier});

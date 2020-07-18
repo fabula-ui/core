@@ -19,6 +19,11 @@ const colorModifier = props => {
         .fab-avatar__initials {
             color: ${getTextColor(color, context)};
         }
+
+        // External
+        .fab-avatar .fab-inner-icon {
+            background: ${getPlaceholderIconColor(color, context)};
+        }
     `;
 };
 

@@ -12,7 +12,7 @@ const colorModifier = params => {
     const wrapper = framework === 'angular' ? '.fab-inner-icon' : '&';
 
     // Icon color
-    const iconColor = props.color ? getColor(props.color, vars.colors) : null;
+    const iconColor = props.icon.color ? getColor(props.icon.color, vars.colors) : null;
 
     // User defined colors
     const userBgColor = props.parentProps.bgColor ? getColor(props.parentProps.bgColor, vars.colors) : null;

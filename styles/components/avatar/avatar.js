@@ -20,9 +20,7 @@ const AvatarStyles = params => {
         }
 
         .fab-avatar {
-            background: ${vars.color};
             border-radius: ${props.rounded ? '999px' : vars.borderRadius};
-            color: #FFF;
             font-size: ${vars.iconSize};
             height: ${vars.size};
             font-family: ${vars.fontFamily};
@@ -30,13 +28,6 @@ const AvatarStyles = params => {
             overflow: hidden;
             position: relative;
             width: ${vars.size};
-        }
-
-        .fab-avatar .fab-icon {
-            left: 50%;
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
         }
 
         .fab-avatar__image {
@@ -53,7 +44,7 @@ const AvatarStyles = params => {
             font-size: ${vars.initialsFontSize};
             font-weight: ${vars.initialsFontWeight};
             left: 50%;
-            letter-spacing: -1px;
+            letter-spacing: ${vars.letterSpacing};
             line-height: 1;
             opacity: ${vars.initialsOpacity};
             position: absolute;
@@ -63,10 +54,18 @@ const AvatarStyles = params => {
             user-select: none;
         }
 
+        // Modifiers
         ${colorModifier(props)}
         ${sizeModifier(props)}
 
         // External
+        .fab-avatar .fab-inner-icon {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         ${BadgeExternalStyles(params)}
     `
 }
