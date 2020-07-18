@@ -160,13 +160,15 @@ const InputStyles = params => {
     .fab-input__elements .fab-button-wrapper {
         align-items: center;
         display: flex;
-        height: 100%;
-        // position: absolute;
-        
+        height: 100%;        
     }
 
     .fab-input__elements .fab-button-wrapper[data-circle='true'] .fab-button {
         width: 2em;
+    }
+
+    .fab-input__elements .fab-button-wrapper:not([data-circle='true']):not([data-rounded='true']) .fab-button {
+        border-radius: .3em;
     }
 
     .fab-input__elements .fab-button {
