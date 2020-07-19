@@ -2,8 +2,8 @@
 import getComponentVars from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/avatar-color.modifier';
-import markerModifier from './modifiers/avatar-marker.modifier';
+import colorModifier from './modifiers/alert-color.modifier';
+import markerModifier from './modifiers/alert-marker.modifier';
 
 const AlertStyles = params => {
     const { framework, props } = params;
