@@ -8,8 +8,8 @@ import getContext from '../../../methods/misc/getContext';
 const dividerModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('buttonGroup');    
-    const color = getColor(props.dividerColor, vars.colors);
-    const context = props.color ? getContext(props) : 'fill';
+    const color = getColor(props.dividerColor || props.color, vars.colors);
+    const context = props.dividerColor || props.color ? getContext(props) : 'fill';
     const wrapper = framework === 'angular' ? '.fab-button-group' : '&';
     const buttonWrapper = framework === 'angular' ? 'fab-button' : '.fab-button-wrapper';
 
@@ -21,7 +21,7 @@ const dividerModifier = params => {
 
             ${buttonWrapper}:not(:last-child) .fab-button {
                 ${props.glued ? `border-right: solid 1px;` : ''}
-                border-right-color: ${vars.colors[props.dividerColor] ? getDividerColor(color, context) : getBgColor(color, context)};
+                border-right-color: ${props.color ? getDividerColor(color, context) : getBgColor(color, context)};
             }
         }
     `

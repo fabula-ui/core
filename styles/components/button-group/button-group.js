@@ -25,14 +25,10 @@ const ButtonGroupStyles = params => {
         .fab-button-wrapper {
             padding: ${props.spacing === null || props.spacing === undefined ? vars.spacing : `calc(${getNumber(props.spacing, 'rem')} / 2)`};
         }
-    
-        > * {
-            box-sizing: border-box;
-        }
     }
 
     // Modifiers
-    ${props.dividerColor ? dividerModifier(params) : ''}
+    ${props.glued && props.divider ? dividerModifier(params) : ''}
     ${props.glued ? gluedModifier(params) : ''}
     `
 };

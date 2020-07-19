@@ -9,14 +9,15 @@ import getGlowColor from '../../../methods/color/getGlowColor';
 
 const colorModifier = props => {
     const vars = getComponentVars('alert');
-    const borderColor = getColor(props.border || props.color, vars.colors);
+    const borderColor = getColor(props.borderColor || props.color, vars.colors);
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
     const context = props.color ? getContext(props) : 'fill';
 
     return `
         .fab-alert {
             background: ${getBgColor(color, context)};
-            border-color: ${props.border || props.outline ? `${getBorderColor(borderColor, context)};` : `${getDividerColor(borderColor, context)};`}
+            border-color: ${!!props.border ? `${getDividerColor(borderColor, context)}` : 'transparent'};
+            ${((props.borderColor || props.outline) && !!props.border) ? `border-color: ${getBorderColor(borderColor, context)};` : ''}
             ${props.glow ? `box-shadow: 0 ${vars.glowRadiusX} ${vars.glowRadiusY} ${getGlowColor(color, context)};` : ''}
             color: ${getTextColor(color, context)};
         }
