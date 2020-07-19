@@ -1,5 +1,5 @@
-import colors from '../../colors';
-import globals from '../../globals';
+import colors from '../colors';
+import globals from '../globals';
 
 const button = {
     ...globals,
@@ -25,6 +25,7 @@ const button = {
     glowRadius: '1px',
     glowSpread: '-1px',
     minHeight: '3rem',
+    minHeightSmashed: '2rem',
     paddingX: '1.5em',
     paddingY: '.7em',
     get paddingBottom() {

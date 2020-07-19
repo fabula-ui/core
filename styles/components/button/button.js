@@ -1,11 +1,15 @@
 // Button modifiers
+import circleModifier from './modifiers/button-circle.modifier';
 import colorModifier from './modifiers/button-color.modifier';
 import gradientModifier from './modifiers/button-gradient.modifier';
+import iconModifier from './modifiers/button-icon.modifier';
 import sizeModifier from './modifiers/button-size.modifier';
+import smashedModifier from './modifiers/button-smashed.modifier';
 
 // Methods
 import getComponentVars from '../../methods/misc/getComponentVars';
 import getContext from '../../methods/misc/getContext';
+
 
 const ButtonStyles = params => {
     const { framework, props } = params;
@@ -24,39 +28,32 @@ const ButtonStyles = params => {
             align-items: center;
             appearance: none;
             border: none;
-            ${props.smashed ? `border-radius: ${vars.borderRadiusSmashed};` : `border-radius: ${vars.borderRadius};`}
+            border-radius: ${vars.borderRadius};
             ${props.rounded ? `border-radius: 999px;` : ''}
-            ${(!!props.circle || (!!props.icon && !props.label)) ? `border-radius: 50%;` : ''}
             cursor: pointer;
             display: inline-flex;
             font-family: ${vars.fontFamily};
-            ${!!props.smashed ? `font-size: calc(${vars.fontSize} * .9);` : `font-size: ${vars.fontSize};`}
+            font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
-            ${(!!props.circle || (!!props.icon && !props.label)) && !props.smashed ? 'height: 3rem;' : ''}
-            ${(!!props.circle || (!!props.icon && !props.label)) && props.smashed ? 'height: 2rem;' : ''}
             justify-content: center;
             ${props.align === 'center' ? `justify-content: center;` : ''}
             ${props.align === 'left' || props.align === 'start' ? `justify-content: flex-start;` : ''}
             ${props.align === 'right' || props.align === 'end' ? `justify-content: flex-end;` : ''}
-            letter-spacing: -.025rem;
-            ${props.smashed ? `min-height: 2rem;` : `min-height: 3rem;`}
-            ${props.smashed ? `padding-bottom: calc(${vars.paddingBottom} / 2);` : `padding-bottom: ${vars.paddingBottom};`}
-            padding-left: ${props.smashed ? `calc(${vars.paddingLeft} - .5em);` : `${vars.paddingLeft};` }
-            padding-right: ${props.smashed ? `calc(${vars.paddingRight} - .5em);` : `${vars.paddingRight};` }
-            ${props.smashed ? `padding-top: calc(${vars.paddingTop} / 2);` : `padding-top: ${vars.paddingTop};`}
+            letter-spacing: ${vars.letterSpacing};
+            min-height: ${vars.minHeight};
+            padding-bottom: ${vars.paddingBottom};
+            padding-left: ${vars.paddingLeft};
+            padding-right: ${vars.paddingRight};
+            padding-top: ${vars.paddingTop};
             ${props.compact ? `padding-left: calc(${vars.paddingLeft} * ${vars.compactMultiplier});` : ''}
             ${props.compact ? `padding-right: calc(${vars.paddingRight} * ${vars.compactMultiplier});`: ''}
-            ${!!props.circle || (!!props.icon && !props.label) ? `padding-left: 0;` : ''}
-            ${!!props.circle || (!!props.icon && !props.label) ? `padding-right: 0;` : ''}
             ${props.wide ? `padding-left: calc(${vars.paddingLeft} * ${vars.wideMultiplier});` : ''}
             ${props.wide ? `padding-right: calc(${vars.paddingRight} * ${vars.wideMultiplier});`: ''}
             ${!!props.align ? `text-align: ${props.align};` : ''}
             position: relative;
-            transition: all .2s ease-in-out;
+            transition: all ${vars.transition};
             white-space: nowrap;
             width: 100%;
-            ${(!!props.circle || (!!props.icon && !props.label)) && !props.smashed ? 'width: 3rem;' : ''}
-            ${(!!props.circle || (!!props.icon && !props.label)) && props.smashed ? 'width: 2rem;' : ''}
 
             &:focus {
                 outline: none;
@@ -73,6 +70,8 @@ const ButtonStyles = params => {
             &[disabled] {
                 cursor: default;
                 opacity: ${vars.disabledOpacity};
+                pointer-events: none;
+                user-select: none;
             }
 
             > *:not(:last-child) {
@@ -80,21 +79,12 @@ const ButtonStyles = params => {
             }
         }
 
-        .fab-button__icon {
-            height: 1em;
-            mask-image: url(${icon});
-            mask-position: center center;
-            mask-repeat: no-repeat;
-            mask-size: contain;
-            width: 1em;
-        }
-
-        .fab-icon__svg {
-            font-size: 85%;
-        }
-
+        // Modifiers
+        ${props.circle ? circleModifier(props) : ''}
         ${colorModifier(props)}
         ${props.gradient && props.color ? gradientModifier(props) : ''}
+        ${iconModifier(props)}
+        ${props.smashed ? smashedModifier(props) : ''}
         ${props.size ? sizeModifier(props) : ''}
     `
 }

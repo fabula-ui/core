@@ -1,12 +1,10 @@
 import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
-import getContext from '../../../methods/misc/getContext';
 import getGradientColor from '../../../methods/color/getGradientColor';
 
 const gradientModifier = props => {
     const vars = getComponentVars('button');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
-    const context = props.color ? getContext(props) : 'fill';
 
     return `
         .fab-button {
@@ -24,7 +22,7 @@ const gradientModifier = props => {
                 position: absolute;
                 right: 0;
                 top: 0;
-                transition: all .2s ease-in-out;
+                transition: all ${vars.transition};
                 visibility: hidden;
             }
 
