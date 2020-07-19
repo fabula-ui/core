@@ -1,5 +1,9 @@
-const TagStyles =
-    `
+import getComponentVars from '../../../methods/misc/getComponentVars';
+
+const TagStyles = () => {
+    const vars = getComponentVars('cardImage');
+
+    return `
         .fab-tag-wrapper {
             position: absolute;
             z-index: 1;
@@ -11,15 +15,15 @@ const TagStyles =
         }
 
         .fab-tag-wrapper[data-placement-x='left'] {
-            left: 1rem;
+            left: ${vars.padding};
         }
 
         .fab-tag-wrapper[data-placement-x='right'] {
-            right: 1rem;
+            right: ${vars.padding};
         }
 
         .fab-tag-wrapper[data-placement-y='bottom'] {
-            bottom: 1rem;
+            bottom: ${vars.padding};
         }
 
         .fab-tag-wrapper[data-placement-y='center'] {
@@ -32,8 +36,10 @@ const TagStyles =
         }
 
         .fab-tag-wrapper[data-placement-y='top'] {
-            top: 1rem;
+            top: ${vars.padding};
         }
     `;
+
+}
 
 export default TagStyles;

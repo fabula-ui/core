@@ -4,6 +4,7 @@ import badge from './components/badge';
 import button from './components/button';
 import buttonGroup from './components/buttonGroup';
 import card from './components/card';
+import cardImage from './components/cardImage';
 import checkbox from './components/checkbox';
 import closeButton from './components/closeButton';
 import dropdown from './components/dropdown';
@@ -35,6 +36,7 @@ const components = {
     button,
     buttonGroup,
     card,
+    cardImage,
     checkbox,
     closeButton,
     dropdown,

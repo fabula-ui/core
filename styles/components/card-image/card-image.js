@@ -68,8 +68,11 @@ const CardImageStyles = params => {
             }
         }
 
+        // Modifiers
         ${colorModifier(params)}
-        ${TagStyles}
+
+        // External
+        ${TagStyles()}
     `
 }
 
