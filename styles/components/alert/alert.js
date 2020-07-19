@@ -22,7 +22,7 @@ const AlertStyles = params => {
         .fab-alert {
             align-items: flex-start;
             background: ${vars.color};
-            border: solid ${vars.borderWidth} ${vars.borderColor};
+            border: solid ${vars.borderWidth};
             border-radius: ${vars.borderRadius};
             color: ${vars.textColor};
             display: flex;
@@ -55,22 +55,12 @@ const AlertStyles = params => {
         .fab-alert__text {
             font-size: ${vars.textFontSize};
             font-weight: ${vars.textFontWeight};
-
-            .fab-text {
-                font-weight: inherit;
-                line-height: inherit;
-            }
         }
 
         .fab-alert__title {
             font-size: ${vars.titleFontSize};
             font-weight: ${vars.titleFontWeight};
             line-height: ${vars.titleLineHeight};
-
-            .fab-text {
-                font-weight: inherit;
-                line-height: inherit;
-            }
         }
 
         .fab-alert__title:not(:last-child) {
@@ -87,10 +77,7 @@ const AlertStyles = params => {
             width: .95em;
         }
 
-        .fab-text {
-            line-height: ${vars.textLineHeight};
-        }
-
+        // Modifiers
         ${colorModifier(props)}
         ${props.marker ? markerModifier(props) : ''}
     `;
