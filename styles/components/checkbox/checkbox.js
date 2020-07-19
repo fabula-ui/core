@@ -23,19 +23,18 @@ const CheckboxStyles = params => {
             user-select: none;
         }
 
-        ${wrapper}[data-checked='true'] .fab-icon {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        ${wrapper}[data-checked='true'] .fab-checkbox:before {
-            opacity: 1;
-            visibility: visible;
+        ${wrapper}[data-checked='true'] {
+            .fab-checkbox:before,
+            .fab-icon {
+                opacity: 1;
+                visibility: visible;
+            }
         }
 
         ${wrapper}[data-disabled='true'] {
             cursor: default;
             opacity: ${vars.disabledOpacity};
+            pointer-events: none;
         }
 
         ${wrapper}[data-focus='true'] {
@@ -60,6 +59,7 @@ const CheckboxStyles = params => {
             font-size: 1em;
             height: ${vars.size};
             justify-content: center;
+            transition: ${vars.transition};
             width: ${vars.size};
 
             &:before {
@@ -72,7 +72,7 @@ const CheckboxStyles = params => {
                 mask-size: contain;
                 position: relative;
                 opacity: 0;
-                transition: all .2s ease-in-out;
+                transition: ${vars.transition};
                 visibility: hidden;
                 width: 80%;
             }
@@ -82,10 +82,10 @@ const CheckboxStyles = params => {
             cursor: inherit;
             font-size: ${vars.fontSize};
             font-weight: ${props.weight ? props.weight : '400'};
-            padding-left: .5em;
-            
+            padding-left: ${vars.spacing};
         }
 
+        // Modifiers
         ${colorModifier(params)}
         ${sizeModifier(params)}
     `;

@@ -54,10 +54,6 @@ const colorModifier = params => {
                 background: ${getActiveColor(activeColor, context)};
             }
         }
-
-        .fab-checkbox {
-            transition: all .2s ease-in-out;
-        }
     `;
 }
 

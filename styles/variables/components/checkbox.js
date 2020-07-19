@@ -7,17 +7,18 @@ const checkbox = {
 
     borderRadius: '.2em',
     get activeColor() {
-        return this.colors['primary']
+        return this.colors.primary
     },
     get color() {
-        return this.colors['aux']
+        return this.colors.aux
     },
     fontSize: '1em',
     get inactiveColor() {
-        return this.colors['aux']
+        return this.colors.aux
     },
     disabledOpacity: .4,
-    size: '1.1em'
+    size: '1.1em',
+    spacing: '.5em'
 }
 
 export default checkbox;
