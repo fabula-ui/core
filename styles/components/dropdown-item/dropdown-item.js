@@ -19,19 +19,12 @@ const DropdownItemStyles = params => {
             width: 100%;
         }
 
-        ${wrapper}[data-button='false'] {
-            padding: ${vars.paddingY} ${vars.paddingX};
-        }
-
-        .fab-dropdown-item__button {
+        button${wrapper} {
             appearance: none;
             background: none;
             border: none;
             border-radius: 0;
             cursor: pointer;
-            font-size: 1em;
-            font-weight: inherit;
-            letter-spacing: inherit;
             padding: ${vars.paddingY} ${vars.paddingX};
             text-align: left;
             transition: all ${vars.transition};
@@ -40,6 +33,10 @@ const DropdownItemStyles = params => {
             &:focus {
                 outline: none;
             }
+        }
+
+        div${wrapper} {
+            padding: ${vars.paddingY} ${vars.paddingX};
         }
 
         // Modifiers

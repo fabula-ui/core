@@ -1,14 +1,12 @@
-import getComponentVars from '../../methods/misc/getComponentVars';
-
 const DropdownStyles = params => {
     const { framework, props } = params;
-    const vars = getComponentVars('dropdown');
     const wrapper = framework === 'angular' ? '.fab-dropdown-wrapper' : '&';
 
     return `
     ${props.expand && framework === 'angular' ? '& { width: 100%; }' : ''}
 
     ${wrapper} {
+        align-items: flex-start;
         display: inline-flex;
         ${props.expand ? `width: 100%;` : ''} 
     }

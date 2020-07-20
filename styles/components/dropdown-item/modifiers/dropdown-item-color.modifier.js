@@ -15,7 +15,7 @@ const colorModifier = params => {
     const wrapper = framework === 'angular' ? '.fab-dropdown-item' : '&';
 
     return `
-        .fab-dropdown-item__button {
+        button${wrapper} {
             background: ${getBgColor(color, context)};
             color: ${getTextColor(color, context)};
 

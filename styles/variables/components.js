@@ -9,6 +9,7 @@ import checkbox from './components/checkbox';
 import closeButton from './components/closeButton';
 import divider from './components/divider';
 import dropdown from './components/dropdown';
+import dropdownHeader from './components/dropdownHeader';
 import dropdownItem from './components/dropdownItem';
 import dropdownMenu from './components/dropdownMenu';
 import fileInput from './components/fileInput';
@@ -44,6 +45,7 @@ const components = {
     closeButton,
     divider,
     dropdown,
+    dropdownHeader,
     dropdownItem,
     dropdownMenu,
     fileInput,

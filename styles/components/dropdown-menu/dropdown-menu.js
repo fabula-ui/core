@@ -7,7 +7,6 @@ const DropdownMenuStyles = params => {
     const {framework, props} = params;
     const vars = getComponentVars('dropdownMenu');
     const wrapper = framework === 'angular' ? '.fab-dropdown-menu' : '&';
-    const upOffset = `${props.dropdownHeight + props.height}px`;
 
     return `
     ${wrapper} {
@@ -24,9 +23,9 @@ const DropdownMenuStyles = params => {
         padding: ${vars.paddingY} ${vars.paddingX};
         position: absolute;
         text-align: left;
-        top: 0;
+        top: ${props.direction === 'down' ? '100%' : 0};
+        transform: ${props.direction === 'down' ? `translate(0, 0)` : `translate(0, -100%)`};
         transition: all ${vars.transition};
-        transform: ${props.direction === 'down' ? `translate3d(0, calc(${props.dropdownHeight}px - ${vars.spacing}), 0)` : `translate3d(0, calc(-${props.height}px + ${vars.spacing}), 0)`};
         visibility: hidden;
         z-index: 9999;
     }
@@ -38,7 +37,7 @@ const DropdownMenuStyles = params => {
 
     ${wrapper}[data-open='true'] {
         opacity: 1;
-        transform: ${props.direction === 'down' ? `translate3d(0, calc(${props.dropdownHeight}px), 0)` : `translate3d(0, -${props.height}px, 0)`} ;
+        transform: ${props.direction === 'down' ? `translate(0, 0)` : `translate(0, -100%)`};
         visibility: visible;
     }
 
