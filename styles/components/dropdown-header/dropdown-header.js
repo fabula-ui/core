@@ -19,6 +19,7 @@ const DropdownHeaderStyles = params => {
             font-weight: ${vars.fontWeight};
             letter-spacing: ${vars.letterSpacing};
             margin-bottom: ${vars.paddingY};
+            ${(props.color || props.parentColor) ? `opacity: ${vars.opacity};` : ''}
             padding: ${vars.paddingY} 0 ${vars.paddingY} ${vars.paddingX};
             width: 100%;
         }

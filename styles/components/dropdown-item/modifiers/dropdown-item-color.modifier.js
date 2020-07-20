@@ -10,15 +10,18 @@ import getTextColor from '../../../methods/color/getTextColor';
 const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('dropdownItem');
-    const color = props.color ? getColor(props.color, vars.colors) : vars.color;
-    const context = props.color ? getContext(props) : 'fill';
+    const color = (props.color || props.parentColor) ? getColor((props.color || props.parentColor), vars.colors) : vars.color;
+    const context = (props.color || props.parentColor) ? getContext(props) : 'fill';
     const wrapper = framework === 'angular' ? '.fab-dropdown-item' : '&';
 
     return `
+        ${wrapper},
         button${wrapper} {
             background: ${getBgColor(color, context)};
             color: ${getTextColor(color, context)};
+        }
 
+        button${wrapper} {
             &:hover:not([disabled]) {
                 background: ${getHoverColor(color, context)};
                 color: ${getHoverTextColor(color, context)}

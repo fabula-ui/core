@@ -7,6 +7,7 @@ const dropdownHeader = {
     
     fontWeight: 600,
     fontSize: '.8rem',
+    opacity: .8,
     paddingX: '1rem',
     paddingY: '.25rem',
     get textColor() {

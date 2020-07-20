@@ -4,13 +4,14 @@ import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
 
 const colorModifier = params => {
-    const { props } = params;
-    const vars = getComponentVars('dropdown');
+    const { framework, props } = params;
+    const vars = getComponentVars('dropdownMenu');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
     const context = props.color ? getContext(props) : 'fill';
+    const wrapper = framework === 'angular' ? '.fab-dropdown-menu' : '&';
     
     return `
-        .fab-dropdown-menu {
+        ${wrapper} {
             background-color: ${getBgColor(color, context)}
         }
     `
