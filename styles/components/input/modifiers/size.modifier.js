@@ -11,6 +11,10 @@ const sizeModifier = params => {
             font-size: calc(${vars.fontSize} * ${sizeMultiplier});
         }
 
+        .fab-input {
+            max-height: calc(${vars.minHeight} * ${sizeMultiplier});
+        }
+
         .fab-input__field {
             min-height: calc(${vars.minHeight} * ${sizeMultiplier});
         }

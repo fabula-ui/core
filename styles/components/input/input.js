@@ -35,6 +35,7 @@ const InputStyles = params => {
         border: solid 1px transparent;
         display: flex;
         font-size: ${vars.fontSize};
+        max-height: ${vars.minHeight};
         position: relative;
         transition: all .2s ease-in-out;
         width: ${vars.expand ? '100%' : 'auto'};
@@ -86,6 +87,7 @@ const InputStyles = params => {
 
     textarea.fab-input__field {
         line-height: 1.5;
+        maxHeight: initial;
         min-height: calc(${vars.minHeight} * 3);
         padding-bottom: ${vars.padding};
         padding-top: ${vars.padding};
