@@ -193,6 +193,7 @@ const InputStyles = params => {
         margin-top: .5em;
     }
 
+    // Modifiers
     ${colorModifier(props)}
     ${props.glow ? glowModifier(props) : ''}
     ${(!!props.message && props.message.color) || !!props.messageColor ? messageColorModifier(params) : ''}
