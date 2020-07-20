@@ -1,8 +1,11 @@
+import getActiveColor from '../../../methods/color/getActiveColor';
 import getBgColor from '../../../methods/color/getBgColor';
 import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
 import getDividerColor from '../../../methods/color/getDividerColor';
+import getHoverColor from '../../../methods/color/getHoverColor';
+import getHoverTextColor from '../../../methods/color/getHoverTextColor';
 import getStripeColor from '../../../methods/color/getStripeColor';
 import getTextColor from '../../../methods/color/getTextColor';
 
@@ -18,6 +21,24 @@ const colorModifier = params => {
         ${wrapper} {
             background-color: ${getBgColor(color, context)};
             color: ${props.color ? `${getTextColor(color, context)}` : 'inherit'};
+        }
+
+        a${wrapper},
+        button${wrapper} {
+            transition: all ${vars.transition};
+
+            &:hover:not([disabled]) {
+                background: ${getHoverColor(color, context)};
+                color: ${getHoverTextColor(color, context)}
+            }
+
+            &:active:not([disabled]) {
+                background: ${getActiveColor(color, context)};
+            }
+        }
+
+        a${wrapper} {
+            text-decoration: none;
         }
 
         ${framework === 'angular' ?

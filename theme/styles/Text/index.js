@@ -19,7 +19,7 @@ const TextStyles = params => {
     
     ${wrapper} {
         align-items: flex-start;
-        color: ${textColor};
+        color: inherit;
         ${aux ? `color: ${auxTextColor};` : ''}
         display: inline-flex;
         ${block ? `display: block;` : ''}

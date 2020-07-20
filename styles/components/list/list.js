@@ -1,17 +1,21 @@
 // Modifiers
-// Methods
-import getComponentVars from '../../methods/misc/getComponentVars';
-
-// Modifiers
 import colorModifier from './modifiers/list-color.modifier';
 
 const ListStyles = params => {
-    const { framework, props } = params;
-    const vars = getComponentVars('list');
-    const wrapper = framework === 'angular' ? '.fab-list-wrapper' : '&';
+    const { props } = params;
 
     return `
-    ${colorModifier(params)}
+        .fab-list {
+            ${!props.divider && !props.striped ? 'padding: 1rem 0;' : ''}
+        }
+
+        // External
+        .fab-list .fab-divider {
+            margin-bottom: 1rem;
+        }
+
+        // Modifiers
+        ${colorModifier(params)}
     `
 };
 

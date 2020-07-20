@@ -16,11 +16,13 @@ const colorModifier = params => {
 
     return `
         ${wrapper},
+        a${wrapper},
         button${wrapper} {
             background: ${getBgColor(color, context)};
             color: ${getTextColor(color, context)};
         }
 
+        a${wrapper},
         button${wrapper} {
             &:hover:not([disabled]) {
                 background: ${getHoverColor(color, context)};
@@ -30,6 +32,11 @@ const colorModifier = params => {
             &:active:not([disabled]) {
                 background: ${getActiveColor(color, context)};
             }
+        }
+
+        a${wrapper} {
+            opacity: .2;
+            text-decoration: none;
         }
     `;
 }
