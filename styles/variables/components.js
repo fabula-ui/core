@@ -7,7 +7,10 @@ import card from './components/card';
 import cardImage from './components/cardImage';
 import checkbox from './components/checkbox';
 import closeButton from './components/closeButton';
+import divider from './components/divider';
 import dropdown from './components/dropdown';
+import dropdownItem from './components/dropdownItem';
+import dropdownMenu from './components/dropdownMenu';
 import fileInput from './components/fileInput';
 import icon from './components/icon';
 import input from './components/input';
@@ -39,7 +42,10 @@ const components = {
     cardImage,
     checkbox,
     closeButton,
+    divider,
     dropdown,
+    dropdownItem,
+    dropdownMenu,
     fileInput,
     icon,
     input,

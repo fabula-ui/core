@@ -20,11 +20,6 @@ const ListItemStyles = params => {
             width: 100%;
         }
 
-        fab-list-item[data-button='true'] .fab-list-item,
-        ${wrapper}[data-button='true'] {
-            padding: 0;
-        }
-
         ${colorModifier(params)}
         ${sizeModifier(params)}
     `
