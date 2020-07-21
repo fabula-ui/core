@@ -1,5 +1,8 @@
+import getComponentVars from '../../methods/misc/getComponentVars';
+
 const NavbarSectionStyles = params => {
     const { framework, props } = params;
+    const vars = getComponentVars('navbarSection');
     const wrapper = framework === 'angular' ? '.fab-navbar-section' : '&';
     const alignments = {
         center: 'center',
@@ -28,7 +31,7 @@ const NavbarSectionStyles = params => {
             ${props.expand ? `flex-grow: 1;` : ''}
             ${props.alignment ? `justify-content: ${alignments[props.alignment] || props.alignment};` : ''}
             ${props.placement === 'right' ? 'margin-left: auto;' : ''}
-            padding: .75em 0;
+            padding: ${vars.paddingY} ${vars.paddingX};
         }
     `;
 }

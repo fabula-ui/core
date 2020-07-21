@@ -22,6 +22,7 @@ import modal from './components/modal';
 import modalHeader from './components/modalHeader';
 import modalSection from './components/modalSection';
 import navbar from './components/navbar';
+import navbarSection from './components/navbarSection';
 import segment from './components/segment';
 import segments from './components/segments';
 import tab from './components/tab';
@@ -59,6 +60,7 @@ const components = {
     modalHeader,
     modalSection,
     navbar,
+    navbarSection,
     segment,
     segments,
     tab,

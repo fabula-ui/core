@@ -12,12 +12,13 @@ const NavbarStyles = params => {
     return `
         ${wrapper} {
             display: flex;
-            height: ${height ? getNumber(props.height, 'px') : 'auto'};
-            min-height: ${!height ? '4rem' : 'initial'};
+            height: ${props.height ? getNumber(props.height, 'px') : 'auto'};
+            min-height: ${!props.height ? '4rem' : 'initial'};
+            width: 100%;
         }
 
-        // External
-        ${props.color ? colorModifier(params) : ''}
+        // Modifiers
+        ${colorModifier(params)}
     `
 }
 

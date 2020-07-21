@@ -1,5 +1,5 @@
 const NavbarLogoStyles = params => {
-    const { framework, props } = params;
+    const { framework } = params;
     const wrapper = framework === 'angular' ? '.fab-navbar-logo' : '&';
 
     return `
