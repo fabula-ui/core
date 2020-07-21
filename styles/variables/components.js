@@ -19,6 +19,7 @@ import inputGroup from './components/inputGroup';
 import link from './components/link';
 import list from './components/list';
 import modal from './components/modal';
+import modalHeader from './components/modalHeader';
 import modalSection from './components/modalSection';
 import navbar from './components/navbar';
 import segment from './components/segment';
@@ -55,6 +56,7 @@ const components = {
     link,
     list,
     modal,
+    modalHeader,
     modalSection,
     navbar,
     segment,

@@ -10,7 +10,7 @@ const glowModifier = props => {
 
     return `
         .fab-modal {
-            box-shadow: 0 2px 2px ${getGlowColor(color, context)};
+            box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${getGlowColor(color, context)};
         }
     `;
 }

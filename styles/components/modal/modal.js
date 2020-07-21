@@ -1,9 +1,14 @@
+// Methods
+import getComponentVars from '../../methods/misc/getComponentVars';
+
+// Modifiers
 import colorModifier from './modifiers/modal-color.modifier';
 import glowModifier from './modifiers/modal-glow.modifier';
 import sizeModifier from './modifiers/modal-size.modifier';
 
 const ModalStyles = params => {
     const { framework, props } = params;
+    const vars = getComponentVars('modal');
     const wrapper = framework === 'angular' ? '.fab-modal-wrapper' : '&';
 
     return `
@@ -36,13 +41,12 @@ const ModalStyles = params => {
         ${wrapper},
         .fab-modal,
         .fab-modal__backdrop {
-            transition: all .2s ease-in-out;
+            transition: all ${vars.transition};
         }
 
         .fab-modal {
-            animation: showModal .2s ease-in-out;
-            border-radius: .5rem;
-            box-shadow: 0 2px 2px rgba(0,0,0,.1);
+            animation: showModal ${vars.transition};
+            border-radius: ${vars.borderRadius};
             left: 50%;
             opacity: 1;
             position: absolute;
@@ -61,11 +65,11 @@ const ModalStyles = params => {
         }
 
         .fab-modal__backdrop {
-            animation: showBackdrop .2s ease-in-out;
-            background: #000;
+            animation: showBackdrop ${vars.transition};
+            background: ${vars.backdropColor};
             bottom: 0;
             left: 0;
-            opacity: .5;
+            opacity: ${vars.backdropOpacity};
             position: absolute;
             right: 0;
             top: 0;
@@ -79,6 +83,7 @@ const ModalStyles = params => {
             }
         }
         
+        // Modifiers
         ${colorModifier(params)}
         ${props.glow ? glowModifier(props) : ''}
         ${sizeModifier(props)}
