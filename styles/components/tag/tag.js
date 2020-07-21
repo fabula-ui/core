@@ -10,9 +10,7 @@ const TagStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-tag-wrapper' : '&';
 
     return `
-        ${wrapper} {
-            display: inline-flex;
-        }
+        ${wrapper} { display: inline-flex; }
 
         .fab-tag {
             align-items: center;
@@ -20,7 +18,7 @@ const TagStyles = params => {
             display: flex;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
-            font-weight: 500;
+            font-weight: ${vars.fontWeight};
             line-height: 1;
             ${!props.anchor && !props.button ? `padding: ${vars.paddingY} ${vars.paddingX};` : ''}
             width: 100%;
@@ -45,7 +43,7 @@ const TagStyles = params => {
             margin: -${vars.paddingY} -${vars.paddingX};
             padding: ${vars.paddingY} ${vars.paddingX};
             text-decoration: none;
-            transition: all .2s ease-in-out;
+            transition: all ${vars.transition};
 
             &:focus {
                 outline: none;
@@ -70,6 +68,7 @@ const TagStyles = params => {
             }
         }
 
+        // Modifiers
         ${colorModifier(props)}
         ${props.size ? sizeModifier(props) : ''}
     `;

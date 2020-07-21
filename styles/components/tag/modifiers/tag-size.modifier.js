@@ -2,7 +2,7 @@ import getComponentVars from '../../../methods/misc/getComponentVars';
 
 const sizeModifier = props => {
     const vars = getComponentVars('tag');
-    const multiplier = vars.sizeMultipliers[props.size || 'md'];
+    const multiplier = vars.sizeMultipliers[props.size];
 
     return `
         .fab-tag {
