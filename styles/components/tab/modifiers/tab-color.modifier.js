@@ -50,7 +50,7 @@ const colorModifier = params => {
                     case 'pill':
                         return 'none';
                     default:
-                        return 'solid 3px transparent';
+                        return `solid ${vars.borderWidth} transparent`;
                 }
             },
             inactiveTextColor: userInactiveTextColor || !!color && getTextColor(color, context) || vars.inactiveTextColor,

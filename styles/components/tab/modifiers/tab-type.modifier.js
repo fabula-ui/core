@@ -1,6 +1,7 @@
+import getComponentVars from '../../../methods/misc/getComponentVars';
+
 const blockType = params => {
-    const {framework, props} = params;
-    const { stacked } = props;
+    const {framework, props, vars} = params;
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
@@ -8,15 +9,15 @@ const blockType = params => {
             > a,
             > button {
                 border-bottom: none;
-                ${stacked ? `padding-left: 1rem;` : ''}
-                ${stacked ? `padding-right: 1rem;` : ''}
+                ${props.stacked ? `padding-left: ${vars.paddingX};` : ''}
+                ${props.stacked ? `padding-right: ${vars.paddingX};` : ''}
             }
         }
     `;
 }
 
 const floatType = params => {
-    const {framework} = params;
+    const {framework, vars} = params;
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
@@ -25,14 +26,14 @@ const floatType = params => {
         > button {
             border-bottom: none;
             border-radius: .3em;
-            padding: .5em 1em;
+            padding: calc(${vars.paddingY} / 2) ${vars.paddingX};
         }
     }
     `;
 }
 
 const pillType = params => {
-    const {framework} = params;
+    const {framework, vars} = params;
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
@@ -41,7 +42,7 @@ const pillType = params => {
         > button {
             border-bottom: none;
             border-radius: 999px;
-            padding: .5em 1em;
+            padding: calc(${vars.paddingY} / 2) ${vars.paddingX};
         }
     }
     `;
@@ -49,16 +50,16 @@ const pillType = params => {
 
 const typeModifier = params => {
     const { framework, props } = params;
-    const { stacked, type } = props;
+    const vars = getComponentVars('tab');
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
-        ${type === 'block' ? blockType(params) : ''}
-        ${type === 'float' ? floatType(params) : ''}
-        ${type === 'pill' ? pillType(params) : ''}
+        ${props.type === 'block' ? blockType({...params, vars}) : ''}
+        ${props.type === 'float' ? floatType({...params, vars}) : ''}
+        ${props.type === 'pill' ? pillType({...params, vars}) : ''}
 
         ${wrapper} {
-            ${stacked && (type === 'float' || type === 'pill') ? `padding: .25rem 0;` : ''}
+            ${props.stacked && (props.type === 'float' || props.type === 'pill') ? `padding: .25rem 0;` : ''}
         }
     `;
 }
