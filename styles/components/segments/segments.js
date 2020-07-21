@@ -25,6 +25,7 @@ const SegmentsStyles = params => {
             width: 100%;
         }
 
+        // Modifiers
         ${colorModifier(props)}
     `;
 }

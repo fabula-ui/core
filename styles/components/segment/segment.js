@@ -12,7 +12,7 @@ const SegmentStyles = params => {
     return `
         ${framework === 'angular' ? `& { flex-grow: 1; flex-shrink: 0; }` : ''}
         ${wrapper} {
-            ${props.rounded ? `border-radius: 5rem;` : ''}
+            ${props.rounded ? `border-radius: 999px;` : ''}
             flex-grow: 1;
             flex-shrink: 0;
             font-size: ${vars.fontSize};
@@ -31,7 +31,7 @@ const SegmentStyles = params => {
             font-weight: inherit;
             padding: ${vars.paddingY} ${vars.paddingX};
             text-align: inherit;
-            transition: all .2s ease-in-out;
+            transition: all ${vars.transition};
             width: 100%;
             
             &:focus {
@@ -39,6 +39,7 @@ const SegmentStyles = params => {
             }
         }
 
+        // Modifiers
         ${colorModifier(params)}
     `;
 }
