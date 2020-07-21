@@ -37,6 +37,7 @@ const InputGroupStyles = params => {
         ${framework === 'angular' ? `width: 100%;` : ''}
     }
 
+    // Modifiers
     ${props.glued ? gluedModifier(props) : ''}
     `
 };
