@@ -11,7 +11,7 @@ const glowModifier = props => {
 
     return `
         .fab-toast {
-            box-shadow: 0 2px 2px ${getGlowColor(userColor || baseColor, context)};
+            box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${getGlowColor(userColor || baseColor, context)};
         }
     `;
 }

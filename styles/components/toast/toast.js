@@ -18,7 +18,7 @@ const ToastStyles = params => {
 
         ${wrapper}[data-stacked='true'] {
             padding: ${vars.spacing} 0;
-            transition: all .2s ease-in-out;
+            transition: all ${vars.transition};
 
             &[data-hiding='true'] {
                 margin-bottom: -${props.height}px;
@@ -33,8 +33,7 @@ const ToastStyles = params => {
 
         .fab-toast {
             align-items: center;
-            background: #FFF;
-            border: solid 1px transparent;
+            border: solid ${vars.borderWidth} transparent;
             border-radius: ${vars.borderRadius};
             display: inline-flex;
             font-size: ${vars.fontSize};
@@ -55,7 +54,6 @@ const ToastStyles = params => {
         }
 
         // External components
-        
         .fab-toast__close-button .fab-button {
             border-radius: .4em;
             min-height: initial;
@@ -63,14 +61,15 @@ const ToastStyles = params => {
             padding-top: .4em;
         }
 
-        .fab-icon {
-            margin-right: .75em;
+        .fab-inner-icon {
+            margin-right: ${vars.iconOffset};
         }
 
         .fab-link {
             font-size: .9em;
         }
 
+        // Modifiers
         ${colorModifier(props)}
         ${props.glow ? glowModifier(props) : ''}
     `;
