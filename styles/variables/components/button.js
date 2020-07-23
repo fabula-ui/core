@@ -40,10 +40,6 @@ const button = {
     get paddingTop() {
         return this.paddingY
     },
-    sizeMultiplierLg: globals.sizeMultiplierLg,
-    sizeMultiplierSm: globals.sizeMultiplierSm,
-    sizeMultiplierXl: globals.sizeMultiplierXl,
-    sizeMultiplierXs: globals.sizeMultiplierXs,
     wideMultiplier: 4
 
 }
