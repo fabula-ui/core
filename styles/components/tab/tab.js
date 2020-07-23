@@ -20,6 +20,7 @@ const TabStyle = params => {
         }
 
         ${wrapper} {
+            font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
         }
@@ -34,6 +35,7 @@ const TabStyle = params => {
             color: inherit;
             cursor: pointer;
             display: flex;
+            font-family: inherit;
             font-size: inherit;
             font-weight: inherit;
             line-height: 1;
@@ -52,6 +54,10 @@ const TabStyle = params => {
             > *:not(:last-child) {
                 ${props.layout === 'vertical' ? 'margin-bottom: .5em;' : 'margin-right: .5em;'}
             }
+        }
+
+        ${wrapper}[data-active='true'] {
+            ${props.activeFontWeight ? `font-weight: ${props.activeFontWeight};` : ''}
         }
 
         // Modifiers
