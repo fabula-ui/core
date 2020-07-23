@@ -25,8 +25,8 @@ const IconStyles = params => {
         }
 
         .fab-icon__svg {
-            height: 1.1em;
-            width: 1.1em;
+            height: 1em;
+            width: 1em;
 
             object {
                 display: none;

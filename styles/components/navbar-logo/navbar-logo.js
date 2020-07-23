@@ -10,6 +10,7 @@ const NavbarLogoStyles = params => {
         height: ${framework === 'angular' ? '100%' : 'auto'};
         
         img {
+            margin: 0;
             max-height: 60%;
             width: auto;
         }

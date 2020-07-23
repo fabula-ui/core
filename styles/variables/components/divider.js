@@ -3,7 +3,7 @@ import globals from '../globals';
 
 const divider = {
     ...globals,
-    ...colors,
+    colors,
     
     get color() {
         return this.colors.aux

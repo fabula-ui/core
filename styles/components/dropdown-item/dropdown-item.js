@@ -11,6 +11,8 @@ const DropdownItemStyles = params => {
 
     return `
         ${wrapper} {
+            align-items: center;
+            display: flex;
             font-size: ${vars.fontSize};
             font-weight: ${props.weight || vars.fontWeight};
             letter-spacing: ${vars.letterSpacing};

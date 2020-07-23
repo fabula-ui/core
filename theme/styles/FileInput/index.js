@@ -1,6 +1,5 @@
-import componentCommons from '../../common/component.commons';
-
 // Methods
+import getColor from '../../methods/color/getColor';
 import getComponentVars from '../../methods/misc/getComponentVars';
 import getFocusGlowColor from '../../methods/color/focusGlowColor';
 
@@ -10,7 +9,7 @@ const FileInputStyles = params => {
     const { expand } = props;
     const inputVars = getComponentVars('input');
     const wrapper = framework === 'angular' ? '.fab-file-input-wrapper' : '&';
-    const focusGlowColor = props.color ? color : inputVars.focusGlowColor;
+    const focusGlowColor = props.color ? getColor(props.color) : inputVars.focusGlowColor;
 
     return `
         .fab-file-input[data-has-files='true'] {
