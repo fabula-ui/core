@@ -45,8 +45,8 @@ const ButtonStyles = params => {
             padding-left: ${vars.paddingLeft};
             padding-right: ${vars.paddingRight};
             padding-top: ${vars.paddingTop};
-            ${props.compact ? `padding-left: calc(${vars.paddingLeft} * ${vars.compactMultiplier});` : ''}
-            ${props.compact ? `padding-right: calc(${vars.paddingRight} * ${vars.compactMultiplier});`: ''}
+            ${(props.compact || props.expand) ? `padding-left: calc(${vars.paddingLeft} * ${vars.compactMultiplier});` : ''}
+            ${(props.compact || props.expand) ? `padding-right: calc(${vars.paddingRight} * ${vars.compactMultiplier});`: ''}
             ${props.wide ? `padding-left: calc(${vars.paddingLeft} * ${vars.wideMultiplier});` : ''}
             ${props.wide ? `padding-right: calc(${vars.paddingRight} * ${vars.wideMultiplier});`: ''}
             ${!!props.align ? `text-align: ${props.align};` : ''}
