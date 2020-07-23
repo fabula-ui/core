@@ -14,7 +14,7 @@ const colorModifier = params => {
     const context = props.color ? getContext(props) : 'fill';
 
     return `
-        .fab-card {
+        > .fab-card {
             background: ${getBgColor(color, context)};
             border: solid 1px ${getDividerColor(color, 'fill')};
             ${props.glow ? `box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${getGlowColor(color, context)};` : ''}

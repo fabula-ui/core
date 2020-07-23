@@ -1,5 +1,6 @@
 // Methods
 import getComponentVars from '../../methods/misc/getComponentVars';
+import getNumber from '../../methods/misc/getNumber';
 
 // Modifiers
 import colorModifier from './modifiers/card-color.modifier';
@@ -12,9 +13,10 @@ const CardStyles = params => {
     return `
         ${framework === 'angular' ? `& { display: block; }` : ''}
 
-        .fab-card {
+        > .fab-card {
             border-radius: ${vars.borderRadius};
-            ${props.padding ? `padding: ${vars.padding};` : ''}
+            ${props.padding ? `padding: ${typeof props.padding === 'boolean' ? `${vars.padding};` : getNumber(props.padding, 'rem')};` : ''}
+            width: 100%;
         }
         
         ${colorModifier(params)}

@@ -7,7 +7,7 @@ import colorModifier from './modifiers/card-color.modifier';
 const CardSectionStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('card');
-    const wrapper = framework === 'angular' ? '.fab-card-section' : '&';
+    const wrapper = framework === 'angular' ? '.fab-card-section-wrapper' : '&';
 
     return `
         ${framework === 'angular' && props.expand ? '& { flex-grow: 1; }' : ''}
@@ -35,6 +35,10 @@ const CardSectionStyles = params => {
                 border-bottom-right-radius: ${vars.borderRadius};
                 border-top-right-radius: ${props.layout === 'h' || props.layout === 'horizontal' ? vars.borderRadius : 0};
             }
+        }
+
+        .fab-card-section {
+            flex-grow: 1;
         }
 
         ${colorModifier(params)}
