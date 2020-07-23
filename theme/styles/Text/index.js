@@ -29,6 +29,7 @@ const TextStyles = params => {
         ${weight ? `font-weight: ${weight};` : ''}
         letter-spacing: -.05rem;
         line-height: 1.5;
+        ${!props.wrap ? `white-space: nowrap;` : ''}
     }
 
     ${wrapper} .fab-text:not([data-color]) {

@@ -26,8 +26,9 @@ const IconStyles = params => {
 
         .fab-icon__svg {
             display: inline-flex;
-            height: 1em;
-            width: 1em;
+            height: 1.1em;
+            pointer-events: none;
+            width: 1.1em;
 
             object {
                 display: none;
