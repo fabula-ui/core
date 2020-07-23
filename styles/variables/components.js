@@ -13,6 +13,7 @@ import dropdownHeader from './components/dropdownHeader';
 import dropdownItem from './components/dropdownItem';
 import dropdownMenu from './components/dropdownMenu';
 import fileInput from './components/fileInput';
+import heading from './components/heading';
 import icon from './components/icon';
 import input from './components/input';
 import inputGroup from './components/inputGroup';
@@ -51,6 +52,7 @@ const components = {
     dropdownItem,
     dropdownMenu,
     fileInput,
+    heading,
     icon,
     input,
     inputGroup,
