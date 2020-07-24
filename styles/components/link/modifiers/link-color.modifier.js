@@ -17,7 +17,6 @@ const colorModifier = params => {
     return `
         ${wrapper} {
             color: ${getBgColor(userColor || baseColor, context)};
-            text-decoration: ${props.underline ? 'underline' : 'none'};
             transition: all .2s ease-in-out;
 
             &:hover {

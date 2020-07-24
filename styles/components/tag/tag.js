@@ -19,6 +19,7 @@ const TagStyles = params => {
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
+            letter-spacing: ${vars.letterSpacing};
             line-height: 1;
             ${!props.anchor && !props.button ? `padding: ${vars.paddingY} ${vars.paddingX};` : ''}
             width: 100%;
