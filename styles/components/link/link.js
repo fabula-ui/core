@@ -14,7 +14,14 @@ const LinkStyles = params => {
         ${wrapper} {
             cursor: pointer;
             font-family: ${vars.fontFamily};
+            letter-spacing: ${vars.letterSpacing};
             text-decoration: ${props.underline ? 'underline' : 'none'};
+        }
+
+        ${wrapper}:hover {
+            > * {
+                color: inherit;
+            }
         }
 
         // Modifiers

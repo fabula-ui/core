@@ -17,14 +17,17 @@ const colorModifier = params => {
     return `
         ${wrapper} {
             color: ${getBgColor(userColor || baseColor, context)};
+            ${props.aux ? `color: ${vars.auxTextColor};` : ''}
             transition: all .2s ease-in-out;
 
             &:hover {
                 color: ${getHoverColor(userColor || baseColor, context)};
+                ${props.aux ? `color: ${baseColor};` : ''}
             }
 
             &:active {
                 color: ${getActiveColor(userColor || baseColor, context)};
+                ${props.aux ? `color: ${getActiveColor(baseColor, context)};` : ''}
             }
         }
     `;

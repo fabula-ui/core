@@ -41,6 +41,7 @@ const ButtonStyles = params => {
             ${props.align === 'right' || props.align === 'end' ? `justify-content: flex-end;` : ''}
             letter-spacing: ${vars.letterSpacing};
             min-height: ${vars.minHeight};
+            overflow: hidden;
             padding-bottom: ${vars.paddingBottom};
             padding-left: ${vars.paddingLeft};
             padding-right: ${vars.paddingRight};

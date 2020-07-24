@@ -27,6 +27,7 @@ import navbarSection from './components/navbarSection';
 import segment from './components/segment';
 import segments from './components/segments';
 import tab from './components/tab';
+import table from './components/table';
 import tabs from './components/tabs';
 import tag from './components/tag';
 import tagGroup from './components/tagGroup';
@@ -66,6 +67,7 @@ const components = {
     segment,
     segments,
     tab,
+    table,
     tabs,
     tag,
     tagGroup,
