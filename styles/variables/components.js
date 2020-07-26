@@ -7,6 +7,7 @@ import card from './components/card';
 import cardImage from './components/cardImage';
 import checkbox from './components/checkbox';
 import closeButton from './components/closeButton';
+import codeBlock from './components/codeBlock';
 import divider from './components/divider';
 import dropdown from './components/dropdown';
 import dropdownHeader from './components/dropdownHeader';
@@ -47,6 +48,7 @@ const components = {
     cardImage,
     checkbox,
     closeButton,
+    codeBlock,
     divider,
     dropdown,
     dropdownHeader,

@@ -37,6 +37,7 @@ const DropdownToggleStyles = params => {
 
         .fab-dropdown-toggle__chevron,
         .fab-dropdown-toggle__icon {
+            flex-shrink: 0;
             height: 1em;
             mask-repeat: no-repeat;
             mask-position: center center;
