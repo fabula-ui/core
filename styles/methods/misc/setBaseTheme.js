@@ -37,6 +37,10 @@ const setBaseTheme = userSettings => {
 const setComponentVars = vars => {
     const concatVars = {};
 
+    // if (vars.user) {
+    //     console.log(vars.user)
+    // }
+
     for (let componentName in vars.default) {
         if (vars.default.hasOwnProperty(componentName)) {
             concatVars[componentName] = { ...vars.default[componentName] }
@@ -48,10 +52,7 @@ const setComponentVars = vars => {
                         ...vars.userColors
                     }
                 } else if (vars.user && vars.user[componentName] && vars.user[componentName][propertyName]) {
-                    concatVars[componentName][propertyName] = {
-                        ...concatVars[componentName][propertyName],
-                        ...vars.user[componentName][propertyName]
-                    }
+                    concatVars[componentName][propertyName] = vars.user[componentName][propertyName]
                 }
             }
         }
