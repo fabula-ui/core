@@ -5,7 +5,7 @@ const card = {
     ...globals,
     colors,
     
-    borderRadius: '.75em',
+    borderRadius: '.75rem',
     color: '#FFF',
     glowX: 0,
     glowY: '2px',
