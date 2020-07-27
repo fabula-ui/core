@@ -14,7 +14,7 @@ const colorModifier = params => {
     const vars = getComponentVars('list');
     const wrapper = framework === 'angular' ? '.fab-list-item' : '&';
 
-    const color = props.color ? getColor(props.color, vars.colors) : vars.color;
+    const color = (props.parentColor || props.color) ? getColor(props.parentColor || props.color, vars.colors) : vars.color;
     const context = getContext(props);
 
     return `

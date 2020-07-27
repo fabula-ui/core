@@ -29,6 +29,7 @@ const ListItemStyles = params => {
 
         button${wrapper} {
             cursor: pointer;
+            font-size: inherit;
             text-align: left;
 
             &:focus {

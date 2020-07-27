@@ -4,7 +4,7 @@ import getComponentVars from '../../methods/misc/getComponentVars';
 import colorModifier from './modifiers/dropdown-menu-color.modifier';
 
 const DropdownMenuStyles = params => {
-    const {framework, props} = params;
+    const { framework, props } = params;
     const vars = getComponentVars('dropdownMenu');
     const wrapper = framework === 'angular' ? '.fab-dropdown-menu' : '&';
 
@@ -16,7 +16,6 @@ const DropdownMenuStyles = params => {
         font-family: ${vars.fontFamily};
         height: ${props.height};
         ${props.alignment === 'left' ? 'left: 0;' : ''}
-        margin-top: ${props.direction === 'down' ? `5px;` : `-5px;`}
         min-width: 100%;
         opacity: 0;
         overflow: hidden;
@@ -24,8 +23,6 @@ const DropdownMenuStyles = params => {
         position: absolute;
         ${props.alignment === 'right' ? 'right: 0;' : ''}
         text-align: left;
-        top: ${props.direction === 'down' ? '100%' : 0};
-        transform: ${props.direction === 'down' ? `translate(0, 0)` : `translate(0, -100%)`};
         transition: all ${vars.transition};
         visibility: hidden;
         z-index: 9999;
@@ -38,8 +35,27 @@ const DropdownMenuStyles = params => {
 
     ${wrapper}[data-open='true'] {
         opacity: 1;
-        transform: ${props.direction === 'down' ? `translate(0, 0)` : `translate(0, -100%)`};
         visibility: visible;
+    }
+
+    ${wrapper}[data-direction='down'] {
+        margin-top: 5px;
+        top: 100%;
+        transform: translate(0, 0);
+
+        &[data-open='true'] {
+            transform: translate(0, 0);
+        }
+    }
+
+    ${wrapper}[data-open='true'][data-direction='up'] {
+        margin-top: -5px;
+        top: 0;
+        transform: translate(0, -100%);
+
+        &[data-open='true'] {
+            transform: translate(0, -100%);
+        }
     }
 
     // External components

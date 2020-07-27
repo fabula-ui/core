@@ -15,6 +15,7 @@ const CardStyles = params => {
 
         > .fab-card {
             border-radius: ${vars.borderRadius};
+            font-family: ${vars.fontFamily};
             ${props.padding ? `padding: ${typeof props.padding === 'boolean' ? `${vars.padding};` : getNumber(props.padding, 'rem')};` : ''}
             width: 100%;
         }

@@ -13,6 +13,19 @@ const HeadingStyles = params => {
             letter-spacing: ${vars.letterSpacing};
             margin-bottom: ${vars.marginBottom};
 
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+                letter-spacing: inherit;
+                margin: 0;
+            }
+
             &:not(:first-child) {
                 margin-top: ${vars.marginTop};
             }
