@@ -20,15 +20,16 @@ const IconStyles = params => {
         }
 
         .fab-icon__object {
-            opacity: 0;
-            position: absolute;
+            color: #000;
+            height: 1.1em;
+            opacity: .1;
+            pointer-events: none;
+            width: 1.1em;
         }
 
         .fab-icon__svg {
             display: inline-flex;
-            height: 1.1em;
             pointer-events: none;
-            width: 1.1em;
 
             object {
                 display: none;
@@ -39,6 +40,11 @@ const IconStyles = params => {
                 height: inherit;
                 width: inherit;
             }
+        }
+
+        .fab-icon__svg[data-appended='true'] {
+            height: 1.1em;
+            width: 1.1em;
         }
 
         ${color ? colorModifier(params) : ''}
