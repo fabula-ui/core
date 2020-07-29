@@ -15,7 +15,7 @@ const ButtonStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('button');
     const context = getContext(props);
-    const icon = !!props.icon ? require(`../../../icons/${typeof props.icon === 'object' ? props.icon.name : props.icon}.svg`) : null;
+    // const icon = !!props.icon ? require(`../../../icons/raw/${typeof props.icon === 'object' ? props.icon.name : props.icon}.svg`) : null;
     const wrapper = framework === 'angular' ? '.fab-button-wrapper' : '&';
 
     return `

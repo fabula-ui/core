@@ -3,6 +3,7 @@ import alignUtils from './properties/align';
 import columnUtils from './properties/column';
 import flexUtils from './properties/flex';
 import growUtils from './properties/grow';
+import hiddenUtils from './properties/hidden';
 import marginUtils from './properties/margin';
 import paddingUtils from './properties/padding';
 import rowUtils from './properties/row';
@@ -17,6 +18,7 @@ const UtilsStyles = params => {
         ${columnUtils(props)}
         ${flexUtils(params)}
         ${growUtils(params)}
+        ${hiddenUtils(params)}
         ${marginUtils(params)}
         ${paddingUtils(params)}
         ${rowUtils(props)}

@@ -1,28 +1,38 @@
-import { down, on, up } from './breakpoints';
+import * as breakpoints from './breakpoints';
 
-const ResponsiveStyles = params => {
-    const { props, styles } = params;
-    const componentStyles = !!styles ? styles : null;
-    const downBreakpoint = !!props.down && props.down[0];
-    const downProps = !!props.down && props.down[1];
-    const downStyles = !!props.down && props.down[3];
-    const downUtils = !!props.down && props.down[2];
-    const onBreakpoint = !!props.on && props.on[0];
-    const onProps = !!props.on && props.on[1];
-    const onStyles = !!props.on && props.on[3];
-    const onUtils = !!props.on && props.on[2];
-    const upBreakpoint = !!props.up && props.up[0];
-    const upProps = !!props.up && props.up[1];
-    const upStyles = !!props.up && props.up[3];
-    const upUtils = !!props.up && props.up[2];
+const getBreakpointProps = (context, props, styles, params) => {
+	let css = ``;
 
-    return `
-        & {
-            ${(props.down && downBreakpoint) ? down(downBreakpoint, (!!styles && !!downProps) ? styles({ ...params, props: {...props, ...downProps} }) : null, downStyles, downUtils) : ''}
-            ${(props.on && onBreakpoint) ? on(onBreakpoint, (!!styles && !!onProps) ? styles({ ...params, props: {...props, ...onProps} }) : null, onStyles, onUtils) : ''}
-            ${(props.up && upBreakpoint) ? up(upBreakpoint, (!!styles && !!upProps) ? styles({ ...params, props: {...props, ...upProps} }) : null, upStyles, upUtils) : ''}
-        }
-    `;
-}
+	for (let i = 0; i < props[context].length; i++) {
+		const contextProp = props[context][i];
+		const content =
+			!!styles && !!contextProp.props ? styles({ ...params, props: { ...props, ...contextProp.props } }) : null;
+
+		css += breakpoints[context](contextProp.breakpoint, content, contextProp.styles, contextProp.utils);
+	}
+
+	console.log(css);
+
+	return css;
+};
+
+const ResponsiveStyles = (params) => {
+	const { props, styles } = params;
+	let css = ``;
+
+	if (props.down) {
+		css += getBreakpointProps('down', props, styles, params);
+    }
+    
+    if (props.on) {
+		css += getBreakpointProps('on', props, styles, params);
+    }
+    
+    if (props.up) {
+		css += getBreakpointProps('up', props, styles, params);
+	}
+
+	return css;
+};
 
 export default ResponsiveStyles;

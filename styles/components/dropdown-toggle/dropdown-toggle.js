@@ -2,11 +2,10 @@
 import colorModifier from './modifiers/dropdown-color.modifier';
 
 // Assets
-const chevronIcon = require('../../../icons/chevron-down.svg');
+const chevronIcon = require('../../../icons/raw/chevron-down.svg');
 
 const DropdownToggleStyles = params => {
     const { framework, props } = params;
-    const icon = !!props.icon ? require(`../../../icons/${typeof props.icon === 'object' ? props.icon.name : props.icon}.svg`) : null;
     const wrapper = framework === 'angular' ? '.fab-dropdown-toggle' : '&';
 
     return `
@@ -35,8 +34,7 @@ const DropdownToggleStyles = params => {
         }
 
 
-        .fab-dropdown-toggle__chevron,
-        .fab-dropdown-toggle__icon {
+        .fab-dropdown-toggle__chevron {
             flex-shrink: 0;
             height: 1em;
             mask-repeat: no-repeat;
@@ -48,10 +46,6 @@ const DropdownToggleStyles = params => {
         .fab-dropdown-toggle__chevron {
             mask-image: url('${chevronIcon}');
             transition: all .2s ease-in-out;
-        }
-
-        .fab-dropdown-toggle__icon {
-            mask-image: url('${icon}');
         }
 
         // External

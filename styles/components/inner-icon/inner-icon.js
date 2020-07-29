@@ -3,7 +3,7 @@ import colorModifier from './modifiers/inner-icon-color.modifier';
 const InnerIconStyles = params => {
     const { framework, props } = params;
     const iconFile = typeof props.icon === 'object' ? props.icon.name : props.icon;
-    const icon = require(`../../../icons/${iconFile}.svg`);
+    const icon = require(`../../../icons/raw/${iconFile}.svg`);
     const wrapper = framework === 'angular' ? '.fab-inner-icon' : '&';
 
     return `

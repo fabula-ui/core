@@ -12,7 +12,7 @@ import TagStyles from './external/tag';
 const CardImageStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('card');
-    const icon = require(`../../../icons/${props.icon || 'image'}.svg`);
+    const icon = require(`../../../icons/raw/${props.icon || 'image'}.svg`);
     const wrapper = framework === 'angular' ? '.fab-card-image' : '&';
 
     return `

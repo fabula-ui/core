@@ -1,5 +1,5 @@
 // Utils
-import UtilStyles from '../../theme/utils/index';
+import UtilStyles from '../utils/utils';
 
 const order = ['xs', 'sm', 'md', 'lg', 'xl'];
 const breakpoints = {

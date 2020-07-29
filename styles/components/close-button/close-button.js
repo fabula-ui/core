@@ -4,7 +4,7 @@ import getComponentVars from '../../methods/misc/getComponentVars';
 import getTextColor from '../../methods/color/getTextColor';
 
 // Assets
-const closeIcon = require('../../../icons/x.svg');
+const closeIcon = require('../../../icons/raw/x.svg');
 
 const CloseButtonStyles = params => {
     const {framework, props} = params;

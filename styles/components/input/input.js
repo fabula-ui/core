@@ -8,15 +8,15 @@ import sizeModifier from './modifiers/size.modifier';
 import statusModifier from './modifiers/status.modifier';
 
 // Icons
-const toggleIcon = require(`../../../icons/eye.svg`);
-const toggleOffIcon = require(`../../../icons/eye-off.svg`);
+const toggleIcon = require(`../../../icons/raw/eye.svg`);
+const toggleOffIcon = require(`../../../icons/raw/eye-off.svg`);
 
 const InputStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('input');
-    const icon = !!props.icon ? require(`../../../icons/${typeof props.icon === 'object' ? props.icon.name : props.icon}.svg`) : null;
-    const iconEnd = !!props.iconEnd ? require(`../../../icons/${typeof props.iconEnd === 'object' ? props.iconEnd.name : props.iconEnd}.svg`) : null;
-    const iconStart = !!props.iconStart ? require(`../../../icons/${typeof props.iconStart === 'object' ? props.iconStart.name : props.iconStart}.svg`) : null;
+    const icon = !!props.icon ? require(`../../../icons/raw/${typeof props.icon === 'object' ? props.icon.name : props.icon}.svg`) : null;
+    const iconEnd = !!props.iconEnd ? require(`../../../icons/raw/${typeof props.iconEnd === 'object' ? props.iconEnd.name : props.iconEnd}.svg`) : null;
+    const iconStart = !!props.iconStart ? require(`../../../icons/raw/${typeof props.iconStart === 'object' ? props.iconStart.name : props.iconStart}.svg`) : null;
 
     const wrapper = framework === 'angular' ? '.fab-input-wrapper' : '&';
 
@@ -35,7 +35,6 @@ const InputStyles = params => {
         border: solid 1px transparent;
         display: flex;
         font-size: ${vars.fontSize};
-        max-height: ${vars.minHeight};
         position: relative;
         transition: all .2s ease-in-out;
         width: ${vars.expand ? '100%' : 'auto'};
@@ -57,6 +56,14 @@ const InputStyles = params => {
 
     .fab-input[data-disabled='true'] {
         opacity: ${vars.disabledOpacity};
+    }
+
+    .fab-input[data-textarea='false'] {
+        max-height: ${vars.minHeight};
+    }
+
+    .fab-input[data-textarea='true'] {
+        padding-bottom: calc(${vars.padding} - .35em);
     }
 
     .fab-input__elements {

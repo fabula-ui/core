@@ -5,8 +5,8 @@ import colorModifier from './modifiers/checkbox-color.modifier';
 import sizeModifier from './modifiers/checkbox-size.modifier';
 
 // Assets
-const checkIcon = require('../../../icons/check.svg');
-const minusIcon = require('../../../icons/minus.svg');
+const checkIcon = require('../../../icons/raw/check.svg');
+const minusIcon = require('../../../icons/raw/minus.svg');
 
 const CheckboxStyles = params => {
     const { framework, props } = params;
