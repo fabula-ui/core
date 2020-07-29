@@ -10,41 +10,17 @@ const IconStyles = params => {
 
     return `
         & {
+            align-items: center;
             display: inline-flex;
+            height: 1.1em;
+            justify-content: center;
+            width: 1.1em;
         }
 
         ${element} {
             color: inherit;
             display: inline-flex;
             position: relative;
-        }
-
-        .fab-icon__object {
-            color: #000;
-            height: 1.1em;
-            opacity: .1;
-            pointer-events: none;
-            width: 1.1em;
-        }
-
-        .fab-icon__svg {
-            display: inline-flex;
-            pointer-events: none;
-
-            object {
-                display: none;
-            }
-
-            svg {
-                color: inherit;
-                height: inherit;
-                width: inherit;
-            }
-        }
-
-        .fab-icon__svg[data-appended='true'] {
-            height: 1.1em;
-            width: 1.1em;
         }
 
         ${color ? colorModifier(params) : ''}

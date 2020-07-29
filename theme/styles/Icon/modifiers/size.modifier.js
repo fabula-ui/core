@@ -6,7 +6,7 @@ const sizeModifier = params => {
     const multiplier = sizeMultipliers[size];
 
     return `
-    .fab-icon__svg {
+    svg {
         height: calc(1.1em * ${multiplier});
         width: calc(1.1em * ${multiplier});
     }
