@@ -48,7 +48,7 @@ const DropdownMenuStyles = params => {
         }
     }
 
-    ${wrapper}[data-open='true'][data-direction='up'] {
+    ${wrapper}[data-direction='up'] {
         margin-top: -5px;
         top: 0;
         transform: translate(0, -100%);

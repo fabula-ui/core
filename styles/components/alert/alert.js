@@ -4,6 +4,7 @@ import getComponentVars from '../../methods/misc/getComponentVars';
 // Modifiers
 import colorModifier from './modifiers/alert-color.modifier';
 import markerModifier from './modifiers/alert-marker.modifier';
+import typeModifier from './modifiers/alert-type.modifier';
 
 const AlertStyles = params => {
     const { framework, props } = params;
@@ -79,7 +80,8 @@ const AlertStyles = params => {
 
         // Modifiers
         ${colorModifier(props)}
-        ${props.marker ? markerModifier(props) : ''}
+        ${(props.marker || props.type) ? markerModifier(props) : ''}
+        ${props.type ? typeModifier(props) : ''}
     `;
 }
 

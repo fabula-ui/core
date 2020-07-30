@@ -53,7 +53,7 @@ const ButtonStyles = params => {
             ${!!props.align ? `text-align: ${props.align};` : ''}
             position: relative;
             transition: all ${vars.transition};
-            white-space: nowrap;
+            
             width: 100%;
 
             &:focus {

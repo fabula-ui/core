@@ -7,6 +7,9 @@ const colors = {
         return this.danger
     },
     hot: '#F7993C',
+    get info() {
+        return this.cold
+    },
     light: '#F6F8FA',
     primary: '#44B0FF',
     secondary: '#49D8D2',
