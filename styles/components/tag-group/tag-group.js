@@ -1,10 +1,10 @@
 import getComponentVars from '../../methods/misc/getComponentVars';
-import getNumber from '../../../theme/methods/misc/getNumber';
+import getNumber from '../../methods/misc/getNumber';
 
 const TagGroupStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('tagGroup');
-    const spacing = props.spacing ? getNumber(props.spacing, 'rem'): vars.spacing;
+    const spacing = props.spacing ? getNumber(props.spacing, 'rem') : vars.spacing;
 
     return `
         ${framework === 'angular' ? `& { display: block; }` : ''}    

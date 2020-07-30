@@ -15,10 +15,10 @@ const colorModifier = props => {
 
     return `
         .fab-alert {
-            background: ${getBgColor(color, context)};
+            ${!props.clear ? `background: ${getBgColor(color, context)};` : ''}
             border-color: ${!!props.border ? `${getDividerColor(borderColor, context)}` : 'transparent'};
             ${((props.borderColor || props.outline) && !!props.border) ? `border-color: ${getBorderColor(borderColor, context)};` : ''}
-            ${props.glow ? `box-shadow: 0 ${vars.glowRadiusX} ${vars.glowRadiusY} ${getGlowColor(color, context)};` : ''}
+            ${props.glow ? `box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${getGlowColor(color, context)};` : ''}
             color: ${getTextColor(color, context)};
         }
 

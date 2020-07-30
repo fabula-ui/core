@@ -13,7 +13,7 @@ const AlertStyles = params => {
 
     return `
         ${wrapper} {
-            ${framework === 'angular' ? 'width: 100%;' : ''}
+            width: 100%;
         }
 
         &[data-visible='false'] {
@@ -22,7 +22,6 @@ const AlertStyles = params => {
 
         .fab-alert {
             align-items: flex-start;
-            background: ${vars.color};
             border: solid ${vars.borderWidth};
             border-radius: ${vars.borderRadius};
             color: ${vars.textColor};
@@ -74,6 +73,7 @@ const AlertStyles = params => {
         }
 
         .fab-alert[data-title='true'] .fab-inner-icon {
+            flex-shrink: 0;
             height: .95em;
             width: .95em;
         }

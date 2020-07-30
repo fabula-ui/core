@@ -1,9 +1,8 @@
 import getComponentVars from '../../methods/misc/getComponentVars';
 
 const TagInputStyles = params => {
-    const { framework, props } = params;
-    const theme = window.__FABTheme;
-    const vars = theme.variables.components.tagInput;
+    const { props } = params;
+    const vars = getComponentVars('tagInput');
     const inputVars = getComponentVars('input');
 
     return `

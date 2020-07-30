@@ -11,8 +11,6 @@ const getBreakpointProps = (context, props, styles, params) => {
 		css += breakpoints[context](contextProp.breakpoint, content, contextProp.styles, contextProp.utils);
 	}
 
-	console.log(css);
-
 	return css;
 };
 

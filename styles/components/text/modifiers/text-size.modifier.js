@@ -1,14 +1,14 @@
+import getComponentVars from '../../../methods/misc/getComponentVars';
+
 const sizeModifier = params => {
     const { framework, props } = params;
-    const { size } = props;
-    const vars = window.__FABTheme.variables.components.text;
-    const { fontSize, sizeMultipliers } = vars;
-    const multiplier = sizeMultipliers[size];
+    const vars = getComponentVars('text');
+    const multiplier = vars.sizeMultipliers[props.size];
     const wrapper = framework === 'angular' ? '.fab-text' : '&';
 
     return `
         ${wrapper} {
-            font-size: calc(${fontSize} * ${multiplier});
+            font-size: calc(${vars.fontSize} * ${multiplier});
 
             .fab-text {
                 font-size: inherit;

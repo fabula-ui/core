@@ -1,12 +1,11 @@
 // Methods
 import getColor from '../../methods/color/getColor';
 import getComponentVars from '../../methods/misc/getComponentVars';
-import getFocusGlowColor from '../../methods/color/focusGlowColor';
+import getFocusGlowColor from '../../methods/color/getFocusGlowColor';
 
 const FileInputStyles = params => {
     const { framework, props } = params;
-    const { placeholderColor } = window.__FABTheme.variables.components.fileInput;
-    const { expand } = props;
+    const vars = getComponentVars('fileInput');
     const inputVars = getComponentVars('input');
     const wrapper = framework === 'angular' ? '.fab-file-input-wrapper' : '&';
     const focusGlowColor = props.color ? getColor(props.color) : inputVars.focusGlowColor;
@@ -33,7 +32,7 @@ const FileInputStyles = params => {
         }
 
         .fab-file-input__placeholder {
-            color: ${placeholderColor};
+            color: ${vars.placeholderColor};
             user-select: none;
         }
 
@@ -86,7 +85,7 @@ const FileInputStyles = params => {
         }
 
         .fab-file-input__icon .fab-icon {
-            color: ${placeholderColor};
+            color: ${vars.placeholderColor};
         }
 
         .fab-file-input .fab-input__elements {
