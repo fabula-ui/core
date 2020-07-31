@@ -11,6 +11,8 @@ const getContext = props => {
         return 'gradient';
     } else if (props.invert) {
         return 'invert';
+    } else if (props.lighten) {
+        return 'lighten';
     } else if (props.outline) {
         return 'outline';
     } else {
