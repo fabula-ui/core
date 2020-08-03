@@ -3,9 +3,8 @@ import globals from '../globals';
 const alert = {
     ...globals,
 
-    borderRadius: '.5em',
+    borderRadius: '.5rem',
     color: '#FFF',
-    fontSize: '1rem',
     glowRadius: '2px',
     glowSpread: 0,
     glowX: 0,

@@ -11,12 +11,9 @@ const avatar = {
     get borderRadius() {
         return `calc(${globals.borderRadius} * .5)`
     },
-    defaultColor: colors.aux,
-    fontFamily: globals.fontFamily,
-    fontSize: '1rem',
-    fontWeight: 400,
-    iconSize: '1.25rem',
-    initialsFontSize: '1rem',
+    iconSize: '1.25em',
+    initialsFontFamily: globals.fontFamily,
+    initialsFontSize: '1em',
     initialsFontWeight: 500,
     initialsOpacity: .8,
     letterSpacing: '-1px',

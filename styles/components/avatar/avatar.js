@@ -23,7 +23,6 @@ const AvatarStyles = params => {
             border-radius: ${props.rounded ? '999px' : vars.borderRadius};
             font-size: ${vars.iconSize};
             height: ${vars.size};
-            font-family: ${vars.fontFamily};
             font-weight: 400;
             overflow: hidden;
             position: relative;
@@ -41,6 +40,7 @@ const AvatarStyles = params => {
         }
 
         .fab-avatar__initials {
+            font-family: ${vars.initialsFontFamily};
             font-size: ${vars.initialsFontSize};
             font-weight: ${vars.initialsFontWeight};
             left: 50%;

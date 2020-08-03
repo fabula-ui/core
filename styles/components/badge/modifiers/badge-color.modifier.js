@@ -8,8 +8,8 @@ import getTextColor from '../../../methods/color/getTextColor';
 
 const colorModifier = props => {
     const vars = getComponentVars('badge');
-    const color = props.color ? getColor(props.color, vars.colors) : vars.color;
-    const context = props.color ? getContext(props) : 'fill';
+    const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
+    const context = props.color|| props.clear ? getContext(props) : 'fill';
 
     return `
         .fab-badge {
