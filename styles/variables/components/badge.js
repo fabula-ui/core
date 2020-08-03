@@ -12,7 +12,11 @@ const badge = {
     },
     fontSize: '.75em',
     fontWeight: 600,
-    padding: '.4em'
+    paddingX: '.4em',
+    paddingY: '.4em',
+    get padding() {
+        return `${this.paddingY} ${this.paddingX}`
+    },
 }
 
 export default badge;
