@@ -17,11 +17,11 @@ const ButtonGroupStyles = params => {
         align-items: flex-start;
         box-sizing: border-box;
         display: flex;
-        flex-direction: ${props.flow === 'horizontal' ? 'row' : 'column'};
+        flex-direction: ${props.layout === 'horizontal' ? 'row' : 'column'};
         flex-wrap: ${props.wrap ? 'wrap' : 'nowrap'};
         justify-content: flex-start;
         margin: ${props.spacing === null || props.spacing === undefined ? `-${vars.spacing}` : `calc(-${getNumber(props.spacing, 'rem')} / 2)`};
-    
+
         .fab-button-wrapper {
             padding: ${props.spacing === null || props.spacing === undefined ? vars.spacing : `calc(${getNumber(props.spacing, 'rem')} / 2)`};
         }

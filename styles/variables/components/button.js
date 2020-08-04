@@ -5,8 +5,6 @@ const button = {
     ...globals,
     colors,
     borderRadius: '.5em',
-    borderRadiusDefault: .5,
-    borderRadiusRounded: globals.borderRadiusRounded,
     borderRadiusSmashed: '.33em',
     borderWidth: 1,
     childrenSpacing: '.5em',
