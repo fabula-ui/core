@@ -3,8 +3,8 @@ const layoutModifier = params => {
 
     return `
         .fab-card {
-            display: ${props.layout === 'h' || props.layout === 'horizontal' ? 'flex' : 'block'}; 
-            ${props.layout === 'h' || props.layout === 'horizontal' ? `flex-direction: row;` : ''}
+            display: ${(props.layout === 'h' || props.layout === 'horizontal') ? 'flex' : 'block'}; 
+            ${(props.layout === 'h' || props.layout === 'horizontal') ? `flex-direction: row;` : ''
         }
     `
 }

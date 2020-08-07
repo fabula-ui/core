@@ -2,11 +2,11 @@
 import getComponentVars from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/card-color.modifier';
+import colorModifier from './modifiers/card-section-color.modifier';
 
 const CardSectionStyles = params => {
     const { framework, props } = params;
-    const vars = getComponentVars('card');
+    const vars = getComponentVars('cardSection');
     const wrapper = framework === 'angular' ? '.fab-card-section-wrapper' : '&';
 
     return `
@@ -41,7 +41,7 @@ const CardSectionStyles = params => {
 
         .fab-card-section {
             flex-grow: 1;
-            ${props.padding ? `padding: 1rem;` : ''}
+            ${props.padding ? `padding: ${vars.padding};` : ''}
         }
 
         ${colorModifier(params)}

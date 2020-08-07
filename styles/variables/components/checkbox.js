@@ -5,18 +5,17 @@ const checkbox = {
     ...globals,
     colors,
 
-    borderRadius: '.2em',
     get activeColor() {
         return this.colors.primary
     },
+    borderRadius: '.2em',
     get color() {
         return this.colors.aux
     },
-    fontSize: '1em',
+    disabledOpacity: .6,
     get inactiveColor() {
         return this.colors.aux
     },
-    disabledOpacity: .4,
     size: '1.1em',
     spacing: '.5em'
 }

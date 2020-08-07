@@ -7,7 +7,7 @@ import getTextColor from '../../../methods/color/getTextColor';
 
 const colorModifier = params => {
     const { framework, props } = params;
-    const vars = getComponentVars('card');
+    const vars = getComponentVars('cardSection');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
     const context = props.color ? getContext(props) : 'fill';
     const wrapper = framework === 'angular' ? '.fab-card-section' : '&';

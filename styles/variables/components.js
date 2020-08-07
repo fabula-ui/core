@@ -5,6 +5,7 @@ import button from './components/button';
 import buttonGroup from './components/buttonGroup';
 import card from './components/card';
 import cardImage from './components/cardImage';
+import cardSection from './components/cardSection';
 import checkbox from './components/checkbox';
 import closeButton from './components/closeButton';
 import codeBlock from './components/codeBlock';
@@ -46,6 +47,7 @@ const components = {
     buttonGroup,
     card,
     cardImage,
+    cardSection,
     checkbox,
     closeButton,
     codeBlock,
