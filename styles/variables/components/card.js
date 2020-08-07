@@ -11,8 +11,11 @@ const card = {
     glowY: '2px',
     glowRadius: '2px',
     glowSpread: 0,
-    imageHeight: '120px',
-    padding: '1rem'
+    paddingX: '1rem',
+    paddingY: '1rem',
+    get padding() {
+        return `${this.paddingY} ${this.paddingX}`
+    },
 }
 
 export default card;

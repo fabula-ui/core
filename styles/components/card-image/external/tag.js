@@ -15,15 +15,15 @@ const TagStyles = () => {
         }
 
         .fab-tag-wrapper[data-placement-x='left'] {
-            left: ${vars.padding};
+            left: ${vars.paddingX};
         }
 
         .fab-tag-wrapper[data-placement-x='right'] {
-            right: ${vars.padding};
+            right: ${vars.paddingX};
         }
 
         .fab-tag-wrapper[data-placement-y='bottom'] {
-            bottom: ${vars.padding};
+            bottom: ${vars.paddingY};
         }
 
         .fab-tag-wrapper[data-placement-y='center'] {
@@ -36,7 +36,7 @@ const TagStyles = () => {
         }
 
         .fab-tag-wrapper[data-placement-y='top'] {
-            top: ${vars.padding};
+            top: ${vars.paddingY};
         }
     `;
 
