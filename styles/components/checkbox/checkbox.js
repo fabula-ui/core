@@ -47,6 +47,11 @@ const CheckboxStyles = params => {
             visibility: visible;
         }
 
+        ${wrapper}[data-read-only='true'] {
+            cursor: default;
+            pointer-events: none;
+        }
+
         ${wrapper} input[type='checkbox'] {
             display: none;
         }

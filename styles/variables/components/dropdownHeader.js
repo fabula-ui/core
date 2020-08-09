@@ -3,7 +3,7 @@ import globals from '../globals';
 
 const dropdownHeader = {
     ...globals,
-    ...colors,
+    colors,
     
     fontWeight: 600,
     fontSize: '.8rem',

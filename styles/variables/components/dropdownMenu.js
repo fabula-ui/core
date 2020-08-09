@@ -3,12 +3,11 @@ import globals from '../globals';
 
 const dropdownMenu = {
     ...globals,
-    ...colors,
+    colors,
     
     color: '#FFF',
     paddingX: 0,
-    paddingY: '.5em',
-    spacing: '.33em'
+    paddingY: '.5em'
 }
 
 export default dropdownMenu;

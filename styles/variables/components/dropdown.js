@@ -3,11 +3,11 @@ import globals from '../globals';
 
 const dropdown = {
     ...globals,
-    ...colors,
+    colors,
 
     borderRadius: '.5rem',
     colors,
-    spacing: '.5rem'
+    spacing: '.25rem'
 }
 
 export default dropdown;

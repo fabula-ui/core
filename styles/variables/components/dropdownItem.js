@@ -3,7 +3,7 @@ import globals from '../globals';
 
 const dropdownItem = {
     ...globals,
-    ...colors,
+    colors,
     
     paddingX: '1rem',
     paddingY: '.5rem'

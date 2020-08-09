@@ -4,6 +4,7 @@ import globals from '../globals';
 const input = {
     ...globals,
     colors,
+    
     color: '#FFF',
     get focusGlowColor() {
         return this.colors['primary']

@@ -5,6 +5,7 @@ import colorModifier from './modifiers/dropdown-menu-color.modifier';
 
 const DropdownMenuStyles = params => {
     const { framework, props } = params;
+    const dropdownVars = getComponentVars('dropdown');
     const vars = getComponentVars('dropdownMenu');
     const wrapper = framework === 'angular' ? '.fab-dropdown-menu' : '&';
 
@@ -39,7 +40,7 @@ const DropdownMenuStyles = params => {
     }
 
     ${wrapper}[data-direction='down'] {
-        margin-top: 5px;
+        margin-top: ${dropdownVars.spacing};
         top: 100%;
         transform: translate(0, 0);
 
@@ -49,7 +50,7 @@ const DropdownMenuStyles = params => {
     }
 
     ${wrapper}[data-direction='up'] {
-        margin-top: -5px;
+        margin-top: -${dropdownVars.spacing};
         top: 0;
         transform: translate(0, -100%);
 
