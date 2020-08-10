@@ -8,6 +8,12 @@ import getNumber from '../../methods/misc/getNumber';
 
 const ButtonGroupStyles = params => {
     const { framework, props } = params;
+    const directions = {
+        h: 'row',
+        horizontal: 'row',
+        v: 'column',
+        vertical: 'column'
+    }
     const vars = getComponentVars('buttonGroup');
 
     return `
@@ -17,7 +23,7 @@ const ButtonGroupStyles = params => {
         align-items: flex-start;
         box-sizing: border-box;
         display: flex;
-        flex-direction: ${props.layout === 'horizontal' ? 'row' : 'column'};
+        flex-direction: ${directions[props.layout]};
         flex-wrap: ${props.wrap ? 'wrap' : 'nowrap'};
         justify-content: flex-start;
         margin: ${props.spacing === null || props.spacing === undefined ? `-${vars.spacing}` : `calc(-${getNumber(props.spacing, 'rem')} / 2)`};
