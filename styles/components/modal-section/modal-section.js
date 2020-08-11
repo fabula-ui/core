@@ -8,6 +8,7 @@ const ModalSectionStyles = params => {
     return `
         ${wrapper} {
             padding: 1.25rem;
+            ${framework === 'angular' ? 'width: 100%;' : ''}
         }
         
         ${framework === 'angular' ?
