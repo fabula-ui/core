@@ -8,7 +8,11 @@ import getBgColor from './getBgColor';
 import getGradientColor from './getGradientColor';
 
 const getHoverColor = (color, context) => {
-    const $color = color ? Color(color).rgb() : Color('#FFF');
+    let $color = color ? Color(color).rgb() : Color('#FFF');
+    
+    if (color && (context === 'darken' || context === 'lighten')) {
+        $color = getBgColor(color, context);
+    } 
 
     if (context === 'clear') {
         return 'none';
@@ -18,7 +22,7 @@ const getHoverColor = (color, context) => {
         } else {
             return $color.mix(Color('white'), .6);
         }
-    } else if (context === 'fill' || context === 'gradient_glow') {
+    } else if (context === 'darken' || context === 'fill' || context === 'gradient_glow' || context === 'lighten') {
         if ($color.luminosity() > baseLuminosity) {
             return $color.darken(.05);
         } else {

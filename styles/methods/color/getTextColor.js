@@ -7,11 +7,15 @@ import { baseLuminosity } from '../../variables/core';
 import getBgColor from './getBgColor';
 
 const getTextColor = (color, context) => {
-    const $color = color ? Color(color).rgb() : Color('#FFF');
+    let $color = color ? Color(color).rgb() : Color('#FFF');
+
+    if (color && (context === 'darken' || context === 'lighten')) {
+        $color = getBgColor(color, context);
+    } 
 
     if (context === 'faded') {
         return $color.darken(.4);
-    } else if (context === 'darken' || context === 'fill' || context === 'gradient') {
+    } else if (context === 'darken' || context === 'fill' || context === 'gradient' || context === 'lighten') {
         if ($color.luminosity() > baseLuminosity) {
             return $color.darken(.75);
         } else {

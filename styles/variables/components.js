@@ -21,6 +21,7 @@ import input from './components/input';
 import inputGroup from './components/inputGroup';
 import link from './components/link';
 import list from './components/list';
+import listItem from './components/listItem';
 import modal from './components/modal';
 import modalHeader from './components/modalHeader';
 import modalSection from './components/modalSection';
@@ -63,6 +64,7 @@ const components = {
     inputGroup,
     link,
     list,
+    listItem,
     modal,
     modalHeader,
     modalSection,

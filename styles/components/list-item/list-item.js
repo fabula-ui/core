@@ -5,7 +5,7 @@ import colorModifier from './modifiers/list-item-color.modifier';
 
 const ListItemStyles = params => {
     const { framework, props } = params;
-    const vars = getComponentVars('list');
+    const vars = getComponentVars('listItem');
     const wrapper = framework === 'angular' ? '.fab-list-item' : '&';
 
     return `
@@ -15,16 +15,16 @@ const ListItemStyles = params => {
             appearance: none;
             border: none;
             font-family: ${vars.fontFamily};
-            padding: 1rem 0;
-            ${props.padding ? `padding-left: 1rem;` : ''}
-            ${props.padding ? `padding-right: 1rem;` : ''}
+            padding: ${vars.paddingTop} 0 ${vars.paddingBottom};
+            ${props.padding ? `padding-left: ${vars.paddingLeft};` : ''}
+            ${props.padding ? `padding-right: ${vars.paddingRight};` : ''}
             width: 100%;
         }
         
         .fab-list-item[data-divider='false'][data-striped='false'],
         ${wrapper}[data-divider='false'][data-striped='false'] {
-            padding-bottom: 0;
-            padding-top: 0;
+            padding-bottom: ${vars.paddingBottom};
+            padding-top: ${vars.paddingTop};
         }
 
         button${wrapper} {
@@ -39,7 +39,7 @@ const ListItemStyles = params => {
 
         &:not(:last-child) .fab-list-item[data-divider='false'][data-striped='false'],
         ${wrapper}:not(:last-child)[data-divider='false'][data-striped='false'] {
-            padding-bottom: 1rem;
+            padding-bottom: ${vars.paddingBottom};
         }
 
         // Modifiers

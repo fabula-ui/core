@@ -10,6 +10,10 @@ const getGlowColor = (color, context) => {
             dark: .9,
             light: .95,
         },
+        darken: {
+            dark: .75,
+            light: .95,
+        },
         faded: {
             dark: .75,
             light: .9,
@@ -26,10 +30,14 @@ const getGlowColor = (color, context) => {
             dark: .9,
             light: .95,
         },
+        lighten: {
+            dark: .75,
+            light: .95,
+        },
         outline: {
             dark: .9,
             light: .95,
-        },
+        }
     };
 
     if (context === 'clear') {

@@ -8,6 +8,8 @@ const glowModifier = props => {
     const color = props.color || props.clear ? getColor(props.color, vars.colors) : '#000';
     const context = props.color || props.clear ? getContext(props) : 'fill';
 
+    console.log('context', context);
+
     return `
         .fab-modal {
             box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${getGlowColor(color, context)};

@@ -4,10 +4,15 @@ import Color from 'color';
 import { baseLuminosity } from '../../variables/core';
 
 // Methods
+import getBgColor from './getBgColor';
 import getHoverColor from './getHoverColor';
 
 const getActiveColor = (color, context) => {
-    const $color = color ? Color(color).rgb() : Color('#FFF');
+    let $color = color ? Color(color).rgb() : Color('#FFF');
+
+    if (color && (context === 'darken' || context === 'lighten')) {
+        $color = getBgColor(color, context);
+    } 
 
     if (context === 'clear') {
         return 'none';
@@ -29,6 +34,16 @@ const getActiveColor = (color, context) => {
         }
     } else if (context === 'invert') {
         return getHoverColor(color, context).darken(.1);
+    } else if (context === 'lighten') {
+        if ($color.luminosity() > baseLuminosity) {
+            return $color.lighten(.1);
+        } else {
+            if ($color.isLight()) {
+                return $color.darken(.1);
+            } else {
+                return $color.lighten(.5);
+            }
+        }
     } else if (context === 'outline') {
         return getHoverColor(color, context).darken(.1);
     }
