@@ -5,7 +5,8 @@ const navbar = {
     ...globals,
     colors,
 
-    color: '#FFF'
+    color: '#FFF',
+    minHeight: '4rem'
 }
 
 export default navbar;
