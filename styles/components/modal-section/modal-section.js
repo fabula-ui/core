@@ -1,13 +1,17 @@
+import getComponentVars from '../../methods/misc/getComponentVars';
+
+// Modifiers
 import colorModifier from './modifiers/modal-section-color.modifier';
 import dividerModifier from './modifiers/modal-section-divider.modifier';
 
 const ModalSectionStyles = params => {
     const { framework, props } = params;
+    const vars = getComponentVars('modalSection');
     const wrapper = framework === 'angular' ? '.fab-modal-section' : '&';
     
     return `
         ${wrapper} {
-            padding: 1.25rem;
+            ${props.padding ? `padding: 1.25rem;` : ''}
             ${framework === 'angular' ? 'width: 100%;' : ''}
         }
         
