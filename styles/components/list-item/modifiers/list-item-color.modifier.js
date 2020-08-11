@@ -43,11 +43,11 @@ const colorModifier = params => {
 
         ${framework === 'angular' ?
             `
-            &:not(:last-child) .fab-list-item`
+            &:not(:last-child) .fab-list-item[data-divider='true']:not([data-striped='true'])`
             :
-            `${wrapper}:not(:last-child)`
+            `${wrapper}[data-divider='true']:not(:last-child):not([data-striped='true'])`
         } {
-            ${props.divider && !props.striped ? `border-bottom: solid 1px ${getDividerColor(color, context)};` : ''}
+            border-bottom: solid 1px ${getDividerColor(color, context)};
         }
 
         ${framework === 'angular' ?

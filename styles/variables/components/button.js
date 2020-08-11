@@ -15,8 +15,6 @@ const button = {
         return colors.primary
     },
     focusGlowRadius: '3px',
-    fontFamily: globals.fontFamily,
-    fontSize: globals.fontSize,
     fontWeight: 600,
     glowX: 0,
     glowY: '3px',

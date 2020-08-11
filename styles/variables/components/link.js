@@ -5,7 +5,7 @@ const link = {
     ...globals,
     colors,
 
-    get color() { return colors['primary'] },
+    get color() { return colors.primary },
     fontSize: '1em'
 }
 

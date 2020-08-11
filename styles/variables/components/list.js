@@ -8,9 +8,13 @@ const list = {
     colors,
 
     color: '#FFF',
-    padding: '1rem',
+    paddingX: '1rem',
+    paddingY: '1rem',
+    get padding() {
+        return `${this.paddingY} ${this.paddingX}`
+    },
     get stripeColor() {
-        return Color(colors['primary']).desaturate(.5).mix(Color('#FFF'), .925);
+        return Color(this.colors.primary).desaturate(.5).mix(Color('#FFF'), .925);
     }
 }
 

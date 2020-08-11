@@ -63,7 +63,7 @@ const InputStyles = params => {
     }
 
     .fab-input[data-textarea='true'] {
-        padding-bottom: calc(${vars.padding} - .35em);
+        padding-bottom: calc(${vars.paddingBottom} - .35em);
     }
 
     .fab-input__elements {
@@ -78,8 +78,8 @@ const InputStyles = params => {
         font-family: inherit;
         font-size: inherit;
         min-height: ${vars.minHeight};
-        padding-left: ${props.icon || props.iconStart ? `calc(${vars.padding} + 2em)` : vars.padding};
-        padding-right: ${props.iconEnd ? `calc(${vars.padding} + 2em)` : vars.padding};
+        padding-left: ${props.icon || props.iconStart ? `calc(${vars.paddingLeft} + 2em)` : vars.paddingLeft};
+        padding-right: ${props.iconEnd ? `calc(${vars.paddingRight} + 2em)` : vars.paddingRight};
         position: relative;
         width: 100%;
 
@@ -96,8 +96,8 @@ const InputStyles = params => {
         line-height: 1.5;
         maxHeight: initial;
         min-height: calc(${vars.minHeight} * 3);
-        padding-bottom: ${vars.padding};
-        padding-top: ${vars.padding};
+        padding-bottom: ${vars.paddingBottom};
+        padding-top: ${vars.paddingTop};
         resize: vertical;
     }
 
@@ -114,18 +114,18 @@ const InputStyles = params => {
 
     .fab-input__icon[data-placement] {
         position: absolute;
-        ${props.textarea ? `top: ${vars.padding};` : 'top: 50%;'}
+        ${props.textarea ? `top: ${vars.paddingTop};` : 'top: 50%;'}
         ${!props.textarea ? 'transform: translate(0, -50%);' : ''}
     }
 
     .fab-input__icon[data-placement='end'] {
         mask-image: url(${iconEnd});
-        right: ${vars.padding};
+        right: ${vars.paddingRight};
     }
 
     .fab-input__icon[data-placement='start'] {
         mask-image: url(${iconStart || icon});
-        left: ${vars.padding};
+        left: ${vars.paddingLeft};
     }
 
     .fab-input__password-toggle {
@@ -136,7 +136,7 @@ const InputStyles = params => {
         font-size: 1em;
         height: 100%;
         line-height: 1;
-        padding: 0 ${vars.padding};
+        padding: 0 ${vars.paddingRight} 0 ${vars.paddingLeft};
         position: absolute;
         right: 0;
         top: 50%;
