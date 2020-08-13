@@ -6,7 +6,7 @@ const dropdownItem = {
     colors,
     
     paddingX: '1rem',
-    paddingY: '.5rem'
+    paddingY: '.5em'
 }
 
 export default dropdownItem;
