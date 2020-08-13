@@ -18,7 +18,12 @@ const colorModifier = props => {
     let baseInactiveFillColor = userInactiveFillColor || !!color && getBgColor(color, context) || vars.inactiveFillColor;
 
     if (!!color) {
-        baseBorderColor = getDividerColor(color, context);
+        if (context === 'outline') {
+            baseBorderColor = getBgColor(color, 'fill');
+        } else {
+            baseBorderColor = getDividerColor(color, context);
+        }
+        
     } else {
         if (context === 'clear' || context === 'invert') {
             baseBorderColor = getDividerColor(color, 'fill');

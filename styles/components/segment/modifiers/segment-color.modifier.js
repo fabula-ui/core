@@ -14,8 +14,10 @@ const colorModifier = params => {
     const wrapper = framework === 'angular' ? '.fab-segment' : '&';
 
     // User-defined
+    const userActiveColor = getColor(props.activeColor, vars.colors);
     const userActiveFillColor = getColor(props.activeFillColor, vars.colors);
     const userActiveTextColor = getColor(props.activeTextColor, vars.colors);
+    const userInactiveColor = getColor(props.inactiveColor, vars.colors);
     const userInactiveFillColor = getColor(props.inactiveFillColor, vars.colors);
     const userInactiveTextColor = getColor(props.inactiveTextColor, vars.colors);
 
@@ -45,13 +47,22 @@ const colorModifier = params => {
             baseActiveTextColor = getTextColor(color, 'fill');
         }
 
-        dividerColor = getDividerColor(color, context);
+        if (context === 'outline') {
+            dividerColor = getBgColor(color, 'fill');
+        } else {
+            dividerColor = getDividerColor(color, context);
+        }
     } else {
         if (context === 'clear' || context === 'invert') {
             dividerColor = getDividerColor(color, 'fill');
         } else {
             dividerColor = getDividerColor(color, context);
         }
+    }
+
+    if (userActiveColor) {
+        baseActiveFillColor = userActiveColor;
+        baseActiveTextColor = getTextColor(userActiveColor, 'fill');
     }
 
     if (userActiveFillColor) {
@@ -61,6 +72,11 @@ const colorModifier = params => {
 
     if (userActiveTextColor) {
         baseActiveTextColor = userActiveTextColor;
+    }
+
+    if (userInactiveColor) {
+        baseInactiveFillColor = userInactiveColor;
+        baseInactiveTextColor = getTextColor(userInactiveColor, 'fill');
     }
 
     return `

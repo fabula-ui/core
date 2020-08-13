@@ -15,6 +15,7 @@ const SegmentStyles = params => {
             ${props.rounded ? `border-radius: 999px;` : ''}
             flex-grow: 1;
             flex-shrink: 0;
+            font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
             overflow: hidden;
