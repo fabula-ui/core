@@ -7,7 +7,7 @@ import typeModifier from './modifiers/tab-type.modifier';
 
 const TabStyle = params => {
     const { framework, props } = params;
-    const vars = getComponentVars('tab');
+    const vars = getComponentVars('tabs');
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `

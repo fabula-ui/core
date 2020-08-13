@@ -14,9 +14,20 @@ const toast = {
     glowRadius: '2px',
     glowSpread: 0,
     iconOffset: '.75em',
-    letterSpacing: '-.025em',
     paddingX: '1em',
     paddingY: '1em',
+    get paddingBottom() {
+        return this.paddingY
+    },
+    get paddingLeft() {
+        return this.paddingX
+    },
+    get paddingRight() {
+        return this.paddingX
+    },
+    get paddingTop() {
+        return this.paddingY
+    },
     spacing: '.5rem'
 }
 

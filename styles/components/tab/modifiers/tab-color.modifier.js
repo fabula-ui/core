@@ -7,7 +7,7 @@ import getTextColor from '../../../methods/color/getTextColor';
 // Exportable
 const colorModifier = params => {
     const { framework, props } = params;
-    const vars = getComponentVars('tab');
+    const vars = getComponentVars('tabs');
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     // User-defined

@@ -30,7 +30,7 @@ const SegmentStyles = params => {
             cursor: pointer;
             font-size: inherit;
             font-weight: inherit;
-            padding: ${vars.paddingY} ${vars.paddingX};
+            padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};
             text-align: inherit;
             transition: all ${vars.transition};
             width: 100%;

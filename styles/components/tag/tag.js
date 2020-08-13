@@ -21,7 +21,7 @@ const TagStyles = params => {
             font-weight: ${vars.fontWeight};
             letter-spacing: ${vars.letterSpacing};
             line-height: 1;
-            ${!props.anchor && !props.button ? `padding: ${vars.paddingY} ${vars.paddingX};` : ''}
+            padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};
             width: 100%;
 
             > *:not(:last-child) {
@@ -41,8 +41,8 @@ const TagStyles = params => {
             font-family: inherit;
             font-size: inherit;
             font-weight: inherit;
-            margin: -${vars.paddingY} -${vars.paddingX};
-            padding: ${vars.paddingY} ${vars.paddingX};
+            margin: -${vars.paddingTop} -${vars.paddingRight} -${vars.paddingBottom} -${vars.paddingLeft};
+            padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};
             text-decoration: none;
             transition: all ${vars.transition};
 

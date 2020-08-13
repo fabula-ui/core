@@ -39,7 +39,7 @@ const ToastStyles = params => {
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
             letter-spacing: ${vars.letterSpacing};
-            padding: ${vars.paddingY} ${vars.paddingX};
+            padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};
             position: relative;
             width: 100%;
             z-index: 1;

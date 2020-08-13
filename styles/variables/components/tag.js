@@ -11,9 +11,6 @@ const tag = {
     get color() {
         return this.colors['aux']
     },
-    get fillColor() {
-        return this.colors['aux']
-    },
     fontSize: '.9em',
     fontWeight: 400,
     glowRadius: '2px',
@@ -21,7 +18,19 @@ const tag = {
     glowX: 0,
     glowY: '1px',
     paddingX: '.7em',
-    paddingY: '.5em'
+    paddingY: '.5em',
+    get paddingBottom() {
+        return this.paddingY
+    },
+    get paddingLeft() {
+        return this.paddingX
+    },
+    get paddingRight() {
+        return this.paddingX
+    },
+    get paddingTop() {
+        return this.paddingY
+    }
 }
 
 export default tag;

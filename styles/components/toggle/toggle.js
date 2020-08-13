@@ -15,6 +15,7 @@ const ToggleStyles = params => {
         display: flex;
         font-family: ${vars.fontFamily};
         font-size: ${vars.fontSize};
+        font-weight: ${vars.fontWeight};
     }
 
     ${wrapper}[data-active='true'] .fab-toggle:before {
