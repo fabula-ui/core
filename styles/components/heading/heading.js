@@ -1,5 +1,9 @@
 import getComponentVars from '../../methods/misc/getComponentVars';
 
+// Modifiers
+import colorModifier from './modifiers/heading-color.modifier';
+
+
 const HeadingStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('heading');
@@ -18,6 +22,9 @@ const HeadingStyles = params => {
                 margin-top: ${vars.marginTop};
             }
         }
+
+        // Modifiers
+        ${colorModifier(params)}
     `
 }
 
