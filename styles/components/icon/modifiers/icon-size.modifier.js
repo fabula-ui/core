@@ -4,12 +4,12 @@ const sizeModifier = params => {
     const { size } = props;
     const { sizeMultipliers } = vars;
     const multiplier = sizeMultipliers[size];
+    const wrapper = framework === 'angular' ? '.fab-icon' : '&';
 
     return `
-    svg {
-        height: calc(1.1em * ${multiplier});
-        width: calc(1.1em * ${multiplier});
-    }
+        ${wrapper} {
+            font-size: calc(1em * ${multiplier});
+        }
     `;
 }
 

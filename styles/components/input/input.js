@@ -35,6 +35,7 @@ const InputStyles = params => {
         border: solid 1px transparent;
         display: flex;
         font-size: ${vars.fontSize};
+        overflow: hidden;
         position: relative;
         transition: all .2s ease-in-out;
         width: ${vars.expand ? '100%' : 'auto'};
@@ -66,8 +67,8 @@ const InputStyles = params => {
         padding-bottom: calc(${vars.paddingBottom} - .35em);
     }
 
-    .fab-input__elements {
-        padding-right: .6em;
+    .fab-input__elements > *:last-child {
+        margin-right: .6em;
     }
 
     .fab-input__field {
@@ -78,7 +79,7 @@ const InputStyles = params => {
         font-family: inherit;
         font-size: inherit;
         min-height: ${vars.minHeight};
-        padding-left: ${props.icon || props.iconStart ? `calc(${vars.paddingLeft} + 2em)` : vars.paddingLeft};
+        padding-left: ${(props.icon || props.iconStart) ? `calc(${vars.paddingLeft} + 2em)` : vars.paddingLeft};
         padding-right: ${props.iconEnd ? `calc(${vars.paddingRight} + 2em)` : vars.paddingRight};
         position: relative;
         width: 100%;
@@ -108,8 +109,10 @@ const InputStyles = params => {
         mask-repeat: no-repeat;
         mask-position: center center;
         mask-size: contain;
+        position: relative;
         transition: all .2s ease-in-out;
         width: 1.1em;
+        z-index: 1;
     }
 
     .fab-input__icon[data-placement] {

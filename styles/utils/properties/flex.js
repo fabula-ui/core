@@ -29,11 +29,12 @@ const flexCSS = params => {
     };
 
     return `
-        ${!!alItems || !!alignItems ? `align-items: ${alignmentTypes[alItems || alignItems] || alItems || alignItems}!important;` : ''}
-        ${!!fl || !!flex ? `display: flex!important;` : ''}
-        ${!!flow ? `flex-direction: ${flowTypes[flow] || flow}!important;` : ''}
-        ${!!flGrow || !!flexGrow ? `flex-grow: ${flGrow || flexGrow}!important;` : ''}
-        ${!!justContent || !!justifyContent ? `justify-content: ${alignmentTypes[justContent || justifyContent] || justContent || justifyContent}!important;` : ''}
+        ${(alItems || alignItems) ? `align-items: ${alignmentTypes[alItems || alignItems] || alItems || alignItems}!important;` : ''}
+        ${(fl || flex) ? `display: flex!important;` : ''}
+        ${flow ? `flex-direction: ${flowTypes[flow] || flow}!important;` : ''}
+        ${props.direction ? `flex-direction: ${props.direction}!important;` : ''}
+        ${flGrow || flexGrow ? `flex-grow: ${flGrow || flexGrow}!important;` : ''}
+        ${justContent || justifyContent ? `justify-content: ${alignmentTypes[justContent || justifyContent] || justContent || justifyContent}!important;` : ''}
     `;
 }
 
