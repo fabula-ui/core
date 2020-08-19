@@ -4,6 +4,7 @@ import getNumber from '../../methods/misc/getNumber';
 
 // Utils
 import gluedModifier from './modifiers/glued.modifier';
+import sizeModifier from './modifiers/input-group-size.modifier';
 
 const InputGroupStyles = params => {
     const { framework, props } = params;
@@ -39,6 +40,7 @@ const InputGroupStyles = params => {
 
     // Modifiers
     ${props.glued ? gluedModifier(props) : ''}
+    ${props.size ? sizeModifier(props) : ''}
     `
 };
 
