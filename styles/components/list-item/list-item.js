@@ -23,8 +23,8 @@ const ListItemStyles = params => {
         
         .fab-list-item[data-divider='false'][data-striped='false'],
         ${wrapper}[data-divider='false'][data-striped='false'] {
-            padding-bottom: ${vars.paddingBottom};
-            padding-top: ${vars.paddingTop};
+            padding-bottom: 0;
+            padding-top: 0;
         }
 
         button${wrapper} {
