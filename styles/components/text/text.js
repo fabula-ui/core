@@ -11,21 +11,21 @@ const TextStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-text' : '&';
 
     return `
-    ${framework === 'angular' && !!props.block && !!props.flex ? `& { display: inline-flex; }` : ''}
+    ${framework === 'angular' ? `& { display: block; }` : ''}
     
     ${wrapper} {
         align-items: flex-start;
         color: inherit;
         ${props.aux ? `color: ${vars.auxTextColor};` : ''}
-        display: inline-flex;
-        ${props.block ? `display: block;` : ''}
-        ${props.flex ? `display: flex;` : ''}
+        display: block;
+        ${props.inline ? `display: inline-flex;` : ''}
         font-family: ${vars.fontFamily};
         font-size: ${vars.fontSize};
         ${props.weight ? `font-weight: ${props.weight};` : ''}
         letter-spacing: -.05rem;
         line-height: ${props.lineHeight ? props.lineHeight : '1.5'};
         ${!props.wrap ? `white-space: nowrap;` : ''}
+        vertical-align: middle;
     }
 
     ${wrapper} .fab-text:not([data-color]) {

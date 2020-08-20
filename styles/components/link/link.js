@@ -14,6 +14,7 @@ const LinkStyles = params => {
         ${wrapper} {
             cursor: pointer;
             font-family: ${vars.fontFamily};
+            font-weight: ${props.weight ? props.weight : 'inherit'};
             letter-spacing: ${vars.letterSpacing};
             text-decoration: ${props.underline ? 'underline' : 'none'};
         }
