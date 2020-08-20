@@ -14,6 +14,7 @@ const ListItemStyles = params => {
         ${wrapper} {
             appearance: none;
             border: none;
+            display: block;
             font-family: ${vars.fontFamily};
             padding: ${vars.paddingTop} 0 ${vars.paddingBottom};
             ${props.padding ? `padding-left: ${vars.paddingLeft};` : ''}

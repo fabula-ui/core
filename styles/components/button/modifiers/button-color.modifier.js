@@ -12,9 +12,9 @@ import getTextColor from '../../../methods/color/getTextColor';
 
 const colorModifier = props => {
     const vars = getComponentVars('button');
-    const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
-    const context = props.color || props.clear ? getContext(props) : 'fill';
-    const focusGlowColor = !!props.focusGlowColor && getColor(props.focusGlowColor) || props.color ? color : vars.focusGlowColor;
+    const color = (props.color || props.clear) ? getColor(props.color, vars.colors) : vars.color;
+    const context = (props.color || props.clear) ? getContext(props) : 'fill';
+    const focusGlowColor = (!!props.focusGlowColor && getColor(props.focusGlowColor) || props.color) ? color : vars.focusGlowColor;
 
     // User defined colors
     const userBgColor = props.bgColor ? getColor(props.bgColor, vars.colors) : null;
@@ -23,7 +23,7 @@ const colorModifier = props => {
     return `
         .fab-button {
             background: ${userBgColor ? userBgColor : getBgColor(color, context)};
-            ${props.border || props.outline ? `border: solid 1px ${getBorderColor(color, context === 'gradient' ? 'fill' : context)};` : ''}
+            ${(props.border || props.outline) ? `border: solid 1px ${getBorderColor(color, context === 'gradient' ? 'fill' : context)};` : ''}
             ${props.glow ? `box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${getGlowColor(color, context)};` : ''}
             color: ${userTextColor ? userTextColor : getTextColor(userBgColor || color, context)};
 
