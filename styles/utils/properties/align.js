@@ -10,7 +10,6 @@ const alignUtils = params => {
 
 const alignCSS = params => {
     const { props } = params;
-    const { al, alH, alV, align, alignH, alignV } = props;
     const alignments = {
         bottom: 'flex-end',
         center: 'center',
@@ -20,22 +19,26 @@ const alignCSS = params => {
         start: 'flex-start',
         top: 'flex-start'
     };
+    const alignment = (props.al || props.align) ? alignments[props.al || props.align] : null;
+    const alignmentH = (props.alH || props.alignH) ? alignments[props.alH || props.alignH] : null;
+    const alignmentV = (props.alV || props.alignV) ? alignments[props.alV || props.alignV] : null;
+    const layout = (props.layout === 'v' || props.layout === 'vertical') ? 'v' : 'h';
 
     return `
         ${
-        al || align ?
+        alignment ?
             `
-                align-items: ${alignments[al || align] || al || align}!important;
-                justify-content: ${alignments[al || align] || al || align}!important;
+                align-items: ${alignment}!important;
+                justify-content: ${alignment}!important;
             `
             : ''
         }
 
-        ${alV || alignV ? `align-items: ${alignments[alV || alignV] || alV || alignV}!important;` : ''}
-        ${(props.layout === 'h' || props.layout === 'horizontal') && (alV || alignV) ? `align-items: ${alignments[alV || alignV] || alV || alignV}!important;` : ''}
+        ${alignmentV ? `align-items: ${alignmentV}!important;` : ''}
+        ${(layout === 'h' && alignmentV) ? `align-items: ${alignmentV}!important;` : ''}
 
-        ${alH || alignH ? `justify-content: ${alignments[alH || alignH] || alH || alignH}!important;` : ''}
-        ${(props.layout === 'v' || props.layout === 'vertical') && (alV || alignV) ? `justify-content: ${alignments[alV || alignV] || alV || alignV}!important;` : ''}
+        ${alignmentH ? `justify-content: ${alignmentH}!important;` : ''}
+        ${(layout === 'v' && alignmentV) ? `justify-content: ${alignmentV}!important;` : ''}
     `
 }
 
