@@ -2,6 +2,7 @@
 import alignUtils from './properties/align';
 import columnUtils from './properties/column';
 import flexUtils from './properties/flex';
+import fontUtils from './properties/font';
 import growUtils from './properties/grow';
 import hiddenUtils from './properties/hidden';
 import marginUtils from './properties/margin';
@@ -17,6 +18,7 @@ const UtilsStyles = params => {
         ${alignUtils(params)}
         ${columnUtils(props)}
         ${flexUtils(params)}
+        ${fontUtils(params)}
         ${growUtils(params)}
         ${hiddenUtils(params)}
         ${marginUtils(params)}

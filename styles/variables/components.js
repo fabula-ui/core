@@ -16,6 +16,7 @@ import dropdownItem from './components/dropdownItem';
 import dropdownMenu from './components/dropdownMenu';
 import fileInput from './components/fileInput';
 import heading from './components/heading';
+import htmlElements from './components/htmlElements';
 import icon from './components/icon';
 import input from './components/input';
 import inputGroup from './components/inputGroup';
@@ -59,6 +60,7 @@ const components = {
     dropdownMenu,
     fileInput,
     heading,
+    htmlElements,
     icon,
     input,
     inputGroup,
