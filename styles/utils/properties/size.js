@@ -3,7 +3,6 @@ import getNumber from '../../methods/misc/getNumber';
 const sizeUtils = params => {
     const { props } = params;
 
-
     return `
         & {
             ${props.height ? `height: ${getNumber(props.height, 'px')};` : ''}

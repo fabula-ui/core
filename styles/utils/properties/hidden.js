@@ -3,9 +3,7 @@ const hiddenUtils = params => {
     const wrapper = framework === 'angular' ? '' : '&';
 
     return `
-        
-            ${props.hidden ? 'display: none!important;' : ''}
-        
+        ${props.hidden ? 'display: none!important;' : ''}
     `
 }
 

@@ -1,17 +1,16 @@
-const flexUtils = params => {
+const flexUtils = props => {
     return `
         > [data-fab-component] {
-        ${flexCSS(params)}
+        ${flexCSS(props)}
         }
 
-        ${flexCSS(params)}
+        ${flexCSS(props)}
     `
 }
 
-const flexCSS = params => {
-    const { angularElement, framework, props } = params;
+const flexCSS = props => {
     const { alItems, alignItems, fl, flGrow, flex, flexGrow, flow, justContent, justifyContent } = props;
-    let wrapper = framework === 'angular' ? '' : '&';
+
     const alignmentTypes = {
         center: 'center',
         end: 'flex-end',
