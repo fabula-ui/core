@@ -26,6 +26,7 @@ const InputStyles = params => {
         font-family: ${vars.fontFamily};
         font-size: ${vars.fontSize};
         position: relative;
+        width: ${props.expand ? '100%' : 'auto'};
     }
 
     .fab-input { 
@@ -38,7 +39,7 @@ const InputStyles = params => {
         overflow: hidden;
         position: relative;
         transition: all .2s ease-in-out;
-        width: ${vars.expand ? '100%' : 'auto'};
+        width: 100%;
 
         &:before {
             bottom: 0;

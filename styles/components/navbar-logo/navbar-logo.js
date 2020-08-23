@@ -7,6 +7,7 @@ const NavbarLogoStyles = params => {
         align-items: center;
         align-self: stretch;
         display: flex;
+        flex-shrink: 0;
         height: ${framework === 'angular' ? '100%' : 'auto'};
         
         img {
