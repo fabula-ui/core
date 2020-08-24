@@ -1,15 +1,19 @@
 const overflowUtils = props => {
     const overflow = props.of || props.overflow;
+    const overflowX = props.ovX || props.overflowX;
+    const overflowY = props.ovY || props.overflowY;
 
-    if (overflow) {
-        return `
+    return `
             > [data-fab-component] {
-                overflow: ${overflow};
+                ${overflow ? `overflow: ${overflow};` : ''}
+                ${overflowX ? `overflow-x: ${overflowX};` : ''}
+                ${overflowY ? `overflow-y: ${overflowY};` : ''}
             }
+
+            ${overflow ? `overflow: ${overflow};` : ''}
+            ${overflowX ? `overflow-x: ${overflowX};` : ''}
+            ${overflowY ? `overflow-y: ${overflowY};` : ''}
         `
-    } else {
-        return ''
-    }
 }
 
 export default overflowUtils;

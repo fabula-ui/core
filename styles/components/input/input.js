@@ -40,6 +40,7 @@ const InputStyles = params => {
         position: relative;
         transition: all .2s ease-in-out;
         width: 100%;
+        z-index: 1;
 
         &:before {
             bottom: 0;

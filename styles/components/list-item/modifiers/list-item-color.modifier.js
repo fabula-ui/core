@@ -19,7 +19,7 @@ const colorModifier = params => {
 
     return `
         ${wrapper} {
-            background-color: ${getBgColor(color, context)};
+            background-color: ${props.color ? getBgColor(color, context) : 'inherit'};
             color: ${props.color ? `${getTextColor(color, context)}` : 'inherit'};
         }
 

@@ -1,7 +1,7 @@
 const alignUtils = params => {
     return `
         > [data-fab-component] {
-        ${alignCSS(params)}
+            ${alignCSS(params)}
         }
 
         ${alignCSS(params)}
@@ -22,7 +22,7 @@ const alignCSS = params => {
     const alignment = (props.al || props.align) ? alignments[props.al || props.align] : null;
     const alignmentH = (props.alH || props.alignH) ? alignments[props.alH || props.alignH] : null;
     const alignmentV = (props.alV || props.alignV) ? alignments[props.alV || props.alignV] : null;
-    const layout = (props.layout === 'v' || props.layout === 'vertical') ? 'v' : 'h';
+    const layout = (props.direction === 'column') ? 'v' : 'h';
 
     return `
         ${
@@ -34,11 +34,13 @@ const alignCSS = params => {
             : ''
         }
 
-        ${alignmentV ? `align-items: ${alignmentV}!important;` : ''}
-        ${(layout === 'h' && alignmentV) ? `align-items: ${alignmentV}!important;` : ''}
+        ${(alignmentH && layout === 'v') ? `align-items: ${alignmentH}!important;` : ''}
+        ${(alignmentH && layout === 'h') ? `justify-content: ${alignmentH}!important;` : ''}
 
-        ${alignmentH ? `justify-content: ${alignmentH}!important;` : ''}
-        ${(layout === 'v' && alignmentV) ? `justify-content: ${alignmentV}!important;` : ''}
+        ${(alignmentV && layout === 'h') ? `align-items: ${alignmentV}!important;` : ''}
+        ${(alignmentV && layout === 'v') ? `justify-content: ${alignmentV}!important;` : ''}
+
+        // ${props.alH ? `opacity: .2;` : ''}
     `
 }
 
