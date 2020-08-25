@@ -1,5 +1,5 @@
 const overflowUtils = props => {
-    const overflow = props.of || props.overflow;
+    const overflow = props.ov || props.overflow;
     const overflowX = props.ovX || props.overflowX;
     const overflowY = props.ovY || props.overflowY;
 
