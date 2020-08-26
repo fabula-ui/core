@@ -52,7 +52,7 @@ const TabStyle = params => {
             }
 
             > *:not(:last-child) {
-                ${props.layout === 'vertical' ? 'margin-bottom: .5em;' : 'margin-right: .5em;'}
+                ${(props.layout === 'v' || props.layout === 'vertical') ? 'margin-bottom: .5em;' : 'margin-right: .5em;'}
             }
         }
 

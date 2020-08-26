@@ -11,6 +11,7 @@ const colorModifier = params => {
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     // User-defined
+    const userActiveColor = getColor(props.activeColor, vars.colors);
     const userActiveBorderColor = getColor(props.activeBorderColor, vars.colors);
     const userActiveTextColor = getColor(props.activeTextColor, vars.colors);
     const userActiveFillColor = getColor(props.activeFillColor, vars.colors);
@@ -22,13 +23,13 @@ const colorModifier = params => {
     // Style props
     let styleProps = {
         base: {
-            activeBorderColor: userActiveBorderColor || !!props.color && getTextColor(color, context) || vars.activeBorderColor,
+            activeBorderColor: userActiveBorderColor || userActiveColor || !!props.color && getTextColor(color, context) || vars.activeBorderColor,
             get activeFillColor() {
                 switch (props.type) {
                     case 'block':
                     case 'float':
                     case 'pill':
-                        return userActiveFillColor || !!props.color && getTextColor(color, context) || vars.activeFillColor;
+                        return userActiveFillColor || userActiveColor || !!props.color && getTextColor(color, context) || vars.activeFillColor;
                     default:
                         return 'transparent';
                 }
@@ -38,9 +39,9 @@ const colorModifier = params => {
                     case 'block':
                     case 'float':
                     case 'pill':
-                        return userActiveTextColor || !!userActiveFillColor && getTextColor(userActiveFillColor, context) || !!color && getBgColor(color, context) || getTextColor(vars.activeFillColor, context);
+                        return userActiveTextColor || !!userActiveFillColor && getTextColor(userActiveFillColor, context) || !!userActiveColor && getTextColor(userActiveColor, context) || !!color && getBgColor(color, context) || getTextColor(vars.activeFillColor, context);
                     default:
-                        return userActiveTextColor || !!userActiveFillColor && getTextColor(userActiveFillColor, context) || !!color && getTextColor(color, context) || vars.activeTextColor;
+                        return userActiveTextColor || !!color && getTextColor(color, context) || vars.activeTextColor;
                 }
             },
             get inactiveBorderBottom() {

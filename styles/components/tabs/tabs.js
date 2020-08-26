@@ -24,8 +24,8 @@ const TabsStyle = params => {
 
         .fab-tab > a,
         .fab-tab > button {
-            ${props.layout === 'vertical' ? 'align-items: center;' : ''}
-            ${props.layout === 'vertical' ? `flex-direction: column;` : ''}
+            ${(props.layout === 'v' || props.layout === 'vertical') ? 'align-items: center;' : ''}
+            ${(props.layout === 'v' || props.layout === 'vertical') ? `flex-direction: column;` : ''}
             height: 100%;
         }
 
