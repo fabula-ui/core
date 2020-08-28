@@ -32,10 +32,7 @@ const TextStyles = params => {
         color: inherit;
     }
 
-    .fab-text-part {
-        padding: calc(${vars.spacing} / 2);
-    }
-
+    // Modifiers
     ${props.color ? colorModifier(params) : ''}
     ${props.size ? sizeModifier(params) : ''}
     `
