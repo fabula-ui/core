@@ -35,7 +35,6 @@ const colorModifier = params => {
         }
 
         a${wrapper} {
-            opacity: .2;
             text-decoration: none;
         }
     `;
