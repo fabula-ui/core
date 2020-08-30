@@ -21,6 +21,7 @@ const DropdownItemStyles = params => {
             width: 100%;
         }
 
+        a${wrapper},
         button${wrapper} {
             appearance: none;
             background: none;
