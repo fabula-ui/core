@@ -78,6 +78,10 @@ const ButtonStyles = params => {
             }
         }
 
+        a.fab-button {
+            text-decoration: none;
+        }
+
         // Modifiers
         ${props.circle ? circleModifier(props) : ''}
         ${colorModifier(props)}

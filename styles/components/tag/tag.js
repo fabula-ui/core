@@ -18,7 +18,7 @@ const TagStyles = params => {
             display: flex;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
-            font-weight: ${vars.fontWeight};
+            ${!props.weight ? `font-weight: ${vars.fontWeight};` : ''}
             letter-spacing: ${vars.letterSpacing};
             line-height: 1;
             padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};

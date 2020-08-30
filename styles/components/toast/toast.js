@@ -66,7 +66,18 @@ const ToastStyles = params => {
         }
 
         .fab-link {
+            ${props.color ? `color: inherit;` : ''}
             font-size: .9em;
+
+            &:hover {
+                ${props.color ? `color: inherit;` : ''}
+                ${props.color ? `opacity: .8;` : ''}
+            }
+
+            &:active {
+                ${props.active ? `color: inherit;` : ''}
+                ${props.active ? `opacity: .6;` : ''}
+            }
         }
 
         // Modifiers
