@@ -18,7 +18,7 @@ const TextStyles = params => {
         color: inherit;
         ${props.aux ? `color: ${vars.auxTextColor};` : ''}
         display: block;
-        ${props.inline ? `display: inline-flex;` : ''}
+        ${props.inline ? `display: inline;` : ''}
         font-family: ${vars.fontFamily};
         font-size: ${vars.fontSize};
         ${props.weight ? `font-weight: ${props.weight};` : ''}
@@ -30,6 +30,11 @@ const TextStyles = params => {
 
     ${wrapper} .fab-text:not([data-color]) {
         color: inherit;
+    }
+
+    // External
+    ${wrapper} .fab-icon {
+        vertical-align: middle;
     }
 
     // Modifiers
