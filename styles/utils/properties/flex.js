@@ -23,10 +23,11 @@ const flexCSS = props => {
     return `
         ${(props.flex && typeof props.flex === 'boolean') ? `display: flex!important;` : ''}
         ${(props.flex && typeof props.flex === 'string') ? `flex: ${props.flex}!important;` : ''}
-        ${props.basis ? `flex-direction: ${props.basis}!important;` : ''}
+        ${props.basis ? `flex-basis: ${props.basis}!important;` : ''}
         ${flow ? `flex-direction: ${flow}!important;` : ''}
         ${direction ? `flex-direction: ${direction}!important;` : ''}
         ${props.grow ? `flex-grow: ${props.grow}!important;` : ''}
+        ${props.wrap ? `flex-wrap: wrap!important;` : ''}
     `;
 }
 
