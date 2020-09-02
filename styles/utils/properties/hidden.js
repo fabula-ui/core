@@ -1,5 +1,5 @@
 const hiddenUtils = params => {
-    const {framework, props} = params;
+    const { props } = params;
 
     return `
         ${props.hidden ? 'display: none!important;' : ''}

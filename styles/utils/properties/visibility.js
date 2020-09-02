@@ -2,8 +2,8 @@ const visibilityUtils = params => {
     const {props} = params;
 
     return `
-        ${props.hidden ? 'visibility: hidden!important;' : ''}
-        ${props.visible ? 'visibility: visible!important;' : ''}
+        ${props.hidden ? 'display: none!important;' : ''}
+        ${props.visible ? 'display: block!important;' : ''}
     `
 }
 

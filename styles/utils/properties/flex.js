@@ -21,7 +21,9 @@ const flexCSS = props => {
     const flow = flowTypes[props.flow]
 
     return `
-        ${props.flex ? `display: flex!important;` : ''}
+        ${(props.flex && typeof props.flex === 'boolean') ? `display: flex!important;` : ''}
+        ${(props.flex && typeof props.flex === 'string') ? `flex: ${props.flex}!important;` : ''}
+        ${props.basis ? `flex-direction: ${props.basis}!important;` : ''}
         ${flow ? `flex-direction: ${flow}!important;` : ''}
         ${direction ? `flex-direction: ${direction}!important;` : ''}
         ${props.grow ? `flex-grow: ${props.grow}!important;` : ''}

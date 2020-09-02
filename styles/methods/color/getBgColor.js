@@ -26,7 +26,7 @@ const getBgColor = (color, context) => {
     } else if (context === 'fill') {
         return color;
     } else if (context === 'gradient') {
-        getGradientColor(color);
+        return getGradientColor(color);
     } else if (context === 'invert') {
         if ($color.luminosity() > baseLuminosity) {
             return $color.darken(.75);
