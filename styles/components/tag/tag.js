@@ -34,12 +34,13 @@ const TagStyles = params => {
             align-items: center;
             appearance: none;
             background: none;
+            border: none;
             border-radius: inherit;
             cursor: pointer;
             color: inherit;
             display: flex;
             font-family: inherit;
-            font-size: inherit;
+            font-size: 1rem;
             font-weight: inherit;
             margin: -${vars.paddingTop} -${vars.paddingRight} -${vars.paddingBottom} -${vars.paddingLeft};
             padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};
@@ -57,16 +58,6 @@ const TagStyles = params => {
 
         .fab-tag > a:hover {
             text-decoration: none;
-        }
-
-        .fab-tag > button {
-            appearance: none;
-            background: none;
-            border: none;
-
-            &:focus {
-                outline: none;
-            }
         }
 
         // Modifiers
