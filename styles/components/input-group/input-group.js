@@ -34,6 +34,16 @@ const InputGroupStyles = params => {
         flex-grow: 1;
     }
 
+    .fab-input-group .fab-button,
+    .fab-input-group .fab-input-wrapper {
+        z-index: 0;
+    }
+
+    .fab-input-group .fab-button:focus,
+    .fab-input-group .fab-input-wrapper[data-focus='true'] {
+        z-index: 1;
+    }
+
     .fab-input-group .fab-input-wrapper {
         ${framework === 'angular' ? `width: 100%;` : ''}
     }
