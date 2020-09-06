@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const dropdownHeader = {
+const dropdownHeader = theme => ({
     ...globals,
     colors,
     
@@ -13,6 +13,6 @@ const dropdownHeader = {
     get textColor() {
         return globals.auxTextColor
     }
-}
+})
 
 export default dropdownHeader;

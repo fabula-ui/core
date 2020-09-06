@@ -1,9 +1,9 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const fileInput = {
+const fileInput = theme => ({
     ...globals,
     colors,
-}
+})
 
 export default fileInput;

@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const navbar = {
+const navbar = theme => ({
     ...globals,
     colors,
 
@@ -11,6 +11,6 @@ const navbar = {
     get hoverColor() {
         return this.colors['aux']
     }
-}
+})
 
 export default navbar;

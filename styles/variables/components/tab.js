@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const tab = {
+const tab = theme => ({
     ...globals,
     colors,
 
@@ -24,6 +24,6 @@ const tab = {
     fontWeight: 400,
     paddingX: '1rem',
     paddingY: '1rem'
-}
+})
 
 export default tab;

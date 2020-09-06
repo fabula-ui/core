@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const heading = {
+const heading = theme => ({
     ...globals,
     colors,
     
@@ -17,6 +17,6 @@ const heading = {
     },
     marginBottom: '1em',
     marginTop: '1.5em'
-}
+})
 
 export default heading;

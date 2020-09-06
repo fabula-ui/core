@@ -16,7 +16,7 @@ const TextStyles = params => {
     ${wrapper} {
         align-items: flex-start;
         color: inherit;
-        ${props.aux ? `color: ${vars.auxTextColor};` : ''}
+        ${props.aux ? `color: ${vars['auxTextColor']};` : ''}
         display: block;
         ${props.inline ? `display: inline;` : ''}
         font-family: ${vars.fontFamily};

@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const modal = {
+const modal = theme => ({
     ...globals,
     colors,
 
@@ -19,6 +19,6 @@ const modal = {
         lg: '640px',
         xl: '800px'
     }
-}
+})
 
 export default modal;

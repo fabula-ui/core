@@ -1,6 +1,8 @@
+import getComponentVars from '../../../methods/misc/getComponentVars';
+
 const sizeModifier = params => {
     const { framework, props } = params;
-    const vars = window.__FABTheme.variables.components.avatar;
+    const vars = getComponentVars('icon');
     const { size } = props;
     const { sizeMultipliers } = vars;
     const multiplier = sizeMultipliers[size];

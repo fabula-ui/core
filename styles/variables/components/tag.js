@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const tag = {
+const tag = theme => ({
     ...globals,
     colors,
 
@@ -31,6 +31,6 @@ const tag = {
     get paddingTop() {
         return this.paddingY
     }
-}
+})
 
 export default tag;

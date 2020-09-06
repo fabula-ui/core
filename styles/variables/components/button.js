@@ -1,9 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const button = {
-    ...globals,
-    colors,
+const button = theme => ({    
     borderRadius: '.5em',
     borderRadiusSmashed: '.33em',
     borderWidth: 1,
@@ -37,7 +35,6 @@ const button = {
         return this.paddingY
     },
     wideMultiplier: 4
-
-}
+})
 
 export default button;

@@ -1,7 +1,9 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const badge = {
+const theme = window['__FABTheme'];
+
+const badge = theme => ({
     ...globals,
     colors,
 
@@ -17,6 +19,6 @@ const badge = {
     get padding() {
         return `${this.paddingY} ${this.paddingX}`
     },
-}
+})
 
 export default badge;

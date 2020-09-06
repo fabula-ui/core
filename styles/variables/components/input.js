@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const input = {
+const input = theme => ({
     ...globals,
     colors,
     
@@ -27,6 +27,6 @@ const input = {
         return this.paddingY
     },
     spacing: '.5rem'
-}
+})
 
 export default input;

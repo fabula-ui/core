@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const segment = {
+const segment = theme => ({
     ...globals,
     colors,
 
@@ -25,6 +25,6 @@ const segment = {
     fontWeight: 500,
     paddingX: '1.5rem',
     paddingY: '.75rem'
-}
+})
 
 export default segment;

@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const card = {
+const card = theme => ({
     ...globals,
     colors,
     
@@ -16,6 +16,6 @@ const card = {
     get padding() {
         return `${this.paddingY} ${this.paddingX}`
     },
-}
+})
 
 export default card;

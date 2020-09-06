@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const toast = {
+const toast = theme => ({
     ...globals,
     colors,
 
@@ -29,6 +29,6 @@ const toast = {
         return this.paddingY
     },
     spacing: '.5rem'
-}
+})
 
 export default toast;

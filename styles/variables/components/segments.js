@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const tabs = {
+const tabs = theme => ({
     ...globals,
     colors,
 
@@ -37,6 +37,6 @@ const tabs = {
     get paddingTop() {
         return this.paddingY
     },
-}
+})
 
 export default tabs;

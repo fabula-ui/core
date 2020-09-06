@@ -1,8 +1,4 @@
-import globals from '../globals';
-
-const alert = {
-    ...globals,
-
+const alert = theme => ({
     borderRadius: '.5rem',
     color: '#FFF',
     glowRadius: '2px',
@@ -23,6 +19,6 @@ const alert = {
     titleFontSize: '.9rem',
     titleFontWeight: 600,
     titleLineHeight: 1,
-}
+})
 
 export default alert;

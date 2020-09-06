@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const tooltip = {
+const tooltip = theme => ({
     ...globals,
     colors,
 
@@ -9,6 +9,6 @@ const tooltip = {
         return colors['dark']
     },
     offset: '.75em'
-}
+})
 
 export default tooltip;

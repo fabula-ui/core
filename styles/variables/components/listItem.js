@@ -3,7 +3,7 @@ import Color from 'color';
 import colors from '../colors';
 import globals from '../globals';
 
-const listItem = {
+const listItem = theme => ({
     ...globals,
     colors,
 
@@ -25,6 +25,6 @@ const listItem = {
     get padding() {
         return `${this.paddingY} ${this.paddingX}`
     },
-}
+})
 
 export default listItem;

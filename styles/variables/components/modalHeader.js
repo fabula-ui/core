@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const modalSection = {
+const modalSection = theme => ({
     ...globals,
     colors,
 
@@ -13,6 +13,6 @@ const modalSection = {
     },
     titleFontSize: '1.25rem',
     titleFontWeight: 600
-}
+})
 
 export default modalSection;

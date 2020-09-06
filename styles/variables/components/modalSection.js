@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const modalSection = {
+const modalSection = theme => ({
     ...globals,
     colors,
 
@@ -10,6 +10,6 @@ const modalSection = {
     get padding() {
         return `${this.paddingY} ${this.paddingX}`
     },
-}
+})
 
 export default modalSection;

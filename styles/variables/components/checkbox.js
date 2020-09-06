@@ -1,7 +1,7 @@
 import colors from '../colors';
 import globals from '../globals';
 
-const checkbox = {
+const checkbox = theme => ({
     ...globals,
     colors,
 
@@ -18,6 +18,6 @@ const checkbox = {
     },
     size: '1.1em',
     spacing: '.5em'
-}
+})
 
 export default checkbox;
