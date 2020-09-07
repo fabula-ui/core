@@ -1,8 +1,4 @@
-import globals from '../globals';
-
-const inputGroup = theme => ({
-    ...globals,
-    
+const inputGroup = theme => ({    
     spacing: '.75em'
 })
 

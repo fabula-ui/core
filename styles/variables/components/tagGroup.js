@@ -1,11 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const tagGroup = theme => ({
-    ...globals,
-    colors,
-
-    // Component vars
+const tagGroup = () => ({
     spacing: '.25rem'
 })
 

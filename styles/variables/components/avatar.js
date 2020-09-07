@@ -1,6 +1,3 @@
-import colors from '../colors';
-import globals from '../globals';
-
 const avatar = theme => ({
     get color() {
         return theme.variables.colors.aux

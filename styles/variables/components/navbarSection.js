@@ -1,10 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const navbar = theme => ({
-    ...globals,
-    colors,
-
+const navbar = () => ({
     paddingX: 0,
     paddingY: '.75rem'
 })

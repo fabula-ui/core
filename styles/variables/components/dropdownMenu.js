@@ -1,10 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const dropdownMenu = theme => ({
-    ...globals,
-    colors,
-    
+const dropdownMenu = () => ({
     color: '#FFF',
     paddingX: 0,
     paddingY: '.5rem'

@@ -1,4 +1,4 @@
-const alert = theme => ({
+const alert = () => ({
     borderRadius: '.5rem',
     color: '#FFF',
     glowRadius: '2px',

@@ -1,10 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const card = theme => ({
-    ...globals,
-    colors,
-    
+const card = () => ({
     borderRadius: '.75rem',
     color: '#FFF',
     glowX: 0,

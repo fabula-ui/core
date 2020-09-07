@@ -1,12 +1,6 @@
-import colors from '../colors';
-import globals from '../globals';
-
 const modalSection = theme => ({
-    ...globals,
-    colors,
-
     get subtitleColor() {
-        return this.auxTextColor
+        return theme.variables.globals.auxTextColor
     },
     get titleColor() {
         return '#FFF'

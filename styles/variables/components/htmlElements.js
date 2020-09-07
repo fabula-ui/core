@@ -1,9 +1,3 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const htmlElements = theme => ({
-    ...globals,
-    colors
-})
+const htmlElements = theme => ({})
 
 export default htmlElements

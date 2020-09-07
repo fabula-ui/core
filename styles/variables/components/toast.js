@@ -1,10 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
 const toast = theme => ({
-    ...globals,
-    colors,
-
     borderWidth: '1px',
     color: '#FFF',
     fontSize: '.95rem',

@@ -1,10 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const dropdownItem = theme => ({
-    ...globals,
-    colors,
-    
+const dropdownItem = () => ({    
     paddingX: '1rem',
     paddingY: '.5em'
 })

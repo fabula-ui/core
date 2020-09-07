@@ -1,17 +1,11 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const dropdownHeader = theme => ({
-    ...globals,
-    colors,
-    
+const dropdownHeader = theme => ({    
     fontSize: '.8rem',
     fontWeight: 600,
     opacity: .8,
     paddingX: '1rem',
     paddingY: '.25rem',
     get textColor() {
-        return globals.auxTextColor
+        return theme.variables.globals.auxTextColor
     }
 })
 

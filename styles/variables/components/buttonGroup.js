@@ -1,10 +1,4 @@
-import colors from '../colors';
-
-const theme = window['__FABTheme'];
-
-const buttonGroup = theme => ({
-    colors,
-
+const buttonGroup = () => ({
     spacing: '.5rem'
 })
 

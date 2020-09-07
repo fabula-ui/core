@@ -1,25 +1,18 @@
-import colors from '../colors';
-import globals from '../globals';
-
 const segment = theme => ({
-    ...globals,
-    colors,
-
-    // Component vars
     get activeFillColor() {
         return '#FFF'
     },
     get activeTextColor() {
-        return this.colors['primary']
+        return theme.variables.colors['primary']
     },
     get inactiveFillColor() {
-        return this.colors['light']
+        return theme.variables.colors['light']
     },
     get inactiveTextColor() {
-        return this.auxTextColor
+        return theme.variables.globals.auxTextColor
     },
     get inactiveTextColor__hover() {
-        return this.textColor
+        return theme.variables.globals.textColor
     },
     fontSize: '.9rem',
     fontWeight: 500,

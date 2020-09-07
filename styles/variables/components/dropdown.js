@@ -1,12 +1,5 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const dropdown = theme => ({
-    ...globals,
-    colors,
-
+const dropdown = () => ({
     borderRadius: '.5rem',
-    colors,
     spacing: '.25rem'
 })
 

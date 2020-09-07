@@ -1,12 +1,4 @@
-import Color from 'color';
-
-import colors from '../colors';
-import globals from '../globals';
-
 const listItem = theme => ({
-    ...globals,
-    colors,
-
     color: '#FFF',
     paddingX: '1rem',
     paddingY: '1rem',

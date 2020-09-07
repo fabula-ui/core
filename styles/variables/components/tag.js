@@ -1,15 +1,8 @@
-import colors from '../colors';
-import globals from '../globals';
-
 const tag = theme => ({
-    ...globals,
-    colors,
-
-    // Component vars
     borderRadius: `calc(${globals.borderRadius} * .6)`,
     borderWidth: '1px',
     get color() {
-        return this.colors['aux']
+        return theme.variables.colors.aux
     },
     fontSize: '.9em',
     fontWeight: 400,

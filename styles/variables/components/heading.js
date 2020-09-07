@@ -1,10 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const heading = theme => ({
-    ...globals,
-    colors,
-    
+const heading = () => ({    
     fontWeight: 700,
     letterSpacing: '-.05em',
     levelMultipliers: {

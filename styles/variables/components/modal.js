@@ -1,10 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const modal = theme => ({
-    ...globals,
-    colors,
-
+const modal = () => ({
     backdropColor: '#000',
     backdropOpacity: .5,
     color: '#FFF',

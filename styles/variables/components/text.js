@@ -1,4 +1,4 @@
-const text = theme => ({
+const text = () => ({
     fontSize: '1em',
     spacing: '.5rem'
 })

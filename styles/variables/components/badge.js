@@ -1,12 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const theme = window['__FABTheme'];
-
-const badge = theme => ({
-    ...globals,
-    colors,
-
+const badge = () => ({
     borderRadius: '.33em',
     circleSize: '1.75em',
     get color() {

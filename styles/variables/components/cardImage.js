@@ -1,10 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const cardImage = theme => ({
-    ...globals,
-    colors,
-    
+const cardImage = () => ({    
     paddingX: '1rem',
     paddingY: '1rem',
     get padding() {
