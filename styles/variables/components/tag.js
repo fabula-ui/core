@@ -1,5 +1,5 @@
 const tag = theme => ({
-    borderRadius: `calc(${globals.borderRadius} * .6)`,
+    borderRadius: `calc(${theme.variables.globals.borderRadius} * .6)`,
     borderWidth: '1px',
     get color() {
         return theme.variables.colors.aux
