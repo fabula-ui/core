@@ -22,7 +22,7 @@ const alignCSS = params => {
     const alignment = (props.al || props.align) ? alignments[props.al || props.align] : null;
     const alignmentH = (props.alH || props.alignH) ? alignments[props.alH || props.alignH] : null;
     const alignmentV = (props.alV || props.alignV) ? alignments[props.alV || props.alignV] : null;
-    const layout = (props.direction === 'column') ? 'v' : 'h';
+    const layout = (props.direction === 'column' || props.flow === 'v' || props.flow === 'vertical') ? 'v' : 'h';
 
     return `
         ${
