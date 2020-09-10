@@ -1,9 +1,6 @@
 import Color from 'color';
 
 const list = theme => ({
-    ...globals,
-    colors,
-
     color: '#FFF',
     paddingX: '1rem',
     paddingY: '1rem',

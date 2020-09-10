@@ -1,4 +1,4 @@
-const toggle = () => ({
+const toggle = theme => ({
     get color() {
         return theme.variables.colors.primary
     },
