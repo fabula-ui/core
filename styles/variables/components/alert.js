@@ -13,12 +13,10 @@ const alert = () => ({
     },
     spacingX: '.75em',
     spacingY: '.25em',
-    textFontSize: '1rem',
+    textFontSize: '1em',
     textFontWeight: 400,
-    textLineHeight: 1,
-    titleFontSize: '.9rem',
+    titleFontSize: '.9em',
     titleFontWeight: 600,
-    titleLineHeight: 1,
 })
 
 export default alert;

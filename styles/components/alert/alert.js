@@ -27,6 +27,7 @@ const AlertStyles = params => {
             color: ${vars.textColor};
             display: flex;
             font-family: ${vars.fontFamily};
+            font-size: ${vars.fontSize};
             padding: ${vars.padding};
             position: relative;
             transition: ${vars.transition};
@@ -60,7 +61,7 @@ const AlertStyles = params => {
         .fab-alert__title {
             font-size: ${vars.titleFontSize};
             font-weight: ${vars.titleFontWeight};
-            line-height: ${vars.titleLineHeight};
+            line-height: 1;
         }
 
         .fab-alert__title:not(:last-child) {

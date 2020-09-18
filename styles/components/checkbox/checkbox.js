@@ -58,7 +58,7 @@ const CheckboxStyles = params => {
 
         .fab-checkbox {
             align-items: center;
-            border-radius: ${rounded ? '50%' : vars.borderRadius};
+            border-radius: ${vars.borderRadius};
             display: flex;
             flex-shrink: 0;
             font-size: 1em;
