@@ -1,8 +1,8 @@
 const displayUtils = props => {
-    if (props.display) {
+    if (props.display || props.d) {
         return `
             & {
-                display: ${props.display}!important;
+                display: ${(props.display || props.d)}!important;
             }
         `
     } else {
