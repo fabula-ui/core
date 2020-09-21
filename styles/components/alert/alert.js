@@ -9,18 +9,14 @@ import typeModifier from './modifiers/alert-type.modifier';
 const AlertStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('alert');
-    const wrapper = framework === 'angular' ? '.fab-alert-wrapper' : '&';
+    const wrapper = framework === 'angular' ? '.fab-alert' : '&';
 
     return `
-        ${wrapper} {
-            width: 100%;
-        }
-
         &[data-visible='false'] {
             display: none;
         }
 
-        .fab-alert {
+        ${wrapper} {
             align-items: flex-start;
             border: solid ${vars.borderWidth};
             border-radius: ${vars.borderRadius};
@@ -33,7 +29,7 @@ const AlertStyles = params => {
             transition: ${vars.transition};
         }
 
-        .fab-alert[data-closing='true'] {
+        ${wrapper}[data-closing='true'] {
             opacity: 0;
             visibility: hidden;
         }
@@ -73,16 +69,16 @@ const AlertStyles = params => {
             margin: calc(-${vars.padding} / 4) 0;
         }
 
-        .fab-alert[data-title='true'] .fab-inner-icon {
+        ${wrapper}[data-title='true'] .fab-inner-icon {
             flex-shrink: 0;
             height: .95em;
             width: .95em;
         }
 
         // Modifiers
-        ${colorModifier(props)}
-        ${(props.marker || props.type) ? markerModifier(props) : ''}
-        ${props.type ? typeModifier(props) : ''}
+        ${colorModifier(params)}
+        ${(props.marker || props.type) ? markerModifier(params) : ''}
+        ${props.type ? typeModifier(params) : ''}
     `;
 }
 

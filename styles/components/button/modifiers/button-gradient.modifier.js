@@ -2,12 +2,14 @@ import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 import getGradientColor from '../../../methods/color/getGradientColor';
 
-const gradientModifier = props => {
+const gradientModifier = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('button');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
+    const wrapper = framework === 'angular' ? '.fab-button' : '&';
 
     return `
-        .fab-button {
+        ${wrapper} {
             background: ${getGradientColor(color)};
             position: relative;
 

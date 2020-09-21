@@ -14,15 +14,10 @@ const ButtonStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('button');
     const context = getContext(props);
-    const wrapper = framework === 'angular' ? '.fab-button-wrapper' : '&';
+    const wrapper = framework === 'angular' ? '.fab-button' : '&';
 
     return `
         ${wrapper} {
-            display: inline-flex;
-            ${props.expand ? `width: 100%;` : ''}
-        }
-
-        .fab-button {
             align-items: center;
             appearance: none;
             border: none;
@@ -51,8 +46,7 @@ const ButtonStyles = params => {
             ${!!props.align ? `text-align: ${props.align};` : ''}
             position: relative;
             transition: all ${vars.transition};
-            
-            width: 100%;
+            ${props.expand ? `width: 100%;` : ''}
 
             &:focus {
                 outline: none;
@@ -78,17 +72,17 @@ const ButtonStyles = params => {
             }
         }
 
-        a.fab-button {
+        a${wrapper} {
             text-decoration: none;
         }
 
         // Modifiers
-        ${props.circle ? circleModifier(props) : ''}
-        ${colorModifier(props)}
-        ${props.gradient && props.color ? gradientModifier(props) : ''}
-        ${iconModifier(props)}
-        ${props.smashed ? smashedModifier(props) : ''}
-        ${props.size ? sizeModifier(props) : ''}
+        ${props.circle ? circleModifier(params) : ''}
+        ${colorModifier(params)}
+        ${props.gradient && props.color ? gradientModifier(params) : ''}
+        ${iconModifier(params)}
+        ${props.smashed ? smashedModifier(params) : ''}
+        ${props.size ? sizeModifier(params) : ''}
     `
 }
 

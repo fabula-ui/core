@@ -10,18 +10,20 @@ import getHoverColor from '../../../methods/color/getHoverColor';
 import getHoverTextColor from '../../../methods/color/getHoverTextColor';
 import getTextColor from '../../../methods/color/getTextColor';
 
-const colorModifier = props => {
+const colorModifier = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('button');
     const color = (props.color || props.clear) ? getColor(props.color, vars.colors) : vars.color;
     const context = (props.color || props.clear) ? getContext(props) : 'fill';
     const focusGlowColor = (!!props.focusGlowColor && getColor(props.focusGlowColor) || props.color) ? color : vars.focusGlowColor;
+    const wrapper = framework === 'angular' ? '.fab-button' : '&';
 
     // User defined colors
     const userBgColor = props.bgColor ? getColor(props.bgColor, vars.colors) : null;
     const userTextColor = props.textColor ? getColor(props.textColor, vars.colors) : null;
 
     return `
-        .fab-button {
+        ${wrapper} {
             background: ${userBgColor ? userBgColor : getBgColor(color, context)};
             ${(props.border || props.outline) ? `border: solid 1px ${getBorderColor(color, context === 'gradient' ? 'fill' : context)};` : ''}
             ${props.glow ? `box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${getGlowColor(color, context)};` : ''}

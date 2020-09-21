@@ -1,10 +1,12 @@
 import getComponentVars from '../../../methods/misc/getComponentVars';
 
-const smashedModifier = props => {
+const smashedModifier = params => {
+    const { framework } = params;
     const vars = getComponentVars('button');
+    const wrapper = framework === 'angular' ? '.fab-button' : '&';
 
     return `
-        .fab-button {
+        ${wrapper} {
             border-radius: ${vars.borderRadiusSmashed};
             font-size: calc(${vars.fontSize} * .9);
             min-height: ${vars.minHeightSmashed};

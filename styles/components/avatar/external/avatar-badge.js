@@ -3,6 +3,11 @@ const BadgeExternalStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-avatar-wrapper' : '&';
 
     return `
+        ${wrapper} .fab-badge {
+            padding-left: .4em;
+            padding-right: .4em;
+        }
+
         ${wrapper} .fab-badge[data-has-placement='false'] {
             bottom: 0;
             position: absolute;

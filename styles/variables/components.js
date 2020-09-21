@@ -14,6 +14,7 @@ import dropdown from './components/dropdown';
 import dropdownHeader from './components/dropdownHeader';
 import dropdownItem from './components/dropdownItem';
 import dropdownMenu from './components/dropdownMenu';
+import element from './components/element';
 import fileInput from './components/fileInput';
 import heading from './components/heading';
 import htmlElements from './components/htmlElements';
@@ -40,6 +41,7 @@ import text from './components/text';
 import toast from './components/toast';
 import toggle from './components/toggle';
 import tooltip from './components/tooltip';
+import wrapper from './components/wrapper';
 
 const components = {
     alert,
@@ -58,6 +60,7 @@ const components = {
     dropdownHeader,
     dropdownItem,
     dropdownMenu,
+    element,
     fileInput,
     heading,
     htmlElements,
@@ -83,7 +86,8 @@ const components = {
     text,
     toast,
     toggle,
-    tooltip
+    tooltip,
+    wrapper
 }
 
 export default components;
