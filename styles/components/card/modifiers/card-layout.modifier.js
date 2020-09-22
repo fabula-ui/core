@@ -1,8 +1,9 @@
 const layoutModifier = params => {
-    const { props } = params;
+    const { props, framework } = params;
+    const wrapper = framework === 'angular' ? '.fab-card' : '&';
 
     return `
-        .fab-card {
+        ${wrapper} {
             display: ${(props.layout === 'h' || props.layout === 'horizontal') ? 'flex' : 'block'}; 
             ${(props.layout === 'h' || props.layout === 'horizontal') ? `flex-direction: row;` : ''
         }

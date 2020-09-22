@@ -8,20 +8,22 @@ import getContext from '../../../methods/misc/getContext';
 const dividerModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('buttonGroup');    
-    const color = getColor(props.dividerColor || props.color, vars.colors);
-    const context = props.dividerColor || props.color ? getContext(props) : 'fill';
+    const color = (props.dividerColor || props.color) ? getColor(props.dividerColor || props.color, vars.colors) : vars.borderColor;
+    const context = (props.dividerColor || props.color) ? getContext(props) : 'fill';
+    const layout = (props.layout === 'h' || props.layout === 'horizontal') ? 'h' : 'v';
     const wrapper = framework === 'angular' ? '.fab-button-group' : '&';
-    const buttonWrapper = framework === 'angular' ? 'fab-button' : '.fab-button-wrapper';
+    const buttonWrapper = framework === 'angular' ? 'fab-button' : '.fab-button';
 
     return `
         ${wrapper} {
-            .fab-button-wrapper {
+            .fab-button {
                 ${props.outline ? `border-right: none;` : ''}
             }
 
-            ${buttonWrapper}:not(:last-child) .fab-button {
-                ${props.glued ? `border-right: solid 1px;` : ''}
-                border-right-color: ${props.color ? getDividerColor(color, context) : getBgColor(color, context)};
+            ${buttonWrapper}:not(:last-child) ${framework === 'angular' ? '.fab-button' : ''} {
+                ${layout === 'h' ? `border-right: solid 1px;` : 'border-bottom: solid 1px;'}
+                ${layout === 'h' ? `border-right-color: ${props.color ? getDividerColor(color, context) : getBgColor(color, context)};` : ''}
+                ${layout === 'v' ? `border-bottom-color: ${props.color ? getDividerColor(color, context) : getBgColor(color, context)};` : ''}
             }
         }
     `

@@ -9,15 +9,15 @@ import layoutModifier from './modifiers/card-layout.modifier';
 const CardStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('card');
+    const wrapper = framework === 'angular' ? '.fab-card' : '&';
 
     return `
         ${framework === 'angular' ? `& { display: block; }` : ''}
 
-        > .fab-card {
+        ${wrapper} {
             border-radius: ${vars.borderRadius};
             font-family: ${vars.fontFamily};
             ${props.padding ? `padding: ${typeof props.padding === 'boolean' ? `${vars.padding};` : getNumber(props.padding, 'rem')};` : ''}
-            width: 100%;
         }
         
         ${colorModifier(params)}
