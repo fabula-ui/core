@@ -11,7 +11,7 @@ const tag = theme => ({
     glowX: 0,
     glowY: '1px',
     paddingX: '.7em',
-    paddingY: '.5em',
+    paddingY: '.3em',
     get paddingBottom() {
         return this.paddingY
     },

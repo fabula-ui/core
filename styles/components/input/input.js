@@ -6,6 +6,7 @@ import glowModifier from './modifiers/glow.modifier';
 import messageColorModifier from './modifiers/messageColor.modifier';
 import sizeModifier from './modifiers/size.modifier';
 import statusModifier from './modifiers/status.modifier';
+import variantModifier from './modifiers/input-variant.modifier';
 
 // Icons
 const toggleIcon = require(`../../../icons/raw/eye.svg`);
@@ -14,10 +15,6 @@ const toggleOffIcon = require(`../../../icons/raw/eye-off.svg`);
 const InputStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('input');
-    const icon = !!props.icon ? require(`../../../icons/raw/${typeof props.icon === 'object' ? props.icon.name : props.icon}.svg`) : null;
-    const iconEnd = !!props.iconEnd ? require(`../../../icons/raw/${typeof props.iconEnd === 'object' ? props.iconEnd.name : props.iconEnd}.svg`) : null;
-    const iconStart = !!props.iconStart ? require(`../../../icons/raw/${typeof props.iconStart === 'object' ? props.iconStart.name : props.iconStart}.svg`) : null;
-
     const wrapper = framework === 'angular' ? '.fab-input-wrapper' : '&';
 
     return `
@@ -105,7 +102,6 @@ const InputStyles = params => {
     }
 
     .fab-input__icon {
-        background-color: ${vars.textColor};
         display: block;
         height: 1.1em;
         mask-repeat: no-repeat;
@@ -124,12 +120,11 @@ const InputStyles = params => {
     }
 
     .fab-input__icon[data-placement='end'] {
-        mask-image: url(${iconEnd});
         right: ${vars.paddingRight};
     }
 
+    .fab-inner-icon,
     .fab-input__icon[data-placement='start'] {
-        mask-image: url(${iconStart || icon});
         left: ${vars.paddingLeft};
     }
 
@@ -213,6 +208,7 @@ const InputStyles = params => {
     ${(!!props.message && props.message.color) || !!props.messageColor ? messageColorModifier(params) : ''}
     ${!!props.size ? sizeModifier(params) : ''}
     ${!!props.status ? statusModifier(params) : ''}
+    ${variantModifier(params)}
     `
 };
 

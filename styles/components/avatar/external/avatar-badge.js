@@ -4,8 +4,8 @@ const BadgeExternalStyles = params => {
 
     return `
         ${wrapper} .fab-badge {
-            padding-left: .4em;
-            padding-right: .4em;
+            padding-left: .5em!important;
+            padding-right: .5em!important;
         }
 
         ${wrapper} .fab-badge[data-has-placement='false'] {
