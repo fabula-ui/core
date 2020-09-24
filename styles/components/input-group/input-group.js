@@ -9,6 +9,7 @@ import sizeModifier from './modifiers/input-group-size.modifier';
 const InputGroupStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('input');
+    const layout = (props.layout === 'horizontal' || props.layout === 'h') ? 'h' : 'v';
 
     return `
     ${framework === 'angular' ? `& { display: block;` : ''}
@@ -16,18 +17,18 @@ const InputGroupStyles = params => {
     .fab-input-group {
         align-items: flex-start;
         display: flex;
-        flex-direction: ${props.flow === 'horizontal' ? 'row' : 'column'};
+        flex-direction: ${layout === 'h' ? 'row' : 'column'};
     }
 
     .fab-input-group > *,
     .fab-input-group .fab-button {
         ${framework === 'angular' ? `display: inline-flex;` : ''}
-        ${props.flow === 'vertical' ? `width: 100%;` : ''}
+        ${layout === 'v' ? `width: 100%;` : ''}
     }
     
     .fab-input-group > *:not(:last-child) {
-        ${props.flow === 'horizontal' ? `margin-right: ${getNumber(props.spacing, 'rem') || vars.spacing}` : ''};
-        ${props.flow === 'vertical' ? `margin-bottom: ${getNumber(props.spacing, 'rem') || vars.spacing}` : ''};
+        ${layout === 'h' ? `margin-right: ${getNumber(props.spacing, 'rem') || vars.spacing}` : ''};
+        ${layout === 'v' ? `margin-bottom: ${getNumber(props.spacing, 'rem') || vars.spacing}` : ''};
     }
 
     ${framework === 'angular' ? `fab-input` : `.fab-input-group .fab-input-wrapper`} {
@@ -49,7 +50,7 @@ const InputGroupStyles = params => {
     }
 
     // Modifiers
-    ${props.glued ? gluedModifier(props) : ''}
+    ${gluedModifier(props)}
     ${props.size ? sizeModifier(props) : ''}
     `
 };
