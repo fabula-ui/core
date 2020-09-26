@@ -1,4 +1,5 @@
-const dropdownItem = () => ({    
+const dropdownItem = () => ({  
+    color: '#FFF',  
     paddingX: '1rem',
     paddingY: '.5em'
 })

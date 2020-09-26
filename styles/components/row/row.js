@@ -6,7 +6,6 @@ const RowStyles = params => {
         ${wrapper} {
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
             margin-left: -15px;
             margin-right: -15px;
         }

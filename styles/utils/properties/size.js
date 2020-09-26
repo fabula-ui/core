@@ -5,6 +5,7 @@ const sizeUtils = params => {
 
     return `
         & {
+            ${props.expand ? `width: 100%;` : ''}
             ${props.height ? `height: ${getNumber(props.height, 'px')};` : ''}
             ${props.maxHeight ? `max-height: ${getNumber(props.maxHeight, 'px')};` : ''}
             ${props.maxWidth ? `min-width: ${getNumber(props.maxWidth, 'px')};` : ''}

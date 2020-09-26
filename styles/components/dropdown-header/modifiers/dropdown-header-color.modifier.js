@@ -12,13 +12,12 @@ const colorModifier = params => {
 
     let textColor = (props.color || props.parentColor) ? getTextColor(color, 'fill') : vars.textColor;
 
-    if (props.textColor) {
-        textColor = getColor(props.textColor, vars.colors);
+    if (props.color) {
+        textColor = getColor(props.color, vars.colors);
     }
 
     return `
         ${wrapper} {
-            ${props.color ? `background-color: ${bgColor};` : ''}
             color: ${textColor};
         }
     `;

@@ -14,6 +14,7 @@ const WrapperStyles = params => {
         & {
             ${props.bgColor ? `background-color: ${getBgColor(bgColor, context)};` : ''}
             ${props.color ? `color: ${getBgColor(color, context)};` : ''}
+            display: block;
         }
     `
 }

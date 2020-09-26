@@ -7,8 +7,7 @@ const sizeModifier = params => {
     const wrapper = framework === 'angular' ? '.fab-dropdown-item' : '&';
 
     return `
-        ${wrapper},
-        .fab-dropdown-item__button {
+        ${wrapper} {
             font-size: calc(${vars.fontSize} * ${multiplier});
         }
     `;
