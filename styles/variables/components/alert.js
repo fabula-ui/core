@@ -15,7 +15,7 @@ const alert = () => ({
     spacingY: '.25em',
     textFontSize: '1em',
     textFontWeight: 400,
-    titleFontSize: '.8em',
+    titleFontSize: '.9em',
     titleFontWeight: 600,
 })
 

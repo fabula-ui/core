@@ -14,7 +14,6 @@ const TextStyles = params => {
     ${framework === 'angular' ? `& { display: block; }` : ''}
     
     ${wrapper} {
-        align-items: flex-start;
         color: inherit;
         ${props.aux ? `color: ${vars['auxTextColor']};` : ''}
         display: block;
@@ -25,7 +24,6 @@ const TextStyles = params => {
         letter-spacing: -.05rem;
         line-height: ${props.lineHeight ? props.lineHeight : '1.5'};
         ${!props.wrap ? `white-space: nowrap;` : ''}
-        vertical-align: middle;
     }
 
     ${wrapper} .fab-text:not([data-color]) {
