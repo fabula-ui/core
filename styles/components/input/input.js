@@ -166,27 +166,22 @@ const InputStyles = params => {
     }
 
     // External components
-    .fab-input__elements .fab-button-wrapper {
+    .fab-input__elements {
         align-items: center;
-        display: flex;
-        height: 100%;        
+        display: flex;      
     }
 
-    .fab-input__elements .fab-button-wrapper[data-circle='true'] .fab-button {
+    .fab-input__elements .fab-button[data-circle='true'] {
         width: 2em;
     }
 
-    .fab-input__elements .fab-button-wrapper:not([data-circle='true']):not([data-rounded='true']) .fab-button {
+    .fab-input__elements .fab-button:not([data-circle='true']):not([data-rounded='true']) {
         border-radius: .3em;
     }
 
     .fab-input__elements .fab-button {
         height: 2em;
         min-height: auto;
-    }
-
-    .fab-input__elements .fab-button-wrapper[data-rounded='true'] {
-        right: .65em;
     }
 
     .fab-input__elements .fab-button {

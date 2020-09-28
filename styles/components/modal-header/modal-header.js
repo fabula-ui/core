@@ -9,6 +9,7 @@ const ModalHeaderStyles = params => {
         ${wrapper} {
             align-items: flex-start;
             display: flex;
+            flex-shrink: 0;
         }
 
         .fab-modal-header__content {

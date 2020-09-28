@@ -11,6 +11,7 @@ const ModalSectionStyles = params => {
     
     return `
         ${wrapper} {
+            font-family: ${vars.fontFamily};
             ${props.padding ? `padding: ${vars.padding};` : ''}
             ${framework === 'angular' ? 'width: 100%;' : ''}
         }

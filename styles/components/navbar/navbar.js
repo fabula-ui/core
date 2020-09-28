@@ -15,6 +15,8 @@ const NavbarStyles = params => {
             display: flex;
             height: ${props.height ? getNumber(props.height, 'px') : 'auto'};
             min-height: ${!props.height ? vars.minHeight : 'initial'};
+            padding-left: 15px;
+            padding-right: 15px;
             width: 100%;
         }
 

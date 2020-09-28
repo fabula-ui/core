@@ -84,11 +84,6 @@ const ModalStyles = params => {
             }
         }
 
-        .fab-modal-body {
-            flex: 1 1 auto;
-            overflow-y: auto;
-        }
-
         .fab-modal__dialog {
             display: flex;
             flex-direction: column;
@@ -98,14 +93,6 @@ const ModalStyles = params => {
             height: 100%;
             overflow-x: hidden;
             overflow-y: auto;
-        }
-
-        .fab-modal-footer {
-            flex-shrink: 0;
-        }
-
-        .fab-modal-header {
-            flex-shrink: 0;
         }
         
         // Modifiers
