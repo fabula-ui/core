@@ -9,7 +9,7 @@ const getTargetColor = (color, colors) => {
     } else if (!paletteColor) {
         return {
             type: 'custom',
-            value: null
+            value: color
         };
     } else {
         return {

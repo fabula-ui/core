@@ -39,7 +39,7 @@ const colorModifier = props => {
     return `
         .fab-segments {
             background: ${baseInactiveFillColor};
-            border: solid 1px ${baseBorderColor};
+            ${props.border ? `border: solid 1px ${baseBorderColor};` : ''}
         }
     `;
 }

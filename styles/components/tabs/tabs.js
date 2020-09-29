@@ -12,8 +12,16 @@ const TabsStyle = params => {
         }
 
         .fab-tabs {
+            ${(props.alignment === 'center' && props.stacked) ? `align-items: center;` : ''}
+            ${(props.alignment === 'center' && !props.stacked) ? `justify-content: center;` : ''}
+            ${props.alignment === 'left' && props.stacked ? `justify-content: flex-start;` : ''}
+            ${props.alignment === 'left' && !props.stacked ? `align-items: flex-start;` : ''}
+            ${props.alignment === 'right' && props.stacked ? `justify-content: flex-end;` : ''}
+            ${props.alignment === 'right' && !props.stacked ? `align-items: flex-end;` : ''}
+            
             display: flex;
             ${props.stacked ? `flex-direction: column;` : ''}
+            
             ${props.stretch ? `height: 100%;` : ''}
             ${props.type === 'float' || props.type === 'pill' ? `padding: .7rem 1rem;` : ''}
         }
