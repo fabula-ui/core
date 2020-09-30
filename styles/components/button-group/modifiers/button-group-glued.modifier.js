@@ -13,14 +13,19 @@ const gluedModifier = params => {
                 z-index: 1;
             }
 
-            ${framework === 'angular' ? `fab-button:not(:first-child) .fab-button[data-border='true']` : ''},
-            ${framework === 'angular' ? `fab-button:not(:first-child) .fab-button[data-outline='true']` : ''},
-            ${framework !== 'angular' ? `.fab-button[data-border='true']:not(:first-child)` : ''},
-            ${framework !== 'angular' ? `.fab-button[data-outline='true']:not(:first-child)` : ''},
-            ${framework === 'angular' ? `fab-dropdown:not(:first-child) .fab-button[data-border='true']` : ''},
-            ${framework === 'angular' ? `fab-dropdown:not(:first-child) .fab-button[data-outline='true']` : ''},
-            ${framework !== 'angular' ? `.fab-dropdown:not(:first-child) .fab-button[data-border='true']` : ''},
-            ${framework !== 'angular' ? `.fab-dropdown:not(:first-child) .fab-button[data-outline='true']` : ''} {
+            // Angular
+            fab-button:not(:first-child) .fab-button[data-border='true'],
+            fab-button:not(:first-child) .fab-button[data-outline='true'],
+            fab-dropdown:not(:first-child) .fab-button[data-outline='true'],
+            fab-dropdown:not(:first-child) .fab-button[data-outline='true'] {
+                margin-left: -1px;
+            }
+
+            // Others
+            .fab-button[data-border='true']:not(:first-child),
+            .fab-button[data-outline='true']:not(:first-child),
+            .fab-dropdown:not(:first-child) .fab-button[data-border='true'],
+            .fab-dropdown:not(:first-child) .fab-button[data-outline='true'] {
                 margin-left: -1px;
             }
 
