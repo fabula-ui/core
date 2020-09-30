@@ -13,6 +13,7 @@ const TooltipStyles = params => {
     return `
         & {
             display: block;
+            pointer-events: none;
             position: absolute;
             z-index: 9999;
         }

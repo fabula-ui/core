@@ -10,7 +10,7 @@ import getTextColor from '../../../methods/color/getTextColor';
 const colorModifier = props => {
     const vars = getComponentVars('toast');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
-    const context = getContext(props);
+    const context = props.color ? getContext(props) : 'fill';
 
     return `
         .fab-toast {

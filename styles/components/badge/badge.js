@@ -12,10 +12,11 @@ const BadgeStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-badge-wrapper' : '&';
 
     return `
-        ${framework === 'angular' ? `& { display: inline-flex; }` : ''}
+        ${framework === 'angular' ? `& { display: inline-block; }` : ''}
 
         ${wrapper} {
-            display: inline-flex;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .fab-badge {

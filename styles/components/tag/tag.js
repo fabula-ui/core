@@ -21,6 +21,7 @@ const TagStyles = params => {
             ${!props.weight ? `font-weight: ${vars.fontWeight};` : ''}
             letter-spacing: ${vars.letterSpacing};
             line-height: 1.5;
+            overflow: hidden;
             padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};
             width: 100%;
 
@@ -35,13 +36,13 @@ const TagStyles = params => {
             appearance: none;
             background: none;
             border: none;
-            border-radius: inherit;
             cursor: pointer;
             color: inherit;
             display: flex;
             font-family: inherit;
-            font-size: 1rem;
+            font-size: 1em;
             font-weight: inherit;
+            letter-spacing: inherit;
             line-height: inherit;
             margin: -${vars.paddingTop} -${vars.paddingRight} -${vars.paddingBottom} -${vars.paddingLeft};
             padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};

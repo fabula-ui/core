@@ -71,7 +71,7 @@ const ToggleStyles = params => {
         cursor: pointer;
         font-weight: ${props.weight ? props.weight : '400'};
         letter-spacing: -.025em;
-        padding-left: .5rem;
+        padding-left: .5em;
     }
 
     ${colorModifier(params)}
