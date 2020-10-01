@@ -17,12 +17,13 @@ const TextStyles = params => {
         color: inherit;
         ${props.aux ? `color: ${vars['auxTextColor']};` : ''}
         display: block;
-        ${props.inline ? `display: inline;` : ''}
+        ${props.inline ? `display: inline-block;` : ''}
         font-family: ${vars.fontFamily};
         font-size: ${vars.fontSize};
         ${props.weight ? `font-weight: ${props.weight};` : ''}
         letter-spacing: -.05rem;
         line-height: ${props.lineHeight ? props.lineHeight : '1.5'};
+        vertical-align: middle;
         ${!props.wrap ? `white-space: nowrap;` : ''}
     }
 
@@ -31,6 +32,8 @@ const TextStyles = params => {
     }
 
     // External
+    ${wrapper} > *,
+    ${wrapper} .fab-badge,
     ${wrapper} .fab-icon {
         vertical-align: middle;
     }

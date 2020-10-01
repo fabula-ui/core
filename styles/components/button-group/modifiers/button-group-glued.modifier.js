@@ -16,7 +16,7 @@ const gluedModifier = params => {
             // Angular
             fab-button:not(:first-child) .fab-button[data-border='true'],
             fab-button:not(:first-child) .fab-button[data-outline='true'],
-            fab-dropdown:not(:first-child) .fab-button[data-outline='true'],
+            fab-dropdown:not(:first-child) .fab-button[data-border='true'],
             fab-dropdown:not(:first-child) .fab-button[data-outline='true'] {
                 margin-left: -1px;
             }

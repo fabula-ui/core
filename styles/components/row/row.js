@@ -1,6 +1,6 @@
 const RowStyles = params => {
     const { framework } = params;
-    const wrapper = framework === 'angular' ? '.fab-column' : '&';
+    const wrapper = framework === 'angular' ? '.fab-row' : '&';
 
     return `
         ${wrapper} {

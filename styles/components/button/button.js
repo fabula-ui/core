@@ -24,7 +24,7 @@ const ButtonStyles = params => {
             border-radius: ${vars.borderRadius};
             ${props.rounded ? `border-radius: 999px;` : ''}
             cursor: pointer;
-            display: inline-flex;
+            display: inline-block;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
@@ -65,10 +65,6 @@ const ButtonStyles = params => {
                 opacity: ${vars.disabledOpacity};
                 pointer-events: none;
                 user-select: none;
-            }
-
-            > *:not(:last-child) {
-                margin-right: ${vars.childrenSpacing};
             }
         }
 
