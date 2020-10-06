@@ -17,6 +17,11 @@ const ButtonStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-button' : '&';
 
     return `
+        &,
+        ${wrapper} {
+            ${props.expand ? `width: 100%;` : ''}
+        }
+
         ${wrapper} {
             align-items: center;
             appearance: none;
@@ -46,7 +51,6 @@ const ButtonStyles = params => {
             ${!!props.align ? `text-align: ${props.align};` : ''}
             position: relative;
             transition: all ${vars.transition};
-            ${props.expand ? `width: 100%;` : ''}
 
             &:focus {
                 outline: none;
@@ -66,6 +70,10 @@ const ButtonStyles = params => {
                 pointer-events: none;
                 user-select: none;
             }
+        }
+
+        ${wrapper} > * {
+            vertical-align: middle;
         }
 
         a${wrapper} {

@@ -6,41 +6,42 @@ import colorModifier from './modifiers/text-color.modifier';
 import sizeModifier from './modifiers/text-size.modifier';
 
 const TextStyles = params => {
-    const { framework, props, } = params;
+    const { framework, props } = params;
     const vars = getComponentVars('text');
     const wrapper = framework === 'angular' ? '.fab-text' : '&';
 
     return `
-    ${framework === 'angular' ? `& { display: block; }` : ''}
-    
-    ${wrapper} {
-        color: inherit;
-        ${props.aux ? `color: ${vars['auxTextColor']};` : ''}
-        display: block;
-        ${props.inline ? `display: inline-block;` : ''}
-        font-family: ${vars.fontFamily};
-        font-size: ${vars.fontSize};
-        ${props.weight ? `font-weight: ${props.weight};` : ''}
-        letter-spacing: -.05rem;
-        line-height: ${props.lineHeight ? props.lineHeight : '1.5'};
-        vertical-align: middle;
-        ${!props.wrap ? `white-space: nowrap;` : ''}
-    }
+        &,
+        ${wrapper} {
+            display: block;
+            ${props.inline ? `display: inline-block!important;` : ''}
+        }
 
-    ${wrapper} .fab-text:not([data-color]) {
-        color: inherit;
-    }
+        ${wrapper} {
+            color: inherit;
+            ${props.aux ? `color: ${vars['auxTextColor']};` : ''}
+            display: block;
+            
+            font-family: ${vars.fontFamily};
+            font-size: ${vars.fontSize};
+            ${props.weight ? `font-weight: ${props.weight};` : ''}
+            letter-spacing: -.05rem;
+            line-height: ${props.lineHeight ? props.lineHeight : '1.5'};
+            ${!props.wrap ? `white-space: nowrap;` : ''}
+        }
 
-    // External
-    ${wrapper} > *,
-    ${wrapper} .fab-badge,
-    ${wrapper} .fab-icon {
-        vertical-align: middle;
-    }
+        ${wrapper} .fab-text:not([data-color]) {
+            color: inherit;
+        }
 
-    // Modifiers
-    ${props.color ? colorModifier(params) : ''}
-    ${props.size ? sizeModifier(params) : ''}
+        // External
+        ${wrapper} > * {
+            vertical-align: middle;
+        }
+
+        // Modifiers
+        ${props.color ? colorModifier(params) : ''}
+        ${props.size ? sizeModifier(params) : ''}
     `
 };
 

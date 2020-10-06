@@ -9,6 +9,7 @@ const DropdownToggleStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-dropdown-toggle' : '&';
 
     return `
+        &,
         ${wrapper} {
             ${props.expand ? `width: 100%;` : ''}
         }
@@ -47,11 +48,16 @@ const DropdownToggleStyles = params => {
         }
 
         .fab-dropdown-toggle__label {
+            display: inline-block;
             margin-right: .5em;
         }
 
         .fab-dropdown-toggle__label:empty {
             display: none;
+        }
+
+        .fab-dropdown-toggle__label > * {
+            vertical-align: middle;
         }
 
         // External
