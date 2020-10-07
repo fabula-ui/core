@@ -1,14 +1,14 @@
 import getNumber from '../../methods/misc/getNumber';
 
 const paddingUtils = params => {
-    const { angularElement } = params;
-    let wrapper = angularElement ? '> [data-fab-component], > [data-fab-wrapper]' : '';
+    const { framework } = params;
+    const wrapper = framework === 'angular' ? '> [data-fab-component], > [data-fab-wrapper] > [data-fab-component]' : '&[data-fab-component], &[data-fab-wrapper] > [data-fab-component]';
 
     return `
-        ${wrapper ? `${wrapper} {` : ''}
-        ${paddingCSS(params)}
-        ${wrapper ? '}' : ''}
-    `
+        ${wrapper} {
+            ${paddingCSS(params)} 
+        }
+    `;
 }
 
 const paddingCSS = params => {
