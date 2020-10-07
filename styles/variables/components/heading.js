@@ -1,4 +1,7 @@
-const heading = () => ({    
+const heading = theme => ({ 
+    get color() {
+        return theme.variables.globals.textColor
+    },
     fontWeight: 700,
     letterSpacing: '-.05em',
     levelMultipliers: {

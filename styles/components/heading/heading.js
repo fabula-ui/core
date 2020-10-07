@@ -11,20 +11,23 @@ const HeadingStyles = params => {
 
     return `
         & {
+            font-family: ${vars.fontFamily};
+            font-size: calc(1rem * ${vars.levelMultipliers[props.level]});
+            font-weight: ${props.weight || vars.fontWeight};
+            letter-spacing: ${vars.letterSpacing};
             margin-bottom: ${vars.marginBottom};
             margin-top: 0;
 
             &:not(:first-child) {
                 margin-top: ${vars.marginTop};
             }
-        }
 
-        ${wrapper} {
-            font-family: ${vars.fontFamily};
-            font-size: calc(1rem * ${vars.levelMultipliers[props.level]});
-            font-weight: ${props.weight || vars.fontWeight};
-            letter-spacing: ${vars.letterSpacing};
-            margin: 0;
+            > .fab-heading {
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+                margin: 0;
+            }
         }
 
         // Modifiers
