@@ -15,7 +15,7 @@ const UtilsStyles = params => {
     return `
         ${alignUtils(params)}
         ${displayUtils(props)}
-        ${flexUtils(props)}
+        ${flexUtils(params)}
         ${fontUtils(params)}
         ${gridUtils(props)}
         ${marginUtils(params)}
