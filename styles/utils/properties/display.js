@@ -1,13 +1,10 @@
 const displayUtils = props => {
-    if (props.display || props.d) {
-        return `
+    return `
             & {
-                display: ${(props.display || props.d)}!important;
+                ${(props.display || props.d) ? `display: ${(props.display || props.d)}!important;` : ''}
+                ${props.block ? 'display: block!important;' : ''}
             }
         `
-    } else {
-        return ''
-    }
 }
 
 export default displayUtils

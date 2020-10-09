@@ -21,7 +21,6 @@ const TextStyles = params => {
             color: inherit;
             ${props.aux ? `color: ${vars['auxTextColor']};` : ''}
             display: block;
-            
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             ${props.weight ? `font-weight: ${props.weight};` : ''}
@@ -37,6 +36,11 @@ const TextStyles = params => {
         // External
         ${wrapper} > * {
             vertical-align: middle;
+        }
+
+        ${wrapper} > fab-link,
+        ${wrapper} > .fab-link {
+            vertical-align: initial;
         }
 
         // Modifiers

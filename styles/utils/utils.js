@@ -23,8 +23,6 @@ const UtilsStyles = params => {
         ${paddingUtils(params)}
         ${sizeUtils(params)}
         ${visibilityUtils(params)}
-
-        ${props.block ? 'display: block!important;' : ''}
     `;
 }
 
