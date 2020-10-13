@@ -33,7 +33,7 @@ const ModalSectionStyles = params => {
         }
 
         ${colorModifier(params)}
-        ${props.divider && dividerModifier(params)}
+        ${props.divider ? dividerModifier(params) : ''}
     `
 }
 
