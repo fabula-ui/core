@@ -13,8 +13,7 @@ const SegmentStyles = params => {
         ${framework === 'angular' ? `& { flex-grow: 1; flex-shrink: 0; }` : ''}
         ${wrapper} {
             ${props.rounded ? `border-radius: 999px;` : ''}
-            flex-grow: 1;
-            flex-shrink: 0;
+            flex: 1 0 0;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
