@@ -3,7 +3,8 @@ const ContainerStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-container' : '&';
 
     return `
-        ${wrapper} {
+        & {
+            display: block;
             margin-left: auto;
             margin-right: auto;
             padding-left: 15px;
@@ -25,6 +26,10 @@ const ContainerStyles = params => {
             @media (min-width: 1200px) {
                 max-width: 1140px;
             }
+        }
+
+        & > .fab-container {
+            width: 100%;
         }
     `
 }

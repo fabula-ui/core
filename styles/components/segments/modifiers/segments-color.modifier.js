@@ -4,10 +4,12 @@ import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
 import getDividerColor from '../../../methods/color/getDividerColor';
 
-const colorModifier = props => {
+const colorModifier = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('segments');
     const color = getColor(props.color, vars.colors);
     const context = getContext(props);
+    const wrapper = framework === 'angular' ? '.fab-segments' : '&';
 
     // User-defined
     const userBorderColor = getColor(props.borderColor, vars.colors);
@@ -23,7 +25,7 @@ const colorModifier = props => {
         } else {
             baseBorderColor = getDividerColor(color, context);
         }
-        
+
     } else {
         if (context === 'clear' || context === 'invert') {
             baseBorderColor = getDividerColor(color, 'fill');
@@ -37,7 +39,7 @@ const colorModifier = props => {
     }
 
     return `
-        .fab-segments {
+        ${wrapper} {
             background: ${baseInactiveFillColor};
             ${props.border ? `border: solid 1px ${baseBorderColor};` : ''}
         }
