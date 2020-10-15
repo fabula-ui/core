@@ -39,8 +39,6 @@ const alignCSS = params => {
 
         ${(alignmentV && layout === 'h') ? `align-items: ${alignmentV}!important;` : ''}
         ${(alignmentV && layout === 'v') ? `justify-content: ${alignmentV}!important;` : ''}
-
-        // ${props.alH ? `opacity: .2;` : ''}
     `
 }
 
