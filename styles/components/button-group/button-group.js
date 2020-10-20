@@ -2,10 +2,6 @@
 import dividerModifier from './modifiers/button-group-divider.modifier';
 import gluedModifier from './modifiers/button-group-glued.modifier';
 
-// Methods
-import getComponentVars from '../../methods/misc/getComponentVars';
-import getNumber from '../../methods/misc/getNumber';
-
 const ButtonGroupStyles = params => {
     const { framework, props } = params;
     const directions = {
@@ -14,7 +10,6 @@ const ButtonGroupStyles = params => {
         v: 'column',
         vertical: 'column'
     }
-    const vars = getComponentVars('buttonGroup');
     const wrapper = framework === 'angular' ? '.fab-button-group' : '&';
 
     return `

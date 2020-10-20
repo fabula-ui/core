@@ -13,6 +13,7 @@ const LinkStyles = params => {
     return `
         ${wrapper} {
             cursor: pointer;
+            display: inline-block;
             font-family: ${vars.fontFamily};
             font-weight: ${props.weight ? props.weight : 'inherit'};
             letter-spacing: ${vars.letterSpacing};

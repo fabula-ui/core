@@ -26,6 +26,7 @@ const ToggleStyles = params => {
 
     ${wrapper}[data-disabled='true'] {
         opacity: .5;
+        pointer-events: none;
         user-select: none;
 
         .fab-toggle,
