@@ -61,7 +61,7 @@ const ToastStyles = params => {
             padding-top: .4em;
         }
 
-        .fab-inner-icon {
+        .fab-icon {
             margin-right: ${vars.iconOffset};
         }
 
