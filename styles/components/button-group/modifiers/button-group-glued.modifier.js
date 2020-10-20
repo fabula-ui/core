@@ -18,7 +18,7 @@ const gluedModifier = params => {
             fab-button:not(:first-child) .fab-button[data-outline='true'],
             fab-dropdown:not(:first-child) .fab-button[data-border='true'],
             fab-dropdown:not(:first-child) .fab-button[data-outline='true'] {
-                margin-left: -1px;
+                margin-${layout === 'h' ? 'left' : 'top'}: -1px;
             }
 
             // Others
@@ -26,7 +26,7 @@ const gluedModifier = params => {
             .fab-button[data-outline='true']:not(:first-child),
             .fab-dropdown:not(:first-child) .fab-button[data-border='true'],
             .fab-dropdown:not(:first-child) .fab-button[data-outline='true'] {
-                margin-left: -1px;
+                margin-${layout === 'h' ? 'left' : 'top'}: -1px;
             }
 
             ${buttonWrapper}:first-child:not(:only-child) ${framework === 'angular' ? '.fab-button' : ''},
