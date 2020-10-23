@@ -9,54 +9,52 @@ const checkIcon = require('../../../icons/raw/check.svg');
 const minusIcon = require('../../../icons/raw/minus.svg');
 
 const CheckboxStyles = params => {
-    const { framework, props } = params;
-    const { rounded } = props;
+    const { props } = params;
     const vars = getComponentVars('checkbox');
-    const wrapper = framework === 'angular' ? '.fab-checkbox-wrapper' : '&';
 
     return `        
-        ${wrapper} {
-            align-items: center;
+        .fab-checkbox {
+            align-items: flex-start;
             cursor: pointer;
             display: flex;
             font-family: ${vars.fontFamily};
             user-select: none;
         }
 
-        ${wrapper}[data-checked='true'] {
-            .fab-checkbox:before,
+        .fab-checkbox[data-checked='true'] {
+            .fab-checkbox__square:before,
             .fab-icon {
                 opacity: 1;
                 visibility: visible;
             }
         }
 
-        ${wrapper}[data-disabled='true'] {
+        .fab-checkbox[data-disabled='true'] {
             cursor: default;
             opacity: ${vars.disabledOpacity};
             pointer-events: none;
         }
 
-        ${wrapper}[data-focus='true'] {
+        .fab-checkbox[data-focus='true'] {
             box-shadow: 0 2px 2px 2px rgba(0,0,0,.2);
         }
 
-        ${wrapper}[data-indeterminate='true'] .fab-checkbox:before {
+        .fab-checkbox[data-indeterminate='true'] .fab-checkbox__square:before {
             mask-image: url('${minusIcon}');
             opacity: 1;
             visibility: visible;
         }
 
-        ${wrapper}[data-read-only='true'] {
+        .fab-checkbox[data-read-only='true'] {
             cursor: default;
             pointer-events: none;
         }
 
-        ${wrapper} input[type='checkbox'] {
+        .fab-checkbox input[type='checkbox'] {
             display: none;
         }
 
-        .fab-checkbox {
+        .fab-checkbox__square {
             align-items: center;
             border-radius: ${vars.borderRadius};
             display: flex;
@@ -64,6 +62,8 @@ const CheckboxStyles = params => {
             font-size: 1em;
             height: ${vars.size};
             justify-content: center;
+            position: relative;
+            top: .075em;
             transition: ${vars.transition};
             width: ${vars.size};
 

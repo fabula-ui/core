@@ -7,16 +7,14 @@ import getHoverColor from '../../../methods/color/getHoverColor';
 import getTextColor from '../../../methods/color/getTextColor';
 
 const colorModifier = params => {
-    const { framework, props } = params;
+    const { props } = params;
     const vars = getComponentVars('checkbox');
     const context = getContext(props);
-    const wrapper = framework === 'angular' ? '.fab-checkbox-wrapper' : '&';
-
     const activeColor = props.activeColor ? getColor(props.activeColor, vars.colors) : (props.color ? getColor(props.color, vars.colors) : vars.activeColor);
     const inactiveColor = props.inactiveColor ? getColor(props.inactiveColor, vars.colors) : vars.inactiveColor;
 
     return `
-        ${wrapper}[data-checked='true'] .fab-checkbox {
+        .fab-checkbox[data-checked='true'] .fab-checkbox__square {
             background: ${getBgColor(activeColor, context)};
             color: ${getTextColor(activeColor, context)};
 
@@ -25,7 +23,7 @@ const colorModifier = params => {
             }
         }
 
-        ${wrapper}[data-checked='false'] .fab-checkbox {
+        .fab-checkbox[data-checked='false'] .fab-checkbox__square {
             background: ${getBgColor(inactiveColor, context)};
             color: ${getTextColor(inactiveColor, context)};
 
@@ -34,23 +32,23 @@ const colorModifier = params => {
             }
         }
 
-        ${wrapper}:not([data-disabled='true']):hover {
-            .fab-checkbox {
+        .fab-checkbox:not([data-disabled='true']):hover {
+            .fab-checkbox__square {
                 background: ${getHoverColor(inactiveColor, context)};
             }
             
-            &[data-checked='true'] .fab-checkbox {
+            &[data-checked='true'] .fab-checkbox__square {
                 background: ${getHoverColor(activeColor, context)};
             }
         }
 
-        ${wrapper}:not([data-disabled='true']):active {
-            .fab-checkbox {
+        .fab-checkbox:not([data-disabled='true']):active {
+            .fab-checkbox__square {
                 background: ${getActiveColor(inactiveColor, context)};
             }
             
 
-            &[data-checked='true'] .fab-checkbox {
+            &[data-checked='true'] .fab-checkbox__square {
                 background: ${getActiveColor(activeColor, context)};
             }
         }
