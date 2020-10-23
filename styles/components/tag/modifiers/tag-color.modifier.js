@@ -27,8 +27,8 @@ const colorModifier = props => {
             color: ${textColor};
         }
 
-        .fab-tag > a,
-        .fab-tag > button {
+        a.fab-tag,
+        button.fab-tag {
             &:before {
                 border-color: ${getFocusColor(color, context)};
             }

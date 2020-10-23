@@ -2,7 +2,13 @@ import getNumber from '../../methods/misc/getNumber';
 
 const paddingUtils = params => {
     const { framework, props } = params;
-    const wrapper = framework === 'angular' ? '> [data-fab-component], > [data-fab-wrapper] > [data-fab-component]' : '&[data-fab-component], &[data-fab-wrapper] > [data-fab-component]';
+    let wrapper;
+
+    if (framework === 'angular') {
+        wrapper = '> [data-fab-component], > [data-fab-wrapper] > [data-fab-component], > [data-fab-wrapper] > [data-fab-wrapper] > [data-fab-component]';
+    } else {
+        wrapper = '&[data-fab-component], &[data-fab-wrapper] > [data-fab-component], &[data-fab-wrapper] > [data-fab-wrapper] > [data-fab-component]';
+    }
 
     return `
     ${wrapper} {

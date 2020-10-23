@@ -2,12 +2,10 @@ import colorModifier from './modifiers/tabs-color.modifier';
 
 const TabsStyle = params => {
     const { framework, props } = params;
-    const wrapper = framework === 'angular' ? '.fab-tabs-wrapper' : '&';
 
     return `
-        ${framework === 'angular' ? '& { display: block; }' : ''}
-
-        & {
+        & { 
+            display: block;
             ${(props.expand === 'both' || props.expand === 'v') ? `align-self: stretch;` : ''}
         }
 
@@ -36,6 +34,7 @@ const TabsStyle = params => {
             height: 100%;
         }
 
+        // Modifiers
         ${colorModifier(params)}
     `
 }

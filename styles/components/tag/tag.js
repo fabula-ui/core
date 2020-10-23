@@ -30,36 +30,27 @@ const TagStyles = params => {
             }
         }
 
-        .fab-tag > a,
-        .fab-tag > button {
-            align-items: center;
-            appearance: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: inherit;
-            display: flex;
-            font-family: inherit;
-            font-size: 1em;
-            font-weight: inherit;
-            letter-spacing: inherit;
-            line-height: inherit;
-            margin: -${vars.paddingTop} -${vars.paddingRight} -${vars.paddingBottom} -${vars.paddingLeft};
-            padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};
+        a.fab-tag,
+        button.fab-tag {
+            transition: all ${vars.transition};
+        }
+
+        a.fab-tag {
             text-decoration: none;
             transition: all ${vars.transition};
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        button.fab-tag {
+            border: none;
+            cursor: pointer;
 
             &:focus {
                 outline: none;
             }
-
-            > *:not(:last-child) {
-                margin-right: .5em;
-            }
-        }
-
-        .fab-tag > a:hover {
-            text-decoration: none;
         }
 
         // Modifiers

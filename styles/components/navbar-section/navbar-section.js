@@ -6,20 +6,14 @@ const NavbarSectionStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-navbar-section' : '&';
 
     return `
-        ${framework === 'angular' ?
-            `
-            & {
-                ${props.expand ? `flex-grow: 1;` : ''}
-                ${props.placement === 'right' ? 'margin-left: auto;' : '&'}
-            }
-            `
-            :
-            ''}
+        & {
+            ${props.expand ? `flex-grow: 1;` : ''}
+            ${props.placement === 'right' ? 'margin-left: auto;' : '&'}
+        }
 
         ${wrapper} {
             align-self: stretch;
-            ${props.expand ? `flex-grow: 1;` : ''}
-            ${props.placement === 'right' ? 'margin-left: auto;' : ''}
+            display: flex;
             padding: ${vars.paddingY} ${vars.paddingX};
         }
     `;
