@@ -1,33 +1,53 @@
-import * as breakpoints from './breakpoints';
+import * as handlers from './breakpoints';
+import { breakpoints, breakpointsOrder } from './breakpoints';
 
-const getBreakpointProps = (context, props, styles, params) => {
+const getBreakpointProps = (context, params) => {
+	const { props } = params;
 	let css = ``;
 
-	for (let i = 0; i < props[context].length; i++) {
-		const contextProp = props[context][i];
-		const content =
-			!!styles && !!contextProp.props ? styles({ ...params, props: { ...props, ...contextProp.props } }) : null;
+	// keys.map(key => {
+	// 	const index = breakpointsOrder.indexOf(key);
 
-		css += breakpoints[context](contextProp.breakpoint, content, contextProp.styles, contextProp.utils);
+	// 	if (index > -1) {
+	// 		userBreakpointsReordered[index] = key;
+	// 	}
+	// })
+	// Object.keys(props[context]);
+
+	for (let i = 0; i < breakpointsOrder.length; i++) {
+		const breakpoint = breakpointsOrder[i];
+
+		if (props[context][breakpoint]) {
+			css += handlers[context](breakpoint, params);
+			// console.log('has ', handlers[context]);
+		}
 	}
+
+	// for (let i = 0; i < props[context].length; i++) {
+	// 	// const contextProp = props[context][i];
+	// 	// const content =
+	// 	// 	!!styles && !!contextProp.props ? styles({ ...params, props: { ...props, ...contextProp.props } }) : null;
+
+	// 	css += breakpoints[context](contextProp.breakpoint, content, contextProp.styles, contextProp.utils);
+	// }
 
 	return css;
 };
 
 const ResponsiveStyles = (params) => {
-	const { props, styles } = params;
+	const { props, responsiveStyles, styles, utilsStyles } = params;
 	let css = ``;
 
 	if (props.down) {
-		css += getBreakpointProps('down', props, styles, params);
-    }
-    
-    if (props.on) {
-		css += getBreakpointProps('on', props, styles, params);
-    }
-    
-    if (props.up) {
-		css += getBreakpointProps('up', props, styles, params);
+		css += getBreakpointProps('down', params);
+	}
+
+	if (props.on) {
+		css += getBreakpointProps('on', params);
+	}
+
+	if (props.up) {
+		css += getBreakpointProps('up', params);
 	}
 
 	return css;

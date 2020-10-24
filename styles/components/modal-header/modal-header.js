@@ -6,6 +6,10 @@ const ModalHeaderStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-modal-header' : '&';
 
     return `
+        & {
+            flex-shrink: 0;
+        }
+        
         ${wrapper} {
             align-items: flex-start;
             display: flex;

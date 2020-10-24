@@ -1,12 +1,6 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const navbar = {
-    ...globals,
-    colors,
-
+const navbar = () => ({
     color: '#FFF',
     minHeight: '4rem'
-}
+})
 
 export default navbar;

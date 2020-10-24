@@ -2,10 +2,12 @@ import getNumber from '../../methods/misc/getNumber';
 
 const sizeUtils = params => {
     const { props } = params;
-
-
+    const hasProperty = props.hasProperty || {};
+    
     return `
         & {
+            ${((props.expand === 'both' || props.expand === 'h' || props.expand === true) && !hasProperty.expand) ? `width: 100%;` : ''}
+            ${(props.expand === 'both' || props.expand === 'v' && !hasProperty.expand) ? `height: 100%;` : ''}
             ${props.height ? `height: ${getNumber(props.height, 'px')};` : ''}
             ${props.maxHeight ? `max-height: ${getNumber(props.maxHeight, 'px')};` : ''}
             ${props.maxWidth ? `min-width: ${getNumber(props.maxWidth, 'px')};` : ''}

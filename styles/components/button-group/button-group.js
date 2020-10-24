@@ -2,40 +2,30 @@
 import dividerModifier from './modifiers/button-group-divider.modifier';
 import gluedModifier from './modifiers/button-group-glued.modifier';
 
-// Methods
-import getComponentVars from '../../methods/misc/getComponentVars';
-import getNumber from '../../methods/misc/getNumber';
-
 const ButtonGroupStyles = params => {
-    const { framework, props } = params;
+    const { props } = params;
     const directions = {
         h: 'row',
         horizontal: 'row',
         v: 'column',
         vertical: 'column'
     }
-    const vars = getComponentVars('buttonGroup');
 
     return `
-    ${framework === 'angular' ? `& { display: block; }` : ''}
+    & { display: inline-block; }
 
     .fab-button-group {
         align-items: flex-start;
         box-sizing: border-box;
-        display: flex;
+        display: inline-flex;
         flex-direction: ${directions[props.layout]};
-        flex-wrap: ${props.wrap ? 'wrap' : 'nowrap'};
         justify-content: flex-start;
-        margin: ${props.spacing === null || props.spacing === undefined ? `-${vars.spacing}` : `calc(-${getNumber(props.spacing, 'rem')} / 2)`};
-
-        .fab-button-wrapper {
-            padding: ${props.spacing === null || props.spacing === undefined ? vars.spacing : `calc(${getNumber(props.spacing, 'rem')} / 2)`};
-        }
+        position: relative;
     }
 
     // Modifiers
-    ${props.glued && props.divider ? dividerModifier(params) : ''}
-    ${props.glued ? gluedModifier(params) : ''}
+    ${dividerModifier(params)}
+    ${gluedModifier(params)}
     `
 };
 

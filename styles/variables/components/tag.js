@@ -1,15 +1,8 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const tag = {
-    ...globals,
-    colors,
-
-    // Component vars
-    borderRadius: `calc(${globals.borderRadius} * .6)`,
+const tag = theme => ({
+    borderRadius: `calc(${theme.variables.globals.borderRadius} * .6)`,
     borderWidth: '1px',
     get color() {
-        return this.colors['aux']
+        return theme.variables.colors.aux
     },
     fontSize: '.9em',
     fontWeight: 400,
@@ -18,7 +11,7 @@ const tag = {
     glowX: 0,
     glowY: '1px',
     paddingX: '.7em',
-    paddingY: '.5em',
+    paddingY: '.3em',
     get paddingBottom() {
         return this.paddingY
     },
@@ -31,6 +24,6 @@ const tag = {
     get paddingTop() {
         return this.paddingY
     }
-}
+})
 
 export default tag;

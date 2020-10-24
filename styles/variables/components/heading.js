@@ -1,10 +1,7 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const heading = {
-    ...globals,
-    colors,
-    
+const heading = theme => ({ 
+    get color() {
+        return theme.variables.globals.textColor
+    },
     fontWeight: 700,
     letterSpacing: '-.05em',
     levelMultipliers: {
@@ -17,6 +14,6 @@ const heading = {
     },
     marginBottom: '1em',
     marginTop: '1.5em'
-}
+})
 
 export default heading;

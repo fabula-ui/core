@@ -7,15 +7,10 @@ import colorModifier from './modifiers/card-section-color.modifier';
 const CardSectionStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('cardSection');
-    const wrapper = framework === 'angular' ? '.fab-card-section-wrapper' : '&';
+    const wrapper = framework === 'angular' ? '.fab-card-section' : '&';
 
     return `
-        ${framework === 'angular' && props.expand ? '& { flex-grow: 1; }' : ''}
-        
         ${wrapper} {
-            display: flex;
-            flex-direction: column;
-            ${framework !== 'angular' && props.expand ? 'flex-grow: 1;' : ''}
             ${framework === 'angular' && props.expand && (props.layout === 'v' || props.layout === 'vertical') ? 'height: 100%;' : ''}
             ${framework === 'angular' && (props.layout === 'h' || props.layout === 'horizontal') ? 'width: 100%;' : ''}
         }
@@ -39,7 +34,7 @@ const CardSectionStyles = params => {
             border-radius: ${vars.borderRadius};
         }
 
-        .fab-card-section {
+        ${wrapper} {
             flex-grow: 1;
             ${props.padding ? `padding: ${vars.padding};` : ''}
         }

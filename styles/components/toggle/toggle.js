@@ -26,6 +26,7 @@ const ToggleStyles = params => {
 
     ${wrapper}[data-disabled='true'] {
         opacity: .5;
+        pointer-events: none;
         user-select: none;
 
         .fab-toggle,
@@ -71,7 +72,7 @@ const ToggleStyles = params => {
         cursor: pointer;
         font-weight: ${props.weight ? props.weight : '400'};
         letter-spacing: -.025em;
-        padding-left: .5rem;
+        padding-left: .5em;
     }
 
     ${colorModifier(params)}

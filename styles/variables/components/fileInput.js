@@ -1,9 +1,3 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const fileInput = {
-    ...globals,
-    colors,
-}
+const fileInput = () => ({})
 
 export default fileInput;

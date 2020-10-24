@@ -1,8 +1,8 @@
 // Utils
 import UtilStyles from '../utils/utils';
 
-const order = ['xs', 'sm', 'md', 'lg', 'xl'];
-const breakpoints = {
+export const breakpointsOrder = ['xl', 'lg', 'md', 'sm', 'xs'];
+export const breakpoints = {
     xl: '1200px',
     lg: '992px',
     md: '768px',
@@ -10,35 +10,24 @@ const breakpoints = {
     xs: 0
 }
 
-const convertStyles = styles => {
-    let css = '& {';
-
-    for (let key in styles) {
-        css += `${key}: ${styles[key]};`
-    }
-
-    css += '}';
-
-    return css;
-}
-
-const down = (bp, content, styles, utils) => {
+const down = (bp, params) => {
+    const { styles, utils } = params;
     const breakpoint = breakpoints[bp];
 
     if (breakpoint) {
         return `
             @media (max-width: ${breakpoint}) {
-                ${!!content ? content : ''}
-                ${!!styles ? convertStyles(styles) : ''}
-                ${!!utils ? UtilStyles({ props: utils }) : ''}
+                ${!!styles ? styles({ ...params, props: params.props.down[bp] }) : ''}
+                ${!!utils ? UtilStyles({ ...params, props: params.props.down[bp] }) : ''}
             }
         `
     } else {
-        return content || ''
+        return ''
     }
 }
 
-const on = (bp, content, styles, utils) => {
+const on = (bp, params) => {
+    const { styles, utils } = params;
     const breakpoint = breakpoints[bp];
     const bpIndex = order.indexOf(bp);
     const lowerBreakpoint = bpIndex > 0 ? breakpoints[order[bpIndex - 1]] : null;
@@ -46,29 +35,28 @@ const on = (bp, content, styles, utils) => {
     if (breakpoint) {
         return `
             @media ${lowerBreakpoint ? `(min-width: ${lowerBreakpoint}) and ` : ''} (max-width: ${breakpoint}) {
-                ${!!content ? content : ''}
-                ${!!styles ? convertStyles(styles) : ''}
-                ${!!utils ? UtilStyles({ props: utils }) : ''}
+                ${!!styles ? styles({ ...params, props: params.props.on[bp] }) : ''}
+                ${!!utils ? UtilStyles({ ...params, props: params.props.on[bp] }) : ''}
             }
         `
     } else {
-        return content || ''
+        return ''
     }
 }
 
-const up = (bp, content, styles, utils) => {
+const up = (bp, params) => {
+    const { styles, utils } = params;
     const breakpoint = breakpoints[bp];
 
     if (breakpoint) {
         return `
             @media (min-width: ${breakpoint}) {
-                ${!!content ? content : ''}
-                ${!!styles ? convertStyles(styles) : ''}
-                ${!!utils ? UtilStyles({ props: utils }) : ''}
+                ${!!styles ? styles({ ...params, props: params.props.up[bp] }) : ''}
+                ${!!utils ? UtilStyles({ ...params, props: params.props.up[bp] }) : ''}
             }
         `
     } else {
-        return content || ''
+        return ''
     }
 }
 

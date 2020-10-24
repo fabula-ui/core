@@ -1,10 +1,12 @@
 import getComponentVars from '../../../methods/misc/getComponentVars';
 
-const iconModifier = props => {
+const iconModifier = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('button');
+    const wrapper = framework === 'angular' ? '.fab-button' : '&';
 
     return `
-        .fab-button {
+        ${wrapper} {
             ${!!props.icon && !props.label ? `border-radius: 50%;` : ''}
             ${(!!props.icon && !props.label) && !props.smashed ? `height: ${vars.minHeight};` : ''}
             ${(!!props.icon && !props.label) && props.smashed ? `height: ${vars.minHeightSmashed};` : ''}
@@ -19,7 +21,7 @@ const iconModifier = props => {
             font-size: .8em;
         }
         
-        .fab-button .fab-inner-icon {
+        ${wrapper} .fab-inner-icon {
             height: .9em;
             width: .9em;
         }

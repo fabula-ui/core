@@ -1,4 +1,6 @@
 const gluedModifier = props => {
+    const layout = props.layout === 'horizontal' || props.layout === 'h' ? 'h' : 'v';
+
     return `
         .fab-input-group .fab-button:focus,
         .fab-input-group .fab-input[data-focus='true'] {
@@ -6,20 +8,22 @@ const gluedModifier = props => {
         }
     
         .fab-input-group > *:first-child:not(:only-child) {
+            &,
+            &:before,
             .fab-button,
             .fab-button:before,
             .fab-input,
             .fab-input:before,
             .fab-input input {
-                ${props.flow === 'vertical' ? `border-bottom-left-radius: 0;` : ''}
+                ${layout === 'v' ? `border-bottom-left-radius: 0;` : ''}
                 border-bottom-right-radius: 0;
-                ${props.flow === 'horizontal' ? `border-top-right-radius: 0;` : ''}
+                ${layout === 'h' ? `border-top-right-radius: 0;` : ''}
             }
         }
 
-        .fab-input-group >  *:not(:first-child):not(:last-child) {
-            .fab-button,
-            .fab-button:before,
+        .fab-input-group > *:not(:first-child):not(:last-child) {
+            &,
+            &:before,
             .fab-input,
             .fab-input:before,
             .fab-input input {
@@ -28,20 +32,22 @@ const gluedModifier = props => {
         }
 
         .fab-input-group > *:last-child:not(:only-child) {
+            &,
+            &:before,
             .fab-button,
             .fab-button:before,
             .fab-input,
             .fab-input:before,
             .fab-input input {
-                ${props.flow === 'horizontal' ? `border-bottom-left-radius: 0;` : ''}
+                ${layout === 'h' ? `border-bottom-left-radius: 0;` : ''}
                 border-top-left-radius: 0;
-                ${props.flow === 'vertical' ? `border-top-right-radius: 0;` : ''}
+                ${layout === 'v' ? `border-top-right-radius: 0;` : ''}
             }
         }
 
         .fab-input-group > *:not(:last-child) {
-            ${props.flow === 'horizontal' ? `margin-right: -1px;` : ''}
-            ${props.flow === 'vertical' ? `margin-bottom: -1px;` : ''}
+            ${layout === 'h' ? `margin-right: -1px;` : ''}
+            ${layout === 'v' ? `margin-bottom: -1px;` : ''}
         }
     `;
 }

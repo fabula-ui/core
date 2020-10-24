@@ -9,6 +9,7 @@ const DropdownToggleStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-dropdown-toggle' : '&';
 
     return `
+        &,
         ${wrapper} {
             ${props.expand ? `width: 100%;` : ''}
         }
@@ -33,19 +34,30 @@ const DropdownToggleStyles = params => {
             }
         }
 
-
         .fab-dropdown-toggle__chevron {
+            display: inline-block;
             flex-shrink: 0;
             height: 1em;
+            mask-image: url('${chevronIcon}');
             mask-repeat: no-repeat;
             mask-position: center center;
             mask-size: contain;
+            transition: all .2s ease-in-out;
+            vertical-align: middle;
             width: 1em;
         }
 
-        .fab-dropdown-toggle__chevron {
-            mask-image: url('${chevronIcon}');
-            transition: all .2s ease-in-out;
+        .fab-dropdown-toggle__label {
+            display: inline-block;
+            margin-right: .5em;
+        }
+
+        .fab-dropdown-toggle__label:empty {
+            display: none;
+        }
+
+        .fab-dropdown-toggle__label > * {
+            vertical-align: middle;
         }
 
         // External

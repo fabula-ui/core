@@ -11,12 +11,12 @@ const TabStyle = params => {
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
-        ${props.expand ? `flex-grow: 1;` : ''}
-        ${props.expand ? `flex-shrink: 0;` : ''}
+        ${(props.expand === 'both' || props.expand === 'h' || props.expand === true) ? `flex-grow: 1;` : ''}
+        ${(props.expand === 'both' || props.expand === 'h' || props.expand === true) ? `flex-shrink: 0;` : ''}
         
         ${wrapper} {
-            ${props.expand ? `flex-grow: 1;` : ''}
-            ${props.expand ? `flex-shrink: 0;` : ''}
+            ${(props.expand === 'both' || props.expand === 'h' || props.expand === true) ? `flex-grow: 1;` : ''}
+            ${(props.expand === 'both' || props.expand === 'h' || props.expand === true) ? `flex-shrink: 0;` : ''}
         }
 
         ${wrapper} {
@@ -52,7 +52,7 @@ const TabStyle = params => {
             }
 
             > *:not(:last-child) {
-                ${props.layout === 'vertical' ? 'margin-bottom: .5em;' : 'margin-right: .5em;'}
+                ${(props.layout === 'v' || props.layout === 'vertical') ? 'margin-bottom: .5em;' : 'margin-right: .5em;'}
             }
         }
 

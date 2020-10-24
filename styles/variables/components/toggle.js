@@ -1,14 +1,8 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const toggle = {
-    ...globals,
-    colors,
-
+const toggle = theme => ({
     get color() {
-        return this.colors.primary
+        return theme.variables.colors.primary
     },
     size: '1.5em'
-}
+})
 
 export default toggle;

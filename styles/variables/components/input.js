@@ -1,13 +1,7 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const input = {
-    ...globals,
-    colors,
-    
+const input = theme => ({    
     color: '#FFF',
     get focusGlowColor() {
-        return this.colors.primary
+        return theme.variables.colors.primary
     },
     focusGlowRadius:'3px',
     fontSize: '1em',
@@ -27,6 +21,6 @@ const input = {
         return this.paddingY
     },
     spacing: '.5rem'
-}
+})
 
 export default input;

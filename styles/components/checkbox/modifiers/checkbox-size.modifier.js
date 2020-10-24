@@ -6,11 +6,11 @@ const sizeModifier = params => {
     const sizeMultiplier = vars.sizeMultipliers[props.size || 'md'];
 
     return `
-        .fab-checkbox {
+        .fab-checkbox__label {
             font-size: calc(${vars.fontSize} * ${sizeMultiplier});
         }
 
-        .fab-checkbox__label {
+        .fab-checkbox__square {
             font-size: calc(${vars.fontSize} * ${sizeMultiplier});
         }
     `;

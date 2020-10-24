@@ -5,9 +5,8 @@ const sizeModifier = props => {
     const size = vars.sizes[props.size];
 
     return `
-        .fab-modal {
+        .fab-modal__dialog {
             max-width: ${size};
-            min-width: ${size};
         }
     `;
 }

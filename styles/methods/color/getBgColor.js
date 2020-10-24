@@ -18,7 +18,7 @@ const getBgColor = (color, context) => {
     } else if (context === 'clear') {
         return 'none';
     } else if (context === 'darken') {
-        return $color.darken(.2);
+        return $color.darken(.15);
     } else if (context === 'disabled') {
         return $color.mix(Color('white'), .95);
     } else if (context === 'faded') {
@@ -26,7 +26,7 @@ const getBgColor = (color, context) => {
     } else if (context === 'fill') {
         return color;
     } else if (context === 'gradient') {
-        getGradientColor(color);
+        return getGradientColor(color);
     } else if (context === 'invert') {
         if ($color.luminosity() > baseLuminosity) {
             return $color.darken(.75);
@@ -36,7 +36,7 @@ const getBgColor = (color, context) => {
     } else if (context === 'outline') {
         return 'none';
     } else if (context === 'lighten') {
-        return $color.lighten(.2);
+        return $color.lighten(.15);
     }
 }
 

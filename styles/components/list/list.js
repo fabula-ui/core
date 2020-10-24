@@ -15,7 +15,7 @@ const ListStyles = params => {
         }
 
         // Modifiers
-        ${colorModifier(params)}
+        ${props.color ? colorModifier(params) : ''}
     `
 };
 

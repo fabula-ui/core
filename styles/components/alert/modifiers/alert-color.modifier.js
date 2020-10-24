@@ -7,14 +7,16 @@ import getContext from '../../../methods/misc/getContext';
 import getTextColor from '../../../methods/color/getTextColor';
 import getGlowColor from '../../../methods/color/getGlowColor';
 
-const colorModifier = props => {
+const colorModifier = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('alert');
     const borderColor = getColor(props.borderColor || props.color, vars.colors);
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
     const context = props.color ? getContext(props) : 'fill';
+    const wrapper = framework === 'angular' ? '.fab-alert' : '&';
 
     return `
-        .fab-alert {
+        ${wrapper} {
             ${!props.clear ? `background: ${getBgColor(color, context)};` : ''}
             border-color: ${!!props.border ? `${getDividerColor(borderColor, context)}` : 'transparent'};
             ${((props.borderColor || props.outline) && !!props.border) ? `border-color: ${getBorderColor(borderColor, context)};` : ''}

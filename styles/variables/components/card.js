@@ -1,10 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const card = {
-    ...globals,
-    colors,
-    
+const card = () => ({
     borderRadius: '.75rem',
     color: '#FFF',
     glowX: 0,
@@ -16,6 +10,6 @@ const card = {
     get padding() {
         return `${this.paddingY} ${this.paddingX}`
     },
-}
+})
 
 export default card;

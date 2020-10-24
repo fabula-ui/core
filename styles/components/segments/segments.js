@@ -5,14 +5,12 @@ import getComponentVars from '../../methods/misc/getComponentVars';
 import colorModifier from './modifiers/segments-color.modifier';
 
 const SegmentsStyles = params => {
-    const { framework, props } = params;
+    const { props } = params;
     const vars = getComponentVars('segments');
-    const wrapper = framework === 'angular' ? '.fab-segments-wrapper' : '&';
     
     return `
-        ${framework === 'angular' ? '& { display: block; }' : ''}
-        ${wrapper} {
-            display: flex;
+        & {
+            display: block;
         }
 
         .fab-segments {
@@ -22,11 +20,10 @@ const SegmentsStyles = params => {
             overflow: hidden;
             ${props.rounded ? `padding: 1px;` : ''}
             text-align: center;
-            width: 100%;
         }
 
         // Modifiers
-        ${colorModifier(props)}
+        ${colorModifier(params)}
     `;
 }
 

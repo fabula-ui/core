@@ -12,16 +12,17 @@ const BadgeStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-badge-wrapper' : '&';
 
     return `
-        ${framework === 'angular' ? `& { display: inline-flex; }` : ''}
+        ${framework === 'angular' ? `& { display: inline-block; }` : ''}
 
         ${wrapper} {
-            display: inline-flex;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .fab-badge {
             align-items: center;
             border-radius: ${vars.borderRadius};
-            ${props.circle || props.rounded ? `border-radius: 999px;` : ''}
+            ${(props.circle || props.rounded) ? `border-radius: 999px;` : ''}
             display: flex;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
@@ -32,7 +33,9 @@ const BadgeStyles = params => {
             ${props.circle || props.rounded ? `min-width: ${vars.circleSize};` : ''}
             padding: ${vars.padding};
             ${props.circle ? `padding: 0;` : ''}
-            ${props.rounded ? `padding: ${vars.padding} calc(${vars.padding} + .2em);` : ''}
+            ${props.rounded ? `padding: ${vars.paddingY} calc(${vars.paddingX} + .2em);` : ''}
+            text-align: center;
+            ${props.width ? `width: ${vars.circleSize};` : ''}
         }
 
         ${colorModifier(props)}

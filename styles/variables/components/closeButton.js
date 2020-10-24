@@ -1,16 +1,10 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const navbar = {
-    ...globals,
-    colors,
-
+const navbar = theme => ({
     get color() {
-        return this.colors['white']
+        return theme.variables.colors.white
     },
     get hoverColor() {
-        return this.colors['aux']
+        return theme.variables.colors.aux
     }
-}
+})
 
 export default navbar;

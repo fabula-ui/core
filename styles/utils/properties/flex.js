@@ -1,24 +1,5 @@
 const flexUtils = params => {
-    return `
-        > [data-fab-component] {
-        ${flexCSS(params)}
-        }
-
-        ${flexCSS(params)}
-    `
-}
-
-const flexCSS = params => {
-    const { angularElement, framework, props } = params;
-    const { alItems, alignItems, fl, flGrow, flex, flexGrow, flow, justContent, justifyContent } = props;
-    let wrapper = framework === 'angular' ? '' : '&';
-    const alignmentTypes = {
-        center: 'center',
-        end: 'flex-end',
-        left: 'flex-start',
-        right: 'flex-end',
-        start: 'flex-start'
-    };
+    const { framework, props } = params;
     const flowTypes = {
         column: 'column',
         h: 'row',
@@ -27,14 +8,24 @@ const flexCSS = params => {
         v: 'column',
         vertical: 'column'
     };
+    const direction = flowTypes[props.direction];
+    const flow = flowTypes[props.flow];
+    const wrapper = framework === 'angular' ? '> [data-fab-component], > [data-fab-wrapper] > [data-fab-component]' : '&[data-fab-component], &[data-fab-wrapper] > [data-fab-component]';
 
     return `
-        ${(alItems || alignItems) ? `align-items: ${alignmentTypes[alItems || alignItems] || alItems || alignItems}!important;` : ''}
-        ${(fl || flex) ? `display: flex!important;` : ''}
-        ${flow ? `flex-direction: ${flowTypes[flow] || flow}!important;` : ''}
-        ${props.direction ? `flex-direction: ${props.direction}!important;` : ''}
-        ${flGrow || flexGrow ? `flex-grow: ${flGrow || flexGrow}!important;` : ''}
-        ${justContent || justifyContent ? `justify-content: ${alignmentTypes[justContent || justifyContent] || justContent || justifyContent}!important;` : ''}
+        & {
+            ${props.basis != null ? `flex-basis: ${props.basis}!important;` : ''}
+            ${props.grow != null ? `flex-grow: ${props.grow}!important;` : ''}
+            ${props.shrink != null ? `flex-shrink: ${props.shrink}!important;` : ''}
+        }
+        
+        ${wrapper} {
+            ${(props.flex && typeof props.flex === 'boolean') ? `display: flex!important;` : ''}
+            ${(props.flex && typeof props.flex !== 'boolean') ? `flex: ${props.flex}!important;` : ''}
+            ${flow ? `flex-direction: ${flow}!important;` : ''}
+            ${direction ? `flex-direction: ${direction}!important;` : ''}
+            ${props.wrap ? `flex-wrap: wrap!important;` : ''}
+        }
     `;
 }
 

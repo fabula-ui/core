@@ -1,12 +1,7 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const dropdownItem = {
-    ...globals,
-    colors,
-    
+const dropdownItem = () => ({  
+    color: '#FFF',  
     paddingX: '1rem',
     paddingY: '.5em'
-}
+})
 
 export default dropdownItem;

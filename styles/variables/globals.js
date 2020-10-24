@@ -16,6 +16,7 @@ const globals = {
     focusGlowRadius: '3px',
     fontFamily: '\'Inter\', sans-serif',
     fontSize: '1rem',
+    gridColumns: 12,
     letterSpacing: '-.025em',
     sizeMultipliers: {
         xxs: .6,

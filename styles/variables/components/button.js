@@ -1,9 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const button = {
-    ...globals,
-    colors,
+const button = theme => ({    
     borderRadius: '.5em',
     borderRadiusSmashed: '.33em',
     borderWidth: 1,
@@ -12,7 +7,7 @@ const button = {
     compactMultiplier: .6,
     disabledOpacity: .6,
     get focusGlowColor() {
-        return colors.primary
+        return theme.variables.colors.primary
     },
     focusGlowRadius: '3px',
     fontWeight: 600,
@@ -37,7 +32,6 @@ const button = {
         return this.paddingY
     },
     wideMultiplier: 4
-
-}
+})
 
 export default button;

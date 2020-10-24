@@ -2,6 +2,7 @@ import getBgColor from '../../../methods/color/getBgColor';
 import getBorderColor from '../../../methods/color/getBorderColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 import getFocusGlowColor from '../../../methods/color/getFocusGlowColor';
+import getGlowColor from '../../../methods/color/getGlowColor';
 import getPlaceholderColor from '../../../methods/color/getPlaceholderColor';
 import getTextColor from '../../../methods/color/getTextColor';
 
@@ -15,9 +16,11 @@ const statusModifier = params => {
         .fab-input {
             background-color: ${getBgColor(color, 'disabled')};
             border-color: ${getBorderColor(color, 'faded')};
+            ${props.glow ? `box-shadow: 0 2px 2px ${getGlowColor(color, 'faded')};` : ''}
             color: ${getBgColor(color, 'fill')};
 
-            input::placeholder {
+            input::placeholder,
+            textarea::placeholder {
                 color: ${getPlaceholderColor(color)};
             }
         }
@@ -27,7 +30,8 @@ const statusModifier = params => {
             box-shadow: 0 0 0 ${vars.focusGlowRadius} ${getFocusGlowColor(color, 'faded')};
         }
 
-        .fab-input__icon {
+        .fab-inner-icon,
+        .fab-input__password-toggle .fab-input__icon {
             background-color: ${getBgColor(color, 'fill')};
         }
 

@@ -1,16 +1,5 @@
 const alignUtils = params => {
-    return `
-        > [data-fab-component] {
-        ${alignCSS(params)}
-        }
-
-        ${alignCSS(params)}
-    `
-}
-
-const alignCSS = params => {
-    const { props } = params;
-    const { al, alH, alV, align, alignH, alignV } = props;
+    const { framework, props } = params;
     const alignments = {
         bottom: 'flex-end',
         center: 'center',
@@ -20,22 +9,18 @@ const alignCSS = params => {
         start: 'flex-start',
         top: 'flex-start'
     };
+    const alignmentH = (props.al || props.alH || props.alignH) ? alignments[props.al || props.alH || props.alignH] : null;
+    const alignmentV = (props.al || props.alV || props.alignV) ? alignments[props.al || props.alV || props.alignV] : null;
+    const layout = (props.direction === 'column' || props.flow === 'v' || props.flow === 'vertical') ? 'v' : 'h';
+    const wrapper = framework === 'angular' ? '> [data-fab-component], > [data-fab-wrapper] > [data-fab-component]' : '&[data-fab-component], &[data-fab-wrapper] > [data-fab-component]';
 
     return `
-        ${
-        al || align ?
-            `
-                align-items: ${alignments[al || align] || al || align}!important;
-                justify-content: ${alignments[al || align] || al || align}!important;
-            `
-            : ''
+        ${wrapper} {
+            ${(alignmentH && layout === 'v') ? `align-items: ${alignmentH}!important;` : ''}
+            ${(alignmentH && layout === 'h') ? `justify-content: ${alignmentH}!important;` : ''}
+            ${(alignmentV && layout === 'h') ? `align-items: ${alignmentV}!important;` : ''}
+            ${(alignmentV && layout === 'v') ? `justify-content: ${alignmentV}!important;` : ''}
         }
-
-        ${alV || alignV ? `align-items: ${alignments[alV || alignV] || alV || alignV}!important;` : ''}
-        ${(props.layout === 'h' || props.layout === 'horizontal') && (alV || alignV) ? `align-items: ${alignments[alV || alignV] || alV || alignV}!important;` : ''}
-
-        ${alH || alignH ? `justify-content: ${alignments[alH || alignH] || alH || alignH}!important;` : ''}
-        ${(props.layout === 'v' || props.layout === 'vertical') && (alV || alignV) ? `justify-content: ${alignments[alV || alignV] || alV || alignV}!important;` : ''}
     `
 }
 

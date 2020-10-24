@@ -10,28 +10,26 @@ import smashedModifier from './modifiers/button-smashed.modifier';
 import getComponentVars from '../../methods/misc/getComponentVars';
 import getContext from '../../methods/misc/getContext';
 
-
 const ButtonStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('button');
     const context = getContext(props);
-    // const icon = !!props.icon ? require(`../../../icons/raw/${typeof props.icon === 'object' ? props.icon.name : props.icon}.svg`) : null;
-    const wrapper = framework === 'angular' ? '.fab-button-wrapper' : '&';
+    const wrapper = framework === 'angular' ? '.fab-button' : '&';
 
     return `
+        &,
         ${wrapper} {
-            display: inline-flex;
             ${props.expand ? `width: 100%;` : ''}
         }
 
-        .fab-button {
+        ${wrapper} {
             align-items: center;
             appearance: none;
             border: none;
             border-radius: ${vars.borderRadius};
             ${props.rounded ? `border-radius: 999px;` : ''}
             cursor: pointer;
-            display: inline-flex;
+            display: inline-block;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
@@ -53,8 +51,6 @@ const ButtonStyles = params => {
             ${!!props.align ? `text-align: ${props.align};` : ''}
             position: relative;
             transition: all ${vars.transition};
-            
-            width: 100%;
 
             &:focus {
                 outline: none;
@@ -74,19 +70,23 @@ const ButtonStyles = params => {
                 pointer-events: none;
                 user-select: none;
             }
+        }
 
-            > *:not(:last-child) {
-                margin-right: ${vars.childrenSpacing};
-            }
+        ${wrapper} > * {
+            vertical-align: middle;
+        }
+
+        a${wrapper} {
+            text-decoration: none;
         }
 
         // Modifiers
-        ${props.circle ? circleModifier(props) : ''}
-        ${colorModifier(props)}
-        ${props.gradient && props.color ? gradientModifier(props) : ''}
-        ${iconModifier(props)}
-        ${props.smashed ? smashedModifier(props) : ''}
-        ${props.size ? sizeModifier(props) : ''}
+        ${props.circle ? circleModifier(params) : ''}
+        ${colorModifier(params)}
+        ${props.gradient && props.color ? gradientModifier(params) : ''}
+        ${iconModifier(params)}
+        ${props.smashed ? smashedModifier(params) : ''}
+        ${props.size ? sizeModifier(params) : ''}
     `
 }
 

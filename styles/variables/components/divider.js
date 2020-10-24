@@ -1,13 +1,7 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const divider = {
-    ...globals,
-    colors,
-    
+const divider = theme => ({
     get color() {
-        return this.colors.aux
+        return theme.variables.colors.aux
     }
-}
+})
 
 export default divider;

@@ -1,37 +1,28 @@
-// Utils
 import alignUtils from './properties/align';
-import columnUtils from './properties/column';
+import displayUtils from './properties/display';
 import flexUtils from './properties/flex';
-import growUtils from './properties/grow';
-import hiddenUtils from './properties/hidden';
+import fontUtils from './properties/font';
+import gridUtils from './properties/grid';
 import marginUtils from './properties/margin';
+import overflowUtils from './properties/overflow';
 import paddingUtils from './properties/padding';
-import rowUtils from './properties/row';
 import sizeUtils from './properties/size';
+import visibilityUtils from './properties/visibility';
 
 const UtilsStyles = params => {
     const { props } = params;
-    const { fl, flex, ov, overflow } = props;
 
     return `
         ${alignUtils(params)}
-        ${columnUtils(props)}
+        ${displayUtils(props)}
         ${flexUtils(params)}
-        ${growUtils(params)}
-        ${hiddenUtils(params)}
+        ${fontUtils(params)}
+        ${gridUtils(props)}
         ${marginUtils(params)}
+        ${overflowUtils(props)}
         ${paddingUtils(params)}
-        ${rowUtils(props)}
         ${sizeUtils(params)}
-
-        ${props.block ? 'display: block!important;' : ''}
-        
-        > [data-fab-component] {
-            ${!!fl || !!flex ? `display: flex;` : ''}
-            ${!!fl || !!flex ? `flex-direction: row;` : ''}
-            ${!!ov || !!overflow ? `overflow: ${ov || overflow};` : ''}
-        }
-        
+        ${visibilityUtils(params)}
     `;
 }
 

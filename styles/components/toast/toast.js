@@ -61,12 +61,23 @@ const ToastStyles = params => {
             padding-top: .4em;
         }
 
-        .fab-inner-icon {
+        .fab-icon {
             margin-right: ${vars.iconOffset};
         }
 
         .fab-link {
+            ${props.color ? `color: inherit;` : ''}
             font-size: .9em;
+
+            &:hover {
+                ${props.color ? `color: inherit;` : ''}
+                ${props.color ? `opacity: .8;` : ''}
+            }
+
+            &:active {
+                ${props.active ? `color: inherit;` : ''}
+                ${props.active ? `opacity: .6;` : ''}
+            }
         }
 
         // Modifiers

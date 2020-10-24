@@ -1,9 +1,3 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const codeBlock = {
-    ...globals,
-    colors
-}
+const codeBlock = () => ({})
 
 export default codeBlock;

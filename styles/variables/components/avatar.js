@@ -1,23 +1,19 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const avatar = {
-    ...globals,
-    colors,
-
+const avatar = theme => ({
     get color() {
-        return this.colors['aux']
+        return theme.variables.colors.aux
     },
     get borderRadius() {
-        return `calc(${globals.borderRadius} * .5)`
+        return `calc(${theme.variables.globals.borderRadius} * .5)`
     },
     iconSize: '1.25em',
-    initialsFontFamily: globals.fontFamily,
+    get initialsFontFamily() {
+        return theme.variables.globals.fontFamily
+    },
     initialsFontSize: '1em',
     initialsFontWeight: 500,
     initialsOpacity: .8,
     letterSpacing: '-1px',
     size: '3rem'
-}
+})
 
 export default avatar;

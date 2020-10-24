@@ -29,7 +29,7 @@ const colorModifier = params => {
     let baseActiveFillColor = vars.activeFillColor;
     let baseActiveTextColor = vars.activeTextColor;
     let baseInactiveFillColor = userInactiveFillColor || !!color && getBgColor(color, context) || vars.inactiveFillColor;
-    let baseInactiveTextColor =  userInactiveTextColor || !!userInactiveFillColor && getTextColor(userInactiveFillColor, 'fill') || !!color && getTextColor(color, context) || vars.inactiveTextColor;
+    let baseInactiveTextColor =  userInactiveTextColor || (!!userInactiveColor && getTextColor(userInactiveColor, 'fill')) || (!!color && getTextColor(color, context)) || vars.inactiveTextColor;
     let dividerColor = getDividerColor(vars.inactiveFillColor, context);
 
     if (!!color) {
@@ -76,7 +76,6 @@ const colorModifier = params => {
 
     if (userInactiveColor) {
         baseInactiveFillColor = userInactiveColor;
-        baseInactiveTextColor = getTextColor(userInactiveColor, 'fill');
     }
 
     return `

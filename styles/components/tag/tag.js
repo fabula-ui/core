@@ -18,9 +18,10 @@ const TagStyles = params => {
             display: flex;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
-            font-weight: ${vars.fontWeight};
+            ${!props.weight ? `font-weight: ${vars.fontWeight};` : ''}
             letter-spacing: ${vars.letterSpacing};
-            line-height: 1;
+            line-height: 1.5;
+            overflow: hidden;
             padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};
             width: 100%;
 
@@ -29,40 +30,23 @@ const TagStyles = params => {
             }
         }
 
-        .fab-tag > a,
-        .fab-tag > button {
-            align-items: center;
-            appearance: none;
-            background: none;
-            border-radius: inherit;
-            cursor: pointer;
-            color: inherit;
-            display: flex;
-            font-family: inherit;
-            font-size: inherit;
-            font-weight: inherit;
-            margin: -${vars.paddingTop} -${vars.paddingRight} -${vars.paddingBottom} -${vars.paddingLeft};
-            padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};
+        a.fab-tag,
+        button.fab-tag {
+            transition: all ${vars.transition};
+        }
+
+        a.fab-tag {
             text-decoration: none;
             transition: all ${vars.transition};
 
-            &:focus {
-                outline: none;
-            }
-
-            > *:not(:last-child) {
-                margin-right: .5em;
+            &:hover {
+                text-decoration: none;
             }
         }
 
-        .fab-tag > a:hover {
-            text-decoration: none;
-        }
-
-        .fab-tag > button {
-            appearance: none;
-            background: none;
+        button.fab-tag {
             border: none;
+            cursor: pointer;
 
             &:focus {
                 outline: none;

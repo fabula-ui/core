@@ -13,6 +13,7 @@ const DropdownItemStyles = params => {
         ${wrapper} {
             align-items: center;
             display: flex;
+            font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             font-weight: ${props.weight || vars.fontWeight};
             letter-spacing: ${vars.letterSpacing};
@@ -21,6 +22,7 @@ const DropdownItemStyles = params => {
             width: 100%;
         }
 
+        a${wrapper},
         button${wrapper} {
             appearance: none;
             background: none;
@@ -29,8 +31,6 @@ const DropdownItemStyles = params => {
             cursor: pointer;
             padding: ${vars.paddingY} ${vars.paddingX};
             text-align: left;
-            transition: all ${vars.transition};
-            width: 100%;
 
             &:focus {
                 outline: none;

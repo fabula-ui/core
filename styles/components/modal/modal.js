@@ -34,7 +34,7 @@ const ModalStyles = params => {
             }
 
             .fab-modal {
-                transform: translate(-50%, -50%) scale(.75, .75);
+                transform: scale(.75, .75);
             }
         }
 
@@ -47,18 +47,19 @@ const ModalStyles = params => {
         .fab-modal {
             animation: showModal ${vars.transition};
             border-radius: ${vars.borderRadius};
-            left: 50%;
+            display: flex;
+            flex-direction: column;
+            max-height: 100%;
             opacity: 1;
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%) scale(1, 1);
+            position: relative;
+            transform: scale(1, 1);
             visibility: visible;
             z-index: 1;
 
             @keyframes showModal {
                 from {
                     opacity: 0;
-                    transform: translate(-50%, -50%) scale(.75, .75);
+                    transform: scale(.75, .75);
                     visibility: hidden;
                 }
             }
@@ -81,6 +82,17 @@ const ModalStyles = params => {
                     visibility: hidden;
                 }
             }
+        }
+
+        .fab-modal__dialog {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 1rem;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
         
         // Modifiers

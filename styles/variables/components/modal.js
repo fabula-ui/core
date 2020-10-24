@@ -1,10 +1,4 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const modal = {
-    ...globals,
-    colors,
-
+const modal = () => ({
     backdropColor: '#000',
     backdropOpacity: .5,
     color: '#FFF',
@@ -19,6 +13,6 @@ const modal = {
         lg: '640px',
         xl: '800px'
     }
-}
+})
 
 export default modal;

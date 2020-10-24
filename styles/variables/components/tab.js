@@ -1,29 +1,22 @@
-import colors from '../colors';
-import globals from '../globals';
-
-const tab = {
-    ...globals,
-    colors,
-
-    // Component vars
+const tab = theme => ({
     get activeBorderColor() {
-        return this.colors['primary']
+        return theme.variables.colors.primary
     },
     get activeFillColor() {
-        return this.colors['primary']
+        return theme.variables.colors.primary
     },
     get activeTextColor() {
-        return this.textColor
+        return theme.variables.globals.textColor
     },
     borderWidth: '2px',
     color: '#FFF',
     get inactiveTextColor() {
-        return this.auxTextColor
+        return theme.variables.globals.auxTextColor
     },
     fontSize: '.9rem',
     fontWeight: 400,
     paddingX: '1rem',
     paddingY: '1rem'
-}
+})
 
 export default tab;

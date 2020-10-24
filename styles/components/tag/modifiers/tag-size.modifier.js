@@ -8,12 +8,6 @@ const sizeModifier = props => {
         .fab-tag {
             font-size: calc(${vars.fontSize} * ${multiplier});
         }
-
-        .fab-tag > a,
-        .fab-tag > button {
-            font-size: inherit;
-            padding: calc(${vars.paddingY} * ${multiplier}) calc(${vars.paddingX} * ${multiplier});
-        }
     `;
 }
 

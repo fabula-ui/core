@@ -3,13 +3,15 @@ import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
 import getDividerColor from '../../../methods/color/getDividerColor';
 
-const markerModifier = props => {
+const markerModifier = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('alert');
     const color = getColor(props.marker, vars.colors);
     const context = getContext(props);
+    const wrapper = framework === 'angular' ? '.fab-alert' : '&';
 
     return `
-        .fab-alert {
+        ${wrapper} {
             overflow: hidden;
             position: relative;
 

@@ -12,8 +12,8 @@ import getTextColor from '../../../methods/color/getTextColor';
 
 const colorModifier = props => {
     const vars = getComponentVars('tag');
-    const color = getColor(props.color, vars.colors);
-    const context = getContext(props);
+    const color = props.color ? getColor(props.color, vars.colors) : vars.color;
+    const context = props.color ? getContext(props) : 'fill';
     const bgColor = getBgColor(color || vars.color, context);
     const borderColor = getBorderColor(color || vars.color, context);
     const glowColor = getGlowColor(color || vars.color, context);
@@ -27,8 +27,8 @@ const colorModifier = props => {
             color: ${textColor};
         }
 
-        .fab-tag > a,
-        .fab-tag > button {
+        a.fab-tag,
+        button.fab-tag {
             &:before {
                 border-color: ${getFocusColor(color, context)};
             }

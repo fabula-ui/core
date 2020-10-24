@@ -22,11 +22,11 @@ const colorModifier = props => {
             box-shadow: 0 0 0 ${vars.focusGlowRadius} ${getFocusGlowColor(focusGlowColor, 'faded')};
         }
 
-        .fab-input__icon[data-placement='end'] {
+        .fab-input__icon[data-placement='end'] .fab-inner-icon {
             ${!!iconEndColor ? `background-color: ${iconEndColor};` : ''}
         }
 
-        .fab-input__icon[data-placement='start'] {
+        .fab-input__icon[data-placement='start'] .fab-inner-icon {
             ${(!!iconColor || !!iconStartColor) ? `background-color: ${iconColor || iconStartColor};` : ''}
         }
 
