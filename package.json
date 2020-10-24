@@ -1,6 +1,6 @@
 {
   "name": "@fabula/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Fabula UI core",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fabula-ui/core.git"
+    "url": "https://github.com/fabula-ui/core.git"
   },
   "author": "Bruno Poeta <brunovieirapoeta@gmail.com>",
   "license": "ISC",
@@ -43,5 +43,8 @@
     "potrace": "^2.1.6",
     "svg-outline-stroke": "^1.3.0",
     "tslib": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
