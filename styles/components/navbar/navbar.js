@@ -12,9 +12,9 @@ const NavbarStyles = params => {
 
     return `
         ${wrapper} {
+            align-items: center;
             display: flex;
-            height: ${props.height ? getNumber(props.height, 'px') : 'auto'};
-            min-height: ${!props.height ? vars.minHeight : 'initial'};
+            height: ${props.height ? getNumber(props.height, 'px') : vars.height};
             padding-left: 15px;
             padding-right: 15px;
             width: 100%;

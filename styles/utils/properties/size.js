@@ -15,6 +15,10 @@ const sizeUtils = params => {
             ${props.minWidth ? `min-width: ${getNumber(props.minWidth, 'px')};` : ''}
             ${props.width ? `width: ${getNumber(props.width, 'px')};` : ''}
         }
+
+        & > [data-fab-component] {
+            ${(props.expand === 'v' && !hasProperty.expand) ? `height: 100%;` : ''}
+        }
     `;
 }
 
