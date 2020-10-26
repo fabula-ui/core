@@ -10,6 +10,7 @@ import checkbox from './components/checkbox';
 import closeButton from './components/closeButton';
 import codeBlock from './components/codeBlock';
 import divider from './components/divider';
+import drawer from './components/drawer';
 import dropdown from './components/dropdown';
 import dropdownHeader from './components/dropdownHeader';
 import dropdownItem from './components/dropdownItem';
@@ -23,6 +24,7 @@ import input from './components/input';
 import inputGroup from './components/inputGroup';
 import link from './components/link';
 import list from './components/list';
+import listHeader from './components/listHeader';
 import listItem from './components/listItem';
 import modal from './components/modal';
 import modalHeader from './components/modalHeader';
@@ -56,6 +58,7 @@ const components = {
     closeButton,
     codeBlock,
     divider,
+    drawer,
     dropdown,
     dropdownHeader,
     dropdownItem,
@@ -69,6 +72,7 @@ const components = {
     inputGroup,
     link,
     list,
+    listHeader,
     listItem,
     modal,
     modalHeader,

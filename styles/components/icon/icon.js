@@ -35,8 +35,8 @@ const IconStyles = (params) => {
     return `
         ${fontFace}
         
-        ${framework === 'angular' ? '& { display: inline-flex; }' : ''}
-
+        & { display: inline-block; }
+        
         ${wrapper} {
             font-family: icons!important;
             font-size: 1em;

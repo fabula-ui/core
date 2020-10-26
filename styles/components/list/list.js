@@ -6,12 +6,12 @@ const ListStyles = params => {
 
     return `
         .fab-list {
-            ${!props.divider && !props.striped ? 'padding: 1rem 0;' : ''}
+            padding: 0;
         }
 
         // External
         .fab-list .fab-divider {
-            margin-bottom: 1rem;
+            
         }
 
         // Modifiers

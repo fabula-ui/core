@@ -1,5 +1,5 @@
 const NavbarMenuStyles = params => {
-    const { framework } = params;
+    const { framework, props } = params;
     const wrapper = framework === 'angular' ? '.fab-navbar-menu' : '&';
 
     return `
@@ -7,6 +7,7 @@ const NavbarMenuStyles = params => {
             align-items: center;
             align-self: stretch;
             display: flex;
+            ${(props.expand === 'both' || props.expand === 'v') ? `height: 100%;` : ''}
         }
 
         ${wrapper}[data-mobile='true'] {
@@ -21,6 +22,11 @@ const NavbarMenuStyles = params => {
             ${wrapper}[data-mobile='true'] {
                 display: flex;
             }
+        }
+
+        .fab-tabs,
+        .fab-tabs-wrapper {
+            ${(props.expand === 'both' || props.expand === 'v') ? `height: 100%;` : ''}
         }
     `
 }

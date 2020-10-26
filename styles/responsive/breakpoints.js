@@ -17,8 +17,8 @@ const down = (bp, params) => {
     if (breakpoint) {
         return `
             @media (max-width: ${breakpoint}) {
-                ${!!styles ? styles({ ...params, props: params.props.down[bp] }) : ''}
-                ${!!utils ? UtilStyles({ ...params, props: params.props.down[bp] }) : ''}
+                ${!!styles ? styles({ ...params, props: { ...params.props, ...params.props.down[bp] } }) : ''}
+                ${!!utils ? UtilStyles({ ...params, props: { ...params.props, ...params.props.down[bp] } }) : ''}
             }
         `
     } else {
@@ -35,8 +35,8 @@ const on = (bp, params) => {
     if (breakpoint) {
         return `
             @media ${lowerBreakpoint ? `(min-width: ${lowerBreakpoint}) and ` : ''} (max-width: ${breakpoint}) {
-                ${!!styles ? styles({ ...params, props: params.props.on[bp] }) : ''}
-                ${!!utils ? UtilStyles({ ...params, props: params.props.on[bp] }) : ''}
+                ${!!styles ? styles({ ...params, props:  {...params.props, ...params.props.on[bp]} }) : ''}
+                ${!!utils ? UtilStyles({ ...params, props:  {...params.props, ...params.props.on[bp]} }) : ''}
             }
         `
     } else {
@@ -51,8 +51,8 @@ const up = (bp, params) => {
     if (breakpoint) {
         return `
             @media (min-width: ${breakpoint}) {
-                ${!!styles ? styles({ ...params, props: params.props.up[bp] }) : ''}
-                ${!!utils ? UtilStyles({ ...params, props: params.props.up[bp] }) : ''}
+                ${!!styles ? styles({ ...params, props:  {...params.props, ...params.props.up[bp]} }) : ''}
+                ${!!utils ? UtilStyles({ ...params, props:  {...params.props, ...params.props.up[bp]} }) : ''}
             }
         `
     } else {

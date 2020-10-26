@@ -17,7 +17,7 @@ const NavbarSectionStyles = params => {
             align-self: stretch;
             display: flex;
             height: 100%;
-            padding: ${vars.paddingY} ${vars.paddingX};
+            padding: 0 ${vars.paddingX};
         }
 
         ${wrapper}[data-mobile='true'] {
@@ -30,7 +30,7 @@ const NavbarSectionStyles = params => {
             }
 
             ${wrapper}[data-mobile='true'] {
-                display: inline-block;
+                display: flex;
             }
         }
     `;

@@ -21,12 +21,6 @@ const ListItemStyles = params => {
             ${props.padding ? `padding-right: ${vars.paddingRight};` : ''}
             width: 100%;
         }
-        
-        .fab-list-item[data-divider='false'][data-striped='false'],
-        ${wrapper}[data-divider='false'][data-striped='false'] {
-            padding-bottom: 0;
-            padding-top: 0;
-        }
 
         button${wrapper} {
             cursor: pointer;
@@ -38,9 +32,9 @@ const ListItemStyles = params => {
             }
         }
 
-        &:not(:last-child) .fab-list-item[data-divider='false'][data-striped='false'],
-        ${wrapper}:not(:last-child)[data-divider='false'][data-striped='false'] {
-            padding-bottom: ${vars.paddingBottom};
+        ${wrapper}[data-compact='true'] {
+            padding-top: calc(${vars.paddingTop} / 2);
+            padding-bottom: calc(${vars.paddingBottom} / 2);
         }
 
         // Modifiers
