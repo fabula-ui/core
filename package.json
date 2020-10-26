@@ -1,6 +1,6 @@
 {
   "name": "@fabula/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Fabula UI core",
   "main": "index.js",
   "scripts": {
