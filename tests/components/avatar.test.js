@@ -1,5 +1,8 @@
+import { testConfig } from '../config';
+
 describe('Avatar', () => {
-    const port = process.env.PORT || '9009';
+    const { failureThreshold, failureThresholdType, screenshot } = testConfig;
+    const port = process.env.PORT || defaultPort;
     
     afterAll(async() => {
         await page.waitFor(1000);
@@ -9,99 +12,156 @@ describe('Avatar', () => {
         jest.setTimeout(100000);
     });
 
-    it('adapt color', async () => {
-        page.setViewport({ width: 700, height: 90 });
+    it('example', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--adapt-color`, { waitUntil: 'load', timeout: 10000 });
+        page.setViewport({ width: 400, height: 200 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--example`, { waitUntil: 'load' });
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-color', async () => {
+        page.setViewport({ width: 400, height: 100 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-color`, { waitUntil: 'load' });
         await page.waitFor(1000);
         
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('color', async () => {
-        page.setViewport({ width: 700, height: 90 });
+    it('prop-darken', async () => {
+        page.setViewport({ width: 400, height: 100 });
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--color`, { waitUntil: 'load', timeout: 10000 });
-        await page.waitFor(1000);
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    it('custom icon', async () => {
-        page.setViewport({ width: 150, height: 90 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--custom-icon`, { waitUntil: 'load', timeout: 10000 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-darken`, { waitUntil: 'load' });
         await page.waitFor(1000);
         
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('rounded', async () => {
-        page.setViewport({ width: 700, height: 90 });
+    it('prop-faded', async () => {
+        page.setViewport({ width: 400, height: 100 });
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--rounded`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    it('show initials', async () => {
-        page.setViewport({ width: 700, height: 150 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--show-initials`, { waitUntil: 'load', timeout: 10000 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-faded`, { waitUntil: 'load' });
+        await page.waitFor(1000);
         
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('size', async () => {
+    it('prop-icon', async () => {
+        page.setViewport({ width: 200, height: 100 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-icon`, { waitUntil: 'load' });
+        await page.waitFor(1000);
+        
+        const image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-lighten', async () => {
+        page.setViewport({ width: 400, height: 100 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-lighten`, { waitUntil: 'load' });
+        await page.waitFor(1000);
+        
+        const image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-rounded', async () => {
+        page.setViewport({ width: 200, height: 100 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-rounded`, { waitUntil: 'load' });
+        await page.waitFor(1000);
+        
+        const image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-show-initials', async () => {
         page.setViewport({ width: 400, height: 200 });
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--size`, { waitUntil: 'load', timeout: 10000 });
-        await page.waitFor(2000);
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-show-initials`, { waitUntil: 'load' });
+        await page.waitFor(1000);
         
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('external badge', async () => {
-        page.setViewport({ width: 630, height: 660 });
+    it('prop-size', async () => {
+        page.setViewport({ width: 400, height: 200 });
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--external-badge`, { waitUntil: 'load', timeout: 10000 });
-        await page.waitFor(5000);
-
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-size`, { waitUntil: 'load' });
+        await page.waitFor(1000);
+        
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('util-margin', async () => {
+        page.setViewport({ width: 200, height: 400 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--util-margin`, { waitUntil: 'load' });
+        await page.waitFor(1000);
+        
+        const image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('util-visibility', async () => {
+        page.setViewport({ width: 100, height: 200 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--util-visibility`, { waitUntil: 'load' });
+        await page.waitFor(1000);
+        
+        const image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
         });
     });
 });

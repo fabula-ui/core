@@ -1,10 +1,8 @@
 import getBgColor from '../../methods/color/getBgColor';
 import getColor from '../../methods/color/getColor';
 import getComponentVars from '../../methods/misc/getComponentVars';
+import getHoverTextColor from '../../methods/color/getHoverTextColor';
 import getTextColor from '../../methods/color/getTextColor';
-
-// Assets
-const closeIcon = require('../../../icons/raw/x.svg');
 
 const CloseButtonStyles = params => {
     const {framework, props} = params;
@@ -17,36 +15,22 @@ const CloseButtonStyles = params => {
 
     return `
         ${wrapper} {
+            align-items: center;
             appearance: none;
             background: ${getBgColor(color, props.color || props.parentColor ? 'adapt' : 'fill')};
             border: none;
             border-radius: 50%;
+            color: ${getTextColor(color, 'fill')};
             cursor: pointer;
             display: inline-flex;
             flex-shrink: 0;
             height: calc(2em * ${multiplier});
+            justify-content: center;
             margin-left: .5rem;
             padding: 0;
             position: relative;
             transition: all .2s ease-in-out;
             width: calc(2em * ${multiplier});
-
-            &:before {
-                background-color: ${getTextColor(color, 'fill')};
-                content: '';
-                display: block;
-                height: 60%;
-                left: 50%;
-                mask-image: url('${closeIcon}');
-                mask-repeat: no-repeat;
-                mask-position: center center;
-                mask-size: contain;
-                position: absolute;
-                transform: translate(-50%, -50%);
-                transition: all .2s ease-in-out;
-                top: 50%;
-                width: 60%;
-            }
 
             &:focus {
                 outline: none;
@@ -54,20 +38,12 @@ const CloseButtonStyles = params => {
 
             &:hover {
                 background-color: ${hoverColor};
-            }
-
-            &:hover:before {
-                background-color: ${props.color || props.parentColor ? getBgColor(color, 'fill') : getTextColor(hoverColor, 'fill')};
+                color: ${props.color || props.parentColor ? getBgColor(color, 'fill') : getTextColor(hoverColor, 'fill')};
             }
 
             &:active {
                 opacity: .8;
             }
-        }
-
-        ${wrapper} .fab-icon__svg {
-            height: 1.1em;
-            width: 1.1em;
         }
     `;
 }

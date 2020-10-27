@@ -1,7 +1,10 @@
-describe('Alert', () => {
-    const port = process.env.PORT || '9009';
+import { testConfig } from '../config';
 
-    afterAll(async() => {
+describe('Alert', () => {
+    const { failureThreshold, failureThresholdType, screenshot } = testConfig;
+    const port = process.env.PORT || defaultPort;
+
+    afterAll(async () => {
         await page.waitFor(1000);
     });
 
@@ -9,182 +12,224 @@ describe('Alert', () => {
         jest.setTimeout(100000);
     });
 
-    it('border', async () => {
-        page.setViewport({ width: 1200, height: 300 });
+    it('example', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--border`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 400 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--example`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('clear', async () => {
-        page.setViewport({ width: 1200, height: 300 });
+    it('prop-border', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--clear`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 200 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-border`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('close button', async () => {
-        page.setViewport({ width: 1200, height: 100 });
+    it('prop-clear', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--close-button`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 600 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-clear`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('color', async () => {
-        page.setViewport({ width: 1200, height: 300 });
+    it('prop-close-button', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--color`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 600 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-close-button`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('custom content', async () => {
-        page.setViewport({ width: 640, height: 100 });
+    it('prop-color', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--custom-content`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 500 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-color`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('faded', async () => {
-        page.setViewport({ width: 1200, height: 300 });
+    it('prop-faded', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--faded`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 600 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-faded`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('glow', async () => {
-        page.setViewport({ width: 1200, height: 300 });
+    it('prop-glow', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--glow`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 600 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-glow`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('icons', async () => {
-        page.setViewport({ width: 1200, height: 350 });
+    it('prop-icon', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--icons`, { waitUntil: 'load', timeout: 10000 });
-        await page.waitFor(1000);
-
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 200 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-icon`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('icon colors', async () => {
-        page.setViewport({ width: 1200, height: 350 });
+    it('prop-invert', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--icon-colors`, { waitUntil: 'load', timeout: 10000 });
-        await page.waitFor(1000);
-
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 600 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-invert`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('invert', async () => {
-        page.setViewport({ width: 1200, height: 300 });
+    it('prop-marker', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--invert`, { waitUntil: 'load', timeout: 10000 });
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 500 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-marker`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('marker', async () => {
-        page.setViewport({ width: 1200, height: 300 });
+    it('prop-outline', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--marker`, { waitUntil: 'load', timeout: 10000 });
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 600 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-outline`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('outline', async () => {
-        page.setViewport({ width: 1200, height: 300 });
+    it('prop-text-color', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--outline`, { waitUntil: 'load', timeout: 10000 });
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 500 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-text-color`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('text color', async () => {
-        page.setViewport({ width: 1200, height: 300 });
+    it('prop-title-color', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--text-color`, { waitUntil: 'load', timeout: 10000 });
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 500 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-title-color`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('title color', async () => {
-        page.setViewport({ width: 1200, height: 350 });
+    it('prop-type', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=alert--title-color`, { waitUntil: 'load', timeout: 10000 });
-        const image = await page.screenshot();
+        page.setViewport({ width: screenshot.width, height: 400 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-type`, { waitUntil: 'load' });
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('util-margin', async () => {
+        let image;
+
+        page.setViewport({ width: 1600, height: 700 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--util-margin`, { waitUntil: 'load' });
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('util-padding', async () => {
+        let image;
+
+        page.setViewport({ width: screenshot.width, height: 800 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--util-padding`, { waitUntil: 'load' });
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('util-visibility', async () => {
+        let image;
+
+        page.setViewport({ width: screenshot.width, height: 200 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=alert--util-visibility`, { waitUntil: 'load' });
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
         });
     });
 });
