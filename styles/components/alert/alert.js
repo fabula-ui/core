@@ -69,7 +69,7 @@ const AlertStyles = params => {
             margin: calc(-${vars.padding} / 4) 0;
         }
 
-        ${wrapper}[data-title='true'] .fab-inner-icon {
+        ${wrapper}[data-title='true'] .fab-icon {
             flex-shrink: 0;
             height: .95em;
             width: .95em;
