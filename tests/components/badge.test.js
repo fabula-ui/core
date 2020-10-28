@@ -1,7 +1,10 @@
-describe('Badge', () => {
-    const port = process.env.PORT || '9009';
+import { testConfig } from '../config';
 
-    afterAll(async() => {
+describe('Badge', () => {
+    const { failureThreshold, failureThresholdType, screenshot } = testConfig;
+    const port = process.env.PORT || defaultPort;
+
+    afterAll(async () => {
         await page.waitFor(1000);
     });
 
@@ -9,100 +12,171 @@ describe('Badge', () => {
         jest.setTimeout(100000);
     });
 
-    it('circle', async () => {
-        page.setViewport({ width: 250, height: 100 });
+    it('example', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=badge--circle`, { waitUntil: 'load', timeout: 10000 });
+        page.setViewport({ width: 700, height: 500 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--example`, { waitUntil: 'load' });
         await page.waitFor(500);
-        const image = await page.screenshot();
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('clear', async () => {
-        page.setViewport({ width: 360, height: 100 });
+    it('prop-clear', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=badge--clear`, { waitUntil: 'load', timeout: 10000 });
+        page.setViewport({ width: 700, height: 500 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--prop-clear`, { waitUntil: 'load' });
         await page.waitFor(500);
-
-        const image = await page.screenshot();
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('color', async () => {
-        page.setViewport({ width: 360, height: 100 });
+    it('prop-color', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=badge--color`, { waitUntil: 'load', timeout: 10000 });
+        page.setViewport({ width: 800, height: 100 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--prop-color`, { waitUntil: 'load' });
         await page.waitFor(500);
-
-        const image = await page.screenshot();
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('faded', async () => {
-        page.setViewport({ width: 360, height: 100 });
+    it('prop-darken', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=badge--faded`, { waitUntil: 'load', timeout: 10000 });
+        page.setViewport({ width: 800, height: 100 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--prop-darken`, { waitUntil: 'load' });
         await page.waitFor(500);
-
-        const image = await page.screenshot();
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('invert', async () => {
-        page.setViewport({ width: 360, height: 100 });
+    it('prop-faded', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=badge--invert`, { waitUntil: 'load', timeout: 10000 });
+        page.setViewport({ width: 800, height: 100 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--prop-faded`, { waitUntil: 'load' });
         await page.waitFor(500);
-
-        const image = await page.screenshot();
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('outline', async () => {
-        page.setViewport({ width: 360, height: 100 });
+    it('prop-invert', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=badge--outline`, { waitUntil: 'load', timeout: 10000 });
+        page.setViewport({ width: 800, height: 100 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--prop-invert`, { waitUntil: 'load' });
         await page.waitFor(500);
-        
-        const image = await page.screenshot();
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('rounded', async () => {
-        page.setViewport({ width: 400, height: 120 });
+    it('prop-lighten', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=badge--rounded`, { waitUntil: 'load', timeout: 10000 });
+        page.setViewport({ width: 800, height: 100 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--prop-lighten`, { waitUntil: 'load' });
         await page.waitFor(500);
-
-        const image = await page.screenshot();
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-outline', async () => {
+        let image;
+
+        page.setViewport({ width: 800, height: 100 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--prop-outline`, { waitUntil: 'load' });
+        await page.waitFor(500);
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-rounded', async () => {
+        let image;
+
+        page.setViewport({ width: 800, height: 100 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--prop-rounded`, { waitUntil: 'load' });
+        await page.waitFor(500);
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('util-margin', async () => {
+        let image;
+
+        page.setViewport({ width: 200, height: 250 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--util-margin`, { waitUntil: 'load' });
+        await page.waitFor(500);
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('util-padding', async () => {
+        let image;
+
+        page.setViewport({ width: 600, height: 100 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--util-padding`, { waitUntil: 'load' });
+        await page.waitFor(500);
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('util-visibility', async () => {
+        let image;
+
+        page.setViewport({ width: 100, height: 100 });
+        await page.goto(`http://localhost:${port}/iframe.html?id=badge--util-visibility`, { waitUntil: 'load' });
+        await page.waitFor(500);
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
         });
     });
 });

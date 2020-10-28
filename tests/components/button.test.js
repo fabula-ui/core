@@ -1,478 +1,255 @@
+import { elementScreenshot } from '../common';
+import { testConfig } from '../config';
+
+
+
 describe('Button', () => {
-    const port = process.env.PORT || '9009';
+    const { failureThresholdType, path } = testConfig;
+    const failureThreshold = 0.02;
+    const port = process.env.PORT || defaultPort;
 
     beforeAll(async () => {
         jest.setTimeout(100000);
     });
 
-    // Circle
-    it('circle', async () => {
-        page.setViewport({ width: 400, height: 105 });
+    it('example', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--circle`, { waitUntil: 'load', timeout: 10000 });
+        await page.setViewport({ width: 700, height: 100 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=button--example`, { waitUntil: 'load' });
         await page.waitFor(500);
 
-        const image = await page.screenshot();
+        image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
+    });
+
+    // Border
+    it('prop-border', async () => {
+        let image;
+
+        await page.setViewport({ width: 700, height: 100 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=button--prop-border`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-border:hover', async () => {
+        let buttons;
+        
+        await page.setViewport({ width: 700, height: 100 });
+
+        buttons = await page.$$('.fab-button');
+
+        for (let i = 0; i < buttons.length; i++) {
+            const button = buttons[i];
+            const boundingBox = await button.boundingBox();
+            let screenshot;
+
+            await button.hover();
+            await page.waitFor(500);
+
+            screenshot = await elementScreenshot({
+                boundingBox,
+                context: 'button--prop-border-hover',
+                element: button,
+                index: i
+            });
+
+            expect(screenshot).toMatchImageSnapshot({
+                failureThreshold,
+                failureThresholdType
+            });
+        }
+    });
+
+    it('prop-border:active', async () => {
+        let buttons;
+        
+        await page.setViewport({ width: 700, height: 100 });
+
+        buttons = await page.$$('.fab-button');
+
+        for (let i = 0; i < buttons.length; i++) {
+            const button = buttons[i];
+            const boundingBox = await button.boundingBox();
+            let screenshot;
+
+            await button.click({ delay: 500 });
+            await page.waitFor(500);
+
+            screenshot = await elementScreenshot({
+                boundingBox,
+                context: 'button--prop-border-active',
+                element: button,
+                index: i
+            });
+
+            expect(screenshot).toMatchImageSnapshot({
+                failureThreshold,
+                failureThresholdType
+            });
+        }
+    });
+
+    // Circle
+    it('prop-circle', async () => {
+        let image;
+
+        await page.setViewport({ width: 400, height: 100 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=button--prop-circle`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-circle:hover', async () => {
+        let buttons;
+        
+        await page.setViewport({ width: 400, height: 100 });
+
+        buttons = await page.$$('.fab-button');
+
+        for (let i = 0; i < buttons.length; i++) {
+            const button = buttons[i];
+            const boundingBox = await button.boundingBox();
+            let screenshot;
+
+            await button.hover();
+            await page.waitFor(500);
+
+            screenshot = await elementScreenshot({
+                boundingBox,
+                context: 'button--prop-circle-hover',
+                element: button,
+                index: i
+            });
+
+            expect(screenshot).toMatchImageSnapshot({
+                failureThreshold,
+                failureThresholdType
+            });
+        }
+    });
+
+    it('prop-circle:active', async () => {
+        let buttons;
+        
+        await page.setViewport({ width: 400, height: 100 });
+
+        buttons = await page.$$('.fab-button');
+
+        for (let i = 0; i < buttons.length; i++) {
+            const button = buttons[i];
+            const boundingBox = await button.boundingBox();
+            let screenshot;
+
+            await button.click({ delay: 500 });
+            await page.waitFor(500);
+
+            screenshot = await elementScreenshot({
+                boundingBox,
+                context: 'button--prop-circle-active',
+                element: button,
+                index: i
+            });
+
+            expect(screenshot).toMatchImageSnapshot({
+                failureThreshold,
+                failureThresholdType
+            });
+        }
     });
 
     // Clear
-    it('clear:general check', async () => {
-        page.setViewport({ width: 1240, height: 160 });
+    it('prop-clear', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--clear`, { waitUntil: 'load', timeout: 10000 });
+        await page.setViewport({ width: 700, height: 200 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=button--prop-clear`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        image = await page.screenshot();
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-clear:hover', async () => {
+        let buttons;
         
-        const image = await page.screenshot();
+        await page.setViewport({ width: 700, height: 200 });
 
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
+        buttons = await page.$$('.fab-button');
+
+        for (let i = 0; i < buttons.length; i++) {
+            const button = buttons[i];
+            const boundingBox = await button.boundingBox();
+            let screenshot;
+
+            await button.hover();
+            await page.waitFor(500);
+
+            screenshot = await elementScreenshot({
+                boundingBox,
+                context: 'button--prop-clear-hover',
+                element: button,
+                index: i
+            });
+
+            expect(screenshot).toMatchImageSnapshot({
+                failureThreshold,
+                failureThresholdType
+            });
+        }
     });
 
-    // it('clear:hover', async () => {
-    //     const buttons = await page.$$('.fab-button-wrapper');
+    it('prop-clear:active', async () => {
+        let buttons;
+        
+        await page.setViewport({ width: 700, height: 200 });
 
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
+        buttons = await page.$$('.fab-button');
 
-    //         await button.hover();
-    //         screenshot = await button.screenshot();
+        for (let i = 0; i < buttons.length; i++) {
+            const button = buttons[i];
+            const boundingBox = await button.boundingBox();
+            let screenshot;
 
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
+            await button.click({ delay: 500 });
+            await page.waitFor(500);
 
-    // it('clear:active', async () => {
-    //     const buttons = await page.$$('.fab-button-wrapper');
+            screenshot = await elementScreenshot({
+                boundingBox,
+                context: 'button--prop-clear-active',
+                element: button,
+                index: i
+            });
 
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.click({ delay: 500 });
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // it('clear:focus', async () => {
-    //     await page.waitFor(500);
-
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.click();
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // Color
-    it('color:general check', async () => {
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--color`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
+            expect(screenshot).toMatchImageSnapshot({
+                failureThreshold,
+                failureThresholdType
+            });
+        }
     });
-
-    // it('color:hover', async () => {
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.hover();
-            
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // it('color:active', async () => {
-    //     const buttons = await page.$$('.fab-button');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.hover();
-    //         await button.click({ delay: 200 });
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // it('color:focus', async () => {
-    //     await page.waitFor(500);
-
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.click();
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // Compact Vs Wide
-    it('compact vs wide', async () => {
-        page.setViewport({ width: 450, height: 80 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--compact-vs-wide`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    // Disabled
-    it('disabled', async () => {
-        page.setViewport({ width: 1240, height: 400 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--disabled`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    // Expand
-    it('expand', async () => {
-        page.setViewport({ width: 1240, height: 150 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--expand`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    // Faded
-    it('faded:general check', async () => {
-        page.setViewport({ width: 1240, height: 160 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--faded`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    // it('faded:hover', async () => {
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.hover();
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // it('faded:active', async () => {
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.click({ delay: 500 });
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // it('faded:focus', async () => {
-    //     await page.waitFor(500);
-
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.click();
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // Glow
-    it('glow', async () => {
-        page.setViewport({ width: 1240, height: 200 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--glow`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    // Gradient
-    it('gradient:general check', async () => {
-        page.setViewport({ width: 1240, height: 160 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--gradient`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    // it('gradient:hover', async () => {
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.hover();
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // it('gradient:active', async () => {
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.click({ delay: 500 });
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // it('gradient:focus', async () => {
-    //     await page.waitFor(500);
-
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.click();
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // Invert
-    it('invert:general check', async () => {
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--invert`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    // it('invert:hover', async () => {
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.hover();
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // it('invert:active', async () => {
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.click({ delay: 500 });
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // it('invert:focus', async () => {
-    //     await page.waitFor(500);
-
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.click();
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // Outline
-    it('outline:general check', async () => {
-        page.setViewport({ width: 1240, height: 70 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--outline`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    // it('outline:hover', async () => {
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.hover();
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // it('outline:active', async () => {
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.click({ delay: 500 });
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // it('outline:focus', async () => {
-    //     await page.waitFor(500);
-    //     const buttons = await page.$$('.fab-button-wrapper');
-
-    //     for (let i = 0; i < buttons.length; i++) {
-    //         const button = buttons[i];
-    //         let screenshot;
-
-    //         await button.click();
-
-    //         screenshot = await button.screenshot();
-
-    //         expect(screenshot).toMatchImageSnapshot();
-    //     }
-    // });
-
-    // Rounded
-    it('rounded', async () => {
-        page.setViewport({ width: 1240, height: 160 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--rounded`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    // Size
-    it('size', async () => {
-        page.setViewport({ width: 740, height: 80 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--size`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
-    // External badge
-    it('external badge', async () => {
-        page.setViewport({ width: 1200, height: 400 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=button--external-badge`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
-        });
-    });
-
 });

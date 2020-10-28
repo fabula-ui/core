@@ -1,7 +1,8 @@
 import { testConfig } from '../config';
 
 describe('Alert', () => {
-    const { failureThreshold, failureThresholdType, screenshot } = testConfig;
+    const { failureThresholdType, screenshot } = testConfig;
+    const failureThreshold = 0.02;
     const port = process.env.PORT || defaultPort;
 
     afterAll(async () => {
@@ -17,6 +18,7 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 400 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--example`, { waitUntil: 'load' });
+        await page.waitFor(500);
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -30,6 +32,7 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 200 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-border`, { waitUntil: 'load' });
+        await page.waitFor(500);
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -43,6 +46,7 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 600 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-clear`, { waitUntil: 'load' });
+        await page.waitFor(500);
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -56,6 +60,7 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 600 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-close-button`, { waitUntil: 'load' });
+        await page.waitFor(500);
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -69,6 +74,7 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 500 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-color`, { waitUntil: 'load' });
+        await page.waitFor(500);
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -82,6 +88,7 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 600 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-faded`, { waitUntil: 'load' });
+        await page.waitFor(500);
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -95,6 +102,8 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 600 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-glow`, { waitUntil: 'load' });
+        await page.waitFor(500);
+        
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -108,6 +117,8 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 200 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-icon`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -121,6 +132,8 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 600 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-invert`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -134,6 +147,8 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 500 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-marker`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -147,6 +162,8 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 600 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-outline`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -160,6 +177,8 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 500 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-text-color`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -173,6 +192,8 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 500 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-title-color`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -186,6 +207,8 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 400 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-type`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -199,6 +222,8 @@ describe('Alert', () => {
 
         page.setViewport({ width: 1600, height: 700 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--util-margin`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -212,6 +237,8 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 800 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--util-padding`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -224,7 +251,10 @@ describe('Alert', () => {
         let image;
 
         page.setViewport({ width: screenshot.width, height: 200 });
+        
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--util-visibility`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
