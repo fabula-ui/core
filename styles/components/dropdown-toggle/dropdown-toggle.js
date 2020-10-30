@@ -38,7 +38,6 @@ const DropdownToggleStyles = params => {
             display: ${props.arrow ? 'inline-block' : 'none'};
             flex-shrink: 0;
             height: 1em;
-            margin-left: .5em;
             mask-image: url('${chevronIcon}');
             mask-repeat: no-repeat;
             mask-position: center center;
@@ -46,6 +45,10 @@ const DropdownToggleStyles = params => {
             transition: all .2s ease-in-out;
             vertical-align: middle;
             width: 1em;
+        }
+
+        .fab-dropdown-toggle__chevron:not(:only-child) {
+            margin-left: .5em;
         }
 
         .fab-dropdown-toggle__label {

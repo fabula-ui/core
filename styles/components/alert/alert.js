@@ -70,9 +70,8 @@ const AlertStyles = params => {
         }
 
         ${wrapper}[data-title='true'] .fab-icon {
+            font-size: .95em;
             flex-shrink: 0;
-            height: .95em;
-            width: .95em;
         }
 
         // Modifiers

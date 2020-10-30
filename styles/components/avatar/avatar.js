@@ -59,7 +59,7 @@ const AvatarStyles = params => {
         ${sizeModifier(props)}
 
         // External
-        .fab-avatar .fab-inner-icon {
+        .fab-avatar .fab-icon {
             left: 50%;
             position: absolute;
             top: 50%;
