@@ -17,14 +17,7 @@ const colorModifier = params => {
     
 
     return `
-        .fab-dropdown-toggle__chevron,
-        .fab-dropdown-toggle__icon {
-            background-color: ${getTextColor(color, context)}
-        }
-
-        .fab-dropdown-toggle__icon {
-            ${!!iconColor ?  `background-color: ${getBgColor(iconColor, context)};` : ''}
-        }
+        
     `
 }
 

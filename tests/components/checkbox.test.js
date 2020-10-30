@@ -1,85 +1,232 @@
+import { takeScreenshot } from '../common';
+import { testConfig } from '../config';
+
+const { failureThresholdType, screenshot } = testConfig;
+const failureThreshold = 0.02;
+const port = process.env.PORT || defaultPort;
+
+const commonTest = params => {
+    const { height, story, width } = params;
+
+    it(story, async () => {
+        let image;
+
+        await page.setViewport({ width: width || 400, height: height || 300 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--${story}`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        image = await takeScreenshot({
+            component: 'checkbox',
+            element: page,
+            story
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-active-color:checked', async () => {
+        let image;
+        let wrappers;
+
+        await page.setViewport({ width: width || 400, height: height || 300 });
+
+        wrappers = await page.$$('.fab-wrapper');
+
+        for (let i = 0; i < wrappers.length; i++) {
+            const wrapper = wrappers[i];
+            const checkboxes = await wrapper.$$('.fab-checkbox');
+
+            checkboxes[0].click();
+            checkboxes[2].click();
+
+            await page.waitFor(500);
+        }
+
+        image = await takeScreenshot({
+            component: 'checkbox',
+            context: 'checked',
+            element: page,
+            story
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-active-color:unchecked', async () => {
+        let image;
+        let wrappers;
+
+        await page.setViewport({ width: width || 400, height: height || 300 });
+
+        wrappers = await page.$$('.fab-wrapper');
+
+        for (let i = 0; i < wrappers.length; i++) {
+            const wrapper = wrappers[i];
+            const checkboxes = await wrapper.$$('.fab-checkbox');
+
+            checkboxes[0].click();
+            checkboxes[1].click();
+            checkboxes[2].click();
+
+            await page.waitFor(500);
+        }
+
+        image = await takeScreenshot({
+            component: 'checkbox',
+            context: 'unchecked',
+            element: page,
+            story
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+
+        await page.waitFor(1000);
+    });
+}
+
 describe('Checkbox', () => {
-    const port = process.env.PORT || '9009';
+    afterAll(async () => {
+        await page.waitFor(1000);
+    });
 
     beforeAll(async () => {
         jest.setTimeout(100000);
     });
 
-    it('active color', async () => {
-        page.setViewport({ width: 900, height: 80 });
-        
-        await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--active-color`, { waitUntil: 'load', timeout: 10000 });
+    it('example', async () => {
+        let image;
 
-        const image = await page.screenshot();
+        await page.setViewport({ width: 200, height: 100 });
 
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+        await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--example`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        image = await takeScreenshot({
+            component: 'checkbox',
+            element: page,
+            story: 'example'
         });
-    });
-    
-    it('color', async () => {
-        page.setViewport({ width: 900, height: 115 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--color`, { waitUntil: 'load', timeout: 10000 });
-
-        const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('disabled', async () => {
-        page.setViewport({ width: 900, height: 115 });
+    it('example:checked', async () => {
+        const checkbox = await page.$('.fab-checkbox');
+        const boundingBox = await checkbox.boundingBox();
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--disabled`, { waitUntil: 'load', timeout: 10000 });
+        await checkbox.click();
+        await page.waitFor(500);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            boundingBox,
+            component: 'checkbox',
+            context: 'checked',
+            element: checkbox,
+            story: 'example'
+        });
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('inactive color', async () => {
-        page.setViewport({ width: 900, height: 80 });
+    it('example:unchecked', async () => {
+        const checkbox = await page.$('.fab-checkbox');
+        const boundingBox = await checkbox.boundingBox();
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--inactive-color`, { waitUntil: 'load', timeout: 10000 });
+        await checkbox.click();
+        await page.waitFor(500);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            boundingBox,
+            component: 'checkbox',
+            context: 'unchecked',
+            element: checkbox,
+            story: 'example'
+        });
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('rounded', async () => {
-        page.setViewport({ width: 900, height: 115 });
+    // prop-active-color
+    commonTest({ story: 'prop-active-color' });
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--rounded`, { waitUntil: 'load', timeout: 10000 });
+    // prop-color
+    commonTest({ story: 'prop-color' });
 
-        const image = await page.screenshot();
+    // prop-disabled
+    commonTest({ story: 'prop-disabled' });
+
+    // prop-inactive-color
+    commonTest({ story: 'prop-inactive-color' });
+
+    // prop-inactive-color
+    commonTest({ story: 'prop-inactive-color' });
+
+    // prop-read-only
+    commonTest({ story: 'prop-read-only' });
+
+    // prop-size
+    commonTest({ height: 300, story: 'prop-size', width: 1000 });
+
+    // utils
+    it('util-margin', async () => {
+        let image;
+
+        await page.setViewport({ width: 300, height: 400 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--util-margin`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        image = await takeScreenshot({
+            component: 'checkbox',
+            element: page,
+            story: 'util-margin'
+        });
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 
-    it('size', async () => {
-        page.setViewport({ width: 900, height: 50 });
+    it('util-visibility', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--size`, { waitUntil: 'load', timeout: 10000 });
+        await page.setViewport({ width: 200, height: 100 });
 
-        const image = await page.screenshot();
+        await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--util-visibility`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        image = await takeScreenshot({
+            component: 'checkbox',
+            element: page,
+            story: 'util-visibility'
+        });
 
         expect(image).toMatchImageSnapshot({
-            failureThreshold: 0.01,
-            failureThresholdType: 'percent'
+            failureThreshold,
+            failureThresholdType
         });
     });
 });
+

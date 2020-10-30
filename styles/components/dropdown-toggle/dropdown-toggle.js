@@ -15,21 +15,21 @@ const DropdownToggleStyles = params => {
         }
 
         ${wrapper}[data-direction='down'] {
-            &[data-open='true'] .fab-dropdown-toggle__chevron {
+            &[data-open='true'] .fab-dropdown-toggle__chevron .fab-icon {
                 transform: rotateZ(180deg);
             }
 
-            .fab-dropdown-toggle__chevron {
+            .fab-dropdown-toggle__chevron .fab-icon {
                 transform: rotateZ(0);
             }
         }
 
         ${wrapper}[data-direction='up'] {
-            &[data-open='true'] .fab-dropdown-toggle__chevron {
+            &[data-open='true'] .fab-dropdown-toggle__chevron .fab-icon {
                 transform: rotateZ(0);
             }
 
-            .fab-dropdown-toggle__chevron {
+            .fab-dropdown-toggle__chevron .fab-icon {
                 transform: rotateZ(180deg);
             }
         }
@@ -37,14 +37,8 @@ const DropdownToggleStyles = params => {
         .fab-dropdown-toggle__chevron {
             display: ${props.arrow ? 'inline-block' : 'none'};
             flex-shrink: 0;
-            height: 1em;
-            mask-image: url('${chevronIcon}');
-            mask-repeat: no-repeat;
-            mask-position: center center;
-            mask-size: contain;
-            transition: all .2s ease-in-out;
+            line-height: .5;
             vertical-align: middle;
-            width: 1em;
         }
 
         .fab-dropdown-toggle__chevron:not(:only-child) {
@@ -66,6 +60,10 @@ const DropdownToggleStyles = params => {
         // External
         .fab-button-wrapper {
             width: 100%;
+        }
+
+        .fab-icon {
+            transition: all .2s ease-in-out;
         }
 
         ${colorModifier(params)}

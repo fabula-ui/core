@@ -16,19 +16,17 @@ const colorModifier = params => {
     return `
         .fab-checkbox[data-checked='true'] .fab-checkbox__square {
             background: ${getBgColor(activeColor, context)};
-            color: ${getTextColor(activeColor, context)};
 
-            &:before {
-                background: ${getTextColor(activeColor, context)};
+            .fab-icon {
+                color: ${getTextColor(activeColor, context)};
             }
         }
 
         .fab-checkbox[data-checked='false'] .fab-checkbox__square {
             background: ${getBgColor(inactiveColor, context)};
-            color: ${getTextColor(inactiveColor, context)};
 
-            &:before {
-                background: ${getTextColor(inactiveColor, context)};
+            .fab-icon {
+                color: ${getTextColor(inactiveColor, context)};
             }
         }
 
@@ -46,7 +44,6 @@ const colorModifier = params => {
             .fab-checkbox__square {
                 background: ${getActiveColor(inactiveColor, context)};
             }
-            
 
             &[data-checked='true'] .fab-checkbox__square {
                 background: ${getActiveColor(activeColor, context)};

@@ -4,15 +4,15 @@ import getComponentVars from '../../../styles/methods/misc/getComponentVars';
 import colorModifier from './modifiers/checkbox-color.modifier';
 import sizeModifier from './modifiers/checkbox-size.modifier';
 
-// Assets
-const checkIcon = require('../../../icons/raw/check.svg');
-const minusIcon = require('../../../icons/raw/minus.svg');
-
 const CheckboxStyles = params => {
     const { props } = params;
     const vars = getComponentVars('checkbox');
 
-    return `        
+    return `   
+        & {
+            display: inline-block;
+        }  
+
         .fab-checkbox {
             align-items: flex-start;
             cursor: pointer;
@@ -22,7 +22,6 @@ const CheckboxStyles = params => {
         }
 
         .fab-checkbox[data-checked='true'] {
-            .fab-checkbox__square:before,
             .fab-icon {
                 opacity: 1;
                 visibility: visible;
@@ -39,8 +38,7 @@ const CheckboxStyles = params => {
             box-shadow: 0 2px 2px 2px rgba(0,0,0,.2);
         }
 
-        .fab-checkbox[data-indeterminate='true'] .fab-checkbox__square:before {
-            mask-image: url('${minusIcon}');
+        .fab-checkbox[data-indeterminate='true'] .fab-icon {
             opacity: 1;
             visibility: visible;
         }
@@ -66,21 +64,6 @@ const CheckboxStyles = params => {
             top: .075em;
             transition: ${vars.transition};
             width: ${vars.size};
-
-            &:before {
-                content: '';
-                display: block;
-                height: 80%;
-                mask-image: url('${checkIcon}');
-                mask-repeat: no-repeat;
-                mask-position: center center;
-                mask-size: contain;
-                position: relative;
-                opacity: 0;
-                transition: ${vars.transition};
-                visibility: hidden;
-                width: 80%;
-            }
         }
 
         .fab-checkbox__label {
@@ -88,6 +71,15 @@ const CheckboxStyles = params => {
             font-size: ${vars.fontSize};
             font-weight: ${props.weight ? props.weight : '400'};
             padding-left: ${vars.spacing};
+        }
+
+        // External
+        .fab-icon {
+            color: inherit;
+            position: relative;
+            opacity: 0;
+            transition: ${vars.transition};
+            visibility: hidden;
         }
 
         // Modifiers

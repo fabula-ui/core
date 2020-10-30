@@ -1,149 +1,312 @@
-describe('Checkbox', () => {
-    const port = process.env.PORT || '9009';
+import { takeScreenshot } from '../common';
+import { testConfig } from '../config';
 
+const { failureThresholdType, screenshot } = testConfig;
+const failureThreshold = 0.02;
+const port = process.env.PORT || defaultPort;
+
+describe('Dropdown', () => {
+    afterAll(async() => {
+        await page.waitFor(1000);
+    });
+    
     beforeAll(async () => {
         jest.setTimeout(100000);
     });
 
-    it('examples', async () => {
-        page.setViewport({ width: 560, height: 300 });
+    it('example', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--examples`, { waitUntil: 'load', timeout: 10000 });
+        await page.setViewport({ width: 300, height: 100 });
 
-        const dropdowns = await page.$$('.fab-dropdown');
+        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--example`, { waitUntil: 'load' });
+        await page.waitFor(500);
 
-        for (let i = 0; i < dropdowns.length; i++) {
-            const dropdown = dropdowns[i];
-            const toggle = await dropdown.$('.fab-dropdown-toggle');
-            let screenshot;
+        image = await takeScreenshot({
+            component: 'dropdown',
+            element: page,
+            story: 'example'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('example:open', async () => {
+        const toggle = await page.$('.fab-dropdown-toggle');
+        let image;
+
+        await toggle.click();
+        await page.waitFor(500);
+
+        await page.setViewport({ width: 300, height: 400 });
+
+        image = await takeScreenshot({
+            component: 'dropdown',
+            context: 'open',
+            element: page,
+            story: 'example'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    // prop-alignment
+    it('prop-alignment', async () => {
+        let image;
+
+        await page.setViewport({ width: 400, height: 100 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--prop-alignment`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        image = await takeScreenshot({
+            component: 'dropdown',
+            element: page,
+            story: 'prop-alignment'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-alignment:open', async () => {
+        let toggles;
+
+        await page.setViewport({ width: 400, height: 200 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--prop-alignment`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        toggles = await page.$$('.fab-dropdown-toggle');
+
+        for (let i = 0; i < toggles.length; i++) {
+            const toggle = toggles[i];
+            let image;
 
             await toggle.click();
+            await page.waitFor(500);
 
-            screenshot = await page.screenshot();
+            image = await takeScreenshot({
+                component: 'dropdown',
+                context: 'open',
+                element: page,
+                index: i,
+                story: 'prop-alignment'
+            });
 
-            expect(screenshot).toMatchImageSnapshot();
+            expect(image).toMatchImageSnapshot({
+                failureThreshold,
+                failureThresholdType
+            });
         }
     });
 
-    it('color', async () => {
-        page.setViewport({ width: 1240, height: 340 });
+    // prop-direction
+    it('prop-direction', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--color`, { waitUntil: 'load', timeout: 10000 });
+        await page.setViewport({ width: 400, height: 200 });
 
-        const dropdowns = await page.$$('.fab-dropdown');
+        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--prop-direction`, { waitUntil: 'load' });
+        await page.waitFor(500);
 
-        for (let i = 0; i < dropdowns.length; i++) {
-            const dropdown = dropdowns[i];
-            const toggle = await dropdown.$('.fab-dropdown-toggle');
-            let screenshot;
+        image = await takeScreenshot({
+            component: 'dropdown',
+            element: page,
+            story: 'prop-direction'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-direction:open', async () => {
+        let toggles;
+
+        await page.setViewport({ width: 400, height: 200 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--prop-direction`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        toggles = await page.$$('.fab-dropdown-toggle');
+
+        for (let i = 0; i < toggles.length; i++) {
+            const toggle = toggles[i];
+            let image;
 
             await toggle.click();
+            await page.waitFor(500);
 
-            screenshot = await page.screenshot();
+            image = await takeScreenshot({
+                component: 'dropdown',
+                context: 'open',
+                element: page,
+                index: i,
+                story: 'prop-direction'
+            });
 
-            expect(screenshot).toMatchImageSnapshot();
+            expect(image).toMatchImageSnapshot({
+                failureThreshold,
+                failureThresholdType
+            });
         }
     });
 
-    it('custom content', async () => {
-        page.setViewport({ width: 820, height: 310 });
+    // prop-expand
+    it('prop-expand', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--custom-content`, { waitUntil: 'load', timeout: 10000 });
+        await page.setViewport({ width: screenshot.width, height: 200 });
 
-        const dropdowns = await page.$$('.fab-dropdown');
+        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--prop-expand`, { waitUntil: 'load' });
+        await page.waitFor(500);
 
-        for (let i = 0; i < dropdowns.length; i++) {
-            const dropdown = dropdowns[i];
-            const toggle = await dropdown.$('.fab-dropdown-toggle');
-            let screenshot;
+        image = await takeScreenshot({
+            component: 'dropdown',
+            element: page,
+            story: 'prop-expand'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('prop-expand:open', async () => {
+        let toggles;
+
+        await page.setViewport({ width: screenshot.width, height: 200 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--prop-expand`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        toggles = await page.$$('.fab-dropdown-toggle');
+
+        for (let i = 0; i < toggles.length; i++) {
+            const toggle = toggles[i];
+            let image;
 
             await toggle.click();
+            await page.waitFor(500);
 
-            screenshot = await page.screenshot();
+            image = await takeScreenshot({
+                component: 'dropdown',
+                context: 'open',
+                element: page,
+                index: i,
+                story: 'prop-expand'
+            });
 
-            expect(screenshot).toMatchImageSnapshot();
+            expect(image).toMatchImageSnapshot({
+                failureThreshold,
+                failureThresholdType
+            });
         }
     });
 
-    it('direction', async () => {
-        page.setViewport({ width: 340, height: 340 });
+    // custom-content
+    it('custom-content', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--direction`, { waitUntil: 'load', timeout: 10000 });
+        await page.setViewport({ width: 1100, height: 100 });
 
-        const dropdowns = await page.$$('.fab-dropdown');
+        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--custom-content`, { waitUntil: 'load' });
+        await page.waitFor(500);
 
-        for (let i = 0; i < dropdowns.length; i++) {
-            const dropdown = dropdowns[i];
-            const toggle = await dropdown.$('.fab-dropdown-toggle');
-            let screenshot;
+        image = await takeScreenshot({
+            component: 'dropdown',
+            element: page,
+            story: 'custom-content'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('custom-content:open', async () => {
+        let toggles;
+
+        await page.setViewport({ width: 1100, height: 400 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--custom-content`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        toggles = await page.$$('.fab-dropdown-toggle');
+
+        for (let i = 0; i < toggles.length; i++) {
+            const toggle = toggles[i];
+            let image;
 
             await toggle.click();
+            await page.waitFor(500);
 
-            screenshot = await page.screenshot();
+            image = await takeScreenshot({
+                component: 'dropdown',
+                context: 'open',
+                element: page,
+                index: i,
+                story: 'custom-content'
+            });
 
-            expect(screenshot).toMatchImageSnapshot();
+            expect(image).toMatchImageSnapshot({
+                failureThreshold,
+                failureThresholdType
+            });
         }
     });
 
-    it('expand', async () => {
-        page.setViewport({ width: 1240, height: 200 });
+    // util-margin
+    it('util-margin', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--expand`, { waitUntil: 'load', timeout: 10000 });
+        await page.setViewport({ width: 700, height: 500 });
 
-        const dropdowns = await page.$$('.fab-dropdown');
+        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--util-margin`, { waitUntil: 'load' });
+        await page.waitFor(500);
 
-        for (let i = 0; i < dropdowns.length; i++) {
-            const dropdown = dropdowns[i];
-            const toggle = await dropdown.$('.fab-dropdown-toggle');
-            let screenshot;
+        image = await takeScreenshot({
+            component: 'dropdown',
+            element: page,
+            story: 'util-margin'
+        });
 
-            await toggle.click();
-
-            screenshot = await page.screenshot();
-
-            expect(screenshot).toMatchImageSnapshot();
-        }
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
     });
 
-    it('glow', async () => {
-        page.setViewport({ width: 400, height: 200 });
+    // util-visibility
+    it('util-visibility', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--glow`, { waitUntil: 'load', timeout: 10000 });
+        await page.setViewport({ width: 300, height: 200 });
 
-        const dropdowns = await page.$$('.fab-dropdown');
+        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--util-visibility`, { waitUntil: 'load' });
+        await page.waitFor(500);
 
-        for (let i = 0; i < dropdowns.length; i++) {
-            const dropdown = dropdowns[i];
-            const toggle = await dropdown.$('.fab-dropdown-toggle');
-            let screenshot;
+        image = await takeScreenshot({
+            component: 'dropdown',
+            element: page,
+            story: 'util-visibility'
+        });
 
-            await toggle.click();
-
-            screenshot = await page.screenshot();
-
-            expect(screenshot).toMatchImageSnapshot();
-        }
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
     });
-
-    it('size', async () => {
-        page.setViewport({ width: 740, height: 260 });
-
-        await page.goto(`http://localhost:${port}/iframe.html?id=dropdown--size`, { waitUntil: 'load', timeout: 10000 });
-
-        const dropdowns = await page.$$('.fab-dropdown');
-
-        for (let i = 0; i < dropdowns.length; i++) {
-            const dropdown = dropdowns[i];
-            const toggle = await dropdown.$('.fab-dropdown-toggle');
-            let screenshot;
-
-            await toggle.click();
-
-            screenshot = await page.screenshot();
-
-            expect(screenshot).toMatchImageSnapshot();
-        }
-    });
-
-
 });

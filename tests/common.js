@@ -7,7 +7,7 @@ const getPath = params => {
     const { component, context, index, story } = params;
     const dir = makeDir(params);
 
-    return `${dir}/${component}--${story}${context ? `-${context}` : ''}${index || ''}.png`;
+    return `${dir}/${component}--${story}${context ? `-${context}` : ''}${index != null ? index : ''}.png`;
 }
 
 const makeDir = params => {

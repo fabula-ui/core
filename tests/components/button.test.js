@@ -7,7 +7,8 @@ const port = process.env.PORT || defaultPort;
 
 const commonTest = params => {
     const { context, height, story, width } = params;
-    it(`${story}`, async () => {
+    
+    it(story, async () => {
         let image;
 
         await page.setViewport({ width, height });
@@ -58,7 +59,7 @@ const commonTest = params => {
         }
     });
 
-    it(`prop-${context}:active`, async () => {
+    it(`${story}:active`, async () => {
         let buttons;
 
         await page.setViewport({ width: 700, height: 200 });
