@@ -12,7 +12,6 @@ import TagStyles from './external/tag';
 const CardImageStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('card');
-    const icon = require(`../../../icons/raw/${props.icon || 'image'}.svg`);
     const wrapper = framework === 'angular' ? '.fab-card-image' : '&';
 
     return `
@@ -25,21 +24,6 @@ const CardImageStyles = params => {
             position: relative;
             width: ${props.layout === 'h' || props.layout === 'horizontal' ? '10rem' : '100%'};
             ${props.width ? `width: ${getNumber(props.width, 'px')};` : ''}
-
-            &:before {
-                content: '';
-                display: block;
-                height: ${props.layout === 'h' || props.layout === 'horizontal' ? '50%' : '50%'};
-                ${props.layout === 'h' || props.layout === 'horizontal' ? 'left: 50%;' : ''}
-                mask: url(${icon});
-                mask-position: center center;
-                mask-repeat: no-repeat;
-                mask-size: contain;
-                position: absolute;
-                top: 50%;
-                transform: ${props.layout === 'h' || props.layout === 'horizontal' ? 'translate(-50%, -50%)' : 'translate(0, -50%)'};
-                width: ${props.layout === 'h' || props.layout === 'horizontal' ? '50%' : '100%'};
-            }
             
             img {
                 ${props.height || props.cover ? `height: 100%;` : 'height: auto;'}
@@ -75,6 +59,13 @@ const CardImageStyles = params => {
         ${colorModifier(params)}
 
         // External
+        .fab-icon {
+            font-size: 3rem;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
         ${TagStyles()}
     `
 }

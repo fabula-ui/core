@@ -15,11 +15,11 @@ const colorModifier = params => {
         ${wrapper} {
             ${!props.color ? `background: ${vars.placeholderImageColor};` : ''}
             ${props.color ? `background: ${getBgColor(color, props.adaptColor ? 'adapt' : context)};` : ''}
+        }
 
-            &:before {
-                ${!props.color ? `background: ${getPlaceholderIconColor(vars.placeholderImageColor, context)};` : ''}
-                ${props.color ? `background: ${getPlaceholderIconColor(color, context)}` : ''}
-            }
+        .fab-icon {
+            ${!props.color ? `color: ${getPlaceholderIconColor(vars.placeholderImageColor, context)};` : ''}
+            ${props.color ? `color: ${getPlaceholderIconColor(color, context)}` : ''}
         }
     `;
 }

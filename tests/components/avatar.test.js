@@ -3,8 +3,8 @@ import { testConfig } from '../config';
 describe('Avatar', () => {
     const { failureThreshold, failureThresholdType, screenshot } = testConfig;
     const port = process.env.PORT || defaultPort;
-    
-    afterAll(async() => {
+
+    afterAll(async () => {
         await page.waitFor(1000);
     });
 
@@ -16,7 +16,7 @@ describe('Avatar', () => {
         let image;
 
         page.setViewport({ width: 400, height: 200 });
-        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--example`, { waitUntil: 'load' });
+        await page.goto(`http://localhost:${port}/iframe.html?id=avatar--example`, { waitUntil: 'networkidle2' });
         image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -30,7 +30,7 @@ describe('Avatar', () => {
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-color`, { waitUntil: 'load' });
         await page.waitFor(1000);
-        
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -44,7 +44,7 @@ describe('Avatar', () => {
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-darken`, { waitUntil: 'load' });
         await page.waitFor(1000);
-        
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -58,7 +58,7 @@ describe('Avatar', () => {
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-faded`, { waitUntil: 'load' });
         await page.waitFor(1000);
-        
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -72,7 +72,7 @@ describe('Avatar', () => {
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-icon`, { waitUntil: 'load' });
         await page.waitFor(1000);
-        
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -86,7 +86,7 @@ describe('Avatar', () => {
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-lighten`, { waitUntil: 'load' });
         await page.waitFor(1000);
-        
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -100,7 +100,7 @@ describe('Avatar', () => {
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-rounded`, { waitUntil: 'load' });
         await page.waitFor(1000);
-        
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -114,7 +114,7 @@ describe('Avatar', () => {
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-show-initials`, { waitUntil: 'load' });
         await page.waitFor(1000);
-        
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -128,7 +128,7 @@ describe('Avatar', () => {
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-size`, { waitUntil: 'load' });
         await page.waitFor(1000);
-        
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -142,7 +142,7 @@ describe('Avatar', () => {
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--util-margin`, { waitUntil: 'load' });
         await page.waitFor(1000);
-        
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
@@ -156,7 +156,7 @@ describe('Avatar', () => {
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--util-visibility`, { waitUntil: 'load' });
         await page.waitFor(1000);
-        
+
         const image = await page.screenshot();
 
         expect(image).toMatchImageSnapshot({
