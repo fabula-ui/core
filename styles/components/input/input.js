@@ -8,10 +8,6 @@ import sizeModifier from './modifiers/size.modifier';
 import statusModifier from './modifiers/status.modifier';
 import variantModifier from './modifiers/input-variant.modifier';
 
-// Icons
-const toggleIcon = require(`../../../icons/raw/eye.svg`);
-const toggleOffIcon = require(`../../../icons/raw/eye-off.svg`);
-
 const InputStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('input');
@@ -127,7 +123,6 @@ const InputStyles = params => {
             right: ${vars.paddingRight};
         }
 
-        .fab-inner-icon,
         .fab-input__icon[data-placement='start'] {
             left: ${vars.paddingLeft};
         }
@@ -158,15 +153,6 @@ const InputStyles = params => {
             &:active {
                 opacity: .9;
             }
-        }
-
-        .fab-input__password-toggle .fab-input__icon {
-            mask-image: url(${toggleIcon});
-            position: static;
-        }
-
-        .fab-input__password-toggle[data-toggled='true'] .fab-input__icon {
-            mask-image: url(${toggleOffIcon});
         }
 
         // External components

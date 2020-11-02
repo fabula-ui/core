@@ -30,9 +30,9 @@ const statusModifier = params => {
             box-shadow: 0 0 0 ${vars.focusGlowRadius} ${getFocusGlowColor(color, 'faded')};
         }
 
-        .fab-inner-icon,
-        .fab-input__password-toggle .fab-input__icon {
-            background-color: ${getBgColor(color, 'fill')};
+        .fab-icon,
+        .fab-input__password-toggle .fab-icon {
+            color: ${getBgColor(color, 'fill')};
         }
 
         .fab-input__message {

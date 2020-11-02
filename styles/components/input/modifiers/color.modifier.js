@@ -22,16 +22,16 @@ const colorModifier = props => {
             box-shadow: 0 0 0 ${vars.focusGlowRadius} ${getFocusGlowColor(focusGlowColor, 'faded')};
         }
 
-        .fab-input__icon[data-placement='end'] .fab-inner-icon {
-            ${!!iconEndColor ? `background-color: ${iconEndColor};` : ''}
+        .fab-input__icon[data-placement='end'] .fab-icon {
+            ${!!iconEndColor ? `color: ${iconEndColor};` : ''}
         }
 
-        .fab-input__icon[data-placement='start'] .fab-inner-icon {
-            ${(!!iconColor || !!iconStartColor) ? `background-color: ${iconColor || iconStartColor};` : ''}
+        .fab-input__icon[data-placement='start'] .fab-icon {
+            ${(!!iconColor || !!iconStartColor) ? `color: ${iconColor || iconStartColor};` : ''}
         }
 
-        .fab-input__password-toggle .fab-input__icon {
-            background-color: ${getPlaceholderColor(color, 'fill')};
+        .fab-input__password-toggle .fab-icon {
+            color: ${getPlaceholderColor(color, 'fill')};
         }
     `;
 }
