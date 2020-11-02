@@ -1,56 +1,176 @@
+import { takeScreenshot } from '../common';
+import { testConfig } from '../config';
+
+const { failureThresholdType, screenshot } = testConfig;
+const failureThreshold = 0.02;
+const port = process.env.PORT || defaultPort;
+
 describe('List', () => {
-    const port = process.env.PORT || '9009';
+    afterAll(async () => {
+        await page.waitFor(1000);
+    });
 
     beforeAll(async () => {
         jest.setTimeout(100000);
     });
 
-    it('examples', async () => {
-        page.setViewport({ width: 1130, height: 300 });
+    it('example', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=list--examples`, { waitUntil: 'load', timeout: 10000 });
-
+        await page.goto(`http://localhost:${port}/iframe.html?id=list--example`, { waitUntil: 'load' });
         await page.waitFor(500);
 
-        screenshot = await page.screenshot();
+        await page.setViewport({ width: screenshot.width, height: 300 });
 
-        expect(screenshot).toMatchImageSnapshot();
+        image = await takeScreenshot({
+            component: 'list',
+            element: page,
+            story: 'example'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
     });
 
-    it('color', async () => {
-        page.setViewport({ width: 1240, height: 750 });
+    it('prop-color', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=list--color`, { waitUntil: 'load', timeout: 10000 });
-
+        await page.goto(`http://localhost:${port}/iframe.html?id=list--prop-color`, { waitUntil: 'load' });
         await page.waitFor(500);
 
-        screenshot = await page.screenshot();
+        await page.setViewport({ width: screenshot.width, height: 1500 });
 
-        expect(screenshot).toMatchImageSnapshot();
+        image = await takeScreenshot({
+            component: 'list',
+            element: page,
+            story: 'prop-color'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
     });
 
-    it('padding', async () => {
-        page.setViewport({ width: 1240, height: 300 });
+    it('prop-divider', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=list--padding`, { waitUntil: 'load', timeout: 10000 });
-
+        await page.goto(`http://localhost:${port}/iframe.html?id=list--prop-divider`, { waitUntil: 'load' });
         await page.waitFor(500);
 
-        screenshot = await page.screenshot();
+        await page.setViewport({ width: screenshot.width, height: 500 });
 
-        expect(screenshot).toMatchImageSnapshot();
+        image = await takeScreenshot({
+            component: 'list',
+            element: page,
+            story: 'prop-divider'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
     });
 
-    it('striped', async () => {
-        page.setViewport({ width: 1240, height: 750 });
+    it('prop-padding', async () => {
+        let image;
 
-        await page.goto(`http://localhost:${port}/iframe.html?id=list--striped`, { waitUntil: 'load', timeout: 10000 });
-
+        await page.goto(`http://localhost:${port}/iframe.html?id=list--prop-padding`, { waitUntil: 'load' });
         await page.waitFor(500);
 
-        screenshot = await page.screenshot();
+        await page.setViewport({ width: screenshot.width, height: 500 });
 
-        expect(screenshot).toMatchImageSnapshot();
+        image = await takeScreenshot({
+            component: 'list',
+            element: page,
+            story: 'prop-padding'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
     });
 
+    it('prop-striped', async () => {
+        let image;
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=list--prop-striped`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        await page.setViewport({ width: screenshot.width, height: 1500 });
+
+        image = await takeScreenshot({
+            component: 'list',
+            element: page,
+            story: 'prop-striped'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('util-margin', async () => {
+        let image;
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=list--util-margin`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        await page.setViewport({ width: 1300, height: 1800 });
+
+        image = await takeScreenshot({
+            component: 'list',
+            element: page,
+            story: 'util-margin'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('util-padding', async () => {
+        let image;
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=list--util-padding`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        await page.setViewport({ width: screenshot.width, height: 1900 });
+
+        image = await takeScreenshot({
+            component: 'list',
+            element: page,
+            story: 'util-padding'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
+    it('util-visibility', async () => {
+        let image;
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=list--util-visibility`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        await page.setViewport({ width: screenshot.width, height: 400 });
+
+        image = await takeScreenshot({
+            component: 'list',
+            element: page,
+            story: 'util-visibility'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
 });
