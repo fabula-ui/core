@@ -1,4 +1,5 @@
 import getComponentVars from '../../methods/misc/getComponentVars';
+import getContext from '../../methods/misc/getContext';
 
 // Modifiers
 import colorModifier from './modifiers/tag-color.modifier';
@@ -6,6 +7,7 @@ import sizeModifier from './modifiers/tag-size.modifier';
 
 const TagStyles = params => {
     const { framework, props } = params;
+    const context = getContext(props);
     const vars = getComponentVars('tag');
     const wrapper = framework === 'angular' ? '.fab-tag-wrapper' : '&';
 
@@ -33,6 +35,14 @@ const TagStyles = params => {
         a.fab-tag,
         button.fab-tag {
             transition: all ${vars.transition};
+
+            &:hover {
+                ${context === 'clear' ? `opacity: .8;` : ''}
+            }
+
+            &:active {
+                ${context === 'clear' ? `opacity: .6;` : ''}
+            }
         }
 
         a.fab-tag {
@@ -45,6 +55,7 @@ const TagStyles = params => {
         }
 
         button.fab-tag {
+            background: none;
             border: none;
             cursor: pointer;
 

@@ -20,7 +20,9 @@ const colorModifier = props => {
     const textColor = getTextColor(color || vars.color, context);
 
     return `
-        .fab-tag {
+        .fab-tag,
+        a.fab-tag,
+        button.fab-tag {
             background-color: ${bgColor};
             ${props.outline ? `border: solid ${vars.borderWidth} ${borderColor};` : ''}
             ${props.glow ? `box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${glowColor};` : ''}
