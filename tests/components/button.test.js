@@ -31,7 +31,7 @@ const commonTest = params => {
     it(`${story}:hover`, async () => {
         let buttons;
 
-        await page.setViewport({ width: 700, height: 200 });
+        await page.setViewport({ width, height });
 
         buttons = await page.$$('.fab-button');
 
@@ -62,7 +62,7 @@ const commonTest = params => {
     it(`${story}:active`, async () => {
         let buttons;
 
-        await page.setViewport({ width: 700, height: 200 });
+        await page.setViewport({ width, height });
 
         buttons = await page.$$('.fab-button');
 
@@ -71,7 +71,11 @@ const commonTest = params => {
             const boundingBox = await button.boundingBox();
             let screenshot;
 
-            await button.click({ delay: 500 });
+            await button.hover();
+            await page.waitFor(500);
+            
+            await page.mouse.down();
+            await page.mouse.move(width, height);
             await page.waitFor(500);
 
             screenshot = await takeScreenshot({
@@ -87,6 +91,8 @@ const commonTest = params => {
                 failureThreshold,
                 failureThresholdType
             });
+
+            await page.mouse.up();
         }
     });
 }
