@@ -1,11 +1,15 @@
 {
-  "name": "@fabula/core",
-  "version": "0.0.3",
+  "name": "@fabula-ui/core",
+  "version": "0.0.1",
   "description": "Fabula UI core",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
@@ -43,8 +47,5 @@
     "potrace": "^2.1.6",
     "svg-outline-stroke": "^1.3.0",
     "tslib": "^2.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
