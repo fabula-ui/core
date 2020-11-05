@@ -1,4 +1,3 @@
-import button from '../../styles/variables/components/button';
 import { takeScreenshot } from '../common';
 import { testConfig } from '../config';
 
