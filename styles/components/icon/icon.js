@@ -7,21 +7,21 @@ import IconsJSON from '../../../icons/fonts/icons.json';
 
 // Fonts
 const fonts = {
-    eot: require('../../../icons/fonts/icons.eot?d26053aa23f5f9282390c829f9b34483?#iefix'),
-    svg: require('../../../icons/fonts/icons.svg?d26053aa23f5f9282390c829f9b34483#icons'),
-    ttf: require('../../../icons/fonts/icons.ttf?d26053aa23f5f9282390c829f9b34483'),
-    woff: require('../../../icons/fonts/icons.woff?d26053aa23f5f9282390c829f9b34483'),
-    woff2: require('../../../icons/fonts/icons.woff2?d26053aa23f5f9282390c829f9b34483')
+    eot: require('../../../icons/fonts/icons.eot'),
+    svg: require('../../../icons/fonts/icons.svg'),
+    ttf: require('../../../icons/fonts/icons.ttf'),
+    woff: require('../../../icons/fonts/icons.woff'),
+    woff2: require('../../../icons/fonts/icons.woff2')
 }
 
 const fontFace = `
 @font-face {
 	font-family: 'icons';
-	src: url('${fonts.eot}') format('embedded-opentype'),
-		url('${fonts.woff2}') format('woff2'),
-		url('${fonts.woff2}') format('woff'),
-		url('${fonts.ttf}') format('truetype'),
-		url('${fonts.svg}') format('svg');
+	src: url('${fonts.eot}?d26053aa23f5f9282390c829f9b34483?#iefix') format('embedded-opentype'),
+		url('${fonts.woff2}?d26053aa23f5f9282390c829f9b34483#icons') format('woff2'),
+		url('${fonts.woff2}?d26053aa23f5f9282390c829f9b34483') format('woff'),
+		url('${fonts.ttf}?d26053aa23f5f9282390c829f9b34483') format('truetype'),
+		url('${fonts.svg}?d26053aa23f5f9282390c829f9b34483') format('svg');
 }
 `;
 
