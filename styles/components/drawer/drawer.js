@@ -40,7 +40,7 @@ const DrawerStyles = params => {
         }
     }
 
-    .fab-drawer__close-btn {
+    .fab-drawer__close-button {
         appearance: none;
         border: none;
         box-shadow: 0 1px 8px rgba(0,0,0,.1);

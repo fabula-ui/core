@@ -80,21 +80,12 @@ const colorModifier = params => {
 
     return `
     ${wrapper} {
-        ${rounded ? `border: solid 1px transparent;` : ''}
-    }
-
-    ${wrapper}[data-active='true'] {
-        border-color: ${dividerColor};
-    }
-
-    ${wrapper} > a,
-    ${wrapper} > button {
         background-color: ${baseInactiveFillColor};
+        ${rounded ? `border: solid 1px transparent;` : ''}
         color: ${baseInactiveTextColor};
     }
-
-    ${wrapper}[data-active='false'] > a,
-    ${wrapper}[data-active='false'] > button {
+    
+    ${wrapper}[data-active='false'] {
         &:hover {
             color: ${baseInactiveTextColor};
             opacity: .8;
@@ -105,9 +96,12 @@ const colorModifier = params => {
         }
     }
 
+    ${wrapper}[data-active='true'] {
+        border-color: ${dividerColor};
+    }
+
     // Active
-    ${wrapper}[data-active='true'] > a,
-    ${wrapper}[data-active='true'] > button {
+    ${wrapper}[data-active='true'] {
         background-color: ${baseActiveFillColor};
         color: ${baseActiveTextColor};
     }

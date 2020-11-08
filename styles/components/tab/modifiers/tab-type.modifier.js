@@ -6,12 +6,9 @@ const blockType = params => {
 
     return `
         ${wrapper} {
-            > a,
-            > button {
-                border-bottom: none;
-                ${props.stacked ? `padding-left: ${vars.paddingX};` : ''}
-                ${props.stacked ? `padding-right: ${vars.paddingX};` : ''}
-            }
+            border-bottom: none;
+            ${props.stacked ? `padding-left: ${vars.paddingX};` : ''}
+            ${props.stacked ? `padding-right: ${vars.paddingX};` : ''}
         }
     `;
 }
@@ -22,12 +19,9 @@ const floatType = params => {
 
     return `
     ${wrapper} { 
-        > a,
-        > button {
-            border-bottom: none;
-            border-radius: .3em;
-            padding: calc(${vars.paddingY} / 2) ${vars.paddingX};
-        }
+        border-bottom: none;
+        border-radius: .3em;
+        padding: calc(${vars.paddingY} / 2) ${vars.paddingX};
     }
     `;
 }
@@ -37,13 +31,10 @@ const pillType = params => {
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
-    ${wrapper} { 
-        > a,
-        > button {
-            border-bottom: none;
-            border-radius: 999px;
-            padding: calc(${vars.paddingY} / 2) ${vars.paddingX};
-        }
+    ${wrapper} {
+        border-bottom: none;
+        border-radius: 999px;
+        padding: calc(${vars.paddingY} / 2) ${vars.paddingX};
     }
     `;
 }

@@ -1,7 +1,7 @@
 import colorModifier from './modifiers/tabs-color.modifier';
 
 const TabsStyle = params => {
-    const { framework, props } = params;
+    const { props } = params;
 
     return `
         & { 
@@ -27,8 +27,7 @@ const TabsStyle = params => {
             height: 100%;
         }
 
-        .fab-tab > a,
-        .fab-tab > button {
+        .fab-tab {
             ${(props.layout === 'v' || props.layout === 'vertical') ? 'align-items: center;' : ''}
             ${(props.layout === 'v' || props.layout === 'vertical') ? `flex-direction: column;` : ''}
             height: 100%;

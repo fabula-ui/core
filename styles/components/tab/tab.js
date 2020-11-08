@@ -11,22 +11,13 @@ const TabStyle = params => {
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
-        ${(props.expand === 'both' || props.expand === 'h' || props.expand === true) ? `flex-grow: 1;` : ''}
-        ${(props.expand === 'both' || props.expand === 'h' || props.expand === true) ? `flex-shrink: 0;` : ''}
+        & {
+            flex-basis: auto;
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
         
         ${wrapper} {
-            ${(props.expand === 'both' || props.expand === 'h' || props.expand === true) ? `flex-grow: 1;` : ''}
-            ${(props.expand === 'both' || props.expand === 'h' || props.expand === true) ? `flex-shrink: 0;` : ''}
-        }
-
-        ${wrapper} {
-            font-family: ${vars.fontFamily};
-            font-size: ${vars.fontSize};
-            font-weight: ${vars.fontWeight};
-        }
-
-        ${wrapper} > a,
-        ${wrapper} > button {
             align-items: center;
             appearance: none;
             background: none;
@@ -35,17 +26,16 @@ const TabStyle = params => {
             color: inherit;
             cursor: pointer;
             display: flex;
-            font-family: inherit;
-            font-size: inherit;
-            font-weight: inherit;
+            font-family: ${vars.fontFamily};
+            font-size: ${vars.fontSize};
+            font-weight: ${vars.fontWeight};
             line-height: 1;
             justify-content: ${props.stacked ? 'flex-start' : 'center'};
             padding: ${vars.paddingY} ${vars.paddingX};
             ${props.stacked ? `padding-left: 0;` : ''}
             text-align: ${props.stacked ? 'left' : 'center'};
             transition: all ${vars.transition};
-            width: 100%;
-            
+            width: ${framework === 'angular' ? '100%' : 'auto'};
             
             &:focus {
                 outline: none;

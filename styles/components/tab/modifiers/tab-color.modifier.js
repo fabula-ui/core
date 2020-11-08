@@ -65,16 +65,14 @@ const colorModifier = params => {
     };
 
     return `
-    ${wrapper} > a,
-    ${wrapper} > button {
+    ${wrapper} {
         background-color: transparent;
         ${props.type === 'block' || props.type === 'float' || props.type === 'pill' ? `border-bottom: none;` : ''}
         color: ${styleProps.base.inactiveTextColor};
         opacity: ${styleProps.base.inactiveOpacity};
     }
 
-    ${wrapper}[data-active='false'] > a,
-    ${wrapper}[data-active='false'] > button {
+    ${wrapper}[data-active='false'] {
         ${color ? `opacity: .8;` : ''}
 
         &:hover {
@@ -88,14 +86,12 @@ const colorModifier = params => {
     }
 
     // Active
-    ${wrapper}[data-active='true'] > a,
-    ${wrapper}[data-active='true'] > button {
+    ${wrapper}[data-active='true'] {
         background-color: ${styleProps.base.activeFillColor};
         border-bottom-color: ${styleProps.base.activeBorderColor};
         color: ${styleProps.base.activeTextColor};
         opacity: 1;
     }
-    
     `
 }
 
