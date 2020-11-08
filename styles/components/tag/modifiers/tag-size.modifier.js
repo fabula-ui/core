@@ -1,11 +1,13 @@
 import getComponentVars from '../../../methods/misc/getComponentVars';
 
-const sizeModifier = props => {
+const sizeModifier = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('tag');
     const multiplier = vars.sizeMultipliers[props.size];
+    const wrapper = framework === 'angular' ? '.fab-tag' : '&';
 
     return `
-        .fab-tag {
+        ${wrapper} {
             font-size: calc(${vars.fontSize} * ${multiplier});
         }
     `;

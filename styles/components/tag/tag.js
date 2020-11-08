@@ -9,15 +9,14 @@ const TagStyles = params => {
     const { framework, props } = params;
     const context = getContext(props);
     const vars = getComponentVars('tag');
-    const wrapper = framework === 'angular' ? '.fab-tag-wrapper' : '&';
+    const wrapper = framework === 'angular' ? '.fab-tag' : '&';
 
     return `
-        ${wrapper} { display: inline-flex; }
+        & { display: inline-flex; }
 
-        .fab-tag {
+        ${wrapper} {
             align-items: center;
             border-radius: ${props.rounded ? `999px` : vars.borderRadius};
-            display: flex;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             ${!props.weight ? `font-weight: ${vars.fontWeight};` : ''}
@@ -25,15 +24,15 @@ const TagStyles = params => {
             line-height: 1.5;
             overflow: hidden;
             padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};
-            width: 100%;
 
             > *:not(:last-child) {
                 margin-right: .5em;
             }
         }
 
-        a.fab-tag,
-        button.fab-tag {
+        a${wrapper},
+        button${wrapper} {
+            cursor: pointer;
             transition: all ${vars.transition};
 
             &:hover {
@@ -45,7 +44,7 @@ const TagStyles = params => {
             }
         }
 
-        a.fab-tag {
+        a${wrapper} {
             text-decoration: none;
             transition: all ${vars.transition};
 
@@ -54,7 +53,8 @@ const TagStyles = params => {
             }
         }
 
-        button.fab-tag {
+        button${wrapper} {
+            appearance: none;
             background: none;
             border: none;
             cursor: pointer;
@@ -65,8 +65,8 @@ const TagStyles = params => {
         }
 
         // Modifiers
-        ${colorModifier(props)}
-        ${props.size ? sizeModifier(props) : ''}
+        ${colorModifier(params)}
+        ${props.size ? sizeModifier(params) : ''}
     `;
 }
 

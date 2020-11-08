@@ -54,7 +54,7 @@ const ToastStyles = params => {
         }
 
         // External components
-        .fab-toast__close-button .fab-button {
+        .fab-toast__button .fab-button {
             border-radius: .4em;
             min-height: initial;
             padding-bottom: .4em;

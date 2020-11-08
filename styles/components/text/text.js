@@ -35,12 +35,12 @@ const TextStyles = params => {
 
         // External
         ${wrapper} > * {
-            vertical-align: middle;
+            vertical-align: baseline;
         }
 
-        ${wrapper} > fab-link,
-        ${wrapper} > .fab-link {
-            vertical-align: initial;
+        ${wrapper} > fab-icon,
+        ${wrapper} > .fab-icon {
+            vertical-align: middle;
         }
 
         // Modifiers

@@ -10,7 +10,8 @@ import getHoverColor from '../../../methods/color/getHoverColor';
 import getHoverTextColor from '../../../methods/color/getHoverTextColor';
 import getTextColor from '../../../methods/color/getTextColor';
 
-const colorModifier = props => {
+const colorModifier = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('tag');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
     const context = props.color ? getContext(props) : 'fill';
@@ -18,19 +19,20 @@ const colorModifier = props => {
     const borderColor = getBorderColor(color || vars.color, context);
     const glowColor = getGlowColor(color || vars.color, context);
     const textColor = getTextColor(color || vars.color, context);
+    const wrapper = framework === 'angular' ? '.fab-tag' : '&'
 
     return `
-        .fab-tag,
-        a.fab-tag,
-        button.fab-tag {
+        ${wrapper},
+        a${wrapper},
+        button${wrapper} {
             background-color: ${bgColor};
             ${props.outline ? `border: solid ${vars.borderWidth} ${borderColor};` : ''}
             ${props.glow ? `box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${glowColor};` : ''}
             color: ${textColor};
         }
 
-        a.fab-tag,
-        button.fab-tag {
+        a${wrapper},
+        button${wrapper} {
             &:before {
                 border-color: ${getFocusColor(color, context)};
             }
