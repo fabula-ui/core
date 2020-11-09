@@ -12,10 +12,6 @@ const AlertStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-alert' : '&';
 
     return `
-        &[data-visible='false'] {
-            display: none;
-        }
-
         ${wrapper} {
             align-items: flex-start;
             border: solid ${vars.borderWidth};

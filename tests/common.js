@@ -1,4 +1,4 @@
-import { testConfig } from './config';
+const { testConfig } = require('./config');
 
 const fs = require('fs');
 const { path } = testConfig;
@@ -26,7 +26,7 @@ const makeDir = params => {
     return storyDir;
 }
 
-export const takeScreenshot = async params => {
+const takeScreenshot = async params => {
     const { boundingBox, element } = params;
     const screenshotParams = { path: getPath(params) };
 
@@ -42,4 +42,8 @@ export const takeScreenshot = async params => {
     }
 
     return await element.screenshot(screenshotParams);
+}
+
+module.exports = {
+    takeScreenshot
 }

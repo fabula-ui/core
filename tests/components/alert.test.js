@@ -1,5 +1,5 @@
-import { takeScreenshot } from '../common';
-import { testConfig } from '../config';
+const { takeScreenshot } = require('../common');
+const { testConfig } = require('../config');
 
 describe('Alert', () => {
     const { failureThresholdType, screenshot } = testConfig;
@@ -19,8 +19,8 @@ describe('Alert', () => {
 
         page.setViewport({ width: screenshot.width, height: 400 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--example`, { waitUntil: 'load' });
-        await page.waitFor(500);
-        
+        await page.waitFor(1000);
+
         image = await takeScreenshot({
             component: 'alert',
             element: page,
@@ -39,7 +39,7 @@ describe('Alert', () => {
         page.setViewport({ width: screenshot.width, height: 200 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-border`, { waitUntil: 'load' });
         await page.waitFor(500);
-        
+
         image = await takeScreenshot({
             component: 'alert',
             element: page,
@@ -77,7 +77,7 @@ describe('Alert', () => {
         page.setViewport({ width: screenshot.width, height: 600 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-close-button`, { waitUntil: 'load' });
         await page.waitFor(500);
-        
+
         image = await takeScreenshot({
             component: 'alert',
             element: page,
@@ -134,7 +134,7 @@ describe('Alert', () => {
         page.setViewport({ width: screenshot.width, height: 600 });
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--prop-glow`, { waitUntil: 'load' });
         await page.waitFor(500);
-        
+
         image = await takeScreenshot({
             component: 'alert',
             element: page,
@@ -309,7 +309,7 @@ describe('Alert', () => {
         image = await takeScreenshot({
             component: 'alert',
             element: page,
-            story: 'prop-util-padding'
+            story: 'util-padding'
         });
 
         expect(image).toMatchImageSnapshot({
@@ -322,14 +322,14 @@ describe('Alert', () => {
         let image;
 
         page.setViewport({ width: screenshot.width, height: 200 });
-        
+
         await page.goto(`http://localhost:${port}/iframe.html?id=alert--util-visibility`, { waitUntil: 'load' });
         await page.waitFor(500);
 
         image = await takeScreenshot({
             component: 'alert',
             element: page,
-            story: 'prop-util-visibility'
+            story: 'util-visibility'
         });
 
         expect(image).toMatchImageSnapshot({

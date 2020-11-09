@@ -1,4 +1,4 @@
-export const testConfig = {
+const testConfig = {
     defaultPort: '9009',
     failureTreshold: 0.01,
     failureThresholdType: 'percent',
@@ -6,4 +6,8 @@ export const testConfig = {
     screenshot: {
         width: 1280
     },
+}
+
+module.exports = {
+    testConfig
 }
