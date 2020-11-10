@@ -1,4 +1,5 @@
-import { testConfig } from '../config';
+const { takeScreenshot } = require('../common');
+const { testConfig } = require('../config');
 
 describe('Avatar', () => {
     const { failureThreshold, failureThresholdType, screenshot } = testConfig;
@@ -17,7 +18,12 @@ describe('Avatar', () => {
 
         page.setViewport({ width: 400, height: 200 });
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--example`, { waitUntil: 'networkidle2' });
-        image = await page.screenshot();
+        
+        image = await takeScreenshot({
+            component: 'avatar',
+            element: page,
+            story: 'example'
+        });
 
         expect(image).toMatchImageSnapshot({
             failureThreshold,
@@ -26,12 +32,18 @@ describe('Avatar', () => {
     });
 
     it('prop-color', async () => {
+        let image;
+
         page.setViewport({ width: 400, height: 100 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-color`, { waitUntil: 'load' });
         await page.waitFor(1000);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            component: 'avatar',
+            element: page,
+            story: 'prop-color'
+        });
 
         expect(image).toMatchImageSnapshot({
             failureThreshold,
@@ -40,12 +52,18 @@ describe('Avatar', () => {
     });
 
     it('prop-darken', async () => {
+        let image;
+
         page.setViewport({ width: 400, height: 100 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-darken`, { waitUntil: 'load' });
         await page.waitFor(1000);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            component: 'avatar',
+            element: page,
+            story: 'prop-darken'
+        });
 
         expect(image).toMatchImageSnapshot({
             failureThreshold,
@@ -54,12 +72,18 @@ describe('Avatar', () => {
     });
 
     it('prop-faded', async () => {
+        let image;
+
         page.setViewport({ width: 400, height: 100 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-faded`, { waitUntil: 'load' });
         await page.waitFor(1000);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            component: 'avatar',
+            element: page,
+            story: 'prop-faded'
+        });
 
         expect(image).toMatchImageSnapshot({
             failureThreshold,
@@ -68,12 +92,18 @@ describe('Avatar', () => {
     });
 
     it('prop-icon', async () => {
+        let image;
+
         page.setViewport({ width: 200, height: 100 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-icon`, { waitUntil: 'load' });
         await page.waitFor(1000);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            component: 'avatar',
+            element: page,
+            story: 'prop-icon'
+        });
 
         expect(image).toMatchImageSnapshot({
             failureThreshold,
@@ -82,12 +112,18 @@ describe('Avatar', () => {
     });
 
     it('prop-lighten', async () => {
+        let image;
+
         page.setViewport({ width: 400, height: 100 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-lighten`, { waitUntil: 'load' });
         await page.waitFor(1000);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            component: 'avatar',
+            element: page,
+            story: 'prop-lighten'
+        });
 
         expect(image).toMatchImageSnapshot({
             failureThreshold,
@@ -96,12 +132,18 @@ describe('Avatar', () => {
     });
 
     it('prop-rounded', async () => {
+        let image;
+
         page.setViewport({ width: 200, height: 100 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-rounded`, { waitUntil: 'load' });
         await page.waitFor(1000);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            component: 'avatar',
+            element: page,
+            story: 'prop-rounded'
+        });
 
         expect(image).toMatchImageSnapshot({
             failureThreshold,
@@ -110,12 +152,18 @@ describe('Avatar', () => {
     });
 
     it('prop-show-initials', async () => {
+        let image;
+
         page.setViewport({ width: 400, height: 200 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-show-initials`, { waitUntil: 'load' });
         await page.waitFor(1000);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            component: 'avatar',
+            element: page,
+            story: 'prop-show-initals'
+        });
 
         expect(image).toMatchImageSnapshot({
             failureThreshold,
@@ -124,12 +172,18 @@ describe('Avatar', () => {
     });
 
     it('prop-size', async () => {
+        let image;
+
         page.setViewport({ width: 400, height: 200 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--prop-size`, { waitUntil: 'load' });
         await page.waitFor(1000);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            component: 'avatar',
+            element: page,
+            story: 'prop-size'
+        });
 
         expect(image).toMatchImageSnapshot({
             failureThreshold,
@@ -138,12 +192,18 @@ describe('Avatar', () => {
     });
 
     it('util-margin', async () => {
-        page.setViewport({ width: 200, height: 400 });
+        let image;
+
+        page.setViewport({ width: 200, height: 500 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--util-margin`, { waitUntil: 'load' });
         await page.waitFor(1000);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            component: 'avatar',
+            element: page,
+            story: 'util-margin'
+        });
 
         expect(image).toMatchImageSnapshot({
             failureThreshold,
@@ -152,12 +212,18 @@ describe('Avatar', () => {
     });
 
     it('util-visibility', async () => {
+        let image;
+
         page.setViewport({ width: 100, height: 200 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=avatar--util-visibility`, { waitUntil: 'load' });
         await page.waitFor(1000);
 
-        const image = await page.screenshot();
+        image = await takeScreenshot({
+            component: 'avatar',
+            element: page,
+            story: 'util-visibility'
+        });
 
         expect(image).toMatchImageSnapshot({
             failureThreshold,
