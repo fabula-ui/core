@@ -6,13 +6,15 @@ import getContext from '../../../methods/misc/getContext';
 import getGlowColor from '../../../methods/color/getGlowColor';
 import getTextColor from '../../../methods/color/getTextColor';
 
-const colorModifier = props => {
+const colorModifier = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('badge');
     const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
-    const context = props.color|| props.clear ? getContext(props) : 'fill';
+    const context = props.color || props.clear ? getContext(props) : 'fill';
+    const wrapper = framework === 'angular' ? '.fab-badge' : '&';
 
     return `
-        .fab-badge {
+        ${wrapper} {
             background: ${getBgColor(color, context)};
             ${props.outline ? `border: solid 1px ${getBorderColor(color, context)};` : ''}
             ${props.glow ? `box-shadow: 0 1px 3px ${getGlowColor(color, context)};` : ''}

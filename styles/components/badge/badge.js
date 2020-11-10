@@ -9,28 +9,27 @@ import sizeModifier from './modifiers/badge-size.modifier';
 const BadgeStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('badge');
-    const wrapper = framework === 'angular' ? '.fab-badge-wrapper' : '&';
+    const wrapper = framework === 'angular' ? '.fab-badge' : '&';
 
     return `
-        ${framework === 'angular' ? `& { display: inline-block; }` : ''}
+        & { display: inline-block; }
 
         ${wrapper} {
             display: inline-block;
-            vertical-align: middle;
         }
 
-        .fab-badge {
+        ${wrapper} {
             align-items: center;
             border-radius: ${vars.borderRadius};
             ${(props.circle || props.rounded) ? `border-radius: 999px;` : ''}
-            display: flex;
+            display: inline-block;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
             ${props.circle ? `height: ${vars.circleSize};` : ''}
             justify-content: center;
             line-height: 1;
-            ${props.circle || props.rounded ? `min-width: ${vars.circleSize};` : ''}
+            ${(props.circle || props.rounded) ? `min-width: ${vars.circleSize};` : ''}
             padding: ${vars.padding};
             ${props.circle ? `padding: 0;` : ''}
             ${props.rounded ? `padding: ${vars.paddingY} calc(${vars.paddingX} + .2em);` : ''}
@@ -38,9 +37,14 @@ const BadgeStyles = params => {
             ${props.width ? `width: ${vars.circleSize};` : ''}
         }
 
-        ${colorModifier(props)}
+        ${wrapper} > * {
+            vertical-align: baseline;
+        }
+
+        // Modifiers
+        ${colorModifier(params)}
         ${props.placement ? placementModifier(params) : ''}
-        ${sizeModifier(props)}
+        ${sizeModifier(params)}
     `
 }
 

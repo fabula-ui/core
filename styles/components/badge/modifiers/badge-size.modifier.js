@@ -1,11 +1,13 @@
 import getComponentVars from '../../../methods/misc/getComponentVars';
 
-const sizeModifier = props => {
+const sizeModifier = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('badge');
     const multiplier = vars.sizeMultipliers[props.size || 'md'];
+    const wrapper = framework === 'angular' ? '.fab-badge' : '&';
 
     return `
-        .fab-badge {
+        ${wrapper} {
             font-size: calc(${vars.fontSize} * ${multiplier});
         }
     `;

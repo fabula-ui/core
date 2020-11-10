@@ -1,13 +1,13 @@
-import { takeScreenshot } from '../common';
-import { testConfig } from '../config';
+const { takeScreenshot } = require('../common');
+const { testConfig } = require('../config');
 
 const { failureThresholdType, screenshot } = testConfig;
 const failureThreshold = 0.02;
 const port = process.env.PORT || defaultPort;
 
 const commonTest = params => {
-    const { context, height, story, width } = params;
-    
+    const { height, story, width } = params;
+
     it(story, async () => {
         let image;
 
@@ -73,7 +73,7 @@ const commonTest = params => {
 
             await button.hover();
             await page.waitFor(500);
-            
+
             await page.mouse.down();
             await page.mouse.move(width, height);
             await page.waitFor(500);
@@ -98,10 +98,10 @@ const commonTest = params => {
 }
 
 describe('Button', () => {
-    afterAll(async() => {
+    afterAll(async () => {
         await page.waitFor(1000);
     });
-    
+
     beforeAll(async () => {
         jest.setTimeout(100000);
     });
@@ -112,7 +112,7 @@ describe('Button', () => {
         await page.setViewport({ width: 700, height: 100 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=button--example`, { waitUntil: 'load' });
-        await page.waitFor(500);
+        await page.waitFor(1000);
 
         image = await takeScreenshot({
             component: 'button',

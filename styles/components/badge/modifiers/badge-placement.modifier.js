@@ -1,9 +1,9 @@
 const placementModifier = params => {
     const { framework, props } = params;
-    const wrapper = framework === 'angular' ? '.fab-badge-wrapper' : '&';
+    const wrapper = framework === 'angular' ? '.fab-badge' : '&';
 
     return `
-        ${wrapper} .fab-badge {
+        ${wrapper} {
             ${props.placement.y === 'bottom' ? 'bottom: 0;' : ''}
             ${props.placement.x === 'left' ? 'left: 0;' : ''}
             position: absolute;
