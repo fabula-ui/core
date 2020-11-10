@@ -41,7 +41,7 @@ const DropdownToggleStyles = params => {
             vertical-align: middle;
         }
 
-        .fab-dropdown-toggle__chevron:not(:only-child) {
+        .fab-dropdown-toggle__chevron:not(:only-child):not([data-only-child='true']) {
             margin-left: .5em;
         }
 
@@ -66,6 +66,7 @@ const DropdownToggleStyles = params => {
             transition: all .2s ease-in-out;
         }
 
+        // Modifiers
         ${colorModifier(params)}
     `;
 }

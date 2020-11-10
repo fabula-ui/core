@@ -1,5 +1,5 @@
-import { takeScreenshot } from '../common';
-import { testConfig } from '../config';
+const { takeScreenshot } = require('../common');
+const { testConfig } = require('../config');
 
 const { failureThresholdType } = testConfig;
 const failureThreshold = 0.02;
@@ -9,7 +9,7 @@ describe('Button Group', () => {
     afterAll(async () => {
         await page.waitFor(1000);
     });
-    
+
     beforeAll(async () => {
         jest.setTimeout(100000);
     });
@@ -21,7 +21,7 @@ describe('Button Group', () => {
         await page.setViewport({ width: 1100, height: 100 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=button-group--example`, { waitUntil: 'load' });
-        await page.waitFor(500);
+        await page.waitFor(1000);
 
         image = await takeScreenshot({
             component: 'button-group',
@@ -71,7 +71,7 @@ describe('Button Group', () => {
     it('prop-color', async () => {
         let image;
 
-        await page.setViewport({ width: 1200, height: 200 });
+        await page.setViewport({ width: 1200, height: 400 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=button-group--prop-color`, { waitUntil: 'load' });
         await page.waitFor(500);
@@ -91,7 +91,7 @@ describe('Button Group', () => {
     it('prop-color:active', async () => {
         let buttons;
 
-        await page.setViewport({ width: 1200, height: 200 });
+        await page.setViewport({ width: 1200, height: 400 });
 
         buttons = await page.$$('.fab-button');
 

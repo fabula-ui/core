@@ -3,18 +3,19 @@ import dividerModifier from './modifiers/button-group-divider.modifier';
 import gluedModifier from './modifiers/button-group-glued.modifier';
 
 const ButtonGroupStyles = params => {
-    const { props } = params;
+    const { framework, props } = params;
     const directions = {
         h: 'row',
         horizontal: 'row',
         v: 'column',
         vertical: 'column'
-    }
+    };
+    const wrapper = framework === 'angular' ? '.fab-button-group' : '&';
 
     return `
     & { display: inline-block; }
 
-    .fab-button-group {
+    ${wrapper} {
         align-items: flex-start;
         box-sizing: border-box;
         display: inline-flex;
