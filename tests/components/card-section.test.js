@@ -1,15 +1,15 @@
-import { takeScreenshot } from '../common';
-import { testConfig } from '../config';
+const { takeScreenshot } = require('../common');
+const { testConfig } = require('../config');
 
 const { failureThresholdType, screenshot } = testConfig;
 const failureThreshold = 0.02;
 const port = process.env.PORT || defaultPort;
 
 describe('Card Section', () => {
-    afterAll(async() => {
+    afterAll(async () => {
         await page.waitFor(1000);
     });
-    
+
     beforeAll(async () => {
         jest.setTimeout(100000);
     });

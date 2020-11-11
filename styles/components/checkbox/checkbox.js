@@ -34,10 +34,6 @@ const CheckboxStyles = params => {
             pointer-events: none;
         }
 
-        .fab-checkbox[data-focus='true'] {
-            box-shadow: 0 2px 2px 2px rgba(0,0,0,.2);
-        }
-
         .fab-checkbox[data-indeterminate='true'] .fab-icon {
             opacity: 1;
             visibility: visible;

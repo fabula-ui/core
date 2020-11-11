@@ -12,7 +12,7 @@ const TagStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-tag' : '&';
 
     return `
-        & { display: inline-flex; }
+        & { display: inline-block; }
 
         ${wrapper} {
             align-items: center;
@@ -62,6 +62,10 @@ const TagStyles = params => {
             &:focus {
                 outline: none;
             }
+        }
+
+        ${wrapper} > * {
+            vertical-align: baseline;
         }
 
         // Modifiers

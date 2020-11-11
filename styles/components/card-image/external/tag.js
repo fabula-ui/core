@@ -1,32 +1,34 @@
 import getComponentVars from '../../../methods/misc/getComponentVars';
 
-const TagStyles = () => {
+const TagStyles = params => {
+    const { framework } = params;
     const vars = getComponentVars('cardImage');
+    const wrapper = framework === 'angular' ? '.fab-card-image' : '&';
 
     return `
-        .fab-tag-wrapper {
+        ${wrapper} .fab-tag {
             position: absolute;
             z-index: 1;
         }
 
-        .fab-tag-wrapper[data-placement-x='center'] {
+        ${wrapper} .fab-tag[data-placement-x='center'] {
             left: 50%;
             transform: translate(-50%, 0);
         }
 
-        .fab-tag-wrapper[data-placement-x='left'] {
+        ${wrapper} .fab-tag[data-placement-x='left'] {
             left: ${vars.paddingX};
         }
 
-        .fab-tag-wrapper[data-placement-x='right'] {
+        ${wrapper} .fab-tag[data-placement-x='right'] {
             right: ${vars.paddingX};
         }
 
-        .fab-tag-wrapper[data-placement-y='bottom'] {
+        ${wrapper} .fab-tag[data-placement-y='bottom'] {
             bottom: ${vars.paddingY};
         }
 
-        .fab-tag-wrapper[data-placement-y='center'] {
+        ${wrapper} .fab-tag[data-placement-y='center'] {
             top: 50%;
             transform: translate(0, -50%);
 
@@ -35,7 +37,7 @@ const TagStyles = () => {
             }
         }
 
-        .fab-tag-wrapper[data-placement-y='top'] {
+        ${wrapper} .fab-tag[data-placement-y='top'] {
             top: ${vars.paddingY};
         }
     `;

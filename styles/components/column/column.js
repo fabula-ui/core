@@ -1,7 +1,7 @@
 import getPercentage from '../../methods/misc/getPercentage';
 
 const ColumnStyles = params => {
-    const { framework, props } = params;
+    const { props } = params;
 
     return `
         & {

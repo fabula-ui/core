@@ -59,7 +59,8 @@ const CardImageStyles = params => {
         ${colorModifier(params)}
 
         // External
-        ${wrapper} .fab-icon {
+        ${wrapper} > fab-icon > .fab-icon,
+        ${wrapper} > .fab-icon {
             font-size: 3rem;
             left: 50%;
             position: absolute;
@@ -67,7 +68,7 @@ const CardImageStyles = params => {
             transform: translate(-50%, -50%);
         }
         
-        ${TagStyles()}
+        ${TagStyles(params)}
     `
 }
 

@@ -1,5 +1,5 @@
-import { takeScreenshot } from '../common';
-import { testConfig } from '../config';
+const { takeScreenshot } = require('../common');
+const { testConfig } = require('../config');
 
 const { failureThresholdType, screenshot } = testConfig;
 const failureThreshold = 0.02;
@@ -17,7 +17,7 @@ describe('Card Image', () => {
     it('example', async () => {
         let image;
 
-        await page.setViewport({ width: screenshot.width, height: 300 });
+        await page.setViewport({ width: 400, height: 300 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=card-image--example`, { waitUntil: 'load' });
         await page.waitFor(500);
@@ -177,7 +177,7 @@ describe('Card Image', () => {
     it('util-visibility', async () => {
         let image;
 
-        await page.setViewport({ width: screenshot.width, height: 700 });
+        await page.setViewport({ width: screenshot.width, height: 300 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=card-image--util-visibility`, { waitUntil: 'load' });
         await page.waitFor(500);

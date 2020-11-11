@@ -1,5 +1,5 @@
-import { takeScreenshot } from '../common';
-import { testConfig } from '../config';
+const { takeScreenshot } = require('../common');
+const { testConfig } = require('../config');
 
 const { failureThresholdType, screenshot } = testConfig;
 const failureThreshold = 0.02;
@@ -109,7 +109,7 @@ describe('Checkbox', () => {
         await page.setViewport({ width: 200, height: 100 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--example`, { waitUntil: 'load' });
-        await page.waitFor(500);
+        await page.waitFor(1000);
 
         image = await takeScreenshot({
             component: 'checkbox',
@@ -192,7 +192,7 @@ describe('Checkbox', () => {
     it('util-margin', async () => {
         let image;
 
-        await page.setViewport({ width: 300, height: 400 });
+        await page.setViewport({ width: 400, height: 400 });
 
         await page.goto(`http://localhost:${port}/iframe.html?id=checkbox--util-margin`, { waitUntil: 'load' });
         await page.waitFor(500);
