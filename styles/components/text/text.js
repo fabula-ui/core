@@ -38,7 +38,9 @@ const TextStyles = params => {
             vertical-align: baseline;
         }
 
-        ${wrapper} > fab-icon,
+        ${wrapper} > fab-badge > .fab-badge,
+        ${wrapper} > .fab-badge,
+        ${wrapper} > fab-icon > .fab-icon,
         ${wrapper} > .fab-icon {
             vertical-align: middle;
         }
