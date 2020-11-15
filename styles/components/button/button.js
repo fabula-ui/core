@@ -29,7 +29,7 @@ const ButtonStyles = params => {
             border-radius: ${vars.borderRadius};
             ${props.rounded ? `border-radius: 999px;` : ''}
             cursor: pointer;
-            display: inline-block;
+            display: inline-flex;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};

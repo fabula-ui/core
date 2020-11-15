@@ -1,5 +1,5 @@
 import * as handlers from './breakpoints';
-import { breakpoints, breakpointsOrder } from './breakpoints';
+import { breakpointsOrder } from './breakpoints';
 
 const getBreakpointProps = (context, params) => {
 	const { props } = params;
