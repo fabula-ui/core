@@ -2,19 +2,20 @@ import getNumber from '../../methods/misc/getNumber';
 
 const marginUtils = params => {
     const { props } = params;
-    const { m, mb, ml, mr, mt, mx, my } = props;
 
-    return `
-    & {
-        ${m != null ? `margin: ${getNumber(m, 'rem')}!important;` : ''}
-        ${mb != null ? `margin-bottom: ${getNumber(mb, 'rem')}!important;` : ''}
-        ${ml != null ? `margin-left: ${getNumber(ml, 'rem')}!important;` : ''}
-        ${mr != null ? `margin-right: ${getNumber(mr, 'rem')}!important;` : ''}
-        ${mt != null ? `margin-top: ${getNumber(mt, 'rem')}!important;` : ''}
-        ${mx != null ? `margin-left: ${getNumber(mx, 'rem')}!important; margin-right: ${getNumber(mx, 'rem')}!important;` : ''}
-        ${my != null ? `margin-bottom: ${getNumber(my, 'rem')}!important; margin-top: ${getNumber(my, 'rem')}!important;` : ''}
+    if (!props.innerComponent) {
+        return `
+        & {
+            ${props.m != null ? `margin: ${getNumber(props.m, 'rem')}!important;` : ''}
+            ${props.mb != null ? `margin-bottom: ${getNumber(props.mb, 'rem')}!important;` : ''}
+            ${props.ml != null ? `margin-left: ${getNumber(props.ml, 'rem')}!important;` : ''}
+            ${props.mr != null ? `margin-right: ${getNumber(props.mr, 'rem')}!important;` : ''}
+            ${props.mt != null ? `margin-top: ${getNumber(props.mt, 'rem')}!important;` : ''}
+            ${props.mx != null ? `margin-left: ${getNumber(props.mx, 'rem')}!important; margin-right: ${getNumber(props.mx, 'rem')}!important;` : ''}
+            ${props.my != null ? `margin-bottom: ${getNumber(props.my, 'rem')}!important; margin-top: ${getNumber(props.my, 'rem')}!important;` : ''}
+        }
+        `
     }
-    `
 }
 
 export default marginUtils;

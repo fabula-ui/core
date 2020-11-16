@@ -17,6 +17,7 @@ const TagStyles = params => {
         ${wrapper} {
             align-items: center;
             border-radius: ${props.rounded ? `999px` : vars.borderRadius};
+            display: inline-block;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             ${!props.weight ? `font-weight: ${vars.fontWeight};` : ''}
@@ -24,6 +25,7 @@ const TagStyles = params => {
             line-height: 1.5;
             overflow: hidden;
             padding: ${vars.paddingTop} ${vars.paddingRight} ${vars.paddingBottom} ${vars.paddingLeft};
+            vertical-align: middle;
 
             > *:not(:last-child) {
                 margin-right: .5em;
