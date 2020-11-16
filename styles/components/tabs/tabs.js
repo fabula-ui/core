@@ -17,6 +17,7 @@ const TabsStyle = params => {
             ${props.alignment === 'right' && props.stacked ? `justify-content: flex-end;` : ''}
             ${props.alignment === 'right' && !props.stacked ? `align-items: flex-end;` : ''}
             display: flex;
+            ${props.inline ? `display: inline-flex;` : ''}
             ${props.stacked ? `flex-direction: column;` : ''}
             ${(props.expand === 'both' || props.expand === 'v') ? `height: 100%;` : ''}
             ${props.type === 'float' || props.type === 'pill' ? `padding: .7rem 1rem;` : ''}
