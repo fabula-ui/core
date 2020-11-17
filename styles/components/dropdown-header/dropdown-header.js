@@ -9,13 +9,16 @@ const DropdownHeaderStyles = params => {
     const wrapper = framework === 'angular' ? '.fab-dropdown-header' : '&';
 
     return `
+        & {
+            display: block;
+            margin-bottom: ${vars.paddingY};
+        }
+
         ${wrapper} {
             align-items: center;
-            display: flex;
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
             letter-spacing: ${vars.letterSpacing};
-            margin-bottom: ${vars.paddingY};
             ${(props.color || props.parentColor) ? `opacity: ${vars.opacity};` : ''}
             padding: ${vars.paddingY} ${vars.paddingX};
             width: 100%;
