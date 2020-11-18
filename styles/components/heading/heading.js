@@ -5,7 +5,7 @@ import colorModifier from './modifiers/heading-color.modifier';
 
 
 const HeadingStyles = params => {
-    const { framework, props } = params;
+    const { props } = params;
     const vars = getComponentVars('heading');
 
     return `

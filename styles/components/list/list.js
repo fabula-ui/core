@@ -5,13 +5,12 @@ const ListStyles = params => {
     const { props } = params;
 
     return `
-        .fab-list {
-            padding: 0;
+        & {
+            display: block;
         }
 
-        // External
-        .fab-list .fab-divider {
-            
+        .fab-list {
+            padding: 0;
         }
 
         // Modifiers
