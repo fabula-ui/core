@@ -67,7 +67,7 @@ const TagStyles = params => {
         }
 
         ${wrapper} > * {
-            vertical-align: baseline;
+            vertical-align: middle;
         }
 
         // Modifiers
