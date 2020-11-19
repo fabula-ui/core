@@ -18,7 +18,7 @@ const ElementStyles = params => {
         }
 
         ${wrapper} > *,
-        ${wrapper} .fab-badge,
+        ${wrapper} .fab-badge-wrapper,
         ${wrapper} .fab-icon {
             vertical-align: middle;
         }

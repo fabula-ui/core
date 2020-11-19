@@ -56,7 +56,7 @@ const FileInputStyles = params => {
             width: 2.75em;
         }
         
-        .fab-file-input .fab-badge {
+        .fab-file-input .fab-badge-wrapper {
             font-size: .5em; 
             margin-left: -5px;
             position: absolute;

@@ -8,7 +8,7 @@ const BadgeExternalStyles = params => {
             padding-right: .5em!important;
         }
 
-        ${wrapper} .fab-badge[data-has-placement='false'] {
+        ${wrapper} .fab-badge-wrapper[data-has-placement='false'] {
             bottom: 0;
             position: absolute;
             right: 0;

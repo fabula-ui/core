@@ -7,23 +7,17 @@ import placementModifier from './modifiers/badge-placement.modifier';
 import sizeModifier from './modifiers/badge-size.modifier';
 
 const BadgeStyles = params => {
-    const { framework, props } = params;
+    const { props } = params;
     const vars = getComponentVars('badge');
-    const wrapper = framework === 'angular' ? '.fab-badge' : '&';
 
     return `
-        & { display: inline-block; }
+        & { display: inline-block; font-size: inherit; }
 
-        ${wrapper} {
-            display: inline-block;
-        }
-
-        ${wrapper} {
+        .fab-badge {
             align-items: center;
-            border-radius: ${vars.borderRadius};
-            ${(props.circle || props.rounded) ? `border-radius: 999px;` : ''}
-            display: inline-block;
+            border-radius: ${props.rounded ? '999px' : vars.borderRadius};
             font-family: ${vars.fontFamily};
+            display: flex;
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
             ${props.circle ? `height: ${vars.circleSize};` : ''}
@@ -35,10 +29,6 @@ const BadgeStyles = params => {
             ${props.rounded ? `padding: ${vars.paddingY} calc(${vars.paddingX} + .2em);` : ''}
             text-align: center;
             ${props.width ? `width: ${vars.circleSize};` : ''}
-        }
-
-        ${wrapper} > * {
-            vertical-align: baseline;
         }
 
         // Modifiers
