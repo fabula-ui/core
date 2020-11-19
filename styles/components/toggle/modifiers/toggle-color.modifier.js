@@ -15,7 +15,7 @@ const colorModifier = params => {
     const inactiveColor = props.inactiveColor ? getColor(props.inactiveColor, vars.colors) : vars.colors['aux'];
 
     return `
-        .fab-toggle {
+        .fab-toggle__switch {
             background-color: ${getBgColor(inactiveColor, 'fill')};
             border-color: ${getBgColor(inactiveColor, 'fill')};
 
@@ -25,20 +25,20 @@ const colorModifier = params => {
         }
 
         ${wrapper}:not([data-disabled='true']):hover {
-            .fab-toggle {
+            .fab-toggle__switch {
                 background-color: ${getHoverColor(inactiveColor, 'fill')};
                 border-color: ${getHoverColor(inactiveColor, 'fill')};
             }
         }
 
         ${wrapper}:not([data-disabled='true']):active {
-            .fab-toggle {
+            .fab-toggle__switch {
                 background-color: ${getActiveColor(inactiveColor, 'fill')};
                 border-color: ${getActiveColor(inactiveColor, 'fill')};
             }
         }
 
-        ${wrapper}[data-active='true'] .fab-toggle {
+        ${wrapper}[data-active='true'] .fab-toggle__switch {
             background-color: ${getBgColor(activeColor, 'fill')};
             border-color: ${getBgColor(activeColor, 'fill')};
 
@@ -48,14 +48,14 @@ const colorModifier = params => {
         }
 
         ${wrapper}[data-active='true']:not([data-disabled='true']):hover {
-            .fab-toggle {
+            .fab-toggle__switch {
                 background-color: ${getHoverColor(activeColor, 'fill')};
                 border-color: ${getHoverColor(activeColor, 'fill')};
             }
         }
 
         ${wrapper}[data-active='true']:not([data-disabled='true']):active {
-            .fab-toggle {
+            .fab-toggle__switch {
                 background-color: ${getActiveColor(activeColor, 'fill')};
                 border-color: ${getActiveColor(activeColor, 'fill')};
             }

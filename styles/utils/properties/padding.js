@@ -4,6 +4,7 @@ const paddingUtils = params => {
     const { framework, props } = params;
     let wrapper;
 
+    // TODO: find a better way to handle padding on angular
     if (framework === 'angular') {
         wrapper = '> [data-fab-component], > [data-fab-wrapper] > [data-fab-component], > [data-fab-wrapper] > [data-fab-wrapper] > [data-fab-component]';
     } else {

@@ -11,14 +11,12 @@ const ToggleStyles = params => {
 
     return `
     ${wrapper} {
-        align-items: center;
-        display: flex;
         font-family: ${vars.fontFamily};
         font-size: ${vars.fontSize};
         font-weight: ${vars.fontWeight};
     }
 
-    ${wrapper}[data-active='true'] .fab-toggle:before {
+    ${wrapper}[data-active='true'] .fab-toggle__switch:before {
         box-shadow: -5px 0 0 0 rgba(0,0,0, .025);
         left: 100%;
         transform: translate(-100%, 0);
@@ -29,17 +27,29 @@ const ToggleStyles = params => {
         pointer-events: none;
         user-select: none;
 
-        .fab-toggle,
-        .fab-toggle__label {
+        .fab-toggle__label,
+        .fab-toggle__switch {
             cursor: default;
         }
 
-        .fab-toggle:focus {
+        .fab-toggle__switch:focus {
             box-shadow: none;
         }
     }
 
     .fab-toggle {
+        align-items: center;
+        display: flex;
+    }
+
+    .fab-toggle__label {
+        cursor: pointer;
+        font-weight: ${props.weight ? props.weight : '400'};
+        letter-spacing: -.025em;
+        padding-left: .5em;
+    }
+
+    .fab-toggle__switch {
         appearance: none;
         border: solid 2px transparent;
         border-radius: 999px;
@@ -64,17 +74,11 @@ const ToggleStyles = params => {
         }
     }
 
-    .fab-toggle:focus {
+    .fab-toggle__switch:focus {
         outline: none;
     }
 
-    .fab-toggle__label {
-        cursor: pointer;
-        font-weight: ${props.weight ? props.weight : '400'};
-        letter-spacing: -.025em;
-        padding-left: .5em;
-    }
-
+    // Modifiers
     ${colorModifier(params)}
     ${sizeModifier(params)}
     `;

@@ -1,8 +1,5 @@
 const SearchInputStyles = () => `
-        .fab-search-input {
-            font-size: 1em;
-            position: relative;
-        }
+        .fab-search-input {}
     `
 
 export default SearchInputStyles;

@@ -1,13 +1,16 @@
 import getComponentVars from '../../../methods/misc/getComponentVars';
 
 const sizeModifier = params => {
-    const { framework, props } = params;
+    const { props } = params;
     const vars = getComponentVars('toggle');
     const sizeMultiplier = vars.sizeMultipliers[props.size || 'md'];
-    const wrapper = framework === 'angular' ? '.fab-toggle-wrapper' : '&';
 
     return `
-        .fab-toggle {
+        .fab-toggle__label {
+            font-size: calc(${vars.fontSize} * ${sizeMultiplier});
+        }
+
+        .fab-toggle__switch {
             height: calc(${vars.size} * ${sizeMultiplier});
             width: calc(${vars.size} * 1.75 * ${sizeMultiplier});
 
@@ -15,10 +18,6 @@ const sizeModifier = params => {
                 height: calc(${vars.size} * ${sizeMultiplier} - 4px);
                 width: calc(${vars.size} * ${sizeMultiplier} - 4px);
             }
-        }
-
-        .fab-toggle__label {
-            font-size: calc(${vars.fontSize} * ${sizeMultiplier});
         }
     `;
 }
