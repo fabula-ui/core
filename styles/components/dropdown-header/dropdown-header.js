@@ -22,6 +22,10 @@ const DropdownHeaderStyles = params => {
             ${(props.color || props.parentColor) ? `opacity: ${vars.opacity};` : ''}
             padding: ${vars.paddingY} ${vars.paddingX};
             width: 100%;
+
+            > * {
+                vertical-align: middle;
+            }
         }
 
         ${colorModifier(params)}
