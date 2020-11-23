@@ -36,6 +36,7 @@ const DropdownToggleStyles = params => {
 
         .fab-dropdown-toggle__chevron {
             display: inline-block;
+            ${!props.arrow ? `display: none;` : ''}
             flex-shrink: 0;
             line-height: .5;
             vertical-align: middle;
