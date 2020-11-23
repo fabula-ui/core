@@ -1,9 +1,9 @@
 // Methods
 import getComponentVars from '../../methods/misc/getComponentVars';
+import getGlowColor from '../../methods/color/getGlowColor';
 
 // Modifiers
 import colorModifier from './modifiers/modal-color.modifier';
-import glowModifier from './modifiers/modal-glow.modifier';
 import sizeModifier from './modifiers/modal-size.modifier';
 
 const ModalStyles = params => {
@@ -47,6 +47,7 @@ const ModalStyles = params => {
         .fab-modal {
             animation: showModal ${vars.transition};
             border-radius: ${vars.borderRadius};
+            box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} rgba(0,0,0, ${vars.glowOpacity});
             display: flex;
             flex-direction: column;
             max-height: 100%;
@@ -97,7 +98,6 @@ const ModalStyles = params => {
         
         // Modifiers
         ${colorModifier(params)}
-        ${props.glow ? glowModifier(props) : ''}
         ${sizeModifier(props)}
     `;
 }
