@@ -10,11 +10,32 @@ const colorModifier = params => {
     const wrapper = framework === 'angular' ? '.fab-tooltip' : '&';
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
     const context = props.color ? getContext(props) : 'fill';
+    const bgColor = getBgColor(color, context);
 
     return `
         ${wrapper} {
-            background: ${getBgColor(color, context)};
+            background: ${bgColor};
             color: ${getTextColor(color, context)};
+        }
+
+        ${wrapper}[data-placement='bottom']:before {
+            border-left-color: ${bgColor};
+            border-top-color: ${bgColor};
+        }
+
+        ${wrapper}[data-placement='left']:before {
+            border-right-color: ${bgColor};
+            border-top-color: ${bgColor};
+        }
+
+        ${wrapper}[data-placement='right']:before {
+            border-bottom-color: ${bgColor};
+            border-left-color: ${bgColor};
+        }
+
+        ${wrapper}[data-placement='top']:before {
+            border-bottom-color: ${bgColor};
+            border-right-color: ${bgColor};
         }
     `;
 }

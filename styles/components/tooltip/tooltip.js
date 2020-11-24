@@ -29,13 +29,10 @@ const TooltipStyles = params => {
             transition: all .2s ease-in-out;
 
             &:before {
-                background: inherit;
-                border-radius: .125em;
+                border: .4em solid transparent;
                 content: '';
                 display: block;
-                height: .6em;
                 position: absolute;
-                width: .6em;
             }
         }
 
@@ -57,7 +54,7 @@ const TooltipStyles = params => {
             &:before {
                 left: 50%;
                 transform:  translate(-50%, -50%) rotateZ(45deg);
-                top: 0;
+                top: 2px;
             }
         }
 
@@ -77,7 +74,7 @@ const TooltipStyles = params => {
         &[data-placement='left'] .fab-tooltip,
         &[data-placement='left'] {
             &:before {
-                right: 0;
+                right: 2px;
                 top: 50%;
                 transform:  translate(50%, -50%) rotateZ(45deg);
             }
@@ -99,7 +96,7 @@ const TooltipStyles = params => {
         &[data-placement='right'] .fab-tooltip,
         &[data-placement='right'] {
             &:before {
-                left: 0;
+                left: 2px;
                 top: 50%;
                 transform:  translate(-50%, -50%) rotateZ(45deg);
             }
@@ -121,7 +118,7 @@ const TooltipStyles = params => {
         &[data-placement='top'] .fab-tooltip,
         &[data-placement='top'] {
             &:before {
-                bottom: 0;
+                bottom: 2px;
                 left: 50%; 
                 transform:  translate(-50%, 50%) rotateZ(45deg);
             }
