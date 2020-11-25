@@ -1,5 +1,5 @@
 const ContainerStyles = params => {
-    const { framework, props } = params;
+    const { props } = params;
 
     return `
         & {
@@ -8,7 +8,7 @@ const ContainerStyles = params => {
             margin-right: auto;
             padding-left: 15px;
             padding-right: 15px;
-            ${props.fluid ? `width: 100%;` : ''}
+            width: 100%;
 
             ${!props.fluid ?
             `
