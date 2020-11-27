@@ -18,8 +18,8 @@ const segments = theme => ({
     get inactiveTextColor() {
         return theme.variables.globals.auxTextColor
     },
-    paddingX: '1.5rem',
-    paddingY: '.75rem',
+    paddingX: '1.5em',
+    paddingY: '.75em',
     get paddingBottom() {
         return this.paddingY
     },

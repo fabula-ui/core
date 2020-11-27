@@ -17,8 +17,8 @@ const tabs = theme => ({
     get inactiveTextColor() {
         return theme.variables.globals.auxTextColor
     },
-    paddingX: '1rem',
-    paddingY: '1rem',
+    paddingX: '1em',
+    paddingY: '1em',
     get paddingBottom() {
         return this.paddingY
     },
