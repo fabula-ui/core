@@ -16,6 +16,7 @@ const ListItemStyles = params => {
             border: none;
             display: block;
             font-family: ${vars.fontFamily};
+            font-size: ${vars.fontSize};
             padding: ${vars.paddingTop} 0 ${vars.paddingBottom};
             ${props.padding ? `padding-left: ${vars.paddingLeft};` : ''}
             ${props.padding ? `padding-right: ${vars.paddingRight};` : ''}
@@ -24,7 +25,6 @@ const ListItemStyles = params => {
 
         button${wrapper} {
             cursor: pointer;
-            font-size: inherit;
             text-align: left;
 
             &:focus {

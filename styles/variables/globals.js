@@ -9,13 +9,11 @@ const globals = {
         return this.colors['aux']
     },
     borderRadius: '.5em',
-    borderRadiusDefault: .5,
-    borderRadiusRounded: '5em',
     borderWidth: '1px',
     disabledOpacity: .5,
     focusGlowRadius: '3px',
     fontFamily: '\'Inter\', sans-serif',
-    fontSize: '1rem',
+    fontSize: '15px',
     gridColumns: 12,
     letterSpacing: '-.025em',
     sizeMultipliers: {

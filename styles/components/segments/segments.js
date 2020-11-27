@@ -17,6 +17,7 @@ const SegmentsStyles = params => {
             border-radius: ${vars.borderRadius};
             ${props.rounded ? `border-radius: 999px;` : ''}
             display: flex;
+            font-size: ${vars.fontSize};
             overflow: hidden;
             ${props.rounded ? `padding: 1px;` : ''}
             text-align: center;

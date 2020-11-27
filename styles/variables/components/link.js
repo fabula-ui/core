@@ -1,6 +1,6 @@
 const link = theme => ({
     get color() { return theme.variables.colors.primary },
-    fontSize: '1em'
+    get fontSize() { return theme.variables.globals.fontSize }
 })
 
 export default link;

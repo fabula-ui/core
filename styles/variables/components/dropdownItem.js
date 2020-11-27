@@ -1,6 +1,6 @@
 const dropdownItem = () => ({  
     color: '#FFF',  
-    paddingX: '1rem',
+    paddingX: '1em',
     paddingY: '.5em'
 })
 

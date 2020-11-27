@@ -15,6 +15,7 @@ const DropdownMenuStyles = params => {
         border-radius: ${vars.borderRadius};
         box-shadow: 0 1px 3px rgba(0,0,0,.2);
         font-family: ${vars.fontFamily};
+        font-size: ${vars.fontSize};
         height: ${props.height};
         ${props.alignment === 'left' ? 'left: 0;' : ''}
         min-width: 100%;

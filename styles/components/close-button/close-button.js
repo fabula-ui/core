@@ -18,13 +18,14 @@ const CloseButtonStyles = params => {
             cursor: pointer;
             display: inline-flex;
             flex-shrink: 0;
-            height: calc(2em * ${multiplier});
+            font-size: ${vars.fontSize};
+            height: calc(2 * ${vars.fontSize} * ${multiplier});
             justify-content: center;
             margin-left: .5rem;
             padding: 0;
             position: relative;
             transition: all .2s ease-in-out;
-            width: calc(2em * ${multiplier});
+            width: calc(2 * ${vars.fontSize} * ${multiplier});
 
             &:focus {
                 outline: none;

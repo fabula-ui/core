@@ -6,8 +6,8 @@ const alert = () => ({
     glowX: 0,
     glowY: '2px',
     markerWidth: '4px',
-    paddingX: '1rem',
-    paddingY: '1rem',
+    paddingX: '1em',
+    paddingY: '1em',
     get padding() {
         return `${this.paddingY} ${this.paddingX}`
     },

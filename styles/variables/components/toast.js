@@ -1,7 +1,9 @@
 const toast = theme => ({
     borderWidth: '1px',
     color: '#FFF',
-    fontSize: '.95rem',
+    get fontSize() {
+        return `calc(${theme.variables.globals.fontSize} * .95)`
+    },
     fontWeight: 600,
     glowX: 0,
     glowY: '2px',

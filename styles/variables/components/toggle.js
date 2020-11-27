@@ -3,7 +3,9 @@ const toggle = theme => ({
         return theme.variables.colors.primary
     },
     fontWeight: 400,
-    size: '1.5em'
+    get size() {
+        return `calc(${theme.variables.globals.fontSize} * 1.5)`
+    }
 })
 
 export default toggle;

@@ -10,7 +10,9 @@ const tabs = theme => ({
     },
     borderWidth: '2px',
     color: '#FFF',
-    fontSize: '.9rem',
+    get fontSize() {
+        return `calc(${theme.variables.globals.fontSize} * .9)`
+    },
     fontWeight: 400,
     get inactiveTextColor() {
         return theme.variables.globals.auxTextColor

@@ -1,4 +1,4 @@
-const tabs = theme => ({
+const segments = theme => ({
     get activeFillColor() {
         return '#FFF'
     },
@@ -8,7 +8,9 @@ const tabs = theme => ({
     get borderColor() {
         return theme.variables.colors['light']
     },
-    fontSize: '.9rem',
+    get fontSize() {
+        return `calc(${theme.variables.globals.fontSize} * .9)`
+    },
     fontWeight: 400,
     get inactiveFillColor() {
         return theme.variables.colors['light']
@@ -32,4 +34,4 @@ const tabs = theme => ({
     },
 })
 
-export default tabs;
+export default segments;

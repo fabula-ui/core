@@ -28,6 +28,12 @@ const LinkStyles = params => {
             }
         }
 
+        // External
+        ${wrapper} .fab-link,
+        ${wrapper} .fab-text {
+            font-size: 1em;   
+        }
+
         // Modifiers
         ${colorModifier(params)}
         ${sizeModifier(params)}

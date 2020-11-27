@@ -59,8 +59,8 @@ const InputStyles = params => {
             opacity: ${vars.disabledOpacity};
         }
 
-        .fab-input[data-textarea='false'] {
-            max-height: ${vars.minHeight};
+        .fab-input[data-textarea='false'] .fab-input__field {
+            height: ${vars.height};
         }
 
         .fab-input[data-textarea='true'] {
@@ -77,8 +77,7 @@ const InputStyles = params => {
             border: none;
             color: inherit;
             font-family: inherit;
-            font-size: inherit;
-            min-height: ${vars.minHeight};
+            font-size: ${vars.fontSize};
             padding-left: ${(props.icon || props.iconStart) ? `calc(${vars.paddingLeft} + 2em)` : vars.paddingLeft};
             padding-right: ${props.iconEnd ? `calc(${vars.paddingRight} + 2em)` : vars.paddingRight};
             position: relative;
@@ -96,7 +95,7 @@ const InputStyles = params => {
         textarea.fab-input__field {
             line-height: 1.5;
             maxHeight: initial;
-            min-height: calc(${vars.minHeight} * 3);
+            min-height: calc(${vars.height} * 3);
             padding-bottom: ${vars.paddingBottom};
             padding-top: ${vars.paddingTop};
             resize: vertical;

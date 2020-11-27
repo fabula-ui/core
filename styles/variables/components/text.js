@@ -1,5 +1,7 @@
-const text = () => ({
-    fontSize: '1em',
+const text = theme => ({
+    get fontSize() {
+        return theme.variables.globals.fontSize
+    },
     spacing: '.5rem'
 })
 

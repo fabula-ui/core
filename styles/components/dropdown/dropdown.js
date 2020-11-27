@@ -1,5 +1,9 @@
+// Methods
+import getComponentVars from '../../methods/misc/getComponentVars';
+
 const DropdownStyles = params => {
     const { framework, props } = params;
+    const vars = getComponentVars('dropdown');
     const wrapper = framework === 'angular' ? '.fab-dropdown' : '&';
 
     return `
@@ -8,6 +12,7 @@ const DropdownStyles = params => {
     ${wrapper} {
         align-items: flex-start;
         display: inline-flex;
+        font-size: ${vars.fontSize};
         position: relative;
         ${props.expand ? `width: 100%;` : ''} 
     }

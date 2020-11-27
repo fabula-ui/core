@@ -1,3 +1,5 @@
+import getComponentVars from '../../methods/misc/getComponentVars';
+
 // Modifiers
 import colorModifier from './modifiers/icon-color.modifier';
 import sizeModifier from './modifiers/icon-size.modifier';
@@ -28,6 +30,7 @@ const fontFace = `
 const IconStyles = (params) => {
 	const { framework, props } = params;
     const { color, name, size } = props;
+    const vars = getComponentVars('icon');
 	const wrapper = framework === 'angular' ? '.fab-icon' : '&';
 
     if (!IconsJSON[name]) {return ''; }
@@ -39,7 +42,7 @@ const IconStyles = (params) => {
         
         ${wrapper} {
             font-family: icons!important;
-            font-size: 1em;
+            font-size: ${vars.fontSize};
             font-style: normal;
             font-weight: normal!important;
             font-variant: normal;

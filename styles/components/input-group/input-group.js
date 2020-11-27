@@ -18,6 +18,7 @@ const InputGroupStyles = params => {
         align-items: flex-start;
         display: flex;
         flex-direction: ${layout === 'h' ? 'row' : 'column'};
+        font-size: ${vars.fontSize};
     }
 
     .fab-input-group > *,
@@ -47,6 +48,12 @@ const InputGroupStyles = params => {
 
     .fab-input-group .fab-input-wrapper {
         ${framework === 'angular' ? `width: 100%;` : ''}
+    }
+
+    // External
+    .fab-button,
+    .fab-input {
+        height: 3em;
     }
 
     // Modifiers

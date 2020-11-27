@@ -1,7 +1,8 @@
 const listItem = theme => ({
     color: '#FFF',
-    paddingX: '1rem',
-    paddingY: '1rem',
+    fontSize: '1em',
+    paddingX: '1em',
+    paddingY: '1em',
     get paddingBottom() {
         return this.paddingY
     },

@@ -16,12 +16,20 @@ const ButtonGroupStyles = params => {
     & { display: inline-block; }
 
     ${wrapper} {
-        align-items: flex-start;
         box-sizing: border-box;
         display: inline-flex;
         flex-direction: ${directions[props.layout]};
         justify-content: flex-start;
         position: relative;
+    }
+
+    // External
+    .fab-dropdown-toggle {
+        align-self: stretch
+    }
+
+    .fab-dropdown-toggle .fab-button {
+        height: 100%;
     }
 
     // Modifiers

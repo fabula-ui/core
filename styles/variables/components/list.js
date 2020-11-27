@@ -2,8 +2,8 @@ import Color from 'color';
 
 const list = theme => ({
     color: '#FFF',
-    paddingX: '1rem',
-    paddingY: '1rem',
+    paddingX: '1em',
+    paddingY: '1em',
     get padding() {
         return `${this.paddingY} ${this.paddingX}`
     },

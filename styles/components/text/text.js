@@ -34,6 +34,11 @@ const TextStyles = params => {
         }
 
         // External
+        ${wrapper} .fab-link,
+        ${wrapper} .fab-text {
+            font-size: 1em;   
+        }
+        
         ${wrapper} > * {
             vertical-align: baseline;
         }

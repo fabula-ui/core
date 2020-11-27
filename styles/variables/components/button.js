@@ -15,8 +15,8 @@ const button = theme => ({
     glowY: '3px',
     glowRadius: '1px',
     glowSpread: '-1px',
-    minHeight: '3rem',
-    minHeightSmashed: '2rem',
+    minHeight: '3em',
+    minHeightSmashed: '2em',
     paddingX: '1.5em',
     paddingY: '.7em',
     get paddingBottom() {

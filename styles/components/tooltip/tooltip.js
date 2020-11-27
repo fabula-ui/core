@@ -23,7 +23,7 @@ const TooltipStyles = params => {
             border-radius: .5em;
             display: inline-flex;
             font-family: ${vars.fontFamily};
-            font-size: .85rem;
+            font-size: ${vars.fontSize};
             font-weight: 600;
             padding: .5em 1em;
             transition: all .2s ease-in-out;

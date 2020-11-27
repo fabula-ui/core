@@ -13,7 +13,7 @@ const tab = theme => ({
     get inactiveTextColor() {
         return theme.variables.globals.auxTextColor
     },
-    fontSize: '.9rem',
+    fontSize: '1em',
     fontWeight: 400,
     paddingX: '1rem',
     paddingY: '1rem'

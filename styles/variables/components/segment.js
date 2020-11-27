@@ -5,6 +5,7 @@ const segment = theme => ({
     get activeTextColor() {
         return theme.variables.colors['primary']
     },
+    fontSize: '1em',
     get inactiveFillColor() {
         return theme.variables.colors['light']
     },

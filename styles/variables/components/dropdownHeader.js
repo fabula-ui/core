@@ -1,9 +1,9 @@
 const dropdownHeader = theme => ({    
-    fontSize: '.8rem',
+    fontSize: '.8em',
     fontWeight: 600,
     opacity: .8,
-    paddingX: '1rem',
-    paddingY: '.25rem',
+    paddingX: '1em',
+    paddingY: '.25em',
     get textColor() {
         return theme.variables.globals.auxTextColor
     }

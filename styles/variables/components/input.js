@@ -4,9 +4,10 @@ const input = theme => ({
         return theme.variables.colors.primary
     },
     focusGlowRadius:'3px',
-    fontSize: '1em',
     fontWeight: 400,
-    minHeight: '3rem',
+    get height() {
+        return `calc(${theme.variables.globals.fontSize} * 3)`
+    },
     paddingX: '1em',
     paddingY: '1em',
     get paddingBottom() {

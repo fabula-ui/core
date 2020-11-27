@@ -4,7 +4,9 @@ const tag = theme => ({
     get color() {
         return theme.variables.colors.aux
     },
-    fontSize: '.9em',
+    get fontSize() {
+        return `calc(${theme.variables.globals.fontSize} * .9)`
+    },
     fontWeight: 400,
     glowRadius: '2px',
     glowSpread: 0,
