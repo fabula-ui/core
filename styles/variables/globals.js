@@ -2,7 +2,15 @@ import Color from 'color';
 
 import colors from './colors';
 
+const breakpoints = {
+    lg: '1200px',
+    md: '992px',
+    sm: '768px',
+    xs: '576px'
+}
+
 const globals = {
+    breakpoints,
     colors,
 
     get borderColor() {

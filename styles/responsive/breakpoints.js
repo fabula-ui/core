@@ -1,14 +1,10 @@
 // Utils
+import getGlobalVars from '../methods/misc/getGlobalVars';
 import UtilStyles from '../utils/utils';
 
 export const breakpointsOrder = ['xl', 'lg', 'md', 'sm', 'xs'];
-export const breakpoints = {
-    xl: '1200px',
-    lg: '992px',
-    md: '768px',
-    sm: '576px',
-    xs: 0
-}
+
+const { breakpoints } = getGlobalVars();
 
 const down = (bp, params) => {
     const { styles, utils } = params;
@@ -29,12 +25,14 @@ const down = (bp, params) => {
 const on = (bp, params) => {
     const { styles, utils } = params;
     const breakpoint = breakpoints[bp];
-    const bpIndex = order.indexOf(bp);
-    const lowerBreakpoint = bpIndex > 0 ? breakpoints[order[bpIndex - 1]] : null;
+    const bpIndex = breakpointsOrder.indexOf(bp);
+    const minBreakpoint = bpIndex < breakpointsOrder.length - 1 ? breakpoints[breakpointsOrder[bpIndex + 1]] : null;
+
+    console.log(minBreakpoint, breakpoint);
 
     if (breakpoint) {
         return `
-            @media ${lowerBreakpoint ? `(min-width: ${lowerBreakpoint}) and ` : ''} (max-width: ${breakpoint}) {
+            @media ${minBreakpoint ? `(min-width: ${minBreakpoint}) and ` : ''} (max-width: ${breakpoint}) {
                 ${!!styles ? styles({ ...params, props:  {...params.props, ...params.props.on[bp]} }) : ''}
                 ${!!utils ? UtilStyles({ ...params, props:  {...params.props, ...params.props.on[bp]} }) : ''}
             }

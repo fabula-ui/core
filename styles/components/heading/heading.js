@@ -30,6 +30,12 @@ const HeadingStyles = params => {
             }
         }
 
+        // External
+        & .fab-link:not([data-size]),
+        & .fab-text:not([data-size]) {
+            font-size: 1em;   
+        }
+
         // Modifiers
         ${colorModifier(params)}
     `

@@ -29,9 +29,9 @@ const LinkStyles = params => {
         }
 
         // External
-        ${wrapper} .fab-link,
-        ${wrapper} .fab-text {
-            font-size: 1em;   
+        & .fab-link:not([data-size]),
+        & .fab-text:not([data-size]) {
+            font-size: 1em;
         }
 
         // Modifiers

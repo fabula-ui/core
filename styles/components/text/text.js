@@ -34,8 +34,8 @@ const TextStyles = params => {
         }
 
         // External
-        ${wrapper} .fab-link,
-        ${wrapper} .fab-text {
+        & .fab-link:not([data-size]),
+        & .fab-text:not([data-size]) {
             font-size: 1em;   
         }
         
