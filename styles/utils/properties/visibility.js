@@ -4,7 +4,7 @@ const visibilityUtils = params => {
 
     return `
     & {
-        ${(props.hidden && !hasProperty.hidden) ? 'display: none!important;' : ''}
+        ${((props.hidden || props.visible === false) && !hasProperty.hidden) ? 'display: none!important;' : ''}
         ${(props.inline && props.visible && !hasProperty.visible) ? 'display: inline-block!important;' : ''}
         ${(!props.inline && props.visible && !hasProperty.visible) ? 'display: block!important;' : ''}
     }

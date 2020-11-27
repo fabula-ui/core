@@ -5,6 +5,7 @@ const input = theme => ({
     },
     focusGlowRadius:'3px',
     fontSize: '1em',
+    fontWeight: 400,
     minHeight: '3rem',
     paddingX: '1em',
     paddingY: '1em',

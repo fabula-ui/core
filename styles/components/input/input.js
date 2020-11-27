@@ -33,6 +33,7 @@ const InputStyles = params => {
             border: solid 1px transparent;
             display: flex;
             font-size: ${vars.fontSize};
+            font-weight: ${vars.fontWeight};
             overflow: hidden;
             position: relative;
             transition: all .2s ease-in-out;
@@ -127,6 +128,12 @@ const InputStyles = params => {
             left: ${vars.paddingLeft};
         }
 
+        .fab-input__message {
+            display: block;
+            font-size: .85em;
+            margin-top: .5em;
+        }
+
         .fab-input__password-toggle {
             appearance: none;
             background: none;
@@ -179,12 +186,6 @@ const InputStyles = params => {
             min-height: initial;
             padding-bottom: 0;
             padding-top: 0;
-        }
-
-        .fab-input__message {
-            display: block;
-            font-size: .85em;
-            margin-top: .5em;
         }
 
         // Modifiers
