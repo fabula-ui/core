@@ -17,6 +17,7 @@ const HeadingStyles = params => {
             letter-spacing: ${vars.letterSpacing};
             margin-bottom: ${vars.marginBottom};
             margin-top: 0;
+            ${props.align ? `text-align: ${props.align};` : ''}
 
             &:not(:first-child) {
                 margin-top: ${vars.marginTop};

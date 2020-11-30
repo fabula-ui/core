@@ -26,6 +26,7 @@ const TextStyles = params => {
             ${props.weight ? `font-weight: ${props.weight};` : ''}
             letter-spacing: -.05rem;
             line-height: ${props.lineHeight ? props.lineHeight : '1.5'};
+            ${props.align ? `text-align: ${props.align}` : ''}
             ${!props.wrap ? `white-space: nowrap;` : ''}
         }
 
