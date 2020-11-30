@@ -7,12 +7,13 @@ import colorModifier from './modifiers/heading-color.modifier';
 const HeadingStyles = params => {
     const { props } = params;
     const vars = getComponentVars('heading');
+    const multiplier = props.size ? vars.levelMultipliers[vars.sizeRelations[props.size]] : vars.levelMultipliers[props.level];
 
     return `
         & {
             display: block;
             font-family: ${vars.fontFamily};
-            font-size: calc(${vars.fontSize} * ${vars.levelMultipliers[props.level]});
+            font-size: calc(${vars.fontSize} * ${multiplier});
             font-weight: ${props.weight || vars.fontWeight};
             letter-spacing: ${vars.letterSpacing};
             margin-bottom: ${vars.marginBottom};

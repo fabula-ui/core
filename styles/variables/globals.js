@@ -6,7 +6,8 @@ const breakpoints = {
     lg: '1200px',
     md: '992px',
     sm: '768px',
-    xs: '576px'
+    xs: '576px',
+    xxs: '375px'
 }
 
 const globals = {
@@ -25,7 +26,7 @@ const globals = {
     gridColumns: 12,
     letterSpacing: '-.025em',
     sizeMultipliers: {
-        xxs: .6,
+        xxs: .65,
         xs: .75,
         sm: .9,
         md: 1,

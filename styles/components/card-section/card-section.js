@@ -37,7 +37,7 @@ const CardSectionStyles = params => {
 
         ${wrapper} {
             flex-grow: 1;
-            ${props.padding ? `padding: ${vars.padding};` : ''}
+            ${props.padding ? `padding: ${vars.paddingY} ${vars.paddingX};` : ''}
         }
 
         ${colorModifier(params)}

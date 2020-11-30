@@ -13,7 +13,15 @@ const heading = theme => ({
         '6': 1.1
     },
     marginBottom: '1em',
-    marginTop: '1.5em'
+    marginTop: '1.5em',
+    sizeRelations: {
+        xxl: 1,
+        xl: 2,
+        lg: 3,
+        md: 4,
+        sm: 5,
+        xs: 6
+    }
 })
 
 export default heading;
