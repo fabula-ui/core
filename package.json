@@ -1,7 +1,7 @@
 {
-  "name": "@fabula-ui/core",
-  "version": "0.0.2",
-  "description": "Fabula UI core",
+  "name": "@fabula/core",
+  "version": "0.0.4",
+  "description": "Fabula's core",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
@@ -9,7 +9,7 @@
   },
   "private": false,
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "repository": {
     "type": "git",
