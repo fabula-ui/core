@@ -18,7 +18,7 @@ const TextStyles = params => {
         }
 
         ${wrapper} {
-            color: inherit;
+            color: ${vars['textColor']};
             ${props.aux ? `color: ${vars['auxTextColor']};` : ''}
             display: block;
             font-family: ${vars.fontFamily};
@@ -30,7 +30,7 @@ const TextStyles = params => {
             ${!props.wrap ? `white-space: nowrap;` : ''}
         }
 
-        ${wrapper} .fab-text:not([data-color]) {
+        ${wrapper} .fab-text[data-color='inherit'] {
             color: inherit;
         }
 
