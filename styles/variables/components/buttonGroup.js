@@ -1,5 +1,3 @@
-const buttonGroup = () => ({
-    spacing: '.5rem'
-})
+const buttonGroup = () => ({})
 
 export default buttonGroup;
