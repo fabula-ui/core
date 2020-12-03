@@ -54,6 +54,10 @@ const ToastStyles = params => {
         }
 
         // External components
+        .fab-toast__button {
+            flex-shrink: 0;
+        }
+        
         .fab-toast__button .fab-button {
             border-radius: .4em;
             min-height: initial;
