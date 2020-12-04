@@ -1,8 +1,7 @@
-const fontkit = require('fontkit-next');
 const { generateFonts } = require('fantasticon');
 
 generateFonts({
-    inputDir: './icons/raw',
+    inputDir: './icons/outline',
     outputDir: './icon-test',
     name: 'icons',
     fontTypes: ['eot', 'svg', 'ttf', 'woff', 'woff2'],
@@ -22,14 +21,5 @@ generateFonts({
     prefix: 'icon',
     fontsUrl: 'fonts'
 }).then(results => {
-    const { codepoints, ...rest } = results;
-    const font = fontkit.openSync('./icon-test/fonts/icons.ttf');
-    const glyphs = {};
-
-    Object.keys(codepoints).map((name, i) => {
-        const codepoint = codepoints[name];
-        glyphs[name] = font.glyphForCodePoint(codepoint);
-    });
-
-    console.log(glyphs);
+    console.log(results);
 });
