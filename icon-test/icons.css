@@ -1,8 +1,8 @@
 @font-face {
     font-family: "icons";
-    src: url("icons.eot?b0374aa372d581cdf55dfce040783fc5#iefix") format("embedded-opentype"),
-url("icons.woff2?b0374aa372d581cdf55dfce040783fc5") format("woff2"),
-url("icons.woff?b0374aa372d581cdf55dfce040783fc5") format("woff");
+    src: url("fonts/icons.ttf?255acf54878fad94b84c700b1dae0b0b") format("truetype"),
+url("fonts/icons.woff?255acf54878fad94b84c700b1dae0b0b") format("woff"),
+url("fonts/icons.woff2?255acf54878fad94b84c700b1dae0b0b") format("woff2");
 }
 
 i[class^="icon-"]:before, i[class*=" icon-"]:before {
@@ -19,6 +19,42 @@ i[class^="icon-"]:before, i[class*=" icon-"]:before {
 .icon-activity:before {
     content: "\f101";
 }
-.icon-image:before {
+.icon-aperture:before {
     content: "\f102";
+}
+.icon-bell-off:before {
+    content: "\f103";
+}
+.icon-book:before {
+    content: "\f104";
+}
+.icon-box:before {
+    content: "\f105";
+}
+.icon-calendar:before {
+    content: "\f106";
+}
+.icon-chrome:before {
+    content: "\f107";
+}
+.icon-codepen:before {
+    content: "\f108";
+}
+.icon-codesandbox:before {
+    content: "\f109";
+}
+.icon-crosshair:before {
+    content: "\f10a";
+}
+.icon-eye-off:before {
+    content: "\f10b";
+}
+.icon-feather:before {
+    content: "\f10c";
+}
+.icon-file-minus:before {
+    content: "\f10d";
+}
+.icon-image:before {
+    content: "\f10e";
 }
