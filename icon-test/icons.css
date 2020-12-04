@@ -1,8 +1,8 @@
 @font-face {
     font-family: "icons";
-    src: url("fonts/icons.ttf?255acf54878fad94b84c700b1dae0b0b") format("truetype"),
-url("fonts/icons.woff?255acf54878fad94b84c700b1dae0b0b") format("woff"),
-url("fonts/icons.woff2?255acf54878fad94b84c700b1dae0b0b") format("woff2");
+    src: url("fonts/icons.ttf?ebaec77c26fe51b8effb5537a769d62e") format("truetype"),
+url("fonts/icons.woff?ebaec77c26fe51b8effb5537a769d62e") format("woff"),
+url("fonts/icons.woff2?ebaec77c26fe51b8effb5537a769d62e") format("woff2");
 }
 
 i[class^="icon-"]:before, i[class*=" icon-"]:before {
@@ -55,6 +55,69 @@ i[class^="icon-"]:before, i[class*=" icon-"]:before {
 .icon-file-minus:before {
     content: "\f10d";
 }
-.icon-image:before {
+.icon-file-plus:before {
     content: "\f10e";
+}
+.icon-file-text:before {
+    content: "\f10f";
+}
+.icon-file:before {
+    content: "\f110";
+}
+.icon-film:before {
+    content: "\f111";
+}
+.icon-gift:before {
+    content: "\f112";
+}
+.icon-globe:before {
+    content: "\f113";
+}
+.icon-hard-drive:before {
+    content: "\f114";
+}
+.icon-home:before {
+    content: "\f115";
+}
+.icon-image:before {
+    content: "\f116";
+}
+.icon-layout:before {
+    content: "\f117";
+}
+.icon-life-buoy:before {
+    content: "\f118";
+}
+.icon-mail:before {
+    content: "\f119";
+}
+.icon-map:before {
+    content: "\f11a";
+}
+.icon-mic-off:before {
+    content: "\f11b";
+}
+.icon-package:before {
+    content: "\f11c";
+}
+.icon-pen-tool:before {
+    content: "\f11d";
+}
+.icon-save:before {
+    content: "\f11e";
+}
+.icon-send:before {
+    content: "\f11f";
+}
+.icon-shield-off:before {
+    content: "\f120";
+}
+.icon-shopping-bag:before {
+    content: "\f121";
+}
+.icon-sidebar:before {
+    content: "\f122";
+}
+.icon-slash:before {
+    content: "\f123";
 }
