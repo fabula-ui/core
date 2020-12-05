@@ -176,6 +176,26 @@ describe('Button', () => {
         width: 700
     });
 
+    it('prop-disabled', async () => {
+        let image;
+
+        await page.setViewport({ width: 800, height: 500 });
+
+        await page.goto(`http://localhost:${port}/iframe.html?id=button--prop-disabled`, { waitUntil: 'load' });
+        await page.waitFor(500);
+
+        image = await takeScreenshot({
+            component: 'button',
+            element: page,
+            story: 'prop-disabled'
+        });
+
+        expect(image).toMatchImageSnapshot({
+            failureThreshold,
+            failureThresholdType
+        });
+    });
+
     it('prop-expand', async () => {
         let image;
 
