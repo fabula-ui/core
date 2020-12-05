@@ -2,24 +2,24 @@ const { generateFonts } = require('fantasticon');
 
 generateFonts({
     inputDir: './icons/outline',
-    outputDir: './icon-test',
+    outputDir: './icons',
     name: 'icons',
     fontTypes: ['eot', 'svg', 'ttf', 'woff', 'woff2'],
     assetTypes: ['css', 'json', 'html'],
     pathOptions: {
-        css: './icon-test/icons.css',
-        eot: './icon-test/fonts/icons.eot',
-        html: './icon-test/icons.html',
-        json: './icon-test/icons.json',
-        svg: './icon-test/fonts/icons.svg',
-        ttf: './icon-test/fonts/icons.ttf',
-        woff: './icon-test/fonts/icons.woff',
-        woff2: './icon-test/fonts/icons.woff2',
+        css: './icons/assets/icons.css',
+        eot: './icons/fonts/icons.eot',
+        html: './icons/assets/icons.html',
+        json: './icons/assets/icons.json',
+        svg: './icons/fonts/icons.svg',
+        ttf: './icons/fonts/icons.ttf',
+        woff: './icons/fonts/icons.woff',
+        woff2: './icons/fonts/icons.woff2',
     },
     fontHeight: 300,
     tag: 'i',
     prefix: 'icon',
-    fontsUrl: 'fonts'
+    fontsUrl: '../fonts'
 }).then(results => {
     console.log(results);
 });

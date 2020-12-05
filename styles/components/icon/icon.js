@@ -6,15 +6,15 @@ import colorModifier from './modifiers/icon-color.modifier';
 import sizeModifier from './modifiers/icon-size.modifier';
 
 // Icons JSON
-import IconsJSON from '../../../icon-test/icons.json';
+import IconsJSON from '../../../icons/assets/icons.json';
 
 // Fonts
 const fonts = {
-    eot: require(`../../../icon-test/fonts/icons.eot`),
-    svg: require(`../../../icon-test/fonts/icons.svg`),
-    ttf: require(`../../../icon-test/fonts/icons.ttf`),
-    woff: require( `../../../icon-test/fonts/icons.woff`),
-    woff2: require(`../../../icon-test/fonts/icons.woff2`)
+    eot: require(`../../../icons/fonts/icons.eot`),
+    svg: require(`../../../icons/fonts/icons.svg`),
+    ttf: require(`../../../icons/fonts/icons.ttf`),
+    woff: require( `../../../icons/fonts/icons.woff`),
+    woff2: require(`../../../icons/fonts/icons.woff2`)
 }
 
 const fontFace = `
