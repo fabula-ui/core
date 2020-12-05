@@ -23,10 +23,6 @@
   "homepage": "https://github.com/fabula-ui/core#readme",
   "devDependencies": {
     "autoprefixer": "^9.7.4",
-    "gulp": "^4.0.2",
-    "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
     "require-dir": "^1.2.0",
     "rimraf": "^3.0.2"
   },
