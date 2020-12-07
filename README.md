@@ -26,7 +26,7 @@ Fabula is and always will be 100% open-source. To help make Fabula grow stronger
 
 ### Reporting bugs
 
-Whenever you see something is wrong with Fabula and want to be helpful 💙, you can check our [guide](https://github.com/fabula-ui/react/blob/master/.github/reporting-bugs.md) and follow the instructions on how to report a bug.
+Whenever you see something is wrong with Fabula and want to be helpful 💙, you can check our [guide](https://github.com/fabula-ui/core/blob/master/.github/reporting-bugs.md) and follow the instructions on how to report a bug.
 
 ## License
 
