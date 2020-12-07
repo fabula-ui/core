@@ -4,9 +4,9 @@
 
 ---
 
-This is the repository for the core content of Fabula. It contains common styles, methods and tests that are used on the different framework versions of Fabula.
-
 > Fabula is currently in a beta version. It is not advised to be used in production yet.
+
+This is the repository for the core content of Fabula. It contains common styles, methods and tests that are used on the different framework versions of Fabula.
 
 To view the documentation in portuguese, [click here](https://github.com/fabula-ui/core/blob/master/.github/docs/pt/README.md).
 
