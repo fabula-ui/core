@@ -8,7 +8,7 @@
 
 This is the repository for the core content of Fabula. It contains common styles, methods and tests that are used on the different framework versions of Fabula.
 
-To view the documentation in portuguese, [click here](https://github.com/fabula-ui/core/blob/master/.github/docs/pt/README.md).
+To view this readme in portuguese, [click here](https://github.com/fabula-ui/core/blob/master/.github/docs/pt/README.md).
 
 ## About Fabula
 
