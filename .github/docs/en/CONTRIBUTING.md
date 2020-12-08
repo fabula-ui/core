@@ -24,7 +24,7 @@ Be sure to check the <a href="https://github.com/fabula-ui/docs/blob/master/.git
 
 You can also contribute by creating pull requests to improve Fabula.
 
-Be sure to check the [pull requests guide](https://github.com/fabula-ui/docs/blob/master/.github/docs/en/pull-requests.md) before creating a new pull request.
+Be sure to check the [pull requests guide](https://github.com/fabula-ui/docs/blob/master/.github/docs/en/PULL-REQUESTS.md) before creating a new pull request.
 
 ## Be part of Fabula
 
