@@ -9,6 +9,7 @@ Before creating a new issue be sure that you check the following:
 - [X] Make sure that the issue wasn't reported yet
 - [X] Include screenshots whenever possible (GIFs are welcome, too)
 - [X] Be sure to create the issue on the correct repository (core, docs, etc)
+- [X] Add `bug` label to the issue you are creating for this new bug
 
 ---
 
