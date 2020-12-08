@@ -8,7 +8,7 @@ There are a few ways you can contribute to this project.
 
 If you stumbled upon an issue with Fabula and want to contribute, you can report a new issue here on [github](https://github.com/fabula-ui/core/issues).
 
-Be sure to check our [guide](https://github.com/fabula-ui/core/blob/master/.github/docs/en/reporting-bugs.md) before reporting a new issue.
+Be sure to check our [guide](https://github.com/fabula-ui/core/blob/master/.github/docs/en/REPORTING-BUGS.md) before reporting a new issue.
 
 ## Request a feature
 
