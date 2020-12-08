@@ -12,7 +12,7 @@ Be sure to check our [guide](https://github.com/fabula-ui/core/blob/master/.gith
 
 ## Request a feature
 
-Fabula is still very new, but we think it can greatly improve going forward. If you think there's a certain feature missing, you can check the [request features guide](https://github.com/fabula-ui/core/blob/master/.github/docs/en/request-features.md) and learn how to request a new feature from there. If it seems like a good addition to Fabula, then it will be moved to our roadmap - that will soon be public 🤙.
+Fabula is still very new, but we think it can greatly improve going forward. If you think there's a certain feature missing, you can check the [request features guide](https://github.com/fabula-ui/core/blob/master/.github/docs/en/REQUEST-FEATURES.md) and learn how to request a new feature from there. If it seems like a good addition to Fabula, then it will be moved to our roadmap - that will soon be public 🤙.
 
 ## Improving docs
 
