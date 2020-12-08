@@ -21,4 +21,4 @@ Before creating a new issue be sure that you check the following:
 
 ## New issue template
 
-You can check the [template](https://github.com/fabula-ui/core/blob/master/.github/docs/en/new-issue-template.md) to start creating a new issue.
+You can check the [template](https://github.com/fabula-ui/core/blob/master/.github/docs/en/NEW-ISSUE-TEMPLATE.md) to start creating a new issue.
