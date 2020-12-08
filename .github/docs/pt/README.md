@@ -30,7 +30,7 @@ Além disso, se você quer se engajar e trabalhar comigo no Fabula, manda uma me
 
 ### Reportando bugs
 
-Se você descobrir algo errado com o Fabula e quiser ajudar 💙, você pode ver nosso [guia](https://github.com/fabula-ui/core/blob/master/.github/docs/pt/reporting-bugs.md) e seguir as instruções de como reportar um bug.
+Se você descobrir algo errado com o Fabula e quiser ajudar 💙, você pode ver nosso [guia](https://github.com/fabula-ui/core/blob/master/.github/docs/pt/REPORTING-BUGS.md) e seguir as instruções de como reportar um bug.
 
 ## Licença
 
