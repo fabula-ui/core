@@ -30,7 +30,7 @@ Also, if you want to help and be a part of Fabula, send a message right now on <
 
 ### Reporting bugs
 
-Whenever you see something is wrong with Fabula and want to be helpful 💙, you can check our [guide](https://github.com/fabula-ui/core/blob/master/.github/reporting-bugs.md) and follow the instructions on how to report a bug.
+Whenever you see something is wrong with Fabula and want to be helpful 💙, you can check our [guide](https://github.com/fabula-ui/core/blob/master/.github/docs/en/reporting-bugs.md) and follow the instructions on how to report a bug.
 
 ## License
 
