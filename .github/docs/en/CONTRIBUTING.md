@@ -18,7 +18,7 @@ Fabula is still very new, but we think it can greatly improve going forward. If 
 
 If you feel that a portion of the documentation needs improvement, you can either create a [new issue](https://github.com/fabula-ui/docs/issues) and ask us to improve it or go to our <a href="https://www.github.com/fabula-ui/docs" target="_blank">docs repository</a> and create a new pull request with your changes. 
 
-Be sure to check the <a href="https://github.com/fabula-ui/docs/blob/master/.github/docs/en/improve-documentation.md" target="_blank">documentation improvement guide</a> before creating a new pull request.
+Be sure to check the <a href="https://github.com/fabula-ui/docs/blob/master/.github/docs/en/IMPROVE-DOCUMENTATION.md" target="_blank">documentation improvement guide</a> before creating a new pull request.
 
 ## Creating pull requests
 
