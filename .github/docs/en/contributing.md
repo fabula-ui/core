@@ -4,7 +4,7 @@ Thank you for your interest in contributing to Fabula! 💙
 
 There are a few ways you can contribute to this project.
 
-## Reporting issues
+## Reporting bugs
 
 If you stumbled upon an issue with Fabula and want to contribute, you can report a new issue here on [github](https://github.com/fabula-ui/core/issues).
 
