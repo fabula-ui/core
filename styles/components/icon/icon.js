@@ -17,14 +17,22 @@ const fonts = {
     woff2: require(`../../../icons/fonts/icons.woff2`)
 }
 
+// const fonts = {
+//     eot: require(`../../../icons/fonts/icons.eot`),
+//     svg: require(`../../../icons/fonts/icons.svg`),
+//     ttf: require(`../../../icons/fonts/icons.ttf`),
+//     woff: require( `../../../icons/fonts/icons.woff`),
+//     woff2: require(`../../../icons/fonts/icons.woff2`)
+// }
+
 const fontFace = `
 @font-face {
 	font-family: 'icons';
-	src: url('${fonts.eot}#iefix') format('embedded-opentype'),
-		url('${fonts.woff2}#icons') format('woff2'),
-		url('${fonts.woff2}') format('woff'),
-		url('${fonts.ttf}') format('truetype'),
-		url('${fonts.svg}') format('svg');
+	src: url('${fonts.eot.default ? fonts.eot.default : fonts.eot}#iefix') format('embedded-opentype'),
+		url('${fonts.woff2.default ? fonts.woff2.default : fonts.woff2}#icons') format('woff2'),
+		url('${fonts.woff2.default ? fonts.woff2.default : fonts.woff2}') format('woff'),
+		url('${fonts.ttf.default ? fonts.ttf.default : fonts.ttf}') format('truetype'),
+		url('${fonts.svg.default ? fonts.svg.default : fonts.svg}') format('svg');
 }
 `;
 
