@@ -17,14 +17,6 @@ const fonts = {
     woff2: require(`../../../icons/fonts/icons.woff2`)
 }
 
-// const fonts = {
-//     eot: require(`../../../icons/fonts/icons.eot`),
-//     svg: require(`../../../icons/fonts/icons.svg`),
-//     ttf: require(`../../../icons/fonts/icons.ttf`),
-//     woff: require( `../../../icons/fonts/icons.woff`),
-//     woff2: require(`../../../icons/fonts/icons.woff2`)
-// }
-
 const fontFace = `
 @font-face {
 	font-family: 'icons';
