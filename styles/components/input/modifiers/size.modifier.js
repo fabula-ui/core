@@ -12,11 +12,11 @@ const sizeModifier = params => {
         }
 
         .fab-input[data-textarea='false'] {
-            max-height: calc(${vars.minHeight} * ${sizeMultiplier});
+            max-height: calc(${vars.height} * ${sizeMultiplier});
         }
 
         .fab-input[data-textarea='false'] .fab-input__field {
-            min-height: calc(${vars.minHeight} * ${sizeMultiplier});
+            height: calc(${vars.height} * ${sizeMultiplier});
         }
     `;
 }

@@ -32,7 +32,7 @@ const InputStyles = params => {
             ${props.rounded && !props.textarea ? 'border-radius: 999px;' : ''}
             border: solid 1px transparent;
             display: flex;
-            font-size: ${vars.fontSize};
+            font-size: 1em;
             font-weight: ${vars.fontWeight};
             overflow: hidden;
             position: relative;
@@ -77,7 +77,7 @@ const InputStyles = params => {
             border: none;
             color: inherit;
             font-family: inherit;
-            font-size: ${vars.fontSize};
+            font-size: 1em;
             padding-left: ${(props.icon || props.iconStart) ? `calc(${vars.paddingLeft} + 2em)` : vars.paddingLeft};
             padding-right: ${props.iconEnd ? `calc(${vars.paddingRight} + 2em)` : vars.paddingRight};
             position: relative;
