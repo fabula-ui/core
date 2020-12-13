@@ -9,22 +9,29 @@ import sizeModifier from './modifiers/icon-size.modifier';
 import IconsJSON from '../../../icons/assets/icons.json';
 
 // Fonts
+import EOTFont from '../../../icons/fonts/icons.eot';
+import SVGFont from '../../../icons/fonts/icons.svg';
+import TTFFont from '../../../icons/fonts/icons.ttf';
+import WOFFFont from '../../../icons/fonts/icons.woff';
+import WOFF2Font from '../../../icons/fonts/icons.woff2';
+
+// Fonts
 const fonts = {
-    eot: require(`../../../icons/fonts/icons.eot`),
-    svg: require(`../../../icons/fonts/icons.svg`),
-    ttf: require(`../../../icons/fonts/icons.ttf`),
-    woff: require( `../../../icons/fonts/icons.woff`),
-    woff2: require(`../../../icons/fonts/icons.woff2`)
+    eot: EOTFont,
+    svg: SVGFont,
+    ttf: TTFFont,
+    woff: WOFFFont,
+    woff2: WOFF2Font
 }
 
 const fontFace = `
 @font-face {
 	font-family: 'icons';
-	src: url('${fonts.eot.default ? fonts.eot.default : fonts.eot}#iefix') format('embedded-opentype'),
-		url('${fonts.woff2.default ? fonts.woff2.default : fonts.woff2}#icons') format('woff2'),
-		url('${fonts.woff2.default ? fonts.woff2.default : fonts.woff2}') format('woff'),
-		url('${fonts.ttf.default ? fonts.ttf.default : fonts.ttf}') format('truetype'),
-		url('${fonts.svg.default ? fonts.svg.default : fonts.svg}') format('svg');
+	src: url('${fonts.eot}#iefix') format('embedded-opentype'),
+		url('${fonts.woff2}#icons') format('woff2'),
+		url('${fonts.woff2}') format('woff'),
+		url('${fonts.ttf}') format('truetype'),
+		url('${fonts.svg}') format('svg');
 }
 `;
 
