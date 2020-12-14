@@ -26,6 +26,7 @@ const TooltipStyles = params => {
             font-size: ${vars.fontSize};
             font-weight: 600;
             padding: .5em 1em;
+            text-align: center;
             transition: all .2s ease-in-out;
 
             &:before {
