@@ -1,9 +1,6 @@
 // Modifiers
 import colorModifier from './modifiers/dropdown-color.modifier';
 
-// Assets
-const chevronIcon = require('../../../icons/raw/chevron-down.svg');
-
 const DropdownToggleStyles = params => {
     const { framework, props } = params;
     const wrapper = framework === 'angular' ? '.fab-dropdown-toggle' : '&';
