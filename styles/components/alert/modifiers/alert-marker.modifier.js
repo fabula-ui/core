@@ -2,8 +2,9 @@ import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
 import getDividerColor from '../../../methods/color/getDividerColor';
+import getNumber from '../../../methods/misc/getNumber';
 
-const markerModifier = params => {
+export const markerModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('alert');
     const color = getColor(props.marker, vars.colors);
@@ -23,10 +24,8 @@ const markerModifier = params => {
                 left: 0;
                 position: absolute;
                 top: 0;
-                width: ${vars.markerWidth};
+                width: ${getNumber(vars.markerWidth, 'px')};
             }
         }
     `
 }
-
-export default markerModifier;

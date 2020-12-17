@@ -1,16 +1,17 @@
-const alert = () => ({
+const alert = theme => ({
     borderRadius: '.5rem',
-    color: '#FFF',
+    get color() {
+        return theme.variables.globals.baseColor
+    },
     glowRadius: '2px',
     glowSpread: 0,
     glowX: 0,
     glowY: '2px',
     markerWidth: '4px',
-    paddingX: '1em',
-    paddingY: '1em',
-    get padding() {
-        return `${this.paddingY} ${this.paddingX}`
-    },
+    paddingBottom: '1em',
+    paddingLeft: '1em',
+    paddingRight: '1em',
+    paddingTop: '1em',
     spacingX: '.75em',
     spacingY: '.25em',
     textFontSize: '1em',

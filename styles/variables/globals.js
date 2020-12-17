@@ -14,6 +14,7 @@ const globals = {
     breakpoints,
     colors,
 
+    baseColor: '#ffffff',
     get borderColor() {
         return this.colors['aux']
     },
@@ -21,7 +22,7 @@ const globals = {
     borderWidth: '1px',
     disabledOpacity: .5,
     focusGlowRadius: '3px',
-    fontFamily: '\'Inter\', sans-serif',
+    fontFamily: '\'Inter\',sans-serif',
     fontSize: '15px',
     gridColumns: 12,
     letterSpacing: '-.025em',
@@ -35,6 +36,7 @@ const globals = {
         xxl: 1.5
     },
     transitionDuration: '.2s',
+    transitionIsEnabled: true,
     transitionTimingFunction: 'ease-in-out',
     get transition() {
         return `${this.transitionDuration} ${this.transitionTimingFunction}`

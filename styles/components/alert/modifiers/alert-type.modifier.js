@@ -5,7 +5,7 @@ import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 import getGlowColor from '../../../methods/color/getGlowColor';
 
-const typeModifier = params => {
+export const typeModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('alert');
     const color = getColor(props.type, vars.colors);
@@ -30,7 +30,4 @@ const typeModifier = params => {
             }
         `
     }
-
 }
-
-export default typeModifier;

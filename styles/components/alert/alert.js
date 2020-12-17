@@ -1,12 +1,13 @@
 // Methods
 import getComponentVars from '../../methods/misc/getComponentVars';
+import getNumber from '../../methods/misc/getNumber';
 
 // Modifiers
-import colorModifier from './modifiers/alert-color.modifier';
-import markerModifier from './modifiers/alert-marker.modifier';
-import typeModifier from './modifiers/alert-type.modifier';
+import { colorModifier } from './modifiers/alert-color.modifier';
+import { markerModifier } from './modifiers/alert-marker.modifier';
+import { typeModifier } from './modifiers/alert-type.modifier';
 
-const AlertStyles = params => {
+export const AlertStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('alert');
     const wrapper = framework === 'angular' ? '.fab-alert' : '&';
@@ -14,15 +15,17 @@ const AlertStyles = params => {
     return `
         ${wrapper} {
             align-items: flex-start;
-            border: solid ${vars.borderWidth};
-            border-radius: ${vars.borderRadius};
-            color: ${vars.textColor};
+            border: solid ${getNumber(vars.borderWidth, 'px')};
+            border-radius: ${getNumber(vars.borderRadius, 'px')};
             display: flex;
             font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
-            padding: ${vars.padding};
+            padding-bottom: ${getNumber(vars.paddingBottom, 'rem')};
+            padding-left: ${getNumber(vars.paddingLeft, 'rem')};
+            padding-right: ${getNumber(vars.paddingRight, 'rem')};
+            padding-top: ${getNumber(vars.paddingTop, 'rem')};
             position: relative;
-            transition: ${vars.transition};
+            ${vars.transitionIsEnabled ? `transition: ${vars.transition};` : ''}
         }
 
         ${wrapper}[data-closing='true'] {
@@ -33,10 +36,10 @@ const AlertStyles = params => {
         .fab-alert__stage {
             display: flex;
             flex-direction: column;
-            width: 100%;
+            flex-grow: 1;
 
             &:not(:first-child) {
-                margin-left: ${vars.spacingX};
+                margin-left: ${getNumber(vars.spacingX, 'px')};
             }
         }
 
@@ -57,7 +60,7 @@ const AlertStyles = params => {
         }
 
         .fab-alert__title:not(:last-child) {
-            margin-bottom: ${vars.spacingY};
+            margin-bottom: ${getNumber(vars.spacingY, 'em')};
         }
 
         // External
@@ -76,5 +79,3 @@ const AlertStyles = params => {
         ${props.type ? typeModifier(params) : ''}
     `;
 }
-
-export default AlertStyles;
