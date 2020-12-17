@@ -22,7 +22,7 @@ export const colorModifier = params => {
             border-color: ${!!props.border ? `${getDividerColor(borderColor, context)}` : 'transparent'};
             ${((props.borderColor || props.outline) && !!props.border) ? `border-color: ${getBorderColor(borderColor, context)};` : ''}
             ${props.glow ? `box-shadow: ${getNumber(vars.glowX, 'px')} ${getNumber(vars.glowY, 'px')} ${getNumber(vars.glowRadius, 'px')} ${getNumber(vars.glowSpread, 'px')} ${getGlowColor(color, context)};` : ''}
-            color: ${getTextColor(color, context)};
+            color: ${props.color ? getTextColor(color, context) : vars.textColor } 
         }
 
         .fab-alert__text {

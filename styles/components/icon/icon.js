@@ -49,6 +49,7 @@ const IconStyles = (params) => {
         & { display: inline-block; }
         
         ${wrapper} {
+            color: inherit;
             font-family: icons!important;
             font-size: ${vars.fontSize};
             font-style: normal;

@@ -65,7 +65,10 @@ export const AlertStyles = params => {
 
         // External
         .fab-close-button {
-            margin: calc(-${vars.padding} / 4) 0;
+            margin-bottom: calc(-${getNumber(vars.paddingBottom, 'rem')} / 4);
+            margin-left: calc(-${getNumber(vars.paddingLeft, 'rem')} / 4);
+            margin-right: calc(-${getNumber(vars.paddingRight, 'rem')} / 4);
+            margin-top: calc(-${getNumber(vars.paddingTop, 'rem')} / 4);
         }
 
         ${wrapper}[data-title='true'] .fab-icon {
