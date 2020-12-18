@@ -8,12 +8,12 @@ const sizeUtils = params => {
         & {
             ${((props.expand === 'both' || props.expand === 'h' || props.expand === true) && !hasProperty.expand) ? `width: 100%;` : ''}
             ${(props.expand === 'both' || props.expand === 'v' && !hasProperty.expand) ? `height: 100%;` : ''}
-            ${props.height ? `height: ${getNumber(props.height, 'px')};` : ''}
-            ${props.maxHeight ? `max-height: ${getNumber(props.maxHeight, 'px')};` : ''}
-            ${props.maxWidth ? `max-width: ${getNumber(props.maxWidth, 'px')};` : ''}
-            ${props.minHeight ? `min-height: ${getNumber(props.minHeight, 'px')};` : ''}
-            ${props.minWidth ? `min-width: ${getNumber(props.minWidth, 'px')};` : ''}
-            ${props.width ? `width: ${getNumber(props.width, 'px')};` : ''}
+            ${props.height != null ? `height: ${getNumber(props.height, 'px')};` : ''}
+            ${props.maxHeight != null ? `max-height: ${getNumber(props.maxHeight, 'px')};` : ''}
+            ${props.maxWidth != null ? `max-width: ${getNumber(props.maxWidth, 'px')};` : ''}
+            ${props.minHeight != null ? `min-height: ${getNumber(props.minHeight, 'px')};` : ''}
+            ${props.minWidth != null ? `min-width: ${getNumber(props.minWidth, 'px')};` : ''}
+            ${props.width != null ? `width: ${getNumber(props.width, 'px')};` : ''}
         }
 
         & > [data-fab-component] {

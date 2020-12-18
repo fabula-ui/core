@@ -10,7 +10,7 @@ export const getTextColor = (color, context) => {
     let $color = color ? Color(color) : Color('#ffffff');
 
     if (color && (context === 'darken' || context === 'lighten')) {
-        $color = getBgColor(color, context);
+        $color = Color(getBgColor(color, context));
     }
 
     if (context === 'faded') {
