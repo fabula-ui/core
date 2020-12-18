@@ -1,11 +1,11 @@
 import getActiveColor from '../../../methods/color/getActiveColor';
 import { getBgColor } from '../../../methods/color/getBgColor';
-import getBorderColor from '../../../methods/color/getBorderColor';
-import getColor from '../../../methods/color/getColor';
-import getComponentVars from '../../../methods/misc/getComponentVars';
-import getContext from '../../../methods/misc/getContext';
+import { getBorderColor } from '../../../methods/color/getBorderColor';
+import { getColor } from '../../../methods/color/getColor';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
+import { getContext } from '../../../methods/misc/getContext';
 import getFocusGlowColor from '../../../methods/color/getFocusGlowColor';
-import getGlowColor from '../../../methods/color/getGlowColor';
+import { getGlowColor } from '../../../methods/color/getGlowColor';
 import getHoverColor from '../../../methods/color/getHoverColor';
 import getHoverTextColor from '../../../methods/color/getHoverTextColor';
 import { getTextColor } from '../../../methods/color/getTextColor';

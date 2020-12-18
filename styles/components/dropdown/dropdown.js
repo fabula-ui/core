@@ -1,5 +1,5 @@
 // Methods
-import getComponentVars from '../../methods/misc/getComponentVars';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 const DropdownStyles = params => {
     const { framework, props } = params;

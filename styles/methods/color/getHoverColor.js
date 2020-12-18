@@ -5,7 +5,7 @@ import { baseLuminosity } from '../../variables/core';
 
 // Methods
 import { getBgColor } from './getBgColor';
-import getGradientColor from './getGradientColor';
+import { getGradientColor } from './getGradientColor';
 
 const getHoverColor = (color, context) => {
     let $color = color ? Color(color).rgb() : Color('#FFF');

@@ -1,7 +1,7 @@
 import { getBgColor } from '../../../methods/color/getBgColor';
-import getColor from '../../../methods/color/getColor';
-import getComponentVars from '../../../methods/misc/getComponentVars';
-import getContext from '../../../methods/misc/getContext';
+import { getColor } from '../../../methods/color/getColor';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
+import { getContext } from '../../../methods/misc/getContext';
 import getPlaceholderIconColor from '../../../methods/color/getPlaceholderIconColor';
 
 const colorModifier = params => {

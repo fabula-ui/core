@@ -1,6 +1,6 @@
-import getColor from '../../../methods/color/getColor';
-import getComponentVars from '../../../methods/misc/getComponentVars';
-import getGradientColor from '../../../methods/color/getGradientColor';
+import { getColor } from '../../../methods/color/getColor';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
+import { getGradientColor } from '../../../methods/color/getGradientColor';
 
 const gradientModifier = params => {
     const { framework, props } = params;

@@ -1,9 +1,9 @@
-import getBorderColor from '../../../methods/color/getBorderColor';
-import getContext from '../../../methods/misc/getContext';
+import { getBorderColor } from '../../../methods/color/getBorderColor';
+import { getContext } from '../../../methods/misc/getContext';
 import { getDividerColor } from '../../../methods/color/getDividerColor';
-import getColor from '../../../methods/color/getColor';
-import getComponentVars from '../../../methods/misc/getComponentVars';
-import getGlowColor from '../../../methods/color/getGlowColor';
+import { getColor } from '../../../methods/color/getColor';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
+import { getGlowColor } from '../../../methods/color/getGlowColor';
 
 export const typeModifier = params => {
     const { framework, props } = params;

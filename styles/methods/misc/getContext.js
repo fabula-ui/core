@@ -1,4 +1,4 @@
-const getContext = props => {
+export const getContext = props => {
     if (props.adapt || props.adaptColor) {
         return 'adapt';
     } else if (props.clear) {
@@ -19,5 +19,3 @@ const getContext = props => {
         return 'fill';
     }
 }
-
-export default getContext;

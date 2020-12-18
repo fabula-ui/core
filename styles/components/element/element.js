@@ -1,7 +1,7 @@
 import { getBgColor } from '../../methods/color/getBgColor';
-import getColor from '../../methods/color/getColor';
-import getComponentVars from '../../methods/misc/getComponentVars';
-import getContext from '../../methods/misc/getContext';
+import { getColor } from '../../methods/color/getColor';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
+import { getContext } from '../../methods/misc/getContext';
 
 const ElementStyles = params => {
     const { framework, props } = params;

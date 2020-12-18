@@ -1,6 +1,6 @@
-import getColor from '../../../methods/color/getColor';
-import getComponentVars from '../../../methods/misc/getComponentVars';
-import getContext from '../../../methods/misc/getContext';
+import { getColor } from '../../../methods/color/getColor';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
+import { getContext } from '../../../methods/misc/getContext';
 import { getTextColor } from '../../../methods/color/getTextColor';
 import { getBgColor } from '../../../methods/color/getBgColor';
 

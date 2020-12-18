@@ -1,6 +1,6 @@
 // Methods
-import getComponentVars from '../../methods/misc/getComponentVars';
-import getNumber from '../../methods/misc/getNumber';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
+import { getNumber } from '../../methods/misc/getNumber';
 
 // Modifiers
 import { colorModifier } from './modifiers/alert-color.modifier';

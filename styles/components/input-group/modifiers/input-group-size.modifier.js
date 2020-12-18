@@ -1,5 +1,5 @@
-import getComponentVars from '../../../methods/misc/getComponentVars';
-import getNumber from '../../../methods/misc/getNumber';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
+import { getNumber } from '../../../methods/misc/getNumber';
 
 const sizeModifier = props => {
     const vars = getComponentVars('inputGroup');

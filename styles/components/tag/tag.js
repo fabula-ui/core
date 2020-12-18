@@ -1,5 +1,5 @@
-import getComponentVars from '../../methods/misc/getComponentVars';
-import getContext from '../../methods/misc/getContext';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
+import { getContext } from '../../methods/misc/getContext';
 
 // Modifiers
 import colorModifier from './modifiers/tag-color.modifier';

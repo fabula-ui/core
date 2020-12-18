@@ -1,4 +1,4 @@
-import getComponentVars from '../../../styles/methods/misc/getComponentVars';
+import { getComponentVars } from '../../../styles/methods/misc/getComponentVars';
 
 // Modifiers
 import colorModifier from './modifiers/checkbox-color.modifier';

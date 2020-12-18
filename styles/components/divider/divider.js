@@ -1,6 +1,6 @@
 import { getBgColor } from '../../methods/color/getBgColor';
-import getColor from '../../methods/color/getColor';
-import getComponentVars from '../../methods/misc/getComponentVars';
+import { getColor } from '../../methods/color/getColor';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 const DividerStyles = params => {
     const {framework, props} = params;

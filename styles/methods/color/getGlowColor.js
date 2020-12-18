@@ -3,8 +3,8 @@ import Color from 'color';
 // Commons
 import { baseLuminosity } from '../../variables/core';
 
-const getGlowColor = (color, context) => {
-    const $color = Color(color).rgb();
+export const getGlowColor = (color, context) => {
+    const $color = Color(color)
     const fadeIntensity = {
         clear: {
             dark: .9,
@@ -43,10 +43,8 @@ const getGlowColor = (color, context) => {
     if (context === 'clear') {
         return 'transparent';
     } else if (!color || $color.luminosity() > baseLuminosity) {
-        return $color.darken(.05);
+        return $color.darken(.05).hex();
     } else {
-        return $color.fade(fadeIntensity[context].dark);
+        return $color.fade(fadeIntensity[context].dark).hex();
     }
 }
-
-export default getGlowColor;

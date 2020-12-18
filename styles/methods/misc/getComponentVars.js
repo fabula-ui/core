@@ -1,6 +1,6 @@
 import getTheme from './getTheme';
 
-const getComponentVars = name => {
+export const getComponentVars = name => {
     const theme = getTheme();
     
     return {
@@ -12,5 +12,3 @@ const getComponentVars = name => {
         },
     };
 }
-
-export default getComponentVars;

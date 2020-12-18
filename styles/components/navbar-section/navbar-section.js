@@ -1,4 +1,4 @@
-import getComponentVars from '../../methods/misc/getComponentVars';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 const NavbarSectionStyles = params => {
     const { framework, props } = params;

@@ -7,8 +7,8 @@ import sizeModifier from './modifiers/button-size.modifier';
 import smashedModifier from './modifiers/button-smashed.modifier';
 
 // Methods
-import getComponentVars from '../../methods/misc/getComponentVars';
-import getContext from '../../methods/misc/getContext';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
+import { getContext } from '../../methods/misc/getContext';
 
 const ButtonStyles = params => {
     const { framework, props } = params;

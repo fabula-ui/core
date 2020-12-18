@@ -1,4 +1,4 @@
-import getGlobalVars from '../../methods/misc/getGlobalVars';
+import { getGlobalVars } from '../../methods/misc/getGlobalVars';
 import getPercentage from '../../methods/misc/getPercentage';
 
 const ColumnStyles = params => {

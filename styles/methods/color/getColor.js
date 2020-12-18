@@ -1,6 +1,6 @@
 import validateColor from 'validate-color';
 
-const getColor = (color, colors, fallbackColor) => {
+export const getColor = (color, colors, fallbackColor) => {
     const paletteColor = colors[color];
 
     if (!color) {
@@ -13,5 +13,3 @@ const getColor = (color, colors, fallbackColor) => {
         return paletteColor;
     }
 }
-
-export default getColor;

@@ -1,4 +1,4 @@
-import getComponentVars from '../../../methods/misc/getComponentVars';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
 
 const blockType = params => {
     const {framework, props, vars} = params;

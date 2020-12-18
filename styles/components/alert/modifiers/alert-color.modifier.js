@@ -1,12 +1,12 @@
 import { getBgColor } from '../../../methods/color/getBgColor';
-import getBorderColor from '../../../methods/color/getBorderColor';
+import { getBorderColor } from '../../../methods/color/getBorderColor';
 import { getDividerColor } from '../../../methods/color/getDividerColor';
-import getColor from '../../../methods/color/getColor';
-import getComponentVars from '../../../methods/misc/getComponentVars';
-import getContext from '../../../methods/misc/getContext';
-import getNumber from '../../../methods/misc/getNumber';
+import { getColor } from '../../../methods/color/getColor';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
+import { getContext } from '../../../methods/misc/getContext';
+import { getNumber } from '../../../methods/misc/getNumber';
 import { getTextColor } from '../../../methods/color/getTextColor';
-import getGlowColor from '../../../methods/color/getGlowColor';
+import { getGlowColor } from '../../../methods/color/getGlowColor';
 
 export const colorModifier = params => {
     const { framework, props } = params;

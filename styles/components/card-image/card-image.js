@@ -1,7 +1,7 @@
 // Methods
-import getComponentVars from '../../methods/misc/getComponentVars';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
 import getHeight from '../../methods/misc/getHeight';
-import getNumber from '../../methods/misc/getNumber';
+import { getNumber } from '../../methods/misc/getNumber';
 
 // Modifiers
 import colorModifier from './modifiers/card-color.modifier';

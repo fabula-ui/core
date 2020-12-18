@@ -1,6 +1,6 @@
 // Methods
-import getComponentVars from '../../methods/misc/getComponentVars';
-import getNumber from '../../methods/misc/getNumber';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
+import { getNumber } from '../../methods/misc/getNumber';
 
 // Utils
 import gluedModifier from './modifiers/glued.modifier';

@@ -1,5 +1,5 @@
 // Utils
-import getGlobalVars from '../methods/misc/getGlobalVars';
+import { getGlobalVars } from '../methods/misc/getGlobalVars';
 import UtilStyles from '../utils/utils';
 
 export const breakpointsOrder = ['xl', 'lg', 'md', 'sm', 'xs', 'xxs'];

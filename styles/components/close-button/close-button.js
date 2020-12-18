@@ -1,4 +1,4 @@
-import getComponentVars from '../../methods/misc/getComponentVars';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
 import colorModifier from './modifiers/close-button-color.modifier';

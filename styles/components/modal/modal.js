@@ -1,6 +1,6 @@
 // Methods
-import getComponentVars from '../../methods/misc/getComponentVars';
-import getGlowColor from '../../methods/color/getGlowColor';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
+import { getGlowColor } from '../../methods/color/getGlowColor';
 
 // Modifiers
 import colorModifier from './modifiers/modal-color.modifier';

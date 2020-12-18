@@ -1,8 +1,8 @@
 import { getBgColor } from '../../../methods/color/getBgColor';
-import getColor from '../../../methods/color/getColor';
+import { getColor } from '../../../methods/color/getColor';
 import getColors from '../../../methods/color/getColors';
-import getComponentVars from '../../../methods/misc/getComponentVars';
-import getContext from '../../../methods/misc/getContext';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
+import { getContext } from '../../../methods/misc/getContext';
 import { getDividerColor } from '../../../methods/color/getDividerColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 

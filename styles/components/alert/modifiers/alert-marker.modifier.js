@@ -1,8 +1,8 @@
-import getColor from '../../../methods/color/getColor';
-import getComponentVars from '../../../methods/misc/getComponentVars';
-import getContext from '../../../methods/misc/getContext';
+import { getColor } from '../../../methods/color/getColor';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
+import { getContext } from '../../../methods/misc/getContext';
 import { getDividerColor } from '../../../methods/color/getDividerColor';
-import getNumber from '../../../methods/misc/getNumber';
+import { getNumber } from '../../../methods/misc/getNumber';
 
 export const markerModifier = params => {
     const { framework, props } = params;

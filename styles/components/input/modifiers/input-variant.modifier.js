@@ -1,5 +1,5 @@
-import getColor from '../../../methods/color/getColor';
-import getComponentVars from '../../../methods/misc/getComponentVars';
+import { getColor } from '../../../methods/color/getColor';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import getFocusGlowColor from '../../../methods/color/getFocusGlowColor';
 
 const variantModifier = params => {

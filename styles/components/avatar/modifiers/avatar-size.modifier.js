@@ -1,4 +1,4 @@
-import getComponentVars from '../../../methods/misc/getComponentVars';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
 
 const sizeModifier = props => {
     const vars = getComponentVars('avatar');

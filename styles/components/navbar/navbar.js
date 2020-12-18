@@ -1,9 +1,9 @@
 // Methods
-import getNumber from '../../methods/misc/getNumber';
+import { getNumber } from '../../methods/misc/getNumber';
 
 // Modifiers
 import colorModifier from './modifiers/navbar-color.modifier';
-import getComponentVars from '../../methods/misc/getComponentVars';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 const NavbarStyles = params => {
     const { framework, props } = params;

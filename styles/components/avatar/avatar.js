@@ -2,7 +2,7 @@
 import BadgeExternalStyles from './external/avatar-badge';
 
 // Methods
-import getComponentVars from '../../methods/misc/getComponentVars';
+import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
 import colorModifier from './modifiers/avatar-color.modifier';

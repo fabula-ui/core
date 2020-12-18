@@ -12,25 +12,22 @@ export const getDividerColor = (color, context) => {
     const _textColor = getTextColor(color, context);
     const $bgColor = _bgColor === 'none' || !_bgColor ? Color('#FFF') : Color(_bgColor);
     const $textColor = Color(_textColor);
-    let output;
 
     if (context === 'clear') {
         if ($textColor.luminosity() > baseLuminosity) {
-            output = $textColor;
+            return $textColor.hex();
         } else {
-            output = $textColor.fade(.8);
+            return $textColor.fade(.8).hex();
         }
     } else {
         if ($bgColor.luminosity() > baseLuminosity) {
-            output = $bgColor.darken(.1);
+            return $bgColor.darken(.1).hex();
         } else {
             if ($bgColor.isDark()) {
-                output = $bgColor.lighten(.25);
+                return $bgColor.lighten(.25).hex();
             } else {
-                output = $bgColor.darken(.15);
+                return $bgColor.darken(.15).hex();
             }
         }
     }
-
-    return output.hex();
 }

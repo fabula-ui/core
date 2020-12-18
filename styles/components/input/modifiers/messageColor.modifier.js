@@ -1,5 +1,5 @@
-import getColor from '../../../methods/color/getColor';
-import getComponentVars from '../../../methods/misc/getComponentVars';
+import { getColor } from '../../../methods/color/getColor';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
 const messageColorModifier = params => {

@@ -1,9 +1,9 @@
 import { getBgColor } from '../../../methods/color/getBgColor';
-import getBorderColor from '../../../methods/color/getBorderColor';
-import getColor from '../../../methods/color/getColor';
-import getComponentVars from '../../../methods/misc/getComponentVars';
-import getContext from '../../../methods/misc/getContext';
-import getGlowColor from '../../../methods/color/getGlowColor';
+import { getBorderColor } from '../../../methods/color/getBorderColor';
+import { getColor } from '../../../methods/color/getColor';
+import { getComponentVars } from '../../../methods/misc/getComponentVars';
+import { getContext } from '../../../methods/misc/getContext';
+import { getGlowColor } from '../../../methods/color/getGlowColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
 const colorModifier = params => {
