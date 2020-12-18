@@ -1,5 +1,5 @@
 // Methods
-import getTextColor from './getTextColor';
+import { getTextColor } from './getTextColor';
 
 const getHoverTextColor = (color, context) => {
     if (context === 'outline') {

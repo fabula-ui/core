@@ -1,4 +1,4 @@
-import getBgColor from '../../../methods/color/getBgColor';
+import { getBgColor } from '../../../methods/color/getBgColor';
 import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 

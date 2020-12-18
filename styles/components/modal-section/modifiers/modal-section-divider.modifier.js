@@ -1,7 +1,7 @@
 import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 import getContext from '../../../methods/misc/getContext';
-import getDividerColor from '../../../methods/color/getDividerColor';
+import { getDividerColor } from '../../../methods/color/getDividerColor';
 
 const dividerModifier = params => {
     const { framework, props } = params;

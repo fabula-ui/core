@@ -1,7 +1,7 @@
 // Methods
-import getBgColor from '../../../methods/color/getBgColor';
+import { getBgColor } from '../../../methods/color/getBgColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
-import getDividerColor from '../../../methods/color/getDividerColor';
+import { getDividerColor } from '../../../methods/color/getDividerColor';
 import getColor from '../../../methods/color/getColor';
 import getContext from '../../../methods/misc/getContext';
 

@@ -1,7 +1,7 @@
-import getBgColor from '../../../methods/color/getBgColor';
+import { getBgColor } from '../../../methods/color/getBgColor';
 import getColor from '../../../methods/color/getColor';
 import getContext from '../../../methods/misc/getContext';
-import getTextColor from '../../../methods/color/getTextColor';
+import { getTextColor } from '../../../methods/color/getTextColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 
 const colorModifier = params => {

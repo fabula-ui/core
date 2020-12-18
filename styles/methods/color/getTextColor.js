@@ -4,36 +4,41 @@ import Color from 'color';
 import { baseLuminosity } from '../../variables/core';
 
 // Methods
-import getBgColor from './getBgColor';
+import { getBgColor } from './getBgColor';
 
-const getTextColor = (color, context) => {
-    let $color = color ? Color(color).rgb() : Color('#FFF');
+export const getTextColor = (color, context) => {
+    let $color = color ? Color(color) : Color('#ffffff');
+    let hex = false;
+    let output;
 
     if (color && (context === 'darken' || context === 'lighten')) {
         $color = getBgColor(color, context);
-    } 
+    }
 
     if (context === 'faded') {
-        return $color.darken(.4);
+        output = $color.darken(.4);
     } else if (context === 'darken' || context === 'fill' || context === 'gradient' || context === 'lighten') {
         if ($color.luminosity() > baseLuminosity) {
-            return $color.darken(.75);
+            output = $color.darken(.75);
         } else {
-            return '#FFF';
+            hex = true;
+            output = '#ffffff';
         }
     } else if (context === 'invert') {
         if ($color.luminosity() > baseLuminosity) {
-            return $color;
+            output = $color;
         } else {
-            return getBgColor(color, 'fill');
+            output = getBgColor(color, 'fill');
         }
     } else if (context === 'clear' || context === 'outline') {
         if (!color) {
-            return getTextColor(color, 'fill');
+            output = getTextColor(color, 'fill');
         } else {
-            return $color;
+            output = $color;
         }
+    } else {
+        output = $color;
     }
-}
 
-export default getTextColor;
+    return hex ? output : output.hex();
+}

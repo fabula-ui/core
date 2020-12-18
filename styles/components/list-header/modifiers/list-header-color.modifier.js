@@ -1,6 +1,6 @@
 import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
-import getTextColor from '../../../methods/color/getTextColor';
+import { getTextColor } from '../../../methods/color/getTextColor';
 
 const colorModifier = params => {
     const { framework, props } = params;

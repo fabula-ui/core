@@ -4,7 +4,7 @@ import Color from 'color';
 import { baseLuminosity } from '../../variables/core';
 
 // Methods
-import getBgColor from '../../methods/color/getBgColor';
+import { getBgColor } from '../../methods/color/getBgColor';
 
 const getPlaceholderIconColor = (color, context) => {
     const $color = color ? Color(color).rgb() : Color('#FFF');

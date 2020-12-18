@@ -1,9 +1,9 @@
 import getActiveColor from '../../../methods/color/getActiveColor';
-import getBgColor from '../../../methods/color/getBgColor'
+import { getBgColor } from '../../../methods/color/getBgColor'
 import getColor from '../../../methods/color/getColor';
 import getComponentVars from '../../../methods/misc/getComponentVars';
 import getHoverColor from '../../../methods/color/getHoverColor';
-import getTextColor from '../../../methods/color/getTextColor';
+import { getTextColor } from '../../../methods/color/getTextColor';
 
 const colorModifier = params => {
     const { framework, props } = params;

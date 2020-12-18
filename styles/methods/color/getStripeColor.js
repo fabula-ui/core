@@ -4,7 +4,7 @@ import Color from 'color';
 import { baseLuminosity } from '../../variables/core';
 
 // Methods
-import getBgColor from './getBgColor';
+import { getBgColor } from './getBgColor';
 
 const stripeColor = (color, context) => {
     const _bgColor = getBgColor(color, context);

@@ -4,7 +4,7 @@ import Color from 'color';
 import { baseLuminosity } from '../../variables/core';
 
 // Methods
-import getBgColor from './getBgColor';
+import { getBgColor } from './getBgColor';
 import getGradientColor from './getGradientColor';
 
 const getHoverColor = (color, context) => {
