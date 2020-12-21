@@ -1,14 +1,15 @@
 // External
-import BadgeExternalStyles from './external/avatar-badge';
+import { BadgeExternalStyles } from './external/avatar-badge';
 
 // Methods
 import { getComponentVars } from '../../methods/misc/getComponentVars';
+import { getNumber } from '../../methods/misc/getNumber';
 
 // Modifiers
-import colorModifier from './modifiers/avatar-color.modifier';
-import sizeModifier from './modifiers/avatar-size.modifier';
+import { colorModifier } from './modifiers/avatar-color.modifier';
+import { sizeModifier } from './modifiers/avatar-size.modifier';
 
-const AvatarStyles = params => {
+export const AvatarStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('avatar');
     const wrapper = framework === 'angular' ? '.fab-avatar-wrapper' : '&';
@@ -20,13 +21,13 @@ const AvatarStyles = params => {
         }
 
         .fab-avatar {
-            border-radius: ${props.rounded ? '999px' : vars.borderRadius};
-            font-size: ${vars.iconSize};
-            height: ${vars.size};
-            font-weight: 400;
+            border: solid ${getNumber(vars.borderWidth, 'px')} transparent;
+            border-radius: ${props.rounded ? '999px' : getNumber(vars.borderRadius, 'px')};
+            font-size: 1rem;
+            height: ${getNumber(vars.size, 'px')};
             overflow: hidden;
             position: relative;
-            width: ${vars.size};
+            width: ${getNumber(vars.size, 'px')};
         }
 
         .fab-avatar__image {
@@ -41,7 +42,6 @@ const AvatarStyles = params => {
 
         .fab-avatar__initials {
             font-family: ${vars.initialsFontFamily};
-            font-size: ${vars.initialsFontSize};
             font-weight: ${vars.initialsFontWeight};
             left: 50%;
             letter-spacing: ${vars.letterSpacing};
@@ -69,5 +69,3 @@ const AvatarStyles = params => {
         ${BadgeExternalStyles(params)}
     `
 }
-
-export default AvatarStyles;

@@ -1,4 +1,4 @@
-const BadgeExternalStyles = params => {
+export const BadgeExternalStyles = params => {
     const { framework } = params;
     const wrapper = framework === 'angular' ? '.fab-avatar-wrapper' : '&';
 
@@ -17,5 +17,3 @@ const BadgeExternalStyles = params => {
         }
     `;
 }
-
-export default BadgeExternalStyles;

@@ -35,7 +35,7 @@ const fontFace = `
 }
 `;
 
-const IconStyles = (params) => {
+export const IconStyles = (params) => {
 	const { framework, props } = params;
     const { color, name, size } = props;
     const vars = getComponentVars('icon');
@@ -70,5 +70,3 @@ const IconStyles = (params) => {
         ${size ? sizeModifier(params) : ''}
     `;
 };
-
-export default IconStyles;

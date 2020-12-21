@@ -1,4 +1,4 @@
-const getInitials = str => {
+export const getInitials = str => {
     const words = str.split(' ');
 
     if (words.length > 1) {
@@ -9,5 +9,3 @@ const getInitials = str => {
         return '';
     }
 }
-
-export default getInitials;

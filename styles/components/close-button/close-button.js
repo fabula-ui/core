@@ -3,7 +3,7 @@ import { getComponentVars } from '../../methods/misc/getComponentVars';
 // Modifiers
 import colorModifier from './modifiers/close-button-color.modifier';
 
-const CloseButtonStyles = params => {
+export const CloseButtonStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('closeButton');
     const multiplier = vars.sizeMultipliers[props.size || 'md'];
@@ -40,5 +40,3 @@ const CloseButtonStyles = params => {
         ${colorModifier(params)}
     `;
 }
-
-export default CloseButtonStyles;
