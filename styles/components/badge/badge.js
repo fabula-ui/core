@@ -1,12 +1,13 @@
 // Methods
 import { getComponentVars } from '../../methods/misc/getComponentVars';
+import { getNumber } from '../../methods/misc/getNumber';
 
 // Modifiers
-import colorModifier from './modifiers/badge-color.modifier';
-import placementModifier from './modifiers/badge-placement.modifier';
-import sizeModifier from './modifiers/badge-size.modifier';
+import { colorModifier } from './modifiers/badge-color.modifier';
+import { placementModifier } from './modifiers/badge-placement.modifier';
+import { sizeModifier } from './modifiers/badge-size.modifier';
 
-const BadgeStyles = params => {
+export const BadgeStyles = params => {
     const { props } = params;
     const vars = getComponentVars('badge');
 
@@ -15,20 +16,19 @@ const BadgeStyles = params => {
 
         .fab-badge {
             align-items: center;
-            border-radius: ${props.rounded ? '999px' : vars.borderRadius};
-            font-family: ${vars.fontFamily};
+            border-radius: ${props.rounded ? '999px' : getNumber(vars.borderRadius, 'px')};
             display: flex;
+            font-family: ${vars.fontFamily};
             font-size: ${vars.fontSize};
             font-weight: ${vars.fontWeight};
-            ${props.circle ? `height: ${vars.circleSize};` : ''}
             justify-content: center;
             line-height: 1;
-            ${(props.circle || props.rounded) ? `min-width: ${vars.circleSize};` : ''}
-            padding: ${vars.padding};
-            ${props.circle ? `padding: 0;` : ''}
-            ${props.rounded ? `padding: ${vars.paddingY} calc(${vars.paddingX} + .2em);` : ''}
+            ${props.rounded ? `min-width: ${vars.circleSize};` : ''}
+            padding-bottom: ${getNumber(vars.paddingBottom, 'em')};
+            padding-left: ${props.rounded ? `calc(${getNumber(vars.paddingLeft, 'em')} + .2em)` : getNumber(vars.paddingLeft, 'em')};
+            padding-right: ${props.rounded ? `calc(${getNumber(vars.paddingRight, 'em')} + .2em)` : getNumber(vars.paddingRight, 'em')};
+            padding-top: ${getNumber(vars.paddingTop, 'em')};
             text-align: center;
-            ${props.width ? `width: ${vars.circleSize};` : ''}
         }
 
         // Modifiers
@@ -37,5 +37,3 @@ const BadgeStyles = params => {
         ${sizeModifier(params)}
     `
 }
-
-export default BadgeStyles;

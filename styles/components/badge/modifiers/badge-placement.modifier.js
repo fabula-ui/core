@@ -1,4 +1,4 @@
-const placementModifier = params => {
+export const placementModifier = params => {
     const { props } = params;
 
     return `
@@ -12,5 +12,3 @@ const placementModifier = params => {
         }
     `;
 }
-
-export default placementModifier;

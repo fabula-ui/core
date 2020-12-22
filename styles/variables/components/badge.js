@@ -1,16 +1,15 @@
-const badge = () => ({
+const badge = theme => ({
     borderRadius: '.33em',
     circleSize: '1.75em',
     get color() {
-        return '#FFF'
+        return theme.variables.globals.baseColor
     },
     fontSize: '.75em',
     fontWeight: 600,
-    paddingX: '.6em',
-    paddingY: '.4em',
-    get padding() {
-        return `${this.paddingY} ${this.paddingX}`
-    },
+    paddingBottom: '.4em',
+    paddingLeft: '.6em',
+    paddingRight: '.6em',
+    paddingTop: '.4em',
 })
 
 export default badge;
