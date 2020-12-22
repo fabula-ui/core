@@ -16,6 +16,7 @@ export const BadgeStyles = params => {
 
         .fab-badge {
             align-items: center;
+            border: solid ${getNumber(vars.borderWidth, 'px')} transparent;
             border-radius: ${props.rounded ? '999px' : getNumber(vars.borderRadius, 'px')};
             display: flex;
             font-family: ${vars.fontFamily};
@@ -23,7 +24,6 @@ export const BadgeStyles = params => {
             font-weight: ${vars.fontWeight};
             justify-content: center;
             line-height: 1;
-            ${props.rounded ? `min-width: ${vars.circleSize};` : ''}
             padding-bottom: ${getNumber(vars.paddingBottom, 'em')};
             padding-left: ${props.rounded ? `calc(${getNumber(vars.paddingLeft, 'em')} + .2em)` : getNumber(vars.paddingLeft, 'em')};
             padding-right: ${props.rounded ? `calc(${getNumber(vars.paddingRight, 'em')} + .2em)` : getNumber(vars.paddingRight, 'em')};

@@ -18,7 +18,7 @@ export const colorModifier = params => {
 
     return `
         ${wrapper} {
-            ${!props.clear ? `background: ${getBgColor(color, context)};` : ''}
+            background: ${getBgColor(color, context)};
             border-color: ${!!props.border ? `${getDividerColor(borderColor, context)}` : 'transparent'};
             ${((props.borderColor || props.outline) && !!props.border) ? `border-color: ${getBorderColor(borderColor, context)};` : ''}
             ${props.glow ? `box-shadow: ${getNumber(vars.glowX, 'px')} ${getNumber(vars.glowY, 'px')} ${getNumber(vars.glowRadius, 'px')} ${getNumber(vars.glowSpread, 'px')} ${getGlowColor(color, context)};` : ''}
