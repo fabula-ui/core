@@ -54,10 +54,6 @@ export const AvatarStyles = params => {
             user-select: none;
         }
 
-        // Modifiers
-        ${colorModifier(props)}
-        ${sizeModifier(props)}
-
         // External
         .fab-avatar .fab-icon {
             left: 50%;
@@ -67,5 +63,9 @@ export const AvatarStyles = params => {
         }
 
         ${BadgeExternalStyles(params)}
+
+        // Modifiers
+        ${colorModifier(props)}
+        ${sizeModifier(props)}
     `
 }

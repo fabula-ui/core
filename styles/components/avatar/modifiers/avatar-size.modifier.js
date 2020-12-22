@@ -5,7 +5,7 @@ export const sizeModifier = props => {
     const vars = getComponentVars('avatar');
     const multiplier = vars.sizeMultipliers[props.size] || vars.sizeMultipliers['md'];
     const hasCustomSize = props.size && !vars.sizeMultipliers[props.size];
-    const avatarSize = hasCustomSize ? props.size : vars.size; 
+    const avatarSize = hasCustomSize ? props.size : vars.size;
     
     return `
     .fab-avatar {
