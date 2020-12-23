@@ -7,10 +7,12 @@ import { getColor } from '../color/getColor';
 import { getContext } from './getContext';
 import { getComponentVars } from './getComponentVars';
 import { getDividerColor } from '../color/getDividerColor';
-import { getTextColor } from '../color/getTextColor';
+import { getGlobalVars } from './getGlobalVars';
 import { getGlowColor } from '../color/getGlowColor';
+import { getTextColor } from '../color/getTextColor';
 
 export const getComponentColors = (component, props) => {
+    const globalVars = getGlobalVars();
     const vars = getComponentVars(component);
     const context = getContext(props);
     const baseBorderColor = getColor(props.borderColor || props.color, vars.colors, vars.color);
@@ -26,7 +28,7 @@ export const getComponentColors = (component, props) => {
     if (props.borderColor || props.color) {
         borderColor = getBorderColor(baseBorderColor, context);
     } else {
-        borderColor = getDividerColor(props.color, context);
+        borderColor = getDividerColor(vars.color, context);
     }
 
     if (props.textColor) {
@@ -40,10 +42,11 @@ export const getComponentColors = (component, props) => {
 
         if (props.invert) {
             textColor = Color(vars.color).hex();
-        } else {
+        } else if (globalVars.baseColor === vars.color) {
             textColor = Color(baseTextColor).hex();
+        } else {
+            textColor = getTextColor(vars.color, context);
         }
-        
     }
 
     if (!props.clear && !props.outline) {
