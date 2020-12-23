@@ -20,7 +20,7 @@ export const getBorderColor = (color, context) => {
         return getTextColor(color, context);
     } else if (context === 'invert') {
         return Color(color).hex();
-    } else  {
+    } else {
         if ($bgColor.isDark()) {
             return $bgColor.lighten(.1).hex();
         } else {

@@ -45,6 +45,10 @@ export const getGlowColor = (color, context) => {
     } else if (!color || $color.luminosity() > baseLuminosity) {
         return $color.darken(.05).hex();
     } else {
-        return $color.fade(fadeIntensity[context].dark).hex();
+        if ($color.isDark()) {
+            return $color.lighten(.1).hex();
+        } else {
+            return $color.darken(.1).hex();
+        }
     }
 }
