@@ -37,7 +37,13 @@ export const getComponentColors = (component, props) => {
         textColor = getTextColor(baseTextColor, context);
     } else {
         baseTextColor = getColor(vars.textColor, vars.colors, vars.color);
-        textColor = Color(baseTextColor).hex();
+
+        if (props.invert) {
+            textColor = Color(vars.color).hex();
+        } else {
+            textColor = Color(baseTextColor).hex();
+        }
+        
     }
 
     if (!props.clear && !props.outline) {
@@ -50,5 +56,4 @@ export const getComponentColors = (component, props) => {
         glowColor,
         textColor
     }
-    // const borderColor = 
 }

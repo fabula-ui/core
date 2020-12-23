@@ -29,7 +29,7 @@ export const getBgColor = (color, context) => {
         if ($color.luminosity() > baseLuminosity) {
             return $color.darken(.75).hex();
         } else {
-            return '#ffffff';
+            return Color('#ffffff').hex();
         }
     } else if (context === 'clear' || context === 'outline') {
         return 'transparent';
