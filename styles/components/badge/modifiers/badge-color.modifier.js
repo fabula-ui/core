@@ -11,7 +11,7 @@ export const colorModifier = params => {
     const { props } = params;
     const vars = getComponentVars('badge');
     const borderColor = getColor(props.borderColor || props.color, vars.colors);
-    const color = (props.color || props.clear) ? getColor(props.color, vars.colors) : vars.color;
+    const color = (props.color || props.clear) ? getColor(props.color, vars.colors, vars.color) : vars.color;
     const context = (props.color || props.clear) ? getContext(props) : 'fill';
 
     return `
