@@ -1,4 +1,4 @@
-import getActiveColor from '../../../methods/color/getActiveColor';
+import { getActiveColor } from '../../../methods/color/getActiveColor';
 import { getBgColor } from '../../../methods/color/getBgColor';
 import { getBorderColor } from '../../../methods/color/getBorderColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';

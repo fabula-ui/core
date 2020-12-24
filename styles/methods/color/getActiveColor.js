@@ -3,50 +3,24 @@ import Color from 'color';
 // Commons
 import { baseLuminosity } from '../../variables/core';
 
-// Methods
-import { getBgColor } from './getBgColor';
-import { getHoverColor } from './getHoverColor';
-
-const getActiveColor = (color, context) => {
-    let $color = color ? Color(color).rgb() : Color('#FFF');
-
-    if (color && (context === 'darken' || context === 'lighten')) {
-        $color = getBgColor(color, context);
-    } 
+export const getActiveColor = (color, context) => {
+    let $color;
 
     if (context === 'clear') {
-        return 'none';
-    } else if (context === 'faded') {
+        return 'transparent';
+    } else if (context === 'gradient') {
+        return color;
+    } else {
+        $color = Color(color).rgb();
+
         if ($color.luminosity() > baseLuminosity) {
-            return Color(getHoverColor(color, context)).darken(.1);
-        } else {
-            return Color(getHoverColor(color, context)).darken(.1);
-        }
-    } else if (context === 'fill') {
-        if ($color.luminosity() > baseLuminosity) {
-            return $color.darken(.1);
+            return $color.darken(.1).hex();
         } else {
             if ($color.isLight()) {
-                return $color.darken(.1);
+                return $color.darken(.1).hex();
             } else {
-                return $color.lighten(.5);
+                return $color.lighten(.1).hex();
             }
         }
-    } else if (context === 'invert') {
-        return Color(getHoverColor(color, context)).darken(.1);
-    } else if (context === 'lighten') {
-        if ($color.luminosity() > baseLuminosity) {
-            return $color.lighten(.1);
-        } else {
-            if ($color.isLight()) {
-                return $color.darken(.1);
-            } else {
-                return $color.lighten(.5);
-            }
-        }
-    } else if (context === 'outline') {
-        return Color(getHoverColor(color, context)).darken(.1);
     }
 }
-
-export default getActiveColor;

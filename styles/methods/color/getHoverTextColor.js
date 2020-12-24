@@ -1,14 +1,20 @@
-// Methods
-import { getTextColor } from './getTextColor';
+import Color from 'color';
 
-export const getHoverTextColor = (color, context) => {
-    if (context === 'outline') {
-        if (color) {
-            return getTextColor(color, 'fill');
+// Methods
+import { getGlobalVars } from '../misc/getGlobalVars';
+
+export const getHoverTextColor = (textColor, context) => {
+    const { baseColor } = getGlobalVars();
+
+    if (context === 'clear') {
+        return 'none';
+    } else if (context === 'outline') {
+        if (Color(baseColor).contrast(Color(textColor)) < 2) {
+            return textColor;
         } else {
-            return getTextColor(color, 'invert');
+            return Color(baseColor).mix(Color(textColor), .9);
         }
     } else {
-        return getTextColor(color, context);
+        return textColor;
     }
 }

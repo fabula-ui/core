@@ -1,6 +1,7 @@
 import Color from 'color';
 
 // Methods
+import { getActiveColor } from '../color/getActiveColor';
 import { getBgColor } from '../color/getBgColor';
 import { getBorderColor } from '../color/getBorderColor';
 import { getColor } from '../color/getColor';
@@ -17,22 +18,21 @@ export const getComponentColors = (component, props) => {
     const globalVars = getGlobalVars();
     const vars = getComponentVars(component);
     const context = getContext(props);
-    const baseBorderColor = getColor(props.borderColor || props.color, vars.colors, vars.color);
+    
     const baseBgColor = getColor(props.bgColor || props.color || vars.color, vars.colors, vars.color);
     const bgColor = getBgColor(baseBgColor, context);
     const baseGlowColor = getColor(props.glowColor || props.color || vars.color, vars.colors, vars.color);
-    const hoverBgColor = getHoverColor(bgColor, context);
-    const hoverTextColor = getHoverTextColor(bgColor, context);
+    let activeBgColor;
+    let activeTextColor;
+    let baseBorderColor;
     let baseTextColor;
     let borderColor;
     let glowColor;
+    let hoverBgColor;
+    let hoverTextColor;
     let textColor;
 
-    if (props.borderColor || props.color) {
-        borderColor = getBorderColor(baseBorderColor, context);
-    } else {
-        borderColor = getDividerColor(vars.color, context);
-    }
+    baseBorderColor = getColor(props.borderColor || props.color || baseBgColor, vars.colors, vars.color);
 
     if (props.textColor) {
         baseTextColor = getColor(props.textColor, vars.colors, vars.color);
@@ -56,7 +56,14 @@ export const getComponentColors = (component, props) => {
         glowColor = getGlowColor(baseGlowColor, props.color ? context : 'fill');
     }
 
+    borderColor = getBorderColor(baseBorderColor, textColor, context);
+    hoverBgColor = getHoverColor(bgColor, textColor, context);
+    hoverTextColor = getHoverTextColor(textColor, context);
+
+    activeBgColor = getActiveColor(hoverBgColor, context);
+
     return {
+        activeBgColor,
         bgColor,
         borderColor: ((props.border || props.outline) && !props.clear) ? borderColor : 'transparent',
         hoverBgColor,

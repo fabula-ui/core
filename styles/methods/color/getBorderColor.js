@@ -1,30 +1,33 @@
 import Color from 'color';
 
+// Commons
+import { baseLuminosity } from '../../variables/core';
+
 // Methods
 import { getBgColor } from './getBgColor';
-import { getTextColor } from './getTextColor';
 
-export const getBorderColor = (color, context) => {
-    const _bgColor = getBgColor(color, context);
-    const $bgColor = _bgColor !== 'none' ? Color(_bgColor) : Color('#FFF');
-    const _textColor = getTextColor(color, context);
-    const $textColor = Color(_textColor);
+export const getBorderColor = (color, textColor, context) => {
+    const handledContext = context === 'clear' || context === 'gradient' ? 'fill' : context;
+    const $color = Color(getBgColor(color, handledContext));
 
-    if (context === 'clear') {
-        if ($textColor.isDark()) {
-            return $textColor.lighten(.1).hex();
-        } else {
-            return $textColor.darken(.1).hex();
-        }
-    } else if (context === 'outline') {
-        return getTextColor(color, context);
+    if (context === 'outline') {
+        return textColor;
     } else if (context === 'invert') {
-        return Color(color).hex();
-    } else {
-        if ($bgColor.isDark()) {
-            return $bgColor.lighten(.1).hex();
+        if (Color($color).luminosity() > baseLuminosity) {
+            return textColor;
         } else {
-            return $bgColor.darken(.1).hex();
+            if ($color.isDark()) {
+                return $color.lighten(.1).hex();
+            } else {
+                return $color.darken(.1).hex();
+            }
+        }
+        
+    } else {
+        if ($color.isDark()) {
+            return $color.lighten(.1).hex();
+        } else {
+            return $color.darken(.1).hex();
         }
     }
 }

@@ -1,16 +1,19 @@
 import { getColor } from '../../../methods/color/getColor';
+import { getComponentColors } from '../../../methods/misc/getComponentColors';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getGradientColor } from '../../../methods/color/getGradientColor';
 
 const gradientModifier = params => {
     const { framework, props } = params;
+    const { bgColor } = getComponentColors('button', props);
     const vars = getComponentVars('button');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
     const wrapper = framework === 'angular' ? '.fab-button' : '&';
 
     return `
         ${wrapper} {
-            background: ${getGradientColor(color)};
+            background: ${bgColor};
+            ${!props.border ? `border: none;` : ''}
             position: relative;
 
             &:after {

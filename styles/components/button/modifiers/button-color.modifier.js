@@ -1,4 +1,4 @@
-import getActiveColor from '../../../methods/color/getActiveColor';
+import { getActiveColor } from '../../../methods/color/getActiveColor';
 import { getBgColor } from '../../../methods/color/getBgColor';
 import { getBorderColor } from '../../../methods/color/getBorderColor';
 import { getColor } from '../../../methods/color/getColor';
@@ -13,7 +13,7 @@ import { getTextColor } from '../../../methods/color/getTextColor';
 
 const colorModifier = params => {
     const { framework, props } = params;
-    const { bgColor, borderColor, glowColor, hoverBgColor, hoverTextColor, textColor } = getComponentColors('alert', props);
+    const { activeBgColor, activeTextColor, bgColor, borderColor, glowColor, hoverBgColor, hoverTextColor, textColor } = getComponentColors('alert', props);
     const vars = getComponentVars('button');
     const color = (props.color || props.clear) ? getColor(props.color, vars.colors) : vars.color;
     const context = (props.color || props.clear) ? getContext(props) : 'fill';
@@ -37,11 +37,11 @@ const colorModifier = params => {
 
             &:hover:not([disabled]) {
                 ${context !== 'gradient' ? `background: ${hoverBgColor};` : ''}
-                ${props.color ? `color: ${hoverTextColor}` : ''}
+                color: ${hoverTextColor}
             }
 
             &:active:not([disabled]) {
-                ${context !== 'gradient' ? `background: ${getActiveColor(userBgColor || color, context)};` : ''}
+                ${context !== 'gradient' ? `background: ${activeBgColor};` : ''}
             }
         }
     `;

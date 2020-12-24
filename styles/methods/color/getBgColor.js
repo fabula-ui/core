@@ -4,38 +4,30 @@ import Color from 'color';
 import { baseLuminosity } from '../../variables/core';
 
 // Methods
+import { getGlobalVars } from '../misc/getGlobalVars';
 import { getGradientColor } from './getGradientColor';
 
 export const getBgColor = (color, context) => {
-    const $color = color || '#ffffff';
+    const { baseColor } = getGlobalVars();
+    const $color = color ? Color(color).rgb() : Color(baseColor).rgb();
 
-    if (context === 'adapt') {
-        if (Color($color).isLight()) {
-            return Color($color).darken(.1).hex();
-        } else {
-            return Color($color).lighten(.1).hex();
-        }
+    if (context === 'clear' || context === 'outline') {
+        return 'transparent';
     } else if (context === 'darken') {
-        return Color($color).darken(.15).hex();
+        return $color.darken(.15).hex();
     } else if (context === 'disabled') {
-        return Color($color).mix(Color('white'), .95).hex();
-    } else if (context === 'faded') {
-        return Color($color).mix(Color('white'), .5).hex();
-    } else if (context === 'fill') {
-        return Color(color);
+        return $color.mix(Color(baseColor), .95).hex();
     } else if (context === 'gradient') {
-        return Color(getGradientColor(color)).hex();
+        return getGradientColor(color);
     } else if (context === 'invert') {
         if (Color($color).luminosity() > baseLuminosity) {
             return Color($color).darken(.75).hex();
         } else {
-            return Color('#ffffff').hex();
+            return Color(baseColor).hex();
         }
-    } else if (context === 'clear' || context === 'outline') {
-        return 'transparent';
     } else if (context === 'lighten') {
-        return Color($color).lighten(.15).hex();
+        return $color.lighten(.15).hex();
     } else {
-        return Color($color).hex();
+        return $color.hex();
     }
 }
