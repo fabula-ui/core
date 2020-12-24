@@ -3,10 +3,10 @@ const alert = theme => ({
     get color() {
         return theme.variables.globals.baseColor
     },
-    glowRadius: '2px',
+    glowRadius: '1px',
     glowSpread: 0,
     glowX: 0,
-    glowY: '2px',
+    glowY: '1px',
     markerWidth: '4px',
     paddingBottom: '1em',
     paddingLeft: '1em',

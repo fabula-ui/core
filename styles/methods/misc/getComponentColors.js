@@ -55,7 +55,7 @@ export const getComponentColors = (component, props) => {
 
     return {
         bgColor,
-        borderColor,
+        borderColor: ((props.border || props.outline) && !props.clear) ? borderColor : 'transparent',
         glowColor,
         textColor
     }
