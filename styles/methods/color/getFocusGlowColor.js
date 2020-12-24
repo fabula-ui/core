@@ -1,4 +1,6 @@
-import getHoverColor from './getHoverColor';
+import Color from 'color';
+
+import { getHoverColor } from './getHoverColor';
 
 const getFocusGlowColor = (color, context) => {
     const fadeIntensity = {
@@ -12,12 +14,12 @@ const getFocusGlowColor = (color, context) => {
         outline: .7
     };
     const passContext = context === 'gradient' ? 'gradient_glow' : context;
-    const $hoverColor = getHoverColor(color, passContext);
+    const hoverColor = getHoverColor(color, passContext);
 
     if (context === 'clear') {
         return 'transparent';
-    } else if ($hoverColor) {
-        return $hoverColor.darken(.25).fade(fadeIntensity[context]);
+    } else if (hoverColor) {
+        return Color(hoverColor).darken(.25).fade(fadeIntensity[context]);
     }
     
 }

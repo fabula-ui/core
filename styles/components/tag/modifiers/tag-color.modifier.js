@@ -6,8 +6,8 @@ import getFocusColor from '../../../methods/color/getFocusColor';
 import { getColor } from '../../../methods/color/getColor';
 import { getGlowColor } from '../../../methods/color/getGlowColor';
 import { getContext } from '../../../methods/misc/getContext';
-import getHoverColor from '../../../methods/color/getHoverColor';
-import getHoverTextColor from '../../../methods/color/getHoverTextColor';
+import { getHoverColor } from '../../../methods/color/getHoverColor';
+import { getHoverTextColor } from '../../../methods/color/getHoverTextColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
 const colorModifier = params => {

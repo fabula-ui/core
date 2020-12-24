@@ -9,6 +9,8 @@ import { getComponentVars } from './getComponentVars';
 import { getDividerColor } from '../color/getDividerColor';
 import { getGlobalVars } from './getGlobalVars';
 import { getGlowColor } from '../color/getGlowColor';
+import { getHoverColor } from '../color/getHoverColor';
+import { getHoverTextColor } from '../color/getHoverTextColor';
 import { getTextColor } from '../color/getTextColor';
 
 export const getComponentColors = (component, props) => {
@@ -19,7 +21,8 @@ export const getComponentColors = (component, props) => {
     const baseBgColor = getColor(props.bgColor || props.color || vars.color, vars.colors, vars.color);
     const bgColor = getBgColor(baseBgColor, context);
     const baseGlowColor = getColor(props.glowColor || props.color || vars.color, vars.colors, vars.color);
-
+    const hoverBgColor = getHoverColor(bgColor, context);
+    const hoverTextColor = getHoverTextColor(bgColor, context);
     let baseTextColor;
     let borderColor;
     let glowColor;
@@ -56,6 +59,8 @@ export const getComponentColors = (component, props) => {
     return {
         bgColor,
         borderColor: ((props.border || props.outline) && !props.clear) ? borderColor : 'transparent',
+        hoverBgColor,
+        hoverTextColor,
         glowColor,
         textColor
     }

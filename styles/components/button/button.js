@@ -25,7 +25,7 @@ const ButtonStyles = params => {
         ${wrapper} {
             align-items: center;
             appearance: none;
-            border: none;
+            border: solid 1px transparent;
             border-radius: ${vars.borderRadius};
             ${props.rounded ? `border-radius: 999px;` : ''}
             cursor: pointer;

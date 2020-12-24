@@ -4,8 +4,8 @@ import { getColor } from '../../../methods/color/getColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getContext } from '../../../methods/misc/getContext';
 import { getDividerColor } from '../../../methods/color/getDividerColor';
-import getHoverColor from '../../../methods/color/getHoverColor';
-import getHoverTextColor from '../../../methods/color/getHoverTextColor';
+import { getHoverColor } from '../../../methods/color/getHoverColor';
+import { getHoverTextColor } from '../../../methods/color/getHoverTextColor';
 import getStripeColor from '../../../methods/color/getStripeColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 

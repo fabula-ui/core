@@ -7,12 +7,12 @@ import { baseLuminosity } from '../../variables/core';
 import { getBgColor } from './getBgColor';
 import { getGradientColor } from './getGradientColor';
 
-const getHoverColor = (color, context) => {
-    let $color = color ? Color(color).rgb() : Color('#FFF');
+export const getHoverColor = (color, context) => {
+    let $color = color ? Color(color).rgb() : Color('#FFF').rgb();
     
-    if (color && (context === 'darken' || context === 'lighten')) {
-        $color = getBgColor(color, context);
-    } 
+    // if (color && (context === 'darken' || context === 'lighten')) {
+    //     $color = Color(getBgColor(color, context)).rgb();
+    // }
 
     if (context === 'clear') {
         return 'none';
@@ -23,6 +23,7 @@ const getHoverColor = (color, context) => {
             return $color.mix(Color('white'), .6);
         }
     } else if (context === 'darken' || context === 'fill' || context === 'gradient_glow' || context === 'lighten') {
+        // return 'red';
         if ($color.luminosity() > baseLuminosity) {
             return $color.darken(.05);
         } else {
@@ -36,9 +37,10 @@ const getHoverColor = (color, context) => {
         }
     } else if (context === 'invert') {
         if ($color.luminosity() > baseLuminosity) {
-            return getBgColor(color, 'invert').lighten(.2);
+            return 'red';
+            // return Color(getBgColor(color, 'invert')).lighten(.2);
         } else {
-            return Color(getBgColor(color, 'fill')).mix(Color('#FFF'), .8);
+            return Color(getBgColor(color, 'fill')).mix(Color('#FFF'), .2);
         }
     } else if (context === 'outline') {
         if (!color) {
@@ -50,5 +52,3 @@ const getHoverColor = (color, context) => {
         }
     }
 }
-
-export default getHoverColor;

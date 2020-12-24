@@ -1,7 +1,7 @@
 // Methods
 import { getTextColor } from './getTextColor';
 
-const getHoverTextColor = (color, context) => {
+export const getHoverTextColor = (color, context) => {
     if (context === 'outline') {
         if (color) {
             return getTextColor(color, 'fill');
@@ -11,7 +11,4 @@ const getHoverTextColor = (color, context) => {
     } else {
         return getTextColor(color, context);
     }
-    
 }
-
-export default getHoverTextColor;

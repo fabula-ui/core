@@ -2,16 +2,18 @@ import getActiveColor from '../../../methods/color/getActiveColor';
 import { getBgColor } from '../../../methods/color/getBgColor';
 import { getBorderColor } from '../../../methods/color/getBorderColor';
 import { getColor } from '../../../methods/color/getColor';
+import { getComponentColors } from '../../../methods/misc/getComponentColors';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getContext } from '../../../methods/misc/getContext';
 import getFocusGlowColor from '../../../methods/color/getFocusGlowColor';
 import { getGlowColor } from '../../../methods/color/getGlowColor';
-import getHoverColor from '../../../methods/color/getHoverColor';
-import getHoverTextColor from '../../../methods/color/getHoverTextColor';
+import { getHoverColor } from '../../../methods/color/getHoverColor';
+import { getHoverTextColor } from '../../../methods/color/getHoverTextColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
 const colorModifier = params => {
     const { framework, props } = params;
+    const { bgColor, borderColor, glowColor, hoverBgColor, hoverTextColor, textColor } = getComponentColors('alert', props);
     const vars = getComponentVars('button');
     const color = (props.color || props.clear) ? getColor(props.color, vars.colors) : vars.color;
     const context = (props.color || props.clear) ? getContext(props) : 'fill';
@@ -24,19 +26,18 @@ const colorModifier = params => {
 
     return `
         ${wrapper} {
-            background: ${userBgColor ? userBgColor : getBgColor(color, context)};
-            ${(props.border || props.outline) ? `border: solid 1px ${getBorderColor(color, context === 'gradient' ? 'fill' : context)};` : ''}
-            ${props.glow ? `box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${getGlowColor(color, context)};` : ''}
-            color: ${userTextColor ? userTextColor : getTextColor(userBgColor || color, context)};
+            background: ${bgColor};
+            border-color: ${borderColor};
+            ${props.glow ? `box-shadow: ${vars.glowX} ${vars.glowY} ${vars.glowRadius} ${vars.glowSpread} ${glowColor};` : ''}
+            color: ${textColor};
 
             &:focus {
                 box-shadow: 0 0 0 3px ${getFocusGlowColor(focusGlowColor, context)};
             }
 
             &:hover:not([disabled]) {
-                ${context !== 'gradient' ? `background: ${getHoverColor(userBgColor || color, context)};` : ''}
-                ${props.bgColor || props.color ? `color: ${getHoverTextColor(userBgColor || color, context)}` : ''}
-                ${props.userTextColor ? `color: ${getHoverTextColor(userTextColor, 'invert')};` : ''}
+                ${context !== 'gradient' ? `background: ${hoverBgColor};` : ''}
+                ${props.color ? `color: ${hoverTextColor}` : ''}
             }
 
             &:active:not([disabled]) {
