@@ -7,7 +7,7 @@ import { getBorderColor } from '../color/getBorderColor';
 import { getColor } from '../color/getColor';
 import { getContext } from './getContext';
 import { getComponentVars } from './getComponentVars';
-import { getDividerColor } from '../color/getDividerColor';
+import { getFocusGlowColor } from '../color/getFocusGlowColor';
 import { getGlobalVars } from './getGlobalVars';
 import { getGlowColor } from '../color/getGlowColor';
 import { getHoverColor } from '../color/getHoverColor';
@@ -18,22 +18,27 @@ export const getComponentColors = (component, props) => {
     const globalVars = getGlobalVars();
     const vars = getComponentVars(component);
     const context = getContext(props);
-    
+
     const baseBgColor = getColor(props.bgColor || props.color || vars.color, vars.colors, vars.color);
     const bgColor = getBgColor(baseBgColor, context);
     const baseGlowColor = getColor(props.glowColor || props.color || vars.color, vars.colors, vars.color);
     let activeBgColor;
+    let activeContrast;
     let activeTextColor;
+    let baseActiveTextColor;
     let baseBorderColor;
+    let baseFocusGlowColor;
     let baseTextColor;
     let borderColor;
+    let focusGlowColor;
     let glowColor;
     let hoverBgColor;
+    let hoverContrast;
     let hoverTextColor;
     let textColor;
 
     baseBorderColor = getColor(props.borderColor || props.color || baseBgColor, vars.colors, vars.color);
-
+    
     if (props.textColor) {
         baseTextColor = getColor(props.textColor, vars.colors, vars.color);
         textColor = Color(baseTextColor).hex();
@@ -59,13 +64,36 @@ export const getComponentColors = (component, props) => {
     borderColor = getBorderColor(baseBorderColor, textColor, context);
     hoverBgColor = getHoverColor(bgColor, textColor, context);
     hoverTextColor = getHoverTextColor(textColor, context);
-
     activeBgColor = getActiveColor(hoverBgColor, context);
+
+    if (context !== 'gradient' && context !== 'invert') {
+        baseActiveTextColor = getActiveColor(activeBgColor, context);
+        activeContrast = Color(activeBgColor).contrast(Color(baseActiveTextColor));
+        hoverContrast = Color(hoverBgColor).contrast(Color(hoverTextColor));
+        activeTextColor = activeContrast > hoverContrast ? baseActiveTextColor : hoverTextColor;
+    } else {
+        activeTextColor = hoverTextColor;
+    }
+    
+
+    if (props.focusGlowColor) {
+        baseFocusGlowColor = getColor(props.focusGlowColor, vars.colors, vars.color);
+    } else if (context === 'gradient') {
+        baseFocusGlowColor = baseBgColor;
+    } else if (context === 'invert') {
+        baseFocusGlowColor = textColor;
+    } else {
+        baseFocusGlowColor = bgColor;
+    }
+
+    focusGlowColor = getFocusGlowColor(hoverBgColor, baseBgColor, context);
 
     return {
         activeBgColor,
+        activeTextColor,
         bgColor,
         borderColor: ((props.border || props.outline) && !props.clear) ? borderColor : 'transparent',
+        focusGlowColor,
         hoverBgColor,
         hoverTextColor,
         glowColor,

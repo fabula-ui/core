@@ -1,7 +1,7 @@
+import { getBorderColor } from '../../../methods/color/getBorderColor';
 import { getColor } from '../../../methods/color/getColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getContext } from '../../../methods/misc/getContext';
-import { getDividerColor } from '../../../methods/color/getDividerColor';
 import { getNumber } from '../../../methods/misc/getNumber';
 
 export const markerModifier = params => {
@@ -17,7 +17,7 @@ export const markerModifier = params => {
             position: relative;
 
             &:before {
-                background: ${getDividerColor(color, context)};
+                background: ${getBorderColor(color, context)};
                 bottom: 0;
                 content: '';
                 display: block;

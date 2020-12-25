@@ -14,12 +14,12 @@ export const getActiveColor = (color, context) => {
         $color = Color(color).rgb();
 
         if ($color.luminosity() > baseLuminosity) {
-            return $color.darken(.1).hex();
+            return $color.darken(.1);
         } else {
             if ($color.isLight()) {
-                return $color.darken(.1).hex();
+                return $color.darken(.1);
             } else {
-                return $color.lighten(.1).hex();
+                return $color.lighten(.1);
             }
         }
     }

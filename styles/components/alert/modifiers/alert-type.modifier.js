@@ -17,8 +17,7 @@ export const typeModifier = params => {
         return `
             ${wrapper} {
                 background: #FFF;
-                border-color: ${!!props.border ? `${getDividerColor(color, context)}` : 'transparent'};
-                ${((props.borderColor || props.outline) && !!props.border) ? `border-color: ${getBorderColor(color, context)};` : ''}
+                ${props.border ? `border-color: ${getBorderColor(color, context)};` : ''}
                 ${props.glow ? `box-shadow: ${getNumber(vars.glowX, 'px')} ${getNumber(vars.glowY, 'px')} ${getNumber(vars.glowRadius, 'px')} ${getNumber(vars.glowSpread, 'px')} ${getGlowColor(color, context)};` : ''}
 
                 &:before {

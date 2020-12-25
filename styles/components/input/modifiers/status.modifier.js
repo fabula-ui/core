@@ -1,7 +1,7 @@
 import { getBgColor } from '../../../methods/color/getBgColor';
 import { getBorderColor } from '../../../methods/color/getBorderColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
-import getFocusGlowColor from '../../../methods/color/getFocusGlowColor';
+import { getFocusGlowColor } from '../../../methods/color/getFocusGlowColor';
 import { getGlowColor } from '../../../methods/color/getGlowColor';
 import getPlaceholderColor from '../../../methods/color/getPlaceholderColor';
 import { getTextColor } from '../../../methods/color/getTextColor';

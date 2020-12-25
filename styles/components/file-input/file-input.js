@@ -1,7 +1,7 @@
 // Methods
 import { getColor } from '../../methods/color/getColor';
 import { getComponentVars } from '../../methods/misc/getComponentVars';
-import getFocusGlowColor from '../../methods/color/getFocusGlowColor';
+import { getFocusGlowColor } from '../../methods/color/getFocusGlowColor';
 
 const FileInputStyles = params => {
     const { framework, props } = params;

@@ -22,7 +22,6 @@ export const getBorderColor = (color, textColor, context) => {
                 return $color.darken(.1).hex();
             }
         }
-        
     } else {
         if ($color.isDark()) {
             return $color.lighten(.1).hex();

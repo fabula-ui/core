@@ -7,7 +7,7 @@ export const getHoverTextColor = (textColor, context) => {
     const { baseColor } = getGlobalVars();
 
     if (context === 'clear') {
-        return 'none';
+        return textColor;
     } else if (context === 'outline') {
         if (Color(baseColor).contrast(Color(textColor)) < 2) {
             return textColor;

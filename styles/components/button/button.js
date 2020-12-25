@@ -25,7 +25,7 @@ const ButtonStyles = params => {
         ${wrapper} {
             align-items: center;
             appearance: none;
-            border: solid 1px transparent;
+            border: ${(props.border || props.outline) ? `solid 1px transparent` : 'none'};
             border-radius: ${vars.borderRadius};
             ${props.rounded ? `border-radius: 999px;` : ''}
             cursor: pointer;
@@ -38,7 +38,6 @@ const ButtonStyles = params => {
             ${props.align === 'left' || props.align === 'start' ? `justify-content: flex-start;` : ''}
             ${props.align === 'right' || props.align === 'end' ? `justify-content: flex-end;` : ''}
             letter-spacing: ${vars.letterSpacing};
-            min-height: ${vars.minHeight};
             overflow: hidden;
             padding-bottom: ${vars.paddingBottom};
             padding-left: ${vars.paddingLeft};

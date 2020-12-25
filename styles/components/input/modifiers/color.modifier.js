@@ -1,7 +1,7 @@
 import { getBorderColor } from '../../../methods/color/getBorderColor';
 import { getColor } from '../../../methods/color/getColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
-import getFocusGlowColor from '../../../methods/color/getFocusGlowColor';
+import { getFocusGlowColor } from '../../../methods/color/getFocusGlowColor';
 import getPlaceholderColor from '../../../methods/color/getPlaceholderColor';
 
 const colorModifier = props => {
