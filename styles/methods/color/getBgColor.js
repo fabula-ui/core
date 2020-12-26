@@ -17,6 +17,8 @@ export const getBgColor = (color, context) => {
         return $color.darken(.15);
     } else if (context === 'disabled') {
         return $color.mix(Color(baseColor), .95);
+    } else if (context === 'faded') {
+        return $color.mix(Color('white'), .5);
     } else if (context === 'gradient') {
         return getGradientColor(color);
     } else if (context === 'invert') {

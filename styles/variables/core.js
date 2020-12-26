@@ -1,4 +1,4 @@
-const baseLuminosity = .65;
+const baseLuminosity = .6;
 
 export {
     baseLuminosity
