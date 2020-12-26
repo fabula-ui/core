@@ -3,7 +3,9 @@ const button = theme => ({
     borderRadiusSmashed: '.33em',
     borderWidth: 1,
     childrenSpacing: '.5em',
-    color: '#FFF',
+    get color() {
+        return theme.variables.globals.baseColor
+    },
     compactMultiplier: .6,
     disabledOpacity: .6,
     get focusGlowColor() {

@@ -4,6 +4,7 @@ import { getColor } from '../../../methods/color/getColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getContext } from '../../../methods/misc/getContext';
 import { getTextColor } from '../../../methods/color/getTextColor';
+import { getBorderColor } from '../../../methods/color/getBorderColor';
 
 const colorModifier = params => {
     const { framework, props } = params;
@@ -16,10 +17,10 @@ const colorModifier = params => {
         ${wrapper} {
             ${props.color ? `background-color: ${getBgColor(color, context)};` : ''}
             ${props.color ? `color: ${getTextColor(color, context)};` : ''}
-            ${props.divider === 'x' || props.divider === 'left' ? `border-left: solid 1px ${getDividerColor(color, context)};` : ''}
-            ${props.divider === 'y' || props.divider === 'bottom' ? `border-bottom: solid 1px ${getDividerColor(color, context)};` : ''}
-            ${props.divider === 'y' || props.divider === 'top' ? `border-top: solid 1px ${getDividerColor(color, context)};` : ''}
-            ${props.divider === 'x' || props.divider === 'right' ? `border-right: solid 1px ${getDividerColor(color, context)};` : ''}
+            ${props.divider === 'x' || props.divider === 'left' ? `border-left: solid 1px ${getBorderColor(color, context)};` : ''}
+            ${props.divider === 'y' || props.divider === 'bottom' ? `border-bottom: solid 1px ${getBorderColor(color, context)};` : ''}
+            ${props.divider === 'y' || props.divider === 'top' ? `border-top: solid 1px ${getBorderColor(color, context)};` : ''}
+            ${props.divider === 'x' || props.divider === 'right' ? `border-right: solid 1px ${getBorderColor(color, context)};` : ''}
         }
     `;
 }

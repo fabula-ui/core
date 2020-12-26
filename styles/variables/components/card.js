@@ -1,6 +1,8 @@
-const card = () => ({
+const card = theme => ({
     borderRadius: '.75rem',
-    color: '#FFF',
+    get color() {
+        return theme.variables.globals.baseColor
+    },
     glowX: 0,
     glowY: '2px',
     glowRadius: '2px',

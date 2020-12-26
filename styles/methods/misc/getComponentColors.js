@@ -12,6 +12,7 @@ import { getGlobalVars } from './getGlobalVars';
 import { getGlowColor } from '../color/getGlowColor';
 import { getHoverColor } from '../color/getHoverColor';
 import { getHoverTextColor } from '../color/getHoverTextColor';
+import { getPlaceholderIconColor } from '../color/getPlaceholderIconColor';
 import { getTextColor } from '../color/getTextColor';
 
 export const getComponentColors = (component, props) => {
@@ -89,14 +90,15 @@ export const getComponentColors = (component, props) => {
     focusGlowColor = getFocusGlowColor(hoverBgColor, baseBgColor, context);
 
     return {
-        activeBgColor,
-        activeTextColor,
-        bgColor,
-        borderColor: ((props.border || props.outline) && !props.clear) ? borderColor : 'transparent',
-        focusGlowColor,
-        hoverBgColor,
-        hoverTextColor,
-        glowColor,
-        textColor
+        activeBgColor: (activeBgColor || {}).color ? activeBgColor.hex() : activeBgColor,
+        activeTextColor: (activeTextColor || {}).color ? activeTextColor.hex() : activeTextColor,
+        bgColor: (bgColor || {}).color ? bgColor.hex() : bgColor,
+        borderColor: ((props.border || props.outline) && !props.clear) ? ((borderColor || {}).color ? borderColor.hex() : borderColor) : 'transparent',
+        focusGlowColor: (focusGlowColor || {}).color ? focusGlowColor.hex() : focusGlowColor,
+        hoverBgColor: (hoverBgColor || {}).color ? hoverBgColor.hex() : hoverBgColor,
+        hoverTextColor: (hoverTextColor || {}).color ? hoverTextColor.hex() : hoverTextColor,
+        glowColor: (glowColor || {}).color ? glowColor.hex() : glowColor,
+        placeholderIconColor: getPlaceholderIconColor(bgColor, context),
+        textColor: (textColor || {}).color ? textColor.hex() : textColor
     }
 }

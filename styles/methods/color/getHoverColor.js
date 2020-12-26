@@ -22,12 +22,12 @@ export const getHoverColor = (color, textColor, context) => {
         return color;
     } else if (context === 'invert') {
         if ($color.luminosity() > baseLuminosity) {
-            return Color(textColor).fade(.85);
+            return Color(textColor).mix(Color(baseColor), .85);
         } else {
             if ($color.isDark()) {
-                return $color.lighten(.2);
+                return $color.mix(Color(baseColor), .15);
             } else {
-                return $color.darken(.2);
+                return $color.mix(Color(baseColor).darken(.5), .15);
             }
         }
     } else if (context === 'outline') {
