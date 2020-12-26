@@ -21,7 +21,8 @@ const flexUtils = params => {
         
         ${wrapper} {
             ${(props.flex && typeof props.flex === 'boolean') ? `display: flex!important;` : ''}
-            ${(props.flex && typeof props.flex !== 'boolean') ? `flex: ${props.flex}!important;` : ''}
+            ${(props.flex && typeof props.flex !== 'boolean' && props.flex !== 'inline') ? `flex: ${props.flex}!important;` : ''}
+            ${(props.flex === 'inline') ? `display: inline-flex!important;` : ''}
             ${flow ? `flex-direction: ${flow}!important;` : ''}
             ${direction ? `flex-direction: ${direction}!important;` : ''}
             ${props.wrap ? `flex-wrap: wrap!important;` : ''}

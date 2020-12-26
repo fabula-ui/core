@@ -94,7 +94,7 @@ export const getComponentColors = (component, props) => {
         activeTextColor: (activeTextColor || {}).color ? activeTextColor.hex() : activeTextColor,
         bgColor: (bgColor || {}).color ? bgColor.hex() : bgColor,
         borderColor: ((props.border || props.outline) && !props.clear) ? ((borderColor || {}).color ? borderColor.hex() : borderColor) : 'transparent',
-        focusGlowColor: (focusGlowColor || {}).color ? focusGlowColor.hex() : focusGlowColor,
+        focusGlowColor,
         hoverBgColor: (hoverBgColor || {}).color ? hoverBgColor.hex() : hoverBgColor,
         hoverTextColor: (hoverTextColor || {}).color ? hoverTextColor.hex() : hoverTextColor,
         glowColor: (glowColor || {}).color ? glowColor.hex() : glowColor,
