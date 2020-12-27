@@ -2,7 +2,7 @@ import { getComponentColors } from '../../../methods/misc/getComponentColors';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getContext } from '../../../methods/misc/getContext';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const { activeBgColor, activeTextColor, bgColor, borderColor, focusGlowColor, glowColor, hoverBgColor, hoverTextColor, textColor } = getComponentColors('alert', props);
     const vars = getComponentVars('button');
@@ -32,5 +32,3 @@ const colorModifier = params => {
         }
     `;
 };
-
-export default colorModifier;

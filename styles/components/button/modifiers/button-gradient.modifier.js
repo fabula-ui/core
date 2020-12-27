@@ -2,7 +2,7 @@ import { getColor } from '../../../methods/color/getColor';
 import { getComponentColors } from '../../../methods/misc/getComponentColors';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 
-const gradientModifier = params => {
+export const gradientModifier = params => {
     const { framework, props } = params;
     const { bgColor } = getComponentColors('button', props);
     const vars = getComponentVars('button');
@@ -41,5 +41,3 @@ const gradientModifier = params => {
         }
     `;
 }
-
-export default gradientModifier;

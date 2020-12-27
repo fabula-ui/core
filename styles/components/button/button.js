@@ -1,16 +1,16 @@
 // Button modifiers
-import circleModifier from './modifiers/button-circle.modifier';
-import colorModifier from './modifiers/button-color.modifier';
-import gradientModifier from './modifiers/button-gradient.modifier';
-import iconModifier from './modifiers/button-icon.modifier';
-import sizeModifier from './modifiers/button-size.modifier';
-import smashedModifier from './modifiers/button-smashed.modifier';
+import { circleModifier } from './modifiers/button-circle.modifier';
+import { colorModifier } from './modifiers/button-color.modifier';
+import { gradientModifier } from './modifiers/button-gradient.modifier';
+import { sizeModifier } from './modifiers/button-size.modifier';
+import { smashedModifier } from './modifiers/button-smashed.modifier';
 
 // Methods
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 import { getContext } from '../../methods/misc/getContext';
+import { getNumber } from '../../methods/misc/getNumber';
 
-const ButtonStyles = params => {
+export const ButtonStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('button');
     const context = getContext(props);
@@ -25,7 +25,7 @@ const ButtonStyles = params => {
         ${wrapper} {
             align-items: center;
             appearance: none;
-            border: ${(props.border || props.outline) ? `solid 1px transparent` : 'none'};
+            border: solid ${getNumber(vars.borderWidth, 'px')} transparent;
             border-radius: ${vars.borderRadius};
             ${props.rounded ? `border-radius: 999px;` : ''}
             cursor: pointer;
@@ -44,9 +44,9 @@ const ButtonStyles = params => {
             padding-right: ${vars.paddingRight};
             padding-top: ${vars.paddingTop};
             ${(props.compact || props.expand) ? `padding-left: calc(${vars.paddingLeft} * ${vars.compactMultiplier});` : ''}
-            ${(props.compact || props.expand) ? `padding-right: calc(${vars.paddingRight} * ${vars.compactMultiplier});`: ''}
+            ${(props.compact || props.expand) ? `padding-right: calc(${vars.paddingRight} * ${vars.compactMultiplier});` : ''}
             ${props.wide ? `padding-left: calc(${vars.paddingLeft} * ${vars.wideMultiplier});` : ''}
-            ${props.wide ? `padding-right: calc(${vars.paddingRight} * ${vars.wideMultiplier});`: ''}
+            ${props.wide ? `padding-right: calc(${vars.paddingRight} * ${vars.wideMultiplier});` : ''}
             ${!!props.align ? `text-align: ${props.align};` : ''}
             position: relative;
             transition: all ${vars.transition};
@@ -83,10 +83,7 @@ const ButtonStyles = params => {
         ${props.circle ? circleModifier(params) : ''}
         ${colorModifier(params)}
         ${props.gradient && props.color ? gradientModifier(params) : ''}
-        ${iconModifier(params)}
         ${props.smashed ? smashedModifier(params) : ''}
         ${props.size ? sizeModifier(params) : ''}
     `
 }
-
-export default ButtonStyles;

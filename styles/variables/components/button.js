@@ -19,20 +19,10 @@ const button = theme => ({
     glowSpread: 0,
     minHeight: '3em',
     minHeightSmashed: '2em',
-    paddingX: '1.5em',
-    paddingY: '.7em',
-    get paddingBottom() {
-        return this.paddingY
-    },
-    get paddingLeft() {
-        return this.paddingX
-    },
-    get paddingRight() {
-        return this.paddingX
-    },
-    get paddingTop() {
-        return this.paddingY
-    },
+    paddingBottom: '.7em',
+    paddingLeft: '1.5em',
+    paddingRight: '1.5em',
+    paddingTop: '.7em',
     wideMultiplier: 4
 })
 

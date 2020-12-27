@@ -15,7 +15,7 @@ export const AlertStyles = params => {
     return `
         ${wrapper} {
             align-items: flex-start;
-            border: solid ${getNumber(vars.borderWidth, 'px')};
+            border: solid ${getNumber(vars.borderWidth, 'px')} transparent;
             border-radius: ${getNumber(vars.borderRadius, 'px')};
             display: flex;
             font-family: ${vars.fontFamily};

@@ -1,6 +1,6 @@
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 
-const circleModifier = params => {
+export const circleModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('button');
     const wrapper = framework === 'angular' ? '.fab-button' : '&';
@@ -15,5 +15,3 @@ const circleModifier = params => {
         }
     `;
 };
-
-export default circleModifier;

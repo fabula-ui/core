@@ -1,6 +1,6 @@
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 
-const smashedModifier = params => {
+export const smashedModifier = params => {
     const { framework } = params;
     const vars = getComponentVars('button');
     const wrapper = framework === 'angular' ? '.fab-button' : '&';
@@ -14,9 +14,6 @@ const smashedModifier = params => {
             padding-left: calc(${vars.paddingLeft} - .5em);
             padding-right: calc(${vars.paddingRight} - .5em);
             padding-top: calc(${vars.paddingTop} / 2);
-
         }
     `;
 };
-
-export default smashedModifier;

@@ -36,6 +36,7 @@ export const getComponentColors = (component, props) => {
     let hoverBgColor;
     let hoverContrast;
     let hoverTextColor;
+    let placeholderIconColor;
     let textColor;
 
     baseBorderColor = getColor(props.borderColor || props.color || baseBgColor, vars.colors, vars.color);
@@ -75,7 +76,6 @@ export const getComponentColors = (component, props) => {
     } else {
         activeTextColor = hoverTextColor;
     }
-    
 
     if (props.focusGlowColor) {
         baseFocusGlowColor = getColor(props.focusGlowColor, vars.colors, vars.color);
@@ -88,6 +88,7 @@ export const getComponentColors = (component, props) => {
     }
 
     focusGlowColor = getFocusGlowColor(hoverBgColor, baseBgColor, context);
+    placeholderIconColor = getPlaceholderIconColor(context === 'gradient' ? baseBgColor : bgColor, context)
 
     return {
         activeBgColor: (activeBgColor || {}).color ? activeBgColor.hex() : activeBgColor,
@@ -98,7 +99,7 @@ export const getComponentColors = (component, props) => {
         hoverBgColor: (hoverBgColor || {}).color ? hoverBgColor.hex() : hoverBgColor,
         hoverTextColor: (hoverTextColor || {}).color ? hoverTextColor.hex() : hoverTextColor,
         glowColor: (glowColor || {}).color ? glowColor.hex() : glowColor,
-        placeholderIconColor: getPlaceholderIconColor(bgColor, context),
+        placeholderIconColor: (placeholderIconColor || {}).color ? placeholderIconColor.hex() : placeholderIconColor,
         textColor: (textColor || {}).color ? textColor.hex() : textColor
     }
 }
