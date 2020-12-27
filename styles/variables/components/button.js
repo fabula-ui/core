@@ -2,7 +2,6 @@ const button = theme => ({
     borderRadius: '.5em',
     borderRadiusSmashed: '.33em',
     borderWidth: 1,
-    childrenSpacing: '.5em',
     get color() {
         return theme.variables.globals.baseColor
     },
@@ -17,8 +16,8 @@ const button = theme => ({
     glowY: '1px',
     glowRadius: '1px',
     glowSpread: 0,
-    minHeight: '3em',
-    minHeightSmashed: '2em',
+    height: '3rem',
+    heightSmashed: '2rem',
     paddingBottom: '.7em',
     paddingLeft: '1.5em',
     paddingRight: '1.5em',

@@ -9,10 +9,10 @@ export const sizeModifier = params => {
     return `
             ${wrapper} {
                 font-size: calc(${vars.fontSize} * ${multiplier});
-                ${(!!props.circle || !!props.icon) && !props.label && !props.smashed ? `height: calc(3rem * ${multiplier});` : ''}
-                ${(!!props.circle || !!props.icon) && !props.label && props.smashed ? `height: calc(2rem * ${multiplier});` : ''}
-                ${(!!props.circle || !!props.icon) && !props.label && !props.smashed ? `width: calc(3rem * ${multiplier});` : ''}
-                ${(!!props.circle || !!props.icon) && !props.label && props.smashed ? `width: calc(2rem * ${multiplier});` : ''}
+                ${(!!props.circle || !!props.icon) && !props.label && !props.smashed ? `height: calc(${vars.height} * ${multiplier});` : ''}
+                ${(!!props.circle || !!props.icon) && !props.label && props.smashed ? `height: calc(${vars.heightSmashed} * ${multiplier});` : ''}
+                ${(!!props.circle || !!props.icon) && !props.label && !props.smashed ? `width: calc(${vars.height} * ${multiplier});` : ''}
+                ${(!!props.circle || !!props.icon) && !props.label && props.smashed ? `width: calc(${vars.heightSmashed} * ${multiplier});` : ''}
             }
         `;
 }
