@@ -28,8 +28,6 @@ const on = (bp, params) => {
     const bpIndex = breakpointsOrder.indexOf(bp);
     const minBreakpoint = bpIndex < breakpointsOrder.length - 1 ? breakpoints[breakpointsOrder[bpIndex + 1]] : null;
 
-    console.log(minBreakpoint, breakpoint);
-
     if (breakpoint) {
         return `
             @media ${minBreakpoint ? `(min-width: ${minBreakpoint}) and ` : ''} (max-width: ${breakpoint}) {

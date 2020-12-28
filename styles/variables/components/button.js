@@ -1,4 +1,5 @@
-const button = theme => ({    
+const button = theme => ({
+    activeOpacity: .6,  
     borderRadius: '.5em',
     borderRadiusSmashed: '.33em',
     borderWidth: 1,
@@ -18,6 +19,7 @@ const button = theme => ({
     glowSpread: 0,
     height: '3rem',
     heightSmashed: '2rem',
+    hoverOpacity: .8,
     paddingBottom: '.7em',
     paddingLeft: '1.5em',
     paddingRight: '1.5em',

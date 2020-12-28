@@ -26,7 +26,7 @@ export const ButtonStyles = params => {
             align-items: center;
             appearance: none;
             border: solid ${getNumber(vars.borderWidth, 'px')} transparent;
-            border-radius: ${vars.borderRadius};
+            border-radius: ${getNumber(vars.borderRadius, 'px')};
             ${props.rounded ? `border-radius: 999px;` : ''}
             cursor: pointer;
             display: inline-flex;
@@ -39,14 +39,14 @@ export const ButtonStyles = params => {
             ${props.align === 'right' || props.align === 'end' ? `justify-content: flex-end;` : ''}
             letter-spacing: ${vars.letterSpacing};
             overflow: hidden;
-            padding-bottom: ${vars.paddingBottom};
-            padding-left: ${vars.paddingLeft};
-            padding-right: ${vars.paddingRight};
-            padding-top: ${vars.paddingTop};
-            ${(props.compact || props.expand) ? `padding-left: calc(${vars.paddingLeft} * ${vars.compactMultiplier});` : ''}
-            ${(props.compact || props.expand) ? `padding-right: calc(${vars.paddingRight} * ${vars.compactMultiplier});` : ''}
-            ${props.wide ? `padding-left: calc(${vars.paddingLeft} * ${vars.wideMultiplier});` : ''}
-            ${props.wide ? `padding-right: calc(${vars.paddingRight} * ${vars.wideMultiplier});` : ''}
+            padding-bottom: ${getNumber(vars.paddingBottom, 'em')};
+            padding-left: ${getNumber(vars.paddingLeft, 'em')};
+            padding-right: ${getNumber(vars.paddingRight, 'em')};
+            padding-top: ${getNumber(vars.paddingTop, 'em')};
+            ${(props.compact || props.expand) ? `padding-left: calc(${getNumber(vars.paddingLeft, 'em')} * ${vars.compactMultiplier});` : ''}
+            ${(props.compact || props.expand) ? `padding-right: calc(${getNumber(vars.paddingRight, 'em')} * ${vars.compactMultiplier});` : ''}
+            ${props.wide ? `padding-left: calc(${getNumber(vars.paddingLeft, 'em')} * ${vars.wideMultiplier});` : ''}
+            ${props.wide ? `padding-right: calc(${getNumber(vars.paddingRight, 'em')} * ${vars.wideMultiplier});` : ''}
             ${!!props.align ? `text-align: ${props.align};` : ''}
             position: relative;
             transition: all ${vars.transition};
@@ -56,11 +56,11 @@ export const ButtonStyles = params => {
             }
 
             &:hover {
-                ${context === 'clear' ? `opacity: .8;` : ''}
+                ${context === 'clear' ? `opacity: ${vars.hoverOpacity};` : ''}
             }
 
             &:active {
-                ${context === 'clear' ? `opacity: .6;` : ''}
+                ${context === 'clear' ? `opacity: ${vars.activeOpacity};` : ''}
             }
 
             &[disabled] {

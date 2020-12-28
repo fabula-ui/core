@@ -4,7 +4,7 @@ import { getContext } from '../../../methods/misc/getContext';
 
 export const colorModifier = params => {
     const { framework, props } = params;
-    const { activeBgColor, activeTextColor, bgColor, borderColor, focusGlowColor, glowColor, hoverBgColor, hoverTextColor, textColor } = getComponentColors('alert', props);
+    const { activeBgColor, activeTextColor, bgColor, borderColor, focusGlowColor, glowColor, hoverBgColor, hoverTextColor, textColor } = getComponentColors('button', props);
     const vars = getComponentVars('button');
     const context = (props.color || props.clear) ? getContext(props) : 'fill';
     const wrapper = framework === 'angular' ? '.fab-button' : '&';
