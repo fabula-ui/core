@@ -6,8 +6,7 @@ import { getContext } from '../../../methods/misc/getContext';
 import { getGlowColor } from '../../../methods/color/getGlowColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
-
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const { borderColor } = getComponentColors('card', props);
     const vars = getComponentVars('card');
@@ -24,5 +23,3 @@ const colorModifier = params => {
         }
     `;
 };
-
-export default colorModifier;

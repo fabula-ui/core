@@ -3,10 +3,10 @@ import { getComponentVars } from '../../methods/misc/getComponentVars';
 import { getNumber } from '../../methods/misc/getNumber';
 
 // Modifiers
-import colorModifier from './modifiers/card-color.modifier';
-import layoutModifier from './modifiers/card-layout.modifier';
+import { colorModifier } from './modifiers/card-color.modifier';
+import { layoutModifier } from './modifiers/card-layout.modifier';
 
-const CardStyles = params => {
+export const CardStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('card');
     const wrapper = framework === 'angular' ? '.fab-card' : '&';
@@ -25,5 +25,3 @@ const CardStyles = params => {
         ${layoutModifier(params)}
     `;
 }
-
-export default CardStyles;

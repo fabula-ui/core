@@ -1,9 +1,9 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/dropdown-menu-color.modifier';
+import { colorModifier } from './modifiers/dropdown-menu-color.modifier';
 
-const DropdownMenuStyles = params => {
+export const DropdownMenuStyles = params => {
     const { framework, props } = params;
     const dropdownVars = getComponentVars('dropdown');
     const vars = getComponentVars('dropdownMenu');
@@ -71,5 +71,3 @@ const DropdownMenuStyles = params => {
     ${colorModifier(params)}
     `
 }
-
-export default DropdownMenuStyles;

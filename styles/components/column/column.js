@@ -1,7 +1,7 @@
 import { getGlobalVars } from '../../methods/misc/getGlobalVars';
-import getPercentage from '../../methods/misc/getPercentage';
+import { getPercentage } from '../../methods/misc/getPercentage';
 
-const ColumnStyles = params => {
+export const ColumnStyles = params => {
     const { props } = params;
     const { gridColumns } = getGlobalVars();
 
@@ -16,5 +16,3 @@ const ColumnStyles = params => {
         }
     `
 }
-
-export default ColumnStyles

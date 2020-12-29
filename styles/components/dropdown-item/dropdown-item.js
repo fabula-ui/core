@@ -1,10 +1,10 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/dropdown-item-color.modifier';
-import sizeModifier from './modifiers/dropdown-item-size.modifier';
+import { colorModifier } from './modifiers/dropdown-item-color.modifier';
+import { sizeModifier } from './modifiers/dropdown-item-size.modifier';
 
-const DropdownItemStyles = params => {
+export const DropdownItemStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('dropdownItem');
     const wrapper = framework === 'angular' ? '.fab-dropdown-item' : '&';
@@ -46,5 +46,3 @@ const DropdownItemStyles = params => {
         ${sizeModifier(params)}
     `;
 }
-
-export default DropdownItemStyles;

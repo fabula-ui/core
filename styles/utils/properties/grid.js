@@ -1,4 +1,4 @@
-import getPercentage from '../../methods/misc/getPercentage';
+import { getPercentage } from '../../methods/misc/getPercentage';
 
 const gridUtils = props => {
     if (props.row) {

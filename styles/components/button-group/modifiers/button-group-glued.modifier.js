@@ -1,4 +1,4 @@
-const gluedModifier = params => {
+export const gluedModifier = params => {
     const { framework, props } = params;
     const buttonWrapper = framework === 'angular' ? 'fab-button' : '.fab-button';
     const dropdownWrapper = framework === 'angular' ? 'fab-dropdown' : '.fab-dropdown';
@@ -69,5 +69,3 @@ const gluedModifier = params => {
         }
     `
 }
-
-export default gluedModifier;

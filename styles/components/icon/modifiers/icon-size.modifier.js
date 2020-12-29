@@ -1,11 +1,10 @@
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getNumber } from '../../../methods/misc/getNumber';
 
-const sizeModifier = params => {
+export const sizeModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('icon');
-    const { sizeMultipliers } = vars;
-    const multiplier = sizeMultipliers[props.size];
+    const multiplier = vars.sizeMultipliers[props.size];
     const wrapper = framework === 'angular' ? '.fab-icon' : '&';
 
     return `
@@ -14,5 +13,3 @@ const sizeModifier = params => {
         }
     `;
 }
-
-export default sizeModifier;

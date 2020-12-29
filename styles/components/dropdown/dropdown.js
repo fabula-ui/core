@@ -1,7 +1,7 @@
 // Methods
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
-const DropdownStyles = params => {
+export const DropdownStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('dropdown');
     const wrapper = framework === 'angular' ? '.fab-dropdown' : '&';
@@ -22,5 +22,3 @@ const DropdownStyles = params => {
     }
     `
 };
-
-export default DropdownStyles;

@@ -1,4 +1,4 @@
-const getPercentage = (partial, total) => {
+export const getPercentage = (partial, total) => {
     const percentage = ((partial / total) * 100);
 
     return {
@@ -6,5 +6,3 @@ const getPercentage = (partial, total) => {
         str: `${percentage}%`
     }
 }
-
-export default getPercentage;

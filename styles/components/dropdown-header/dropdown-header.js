@@ -1,10 +1,10 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/dropdown-header-color.modifier';
+import { colorModifier } from './modifiers/dropdown-header-color.modifier';
 
-const DropdownHeaderStyles = params => {
-    const {framework, props} = params;
+export const DropdownHeaderStyles = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('dropdownHeader');
     const wrapper = framework === 'angular' ? '.fab-dropdown-header' : '&';
 
@@ -31,5 +31,3 @@ const DropdownHeaderStyles = params => {
         ${colorModifier(params)}
     `
 }
-
-export default DropdownHeaderStyles;

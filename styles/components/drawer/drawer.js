@@ -1,6 +1,6 @@
-import colorModifier from './modifiers/drawer-color.modifier';
+import { colorModifier } from './modifiers/drawer-color.modifier';
 
-const DrawerStyles = params => {
+export const DrawerStyles = params => {
     const { framework } = params;
     const wrapper = framework === 'angular' ? '.fab-drawer-wrapper' : '&';
 
@@ -66,5 +66,3 @@ const DrawerStyles = params => {
     ${colorModifier(params)}
     `
 };
-
-export default DrawerStyles;

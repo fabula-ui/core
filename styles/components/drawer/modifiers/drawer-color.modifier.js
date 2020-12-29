@@ -4,7 +4,7 @@ import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getContext } from '../../../methods/misc/getContext';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { props } = params;
     const vars = getComponentVars('drawer');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
@@ -34,5 +34,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

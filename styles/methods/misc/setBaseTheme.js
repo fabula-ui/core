@@ -1,8 +1,8 @@
-import colors from '../../variables/colors';
-import components from '../../variables/components';
-import globals from '../../variables/globals';
+import { colors } from '../../variables/colors';
+import { components } from '../../variables/components';
+import { globals } from '../../variables/globals';
 
-const setBaseTheme = userSettings => {
+export const setBaseTheme = userSettings => {
     const userVars = userSettings && userSettings.theme || {};
     const defaultTheme = {
         variables: {
@@ -34,7 +34,7 @@ const setBaseTheme = userSettings => {
     }
 }
 
-const setComponentVars = vars => {
+export const setComponentVars = vars => {
     const concatVars = {};
 
     for (let componentName in vars.default) {
@@ -54,5 +54,3 @@ const setComponentVars = vars => {
 
     return concatVars;
 }
-
-export default setBaseTheme;

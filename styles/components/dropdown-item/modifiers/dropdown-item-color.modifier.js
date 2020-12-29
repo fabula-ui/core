@@ -7,7 +7,7 @@ import { getHoverColor } from '../../../methods/color/getHoverColor';
 import { getHoverTextColor } from '../../../methods/color/getHoverTextColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('dropdownItem');
     const color = (props.color || props.parentColor) ? getColor((props.color || props.parentColor), vars.colors) : vars.color;
@@ -39,5 +39,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

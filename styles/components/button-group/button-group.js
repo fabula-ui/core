@@ -1,8 +1,8 @@
 // Button modifiers
-import dividerModifier from './modifiers/button-group-divider.modifier';
-import gluedModifier from './modifiers/button-group-glued.modifier';
+import { dividerModifier } from './modifiers/button-group-divider.modifier';
+import { gluedModifier } from './modifiers/button-group-glued.modifier';
 
-const ButtonGroupStyles = params => {
+export const ButtonGroupStyles = params => {
     const { framework, props } = params;
     const directions = {
         h: 'row',
@@ -37,5 +37,3 @@ const ButtonGroupStyles = params => {
     ${gluedModifier(params)}
     `
 };
-
-export default ButtonGroupStyles;

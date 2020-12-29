@@ -5,7 +5,7 @@ import { getDividerColor } from '../../../methods/color/getDividerColor';
 import { getColor } from '../../../methods/color/getColor';
 import { getContext } from '../../../methods/misc/getContext';
 
-const dividerModifier = params => {
+export const dividerModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('buttonGroup');    
     const color = (props.dividerColor || props.color) ? getColor(props.dividerColor || props.color, vars.colors) : vars.borderColor;
@@ -28,5 +28,3 @@ const dividerModifier = params => {
         }
     `
 }
-
-export default dividerModifier;

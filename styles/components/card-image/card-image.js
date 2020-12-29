@@ -1,15 +1,15 @@
 // Methods
 import { getComponentVars } from '../../methods/misc/getComponentVars';
-import getHeight from '../../methods/misc/getHeight';
+import { getHeight } from '../../methods/misc/getHeight';
 import { getNumber } from '../../methods/misc/getNumber';
 
 // Modifiers
-import colorModifier from './modifiers/card-color.modifier';
+import { colorModifier } from './modifiers/card-color.modifier';
 
 // External Styles
-import TagStyles from './external/tag';
+import { TagStyles } from './external/tag';
 
-const CardImageStyles = params => {
+export const CardImageStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('card');
     const wrapper = framework === 'angular' ? '.fab-card-image' : '&';
@@ -71,5 +71,3 @@ const CardImageStyles = params => {
         ${TagStyles(params)}
     `
 }
-
-export default CardImageStyles;

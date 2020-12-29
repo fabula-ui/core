@@ -2,9 +2,9 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/card-section-color.modifier';
+import { colorModifier } from './modifiers/card-section-color.modifier';
 
-const CardSectionStyles = params => {
+export const CardSectionStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('cardSection');
     const wrapper = framework === 'angular' ? '.fab-card-section' : '&';
@@ -46,5 +46,3 @@ const CardSectionStyles = params => {
         ${colorModifier(params)}
     `
 }
-
-export default CardSectionStyles;

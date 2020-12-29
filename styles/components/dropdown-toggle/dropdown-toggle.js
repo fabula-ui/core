@@ -1,7 +1,4 @@
-// Modifiers
-import colorModifier from './modifiers/dropdown-color.modifier';
-
-const DropdownToggleStyles = params => {
+export const DropdownToggleStyles = params => {
     const { framework, props } = params;
     const wrapper = framework === 'angular' ? '.fab-dropdown-toggle' : '&';
 
@@ -63,10 +60,5 @@ const DropdownToggleStyles = params => {
         .fab-icon {
             transition: all .2s ease-in-out;
         }
-
-        // Modifiers
-        ${colorModifier(params)}
     `;
 }
-
-export default DropdownToggleStyles;

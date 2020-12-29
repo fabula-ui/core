@@ -45,7 +45,7 @@ import toggle from './components/toggle';
 import tooltip from './components/tooltip';
 import wrapper from './components/wrapper';
 
-const components = {
+export const components = {
     alert,
     avatar,
     badge,
@@ -93,5 +93,3 @@ const components = {
     tooltip,
     wrapper
 }
-
-export default components;

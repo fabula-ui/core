@@ -4,7 +4,7 @@ import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getContext } from '../../../methods/misc/getContext';
 import { getPlaceholderIconColor } from '../../../methods/color/getPlaceholderIconColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('card');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
@@ -23,5 +23,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

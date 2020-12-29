@@ -1,4 +1,4 @@
-const layoutModifier = params => {
+export const layoutModifier = params => {
     const { props, framework } = params;
     const wrapper = framework === 'angular' ? '.fab-card' : '&';
 
@@ -9,5 +9,3 @@ const layoutModifier = params => {
         }
     `
 }
-
-export default layoutModifier;

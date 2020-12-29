@@ -2,7 +2,7 @@ import { getBgColor } from '../../methods/color/getBgColor';
 import { getColor } from '../../methods/color/getColor';
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
-const DividerStyles = params => {
+export const DividerStyles = params => {
     const {framework, props} = params;
     const vars = getComponentVars('divider');
     const color = props.color || props.parentColor ? getColor(props.color || props.parentColor, vars.colors) : vars.color;
@@ -16,5 +16,3 @@ const DividerStyles = params => {
         }
     `
 }
-
-export default DividerStyles;

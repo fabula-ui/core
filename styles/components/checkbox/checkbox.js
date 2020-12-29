@@ -1,10 +1,10 @@
 import { getComponentVars } from '../../../styles/methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/checkbox-color.modifier';
-import sizeModifier from './modifiers/checkbox-size.modifier';
+import { colorModifier } from './modifiers/checkbox-color.modifier';
+import { sizeModifier } from './modifiers/checkbox-size.modifier';
 
-const CheckboxStyles = params => {
+export const CheckboxStyles = params => {
     const { props } = params;
     const vars = getComponentVars('checkbox');
 
@@ -83,5 +83,3 @@ const CheckboxStyles = params => {
         ${sizeModifier(params)}
     `;
 }
-
-export default CheckboxStyles;

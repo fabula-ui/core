@@ -1,6 +1,6 @@
 import Color from 'color';
 
-import colors from './colors';
+import { colors } from './colors';
 
 const breakpoints = {
     lg: '1200px',
@@ -10,7 +10,7 @@ const breakpoints = {
     xxs: '375px'
 }
 
-const globals = {
+export const globals = {
     breakpoints,
     colors,
 
@@ -45,7 +45,7 @@ const globals = {
     get transition() {
         return `${this.transitionDuration} ${this.transitionTimingFunction}`
     },
-    
+
     // Text-related
     auxTextColor: '#999DA1',
     textColor: '#3D3D3D',

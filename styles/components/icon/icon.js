@@ -2,8 +2,8 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/icon-color.modifier';
-import sizeModifier from './modifiers/icon-size.modifier';
+import { colorModifier } from './modifiers/icon-color.modifier';
+import { sizeModifier } from './modifiers/icon-size.modifier';
 
 // Icons JSON
 import IconsJSON from '../../../icons/assets/icons.json';
@@ -36,12 +36,12 @@ const fontFace = `
 `;
 
 export const IconStyles = (params) => {
-	const { framework, props } = params;
+    const { framework, props } = params;
     const { color, name, size } = props;
     const vars = getComponentVars('icon');
-	const wrapper = framework === 'angular' ? '.fab-icon' : '&';
+    const wrapper = framework === 'angular' ? '.fab-icon' : '&';
 
-    if (!IconsJSON[name]) {return ''; }
+    if (!IconsJSON[name]) { return ''; }
 
     return `
         ${fontFace}

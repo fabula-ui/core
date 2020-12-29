@@ -1,4 +1,3 @@
-import { getDividerColor } from '../../../methods/color/getDividerColor';
 import { getBgColor } from '../../../methods/color/getBgColor';
 import { getColor } from '../../../methods/color/getColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
@@ -6,7 +5,7 @@ import { getContext } from '../../../methods/misc/getContext';
 import { getTextColor } from '../../../methods/color/getTextColor';
 import { getBorderColor } from '../../../methods/color/getBorderColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('cardSection');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
@@ -24,5 +23,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

@@ -1,4 +1,4 @@
-const ContainerStyles = params => {
+export const ContainerStyles = params => {
     const { props } = params;
 
     return `
@@ -35,5 +35,3 @@ const ContainerStyles = params => {
         }
     `
 }
-
-export default ContainerStyles

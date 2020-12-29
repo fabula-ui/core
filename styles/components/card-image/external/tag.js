@@ -1,6 +1,6 @@
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 
-const TagStyles = params => {
+export const TagStyles = params => {
     const { framework } = params;
     const vars = getComponentVars('cardImage');
     const wrapper = framework === 'angular' ? '.fab-card-image' : '&';
@@ -43,5 +43,3 @@ const TagStyles = params => {
     `;
 
 }
-
-export default TagStyles;

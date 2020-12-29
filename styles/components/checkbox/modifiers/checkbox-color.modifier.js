@@ -6,7 +6,7 @@ import { getContext } from '../../../methods/misc/getContext';
 import { getHoverColor } from '../../../methods/color/getHoverColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { props } = params;
     const vars = getComponentVars('checkbox');
     const context = getContext(props);
@@ -51,5 +51,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

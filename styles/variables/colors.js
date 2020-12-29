@@ -1,4 +1,4 @@
-const colors = {
+export const colors = {
     aux: '#E1E8ED',
     cold: '#8DCFFF',
     danger: '#FE7571',
@@ -17,5 +17,3 @@ const colors = {
     warning: '#FCC549',
     white: '#FFF'
 };
-
-export default colors;
