@@ -2,10 +2,10 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/text-color.modifier';
-import sizeModifier from './modifiers/text-size.modifier';
+import { colorModifier } from './modifiers/text-color.modifier';
+import { sizeModifier } from './modifiers/text-size.modifier';
 
-const TextStyles = params => {
+export const TextStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('text');
     const wrapper = framework === 'angular' ? '.fab-text' : '&';
@@ -56,5 +56,3 @@ const TextStyles = params => {
         ${props.size ? sizeModifier(params) : ''}
     `
 };
-
-export default TextStyles;

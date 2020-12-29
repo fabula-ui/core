@@ -1,8 +1,5 @@
-import { getComponentVars } from '../../methods/misc/getComponentVars';
-
-const ModalHeaderStyles = params => {
+export const ModalHeaderStyles = params => {
     const { framework } = params;
-    const vars = getComponentVars('modalHeader');
     const wrapper = framework === 'angular' ? '.fab-modal-header' : '&';
 
     return `
@@ -20,5 +17,3 @@ const ModalHeaderStyles = params => {
         }
     `
 }
-
-export default ModalHeaderStyles;

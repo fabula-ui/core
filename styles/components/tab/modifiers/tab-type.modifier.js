@@ -39,10 +39,9 @@ const pillType = params => {
     `;
 }
 
-const typeModifier = params => {
+export const typeModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('tab');
-    const wrapper = framework === 'angular' ? '.fab-tab' : '&';
 
     return `
         ${props.type === 'block' ? blockType({...params, vars}) : ''}
@@ -50,5 +49,3 @@ const typeModifier = params => {
         ${props.type === 'pill' ? pillType({...params, vars}) : ''}
     `;
 }
-
-export default typeModifier;

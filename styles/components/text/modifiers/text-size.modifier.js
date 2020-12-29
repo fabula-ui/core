@@ -1,6 +1,6 @@
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 
-const sizeModifier = params => {
+export const sizeModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('text');
     const multiplier = vars.sizeMultipliers[props.size];
@@ -16,5 +16,3 @@ const sizeModifier = params => {
         }
     `;
 }
-
-export default sizeModifier;

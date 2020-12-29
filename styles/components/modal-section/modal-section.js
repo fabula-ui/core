@@ -1,14 +1,14 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/modal-section-color.modifier';
-import dividerModifier from './modifiers/modal-section-divider.modifier';
+import { colorModifier } from './modifiers/modal-section-color.modifier';
+import { dividerModifier } from './modifiers/modal-section-divider.modifier';
 
-const ModalSectionStyles = params => {
+export const ModalSectionStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('modalSection');
     const wrapper = framework === 'angular' ? '.fab-modal-section' : '&';
-    
+
     return `
         ${wrapper} {
             font-family: ${vars.fontFamily};
@@ -37,5 +37,3 @@ const ModalSectionStyles = params => {
         ${props.divider ? dividerModifier(params) : ''}
     `
 }
-
-export default ModalSectionStyles;

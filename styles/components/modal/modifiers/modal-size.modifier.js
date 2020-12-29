@@ -1,6 +1,6 @@
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 
-const sizeModifier = props => {
+export const sizeModifier = props => {
     const vars = getComponentVars('modal');
     const size = vars.sizes[props.size];
 
@@ -10,5 +10,3 @@ const sizeModifier = props => {
         }
     `;
 }
-
-export default sizeModifier;

@@ -4,7 +4,7 @@ import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getContext } from '../../../methods/misc/getContext';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('tabs');
     const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
@@ -18,5 +18,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

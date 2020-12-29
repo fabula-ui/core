@@ -3,10 +3,10 @@ import { getComponentVars } from '../../methods/misc/getComponentVars';
 import { getNumber } from '../../methods/misc/getNumber';
 
 // Utils
-import gluedModifier from './modifiers/glued.modifier';
-import sizeModifier from './modifiers/input-group-size.modifier';
+import { gluedModifier } from './modifiers/glued.modifier';
+import { sizeModifier } from './modifiers/input-group-size.modifier';
 
-const InputGroupStyles = params => {
+export const InputGroupStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('input');
     const layout = (props.layout === 'horizontal' || props.layout === 'h') ? 'h' : 'v';
@@ -61,5 +61,3 @@ const InputGroupStyles = params => {
     ${props.size ? sizeModifier(props) : ''}
     `
 };
-
-export default InputGroupStyles;

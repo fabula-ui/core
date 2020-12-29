@@ -4,7 +4,7 @@ import { getContext } from '../../../methods/misc/getContext';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('tooltip');
     const wrapper = framework === 'angular' ? '.fab-tooltip' : '&';
@@ -39,5 +39,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

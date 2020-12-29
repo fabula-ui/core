@@ -1,6 +1,4 @@
-const ModalBodyStyles = params => {
-    const { framework } = params;
-
+export const ModalBodyStyles = params => {
     return `
         & {
             flex: 1 1 auto;
@@ -8,5 +6,3 @@ const ModalBodyStyles = params => {
         }
     `
 }
-
-export default ModalBodyStyles;

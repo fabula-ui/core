@@ -1,4 +1,4 @@
-const ToastStackStyles = params => {
+export const ToastStackStyles = params => {
     const { framework, props } = params;
     const wrapper = framework === 'angular' ? '.fab-toast-stack' : '&';
 
@@ -36,5 +36,3 @@ const ToastStackStyles = params => {
         }
     `
 }
-
-export default ToastStackStyles;

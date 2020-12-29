@@ -2,9 +2,9 @@ import { getComponentVars } from '../../methods/misc/getComponentVars';
 import { getNumber } from '../../methods/misc/getNumber';
 
 // Modifiers
-import colorModifier from './modifiers/tooltip-color.modifier';
+import { colorModifier } from './modifiers/tooltip-color.modifier';
 
-const TooltipStyles = params => {
+export const TooltipStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('tooltip');
     const wrapper = framework === 'angular' ? '.fab-tooltip' : '&';
@@ -132,5 +132,3 @@ const TooltipStyles = params => {
         ${colorModifier(params)}
     `
 }
-
-export default TooltipStyles;

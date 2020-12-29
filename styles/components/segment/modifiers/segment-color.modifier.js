@@ -7,7 +7,7 @@ import { getDividerColor } from '../../../methods/color/getDividerColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
 // Exportable
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('segments');
     const { rounded } = props;
@@ -112,5 +112,3 @@ const colorModifier = params => {
     }
     `
 }
-
-export default colorModifier;

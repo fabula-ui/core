@@ -2,10 +2,10 @@
 import { getNumber } from '../../methods/misc/getNumber';
 
 // Modifiers
-import colorModifier from './modifiers/navbar-color.modifier';
+import { colorModifier } from './modifiers/navbar-color.modifier';
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
-const NavbarStyles = params => {
+export const NavbarStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('navbar');
     const wrapper = framework === 'angular' ? '.fab-navbar' : '&';
@@ -24,5 +24,3 @@ const NavbarStyles = params => {
         ${colorModifier(params)}
     `
 }
-
-export default NavbarStyles;

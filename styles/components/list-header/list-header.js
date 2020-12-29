@@ -1,10 +1,10 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/list-header-color.modifier';
+import { colorModifier } from './modifiers/list-header-color.modifier';
 
-const ListHeaderStyles = params => {
-    const {framework, props} = params;
+export const ListHeaderStyles = params => {
+    const { framework, props } = params;
     const vars = getComponentVars('listHeader');
     const wrapper = framework === 'angular' ? '.fab-list-header' : '&';
 
@@ -25,5 +25,3 @@ const ListHeaderStyles = params => {
         ${colorModifier(params)}
     `
 }
-
-export default ListHeaderStyles;

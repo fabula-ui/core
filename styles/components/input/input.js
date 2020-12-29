@@ -1,14 +1,14 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/color.modifier';
-import glowModifier from './modifiers/glow.modifier';
-import messageColorModifier from './modifiers/messageColor.modifier';
-import sizeModifier from './modifiers/size.modifier';
-import statusModifier from './modifiers/status.modifier';
-import variantModifier from './modifiers/input-variant.modifier';
+import { colorModifier } from './modifiers/color.modifier';
+import { glowModifier } from './modifiers/glow.modifier';
+import { messageColorModifier } from './modifiers/messageColor.modifier';
+import { sizeModifier } from './modifiers/size.modifier';
+import { statusModifier } from './modifiers/status.modifier';
+import { variantModifier } from './modifiers/input-variant.modifier';
 
-const InputStyles = params => {
+export const InputStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('input');
     const wrapper = framework === 'angular' ? '.fab-input-wrapper' : '&';
@@ -196,5 +196,3 @@ const InputStyles = params => {
         ${variantModifier(params)}
     `
 };
-
-export default InputStyles;

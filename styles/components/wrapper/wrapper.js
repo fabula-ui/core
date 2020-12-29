@@ -3,7 +3,7 @@ import { getColor } from '../../methods/color/getColor';
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 import { getContext } from '../../methods/misc/getContext';
 
-const WrapperStyles = params => {
+export const WrapperStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('wrapper');
     const color = props.color ? getColor(props.color, vars.colors) : '';
@@ -19,5 +19,3 @@ const WrapperStyles = params => {
         }
     `
 }
-
-export default WrapperStyles;

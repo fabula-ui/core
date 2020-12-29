@@ -1,10 +1,10 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/toggle-color.modifier';
-import sizeModifier from './modifiers/toggle-size.modifier';
+import { colorModifier } from './modifiers/toggle-color.modifier';
+import { sizeModifier } from './modifiers/toggle-size.modifier';
 
-const ToggleStyles = params => {
+export const ToggleStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('toggle');
     const wrapper = framework === 'angular' ? '.fab-toggle-wrapper' : '&';
@@ -83,5 +83,3 @@ const ToggleStyles = params => {
     ${sizeModifier(params)}
     `;
 }
-
-export default ToggleStyles;

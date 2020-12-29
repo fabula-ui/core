@@ -1,12 +1,11 @@
 // Methods
 import { getComponentVars } from '../../methods/misc/getComponentVars';
-import { getGlowColor } from '../../methods/color/getGlowColor';
 
 // Modifiers
-import colorModifier from './modifiers/modal-color.modifier';
-import sizeModifier from './modifiers/modal-size.modifier';
+import { colorModifier } from './modifiers/modal-color.modifier';
+import { sizeModifier } from './modifiers/modal-size.modifier';
 
-const ModalStyles = params => {
+export const ModalStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('modal');
     const wrapper = framework === 'angular' ? '.fab-modal-wrapper' : '&';
@@ -101,5 +100,3 @@ const ModalStyles = params => {
         ${sizeModifier(props)}
     `;
 }
-
-export default ModalStyles;

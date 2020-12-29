@@ -1,4 +1,4 @@
-const NavbarMenuStyles = params => {
+export const NavbarMenuStyles = params => {
     const { framework, props } = params;
     const wrapper = framework === 'angular' ? '.fab-navbar-menu' : '&';
 
@@ -30,5 +30,3 @@ const NavbarMenuStyles = params => {
         }
     `
 }
-
-export default NavbarMenuStyles;

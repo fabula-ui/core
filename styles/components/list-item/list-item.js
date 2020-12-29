@@ -1,9 +1,9 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/list-item-color.modifier';
+import { colorModifier } from './modifiers/list-item-color.modifier';
 
-const ListItemStyles = params => {
+export const ListItemStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('listItem');
     const wrapper = framework === 'angular' ? '.fab-list-item' : '&';
@@ -41,5 +41,3 @@ const ListItemStyles = params => {
         ${colorModifier(params)}
     `
 }
-
-export default ListItemStyles;

@@ -3,11 +3,10 @@ import { getBorderColor } from '../../../methods/color/getBorderColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getFocusGlowColor } from '../../../methods/color/getFocusGlowColor';
 import { getGlowColor } from '../../../methods/color/getGlowColor';
-import getPlaceholderColor from '../../../methods/color/getPlaceholderColor';
+import { getPlaceholderColor } from '../../../methods/color/getPlaceholderColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
-
-const statusModifier = params => {
+export const statusModifier = params => {
     const { props } = params;
     const vars = getComponentVars('input');
     const color = vars.colors[props.status];
@@ -40,5 +39,3 @@ const statusModifier = params => {
         }
     `;
 }
-
-export default statusModifier;

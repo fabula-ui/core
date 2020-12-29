@@ -2,9 +2,9 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/list-color.modifier';
+import { colorModifier } from './modifiers/list-color.modifier';
 
-const ListStyles = params => {
+export const ListStyles = params => {
     const { props } = params;
     const vars = getComponentVars('list');
 
@@ -22,5 +22,3 @@ const ListStyles = params => {
         ${props.color ? colorModifier(params) : ''}
     `
 };
-
-export default ListStyles;

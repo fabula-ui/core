@@ -3,7 +3,7 @@ import Color from 'color';
 // Commons
 import { baseLuminosity } from '../../variables/core';
 
-const placeholderColor = color => {
+export const getPlaceholderColor = color => {
     const $color = color ? Color(color).rgb() : Color('#FFF');
 
     if ($color.luminosity() > baseLuminosity) {
@@ -12,5 +12,3 @@ const placeholderColor = color => {
         return $color.mix(Color('white'), .4);
     }
 }
-
-export default placeholderColor;

@@ -4,10 +4,9 @@ import { getContext } from '../../../methods/misc/getContext';
 import { getTextColor } from '../../../methods/color/getTextColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 
-const colorModifier = params => {
-    const { framework, props } = params;
+export const colorModifier = params => {
+    const { props } = params;
     const vars = getComponentVars('modal');
-
     const color = props.color || props.parentColor ? getColor(props.color || props.parentColor, vars.colors) : vars.color;
     const context = props.color || props.parentColor ? getContext(props) : 'fill';
 
@@ -18,5 +17,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

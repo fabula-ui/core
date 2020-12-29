@@ -5,7 +5,7 @@ import { getContext } from '../../../methods/misc/getContext';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
 // Exportable
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('tabs');
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
@@ -94,5 +94,3 @@ const colorModifier = params => {
     }
     `
 }
-
-export default colorModifier;

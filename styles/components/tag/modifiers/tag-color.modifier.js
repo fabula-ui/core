@@ -2,7 +2,7 @@ import { getActiveColor } from '../../../methods/color/getActiveColor';
 import { getBgColor } from '../../../methods/color/getBgColor';
 import { getBorderColor } from '../../../methods/color/getBorderColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
-import getFocusColor from '../../../methods/color/getFocusColor';
+import { getFocusColor } from '../../../methods/color/getFocusColor';
 import { getColor } from '../../../methods/color/getColor';
 import { getGlowColor } from '../../../methods/color/getGlowColor';
 import { getContext } from '../../../methods/misc/getContext';
@@ -10,7 +10,7 @@ import { getHoverColor } from '../../../methods/color/getHoverColor';
 import { getHoverTextColor } from '../../../methods/color/getHoverTextColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('tag');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
@@ -48,5 +48,3 @@ const colorModifier = params => {
         }
     `
 }
-
-export default colorModifier;

@@ -6,7 +6,7 @@ import { baseLuminosity } from '../../variables/core';
 // Methods
 import { getBgColor } from './getBgColor';
 
-const stripeColor = (color, context) => {
+export const getStripeColor = (color, context) => {
     const _bgColor = getBgColor(color, context);
     const $bgColor = color ? Color(_bgColor) : Color('#FFF');
 
@@ -15,7 +15,4 @@ const stripeColor = (color, context) => {
     } else {
         return $bgColor.darken(.05);
     }
-
 }
-
-export default stripeColor;

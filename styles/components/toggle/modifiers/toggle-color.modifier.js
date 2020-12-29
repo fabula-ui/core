@@ -5,7 +5,7 @@ import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getHoverColor } from '../../../methods/color/getHoverColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('toggle');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
@@ -62,5 +62,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

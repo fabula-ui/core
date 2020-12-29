@@ -4,7 +4,7 @@ import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getContext } from '../../../methods/misc/getContext';
 import { getDividerColor } from '../../../methods/color/getDividerColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('segments');
     const color = getColor(props.color, vars.colors);
@@ -45,5 +45,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

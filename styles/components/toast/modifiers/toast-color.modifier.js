@@ -7,7 +7,7 @@ import { getDividerColor } from '../../../methods/color/getDividerColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
 
-const colorModifier = props => {
+export const colorModifier = props => {
     const vars = getComponentVars('toast');
     const color = props.color ? getColor(props.color, vars.colors) : vars.color;
     const context = props.color ? getContext(props) : 'fill';
@@ -20,5 +20,3 @@ const colorModifier = props => {
         }
     `;
 };
-
-export default colorModifier;

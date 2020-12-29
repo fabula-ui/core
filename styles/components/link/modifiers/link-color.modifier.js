@@ -5,7 +5,7 @@ import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getContext } from '../../../methods/misc/getContext';
 import { getHoverColor } from '../../../methods/color/getHoverColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('link');
     const wrapper = framework === 'angular' ? '.fab-link' : '&';
@@ -32,5 +32,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

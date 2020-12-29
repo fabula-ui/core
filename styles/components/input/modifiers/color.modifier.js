@@ -2,9 +2,9 @@ import { getBorderColor } from '../../../methods/color/getBorderColor';
 import { getColor } from '../../../methods/color/getColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getFocusGlowColor } from '../../../methods/color/getFocusGlowColor';
-import getPlaceholderColor from '../../../methods/color/getPlaceholderColor';
+import { getPlaceholderColor } from '../../../methods/color/getPlaceholderColor';
 
-const colorModifier = props => {
+export const colorModifier = props => {
     const vars = getComponentVars('input');
     const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
     const focusGlowColor = props.color ? color : vars.focusGlowColor;
@@ -35,5 +35,3 @@ const colorModifier = props => {
         }
     `;
 }
-
-export default colorModifier;

@@ -1,6 +1,6 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
-const NavbarSectionStyles = params => {
+export const NavbarSectionStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('navbarSection');
     const wrapper = framework === 'angular' ? '.fab-navbar-section' : '&';
@@ -35,5 +35,3 @@ const NavbarSectionStyles = params => {
         }
     `;
 }
-
-export default NavbarSectionStyles;

@@ -1,10 +1,9 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/heading-color.modifier';
+import { colorModifier } from './modifiers/heading-color.modifier';
 
-
-const HeadingStyles = params => {
+export const HeadingStyles = params => {
     const { props } = params;
     const vars = getComponentVars('heading');
     const multiplier = props.size ? vars.levelMultipliers[vars.sizeRelations[props.size]] : vars.levelMultipliers[props.level];
@@ -42,5 +41,3 @@ const HeadingStyles = params => {
         ${colorModifier(params)}
     `
 }
-
-export default HeadingStyles

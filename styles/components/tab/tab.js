@@ -2,10 +2,10 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/tab-color.modifier';
-import typeModifier from './modifiers/tab-type.modifier';
+import { colorModifier } from './modifiers/tab-color.modifier';
+import { typeModifier } from './modifiers/tab-type.modifier';
 
-const TabStyle = params => {
+export const TabStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('tabs');
     const wrapper = framework === 'angular' ? '.fab-tab' : '&';
@@ -55,5 +55,3 @@ const TabStyle = params => {
         ${props.type ? typeModifier(params) : ''}
     `
 }
-
-export default TabStyle;

@@ -2,10 +2,10 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/toast-color.modifier';
-import glowModifier from './modifiers/toast-glow.modifier';
+import { colorModifier } from './modifiers/toast-color.modifier';
+import { glowModifier } from './modifiers/toast-glow.modifier';
 
-const ToastStyles = params => {
+export const ToastStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('toast');
     const wrapper = framework === 'angular' ? '.fab-toast-wrapper' : '&';
@@ -89,5 +89,3 @@ const ToastStyles = params => {
         ${props.glow ? glowModifier(props) : ''}
     `;
 }
-
-export default ToastStyles;

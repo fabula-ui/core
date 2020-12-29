@@ -1,6 +1,6 @@
-import colorModifier from './modifiers/tabs-color.modifier';
+import { colorModifier } from './modifiers/tabs-color.modifier';
 
-const TabsStyle = params => {
+export const TabsStyles = params => {
     const { props } = params;
 
     return `
@@ -38,5 +38,3 @@ const TabsStyle = params => {
         ${colorModifier(params)}
     `
 }
-
-export default TabsStyle;

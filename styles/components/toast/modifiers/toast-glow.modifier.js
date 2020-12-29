@@ -3,7 +3,7 @@ import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getContext } from '../../../methods/misc/getContext';
 import { getGlowColor } from '../../../methods/color/getGlowColor';
 
-const glowModifier = props => {
+export const glowModifier = props => {
     const vars = getComponentVars('toast');
     const baseColor = getColor(vars.color, vars.colors);
     const context = getContext(props);
@@ -15,5 +15,3 @@ const glowModifier = props => {
         }
     `;
 }
-
-export default glowModifier;

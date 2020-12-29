@@ -2,7 +2,7 @@ import { getColor } from '../../../methods/color/getColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getFocusGlowColor } from '../../../methods/color/getFocusGlowColor';
 
-const variantModifier = params => {
+export const variantModifier = params => {
     const { props } = params;
     const vars = getComponentVars('input');
     const color = props.color || props.clear ? getColor(props.color, vars.colors) : vars.color;
@@ -24,5 +24,3 @@ const variantModifier = params => {
         }` : ''}
     `;
 }
-
-export default variantModifier;

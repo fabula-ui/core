@@ -1,7 +1,7 @@
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getNumber } from '../../../methods/misc/getNumber';
 
-const sizeModifier = props => {
+export const sizeModifier = props => {
     const vars = getComponentVars('inputGroup');
     const spacing = getNumber(props.spacing, 'rem') || vars.spacing;
     const multiplier = vars.sizeMultipliers[props.size];
@@ -13,5 +13,3 @@ const sizeModifier = props => {
         }
         `;
 }
-
-export default sizeModifier;

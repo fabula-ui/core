@@ -1,4 +1,4 @@
-const gluedModifier = props => {
+export const gluedModifier = props => {
     const layout = props.layout === 'horizontal' || props.layout === 'h' ? 'h' : 'v';
 
     return `
@@ -51,5 +51,3 @@ const gluedModifier = props => {
         }
     `;
 }
-
-export default gluedModifier;

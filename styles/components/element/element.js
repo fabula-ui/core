@@ -3,7 +3,7 @@ import { getColor } from '../../methods/color/getColor';
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 import { getContext } from '../../methods/misc/getContext';
 
-const ElementStyles = params => {
+export const ElementStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('element');
     const color = (props.color || props.clear) ? getColor(props.color, vars.colors) : vars.color;
@@ -24,5 +24,3 @@ const ElementStyles = params => {
         }
     `
 }
-
-export default ElementStyles;

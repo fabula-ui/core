@@ -2,12 +2,12 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/segments-color.modifier';
+import { colorModifier } from './modifiers/segments-color.modifier';
 
-const SegmentsStyles = params => {
+export const SegmentsStyles = params => {
     const { props } = params;
     const vars = getComponentVars('segments');
-    
+
     return `
         & {
             display: block;
@@ -27,5 +27,3 @@ const SegmentsStyles = params => {
         ${colorModifier(params)}
     `;
 }
-
-export default SegmentsStyles;

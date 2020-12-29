@@ -2,9 +2,9 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/segment-color.modifier';
+import { colorModifier } from './modifiers/segment-color.modifier';
 
-const SegmentStyles = params => {
+export const SegmentStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('segments');
     const wrapper = framework === 'angular' ? '.fab-segment' : '&';
@@ -38,5 +38,3 @@ const SegmentStyles = params => {
         ${colorModifier(params)}
     `;
 }
-
-export default SegmentStyles;

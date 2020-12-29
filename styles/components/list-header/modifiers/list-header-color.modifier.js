@@ -2,7 +2,7 @@ import { getColor } from '../../../methods/color/getColor';
 import { getComponentVars } from '../../../methods/misc/getComponentVars';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('listHeader');
     const color = (props.color || props.parentColor) && getColor(props.color || props.parentColor, vars.colors);
@@ -20,5 +20,3 @@ const colorModifier = params => {
         }
     `;
 }
-
-export default colorModifier;

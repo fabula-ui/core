@@ -2,10 +2,10 @@ import { getComponentVars } from '../../methods/misc/getComponentVars';
 import { getContext } from '../../methods/misc/getContext';
 
 // Modifiers
-import colorModifier from './modifiers/tag-color.modifier';
-import sizeModifier from './modifiers/tag-size.modifier';
+import { colorModifier } from './modifiers/tag-color.modifier';
+import { sizeModifier } from './modifiers/tag-size.modifier';
 
-const TagStyles = params => {
+export const TagStyles = params => {
     const { framework, props } = params;
     const context = getContext(props);
     const vars = getComponentVars('tag');
@@ -75,5 +75,3 @@ const TagStyles = params => {
         ${props.size ? sizeModifier(params) : ''}
     `;
 }
-
-export default TagStyles;

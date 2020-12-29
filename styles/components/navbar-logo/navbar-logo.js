@@ -1,4 +1,4 @@
-const NavbarLogoStyles = params => {
+export const NavbarLogoStyles = params => {
     const { framework } = params;
     const wrapper = framework === 'angular' ? '.fab-navbar-logo' : '&';
 
@@ -18,5 +18,3 @@ const NavbarLogoStyles = params => {
     }
     `
 }
-
-export default NavbarLogoStyles;

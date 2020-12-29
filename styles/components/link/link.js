@@ -2,10 +2,10 @@
 import { getComponentVars } from '../../methods/misc/getComponentVars';
 
 // Modifiers
-import colorModifier from './modifiers/link-color.modifier';
-import sizeModifier from './modifiers/link-size.modifier';
+import { colorModifier } from './modifiers/link-color.modifier';
+import { sizeModifier } from './modifiers/link-size.modifier';
 
-const LinkStyles = params => {
+export const LinkStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('link');
     const wrapper = framework === 'angular' ? '.fab-link' : '&';
@@ -39,5 +39,3 @@ const LinkStyles = params => {
         ${sizeModifier(params)}
     `;
 }
-
-export default LinkStyles;

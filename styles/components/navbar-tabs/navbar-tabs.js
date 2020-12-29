@@ -1,4 +1,4 @@
-const NavbarTabsStyles = params => {
+export const NavbarTabsStyles = params => {
     const { framework, props } = params;
     const wrapper = framework === 'angular' ? '.fab-navbar-tabs' : '&';
     const alignments = {
@@ -33,5 +33,3 @@ const NavbarTabsStyles = params => {
     }
     `;
 }
-
-export default NavbarTabsStyles;

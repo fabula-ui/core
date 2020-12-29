@@ -6,10 +6,10 @@ import { getContext } from '../../../methods/misc/getContext';
 import { getDividerColor } from '../../../methods/color/getDividerColor';
 import { getHoverColor } from '../../../methods/color/getHoverColor';
 import { getHoverTextColor } from '../../../methods/color/getHoverTextColor';
-import getStripeColor from '../../../methods/color/getStripeColor';
+import { getStripeColor } from '../../../methods/color/getStripeColor';
 import { getTextColor } from '../../../methods/color/getTextColor';
 
-const colorModifier = params => {
+export const colorModifier = params => {
     const { framework, props } = params;
     const vars = getComponentVars('list');
     const wrapper = framework === 'angular' ? '.fab-list-item' : '&';
@@ -60,5 +60,3 @@ const colorModifier = params => {
         }
     `
 }
-
-export default colorModifier;

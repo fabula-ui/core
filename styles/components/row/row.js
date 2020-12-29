@@ -1,4 +1,4 @@
-const RowStyles = params => {
+export const RowStyles = params => {
     const { framework } = params;
     const wrapper = framework === 'angular' ? '.fab-row' : '&';
 
@@ -12,5 +12,3 @@ const RowStyles = params => {
         }
     `
 }
-
-export default RowStyles

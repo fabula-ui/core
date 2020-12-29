@@ -2,7 +2,7 @@ import Color from 'color';
 
 import { baseLuminosity } from '../../variables/core';
 
-const getFocusColor = (backgroundColor) => {
+export const getFocusColor = (backgroundColor) => {
     const $color = Color(backgroundColor).rgb();
 
     if ($color.luminosity() > baseLuminosity) {
@@ -11,5 +11,3 @@ const getFocusColor = (backgroundColor) => {
         return $color.fade(.3);
     }
 }
-
-export default getFocusColor;

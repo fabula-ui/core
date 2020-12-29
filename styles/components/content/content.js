@@ -1,4 +1,4 @@
-const ContentStyles = params => {
+export const ContentStyles = params => {
     const { framework } = params;
     const wrapper = framework === 'angular' ? '.fab-content' : '&';
 
@@ -8,5 +8,3 @@ const ContentStyles = params => {
         }
     `
 }
-
-export default ContentStyles;
