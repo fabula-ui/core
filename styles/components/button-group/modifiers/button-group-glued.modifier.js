@@ -62,10 +62,6 @@ export const gluedModifier = params => {
                     border-top-left-radius: 0;
                 }
             }
-
-            .fab-dropdown {
-                // position: static;
-            }
         }
     `
 }

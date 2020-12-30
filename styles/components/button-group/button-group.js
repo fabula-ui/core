@@ -1,15 +1,12 @@
-// Button modifiers
+// Methods
+import { getDirection } from '../../methods/misc/getDirection';
+
+// Button group modifiers
 import { dividerModifier } from './modifiers/button-group-divider.modifier';
 import { gluedModifier } from './modifiers/button-group-glued.modifier';
 
 export const ButtonGroupStyles = params => {
     const { framework, props } = params;
-    const directions = {
-        h: 'row',
-        horizontal: 'row',
-        v: 'column',
-        vertical: 'column'
-    };
     const wrapper = framework === 'angular' ? '.fab-button-group' : '&';
 
     return `
@@ -18,7 +15,7 @@ export const ButtonGroupStyles = params => {
     ${wrapper} {
         box-sizing: border-box;
         display: inline-flex;
-        flex-direction: ${directions[props.layout]};
+        flex-direction: ${getDirection(props.layout)};
         justify-content: flex-start;
         position: relative;
     }

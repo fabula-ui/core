@@ -12,7 +12,7 @@ export const colorModifier = params => {
     return `
         ${wrapper} {
             background: ${bgColor};
-            border-color: ${borderColor};
+            ${((props.border || props.outline) && !props.clear) ? `border-color: ${borderColor};` : ''}
             ${props.glow ? `box-shadow: ${getNumber(vars.glowX, 'px')} ${getNumber(vars.glowY, 'px')} ${getNumber(vars.glowRadius, 'px')} ${getNumber(vars.glowSpread, 'px')} ${glowColor};` : ''}
             color: ${textColor};
         }

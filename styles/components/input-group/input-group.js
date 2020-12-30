@@ -1,5 +1,6 @@
 // Methods
 import { getComponentVars } from '../../methods/misc/getComponentVars';
+import { getDirection } from '../../methods/misc/getDirection';
 import { getNumber } from '../../methods/misc/getNumber';
 
 // Utils
@@ -9,7 +10,7 @@ import { sizeModifier } from './modifiers/input-group-size.modifier';
 export const InputGroupStyles = params => {
     const { framework, props } = params;
     const vars = getComponentVars('input');
-    const layout = (props.layout === 'horizontal' || props.layout === 'h') ? 'h' : 'v';
+    const direction = getDirection(props.layout);
 
     return `
     ${framework === 'angular' ? `& { display: block;` : ''}
@@ -17,19 +18,19 @@ export const InputGroupStyles = params => {
     .fab-input-group {
         align-items: flex-start;
         display: flex;
-        flex-direction: ${layout === 'h' ? 'row' : 'column'};
+        flex-direction: ${direction};
         font-size: ${vars.fontSize};
     }
 
     .fab-input-group > *,
     .fab-input-group .fab-button {
         ${framework === 'angular' ? `display: inline-flex;` : ''}
-        ${layout === 'v' ? `width: 100%;` : ''}
+        ${direction === 'column' ? `width: 100%;` : ''}
     }
     
     .fab-input-group > *:not(:last-child) {
-        ${layout === 'h' ? `margin-right: ${getNumber(props.spacing, 'rem') || vars.spacing}` : ''};
-        ${layout === 'v' ? `margin-bottom: ${getNumber(props.spacing, 'rem') || vars.spacing}` : ''};
+        ${direction === 'row' ? `margin-right: ${getNumber(props.spacing, 'rem') || vars.spacing}` : ''};
+        ${direction === 'column' ? `margin-bottom: ${getNumber(props.spacing, 'rem') || vars.spacing}` : ''};
     }
 
     ${framework === 'angular' ? `fab-input` : `.fab-input-group .fab-input-wrapper`} {
