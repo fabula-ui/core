@@ -12,6 +12,7 @@ export const colorModifier = params => {
 
     const baseColor = getColor(vars.color, vars.colors);
     const context = getContext(props);
+    const hoverColor = props.hoverColor ? getColor(props.hoverColor, vars.colors) : null;
     const userColor = getColor(props.color, vars.colors);
 
     return `
@@ -21,12 +22,12 @@ export const colorModifier = params => {
             transition: all .2s ease-in-out;
 
             &:hover {
-                color: ${getHoverColor(userColor || baseColor, context)};
+                color: ${getHoverColor(hoverColor || userColor || baseColor, context)};
                 ${props.aux ? `color: ${baseColor};` : ''}
             }
 
             &:active {
-                color: ${getActiveColor(userColor || baseColor, context)};
+                color: ${getActiveColor(hoverColor || userColor || baseColor, context)};
                 ${props.aux ? `color: ${getActiveColor(baseColor, context)};` : ''}
             }
         }

@@ -15,7 +15,7 @@ const button = theme => ({
     fontWeight: 600,
     glowX: 0,
     glowY: '1px',
-    glowRadius: '1px',
+    glowRadius: '2px',
     glowSpread: 0,
     height: '3rem',
     heightSmashed: '2rem',

@@ -26,6 +26,7 @@ const flexUtils = params => {
             ${flow ? `flex-direction: ${flow}!important;` : ''}
             ${direction ? `flex-direction: ${direction}!important;` : ''}
             ${props.wrap ? `flex-wrap: wrap!important;` : ''}
+            ${props.order ? `order: ${props.order};` : ''}
         }
     `;
 }

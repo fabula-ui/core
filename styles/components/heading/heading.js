@@ -29,6 +29,10 @@ export const HeadingStyles = params => {
                 font-weight: inherit;
                 margin: 0;
             }
+
+            > .fab-text {
+                letter-spacing: inherit;
+            }
         }
 
         // External

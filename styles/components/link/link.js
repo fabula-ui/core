@@ -29,8 +29,8 @@ export const LinkStyles = params => {
         }
 
         // External
-        & .fab-link:not([data-size]),
-        & .fab-text:not([data-size]) {
+        &:not([data-size]),
+        &:not([data-size]) {
             font-size: 1em;
         }
 
